@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // pb/setup.mjs — Creates the PocketBase collections needed by English On Course.
-// Run AFTER PocketBase is serving on http://127.0.0.1:8090 (./pb/pocketbase serve)
+// Run AFTER PocketBase is serving (./pocketbase serve).
 //
-// Requires the PocketBase Admin API. Create an admin first via the admin UI at /_/
-// or set PB_ADMIN_EMAIL + PB_ADMIN_PASSWORD env vars.
+// Requires admin credentials via env vars: PB_ADMIN_EMAIL + PB_ADMIN_PASSWORD.
+// POCKETBASE_URL overrides the default http://127.0.0.1:8090.
 
 const PB_URL = process.env.POCKETBASE_URL || 'http://127.0.0.1:8090'
 const ADMIN_EMAIL = process.env.PB_ADMIN_EMAIL
@@ -48,31 +48,21 @@ async function getAdminToken() {
   } catch (e) {
     console.error(
       `\n❌ No se pudo autenticar como admin en ${PB_URL}.\n` +
-        `   Asegúrate de que PocketBase esté corriendo (./pb/pocketbase serve).\n` +
-        `   La primera vez crea un admin en la UI: http://127.0.0.1:8090/_/\n` +
-        `   O define PB_ADMIN_EMAIL y PB_ADMIN_PASSWORD.\n\n` +
+        `   Asegúrate de que PocketBase esté corriendo.\n` +
+        `   Crea el admin la primera vez: ./pocketbase superuser upsert tu@email.com "contraseña"\n\n` +
         `   Detalle: ${e.message}`
     )
     process.exit(1)
   }
 }
 
-async function collectionExists(token, name) {
+async function ensureUsersCollection(token) {
+  // PocketBase creates the auth collection "users" by default. Ensure it has the
+  // extra "nombre" (display name) text field used by the app.
+  let users
   try {
-    await request(`/api/collections/${name}`, { token })
-    return true
+    users = await request('/api/collections/users', { token })
   } catch {
-    return false
-  }
-}
-
-async function createUsersCollection(token) {
-  // PocketBase creates the default _users collection; ensure custom "nombre" field.
-  // We'll use the built-in auth collection "users" and add a "nombre" text field.
-  try {
-    await request('/api/collections/users', { token })
-  } catch {
-    // Create a custom auth collection named "users"
     await request('/api/collections', {
       method: 'POST',
       token,
@@ -80,10 +70,9 @@ async function createUsersCollection(token) {
         name: 'users',
         type: 'auth',
         fields: [
-          { name: 'nombre', type: 'text', required: true },
+          { name: 'nombre', type: 'text' },
           { name: 'email', type: 'email', required: true },
           { name: 'password', type: 'password', required: true },
-          { name: 'passwordConfirm', type: 'text', required: false },
         ],
         listRule: '@request.auth.id != ""',
         viewRule: '@request.auth.id != ""',
@@ -92,16 +81,38 @@ async function createUsersCollection(token) {
         deleteRule: 'id = @request.auth.id',
       },
     })
+    users = await request('/api/collections/users', { token })
     console.log('  ✓ Colección "users" creada')
   }
+
+  // Add "nombre" field if missing
+  const hasNombre = (users.fields || []).some((f) => f.name === 'nombre')
+  if (!hasNombre) {
+    const fields = [...(users.fields || []), { name: 'nombre', type: 'text' }]
+    const updated = await request('/api/collections/users', {
+      method: 'PATCH',
+      token,
+      body: { fields },
+    })
+    users = updated
+    console.log('  ✓ Campo "nombre" añadido a users')
+  }
+  return users.id
 }
 
-async function createProgressCollection(token) {
-  const exists = await collectionExists(token, 'progress')
-  if (exists) {
+async function ensureProgressCollection(token, usersCollectionId) {
+  // Check if it exists (and whether it matches the expected schema)
+  let existing = null
+  try {
+    existing = await request('/api/collections/progress', { token })
+  } catch {
+    existing = null
+  }
+  if (existing) {
     console.log('  • Colección "progress" ya existe')
     return
   }
+
   await request('/api/collections', {
     method: 'POST',
     token,
@@ -109,14 +120,27 @@ async function createProgressCollection(token) {
       name: 'progress',
       type: 'base',
       fields: [
-        { name: 'user', type: 'relation', options: { collectionId: 'users', cascadeDelete: true } },
-        { name: 'data', type: 'json', required: true },
+        // relation field defined at field level (PocketBase >= 0.23 API format)
+        {
+          name: 'user',
+          type: 'relation',
+          required: true,
+          collectionId: usersCollectionId,
+          maxSelect: 1,
+          cascadeDelete: true,
+        },
+        { name: 'completedLessons', type: 'json' },
+        { name: 'examResults', type: 'json' },
+        { name: 'exerciseResults', type: 'json' },
+        { name: 'lastActivityDate', type: 'date' },
+        { name: 'streak', type: 'number' },
       ],
-      listRule: 'user.id = @request.auth.id',
-      viewRule: 'user.id = @request.auth.id',
-      createRule: 'user.id = @request.auth.id',
-      updateRule: 'user.id = @request.auth.id',
-      deleteRule: '',
+      indexes: ['CREATE UNIQUE INDEX idx_progress_user ON progress (user)'],
+      listRule: 'user = @request.auth.id',
+      viewRule: 'user = @request.auth.id',
+      createRule: 'user = @request.auth.id',
+      updateRule: 'user = @request.auth.id',
+      deleteRule: 'user = @request.auth.id',
     },
   })
   console.log('  ✓ Colección "progress" creada')
@@ -125,8 +149,8 @@ async function createProgressCollection(token) {
 async function main() {
   console.log(`\n=== PocketBase setup → ${PB_URL} ===\n`)
   const token = await getAdminToken()
-  await createUsersCollection(token)
-  await createProgressCollection(token)
+  const usersCollectionId = await ensureUsersCollection(token)
+  await ensureProgressCollection(token, usersCollectionId)
   console.log('\n✓ Setup completado. La app ya puede usar registro/login y sincronización de progreso.\n')
 }
 

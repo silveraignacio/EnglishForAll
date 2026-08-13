@@ -71,3 +71,28 @@ VITE_POCKETBASE_URL=http://localhost:8090 npm run dev
 - El archivo de base de datos (`pb_data/`) se crea automáticamente y no debe subirse a git (está en `.gitignore`).
 - Para producción, despliega PocketBase en un servidor y apunta la app a la URL pública con `VITE_POCKETBASE_URL`.
 - El JWT se guarda en `localStorage` y se envía en el header `Authorization` de cada petición (lo gestiona el SDK).
+
+## Despliegue en un servidor (nginx + systemd)
+
+Ejemplo real desplegado en `englishforall.silversolutions.dpdns.org`:
+
+1. **PocketBase** como servicio systemd escuchando SOLO en localhost (nunca expuesto al exterior):
+   ```
+   # /etc/systemd/system/<app>-pocketbase.service
+   ExecStart=/opt/<app>/pocketbase/pocketbase serve --http=127.0.0.1:8092
+   ```
+   - Elige un puerto libre (el 8091 ya lo usa otra app en el mismo servidor).
+2. **Schema**: crea `pb_migrations/1_progress.js` siguiendo el patrón de migración JSVM de PocketBase (así se aplica al arrancar), o usa `pb/setup.mjs` con `POCKETBASE_URL` y las credenciales admin.
+3. **Nginx**: sirve el frontend estático (`dist/`) y hace proxy de `/api/` y `/_/` al PocketBase local:
+   ```
+   location /api/ { proxy_pass http://127.0.0.1:8092; ... }
+   location /_/   { proxy_pass http://127.0.0.1:8092; ... }
+   location /     { try_files $uri /index.html; }
+   ```
+4. **Build del frontend** apuntando a la URL pública:
+   ```
+   VITE_POCKETBASE_URL=https://tu-dominio.com npm run build
+   ```
+   (El frontend habla con `/api` a través de nginx, nunca directo a PocketBase.)
+5. **TLS**: `certbot --nginx -d tu-dominio.com`.
+6. **Seguridad**: PocketBase solo escucha en `127.0.0.1`; el firewall no necesita abrir ningún puerto extra más allá de 80/443. Todo entra por nginx.
