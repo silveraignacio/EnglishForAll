@@ -9,6 +9,7 @@ import { Achievements } from '@/pages/Achievements'
 import { ExamPage } from '@/pages/ExamPage'
 import { LoginPage } from '@/pages/LoginPage'
 import { RegisterPage } from '@/pages/RegisterPage'
+import { PlacementPage } from '@/pages/PlacementPage'
 
 // Keyed wrappers force a full remount when the URL param changes, so the
 // component resets its internal state (phase, score, idx) instead of
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="/exam/:examId" element={<KeyedExam />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/placement" element={<PlacementPage />} />
       </Routes>
     </Layout>
   )

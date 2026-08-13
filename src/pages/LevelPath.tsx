@@ -36,8 +36,12 @@ export function LevelPath() {
         </p>
         <Card className="bg-warning-50/50 border-warning-200/40">
           <p className="text-ink-soft text-sm">
-            Para desbloquear el nivel {level.name} debes aprobar el examen final del nivel anterior.
+            Para desbloquear el nivel {level.name}, haz la prueba de nivel o aprueba el
+            examen final del nivel anterior.
           </p>
+          <Link to="/placement" className="block mt-3">
+            <Button variant="primary" size="sm" className="w-full">🧭 Revisar mi nivel</Button>
+          </Link>
         </Card>
         <div className="flex justify-center gap-3">
           <Link to="/"><Button variant="ghost">Volver al inicio</Button></Link>

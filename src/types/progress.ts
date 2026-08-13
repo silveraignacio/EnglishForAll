@@ -22,6 +22,13 @@ export interface ExamResult {
   timestamp: number
 }
 
+export interface PlacementResult {
+  recommendedLevel: string
+  breakdown: { level: string; correct: number; total: number; pct: number }[]
+  totalPct: number
+  timestamp: number
+}
+
 export interface UserProgress {
   completedLessons: string[]
   completedModules: string[]
@@ -32,6 +39,7 @@ export interface UserProgress {
   achievements: string[]
   weakConcepts: string[]
   examResults: ExamResult[]
+  placementResult: PlacementResult | null
   currentLessonId: string | null
 }
 
@@ -45,6 +53,7 @@ export const initialProgress: UserProgress = {
   achievements: [],
   weakConcepts: [],
   examResults: [],
+  placementResult: null,
   currentLessonId: 'a1-m1-l1',
 }
 

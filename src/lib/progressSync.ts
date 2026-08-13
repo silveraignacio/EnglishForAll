@@ -1,14 +1,15 @@
 import { pb } from '@/lib/pocketbase'
 import { useAuthStore } from '@/store/authStore'
-import type { UserProgress, ExamResult, ExerciseRecord } from '@/types/progress'
+import type { UserProgress, ExamResult, ExerciseRecord, PlacementResult } from '@/types/progress'
 
 // Sync layer for course progress. Reads/writes the user's progress row in the
 // PocketBase "progress" collection. Falls back silently to local-only when not
 // authenticated or when the backend is unreachable.
 //
 // NOTE: The live PocketBase "progress" collection uses dedicated columns
-// (completedLessons, examResults, exerciseResults, lastActivityDate, streak)
-// rather than a single json blob. We map UserProgress onto those columns.
+// (completedLessons, examResults, exerciseResults, lastActivityDate, streak,
+// placementResult) rather than a single json blob. We map UserProgress onto
+// those columns.
 
 function toServerPayload(p: UserProgress) {
   return {
@@ -17,6 +18,7 @@ function toServerPayload(p: UserProgress) {
     exerciseResults: p.exerciseHistory,
     lastActivityDate: p.lastStudyDate ?? '',
     streak: p.streak,
+    placementResult: p.placementResult,
   }
 }
 
@@ -26,6 +28,7 @@ function fromServerRecord(rec: Record<string, unknown>): UserProgress | null {
   const exerciseHistory = (rec.exerciseResults as ExerciseRecord[]) || []
   const lastStudyDate = (rec.lastActivityDate as string) || null
   const streak = (rec.streak as number) || 0
+  const placementResult = (rec.placementResult as PlacementResult) || null
   return {
     completedLessons,
     completedModules: [],
@@ -36,6 +39,7 @@ function fromServerRecord(rec: Record<string, unknown>): UserProgress | null {
     achievements: [],
     weakConcepts: [],
     examResults,
+    placementResult,
     currentLessonId: null,
   }
 }

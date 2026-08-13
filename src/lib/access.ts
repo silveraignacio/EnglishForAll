@@ -1,4 +1,5 @@
 import type { UserProgress } from '@/types/progress'
+import { isLevelUnlockedForPlacement } from '@/lib/advisor'
 
 // Exam that unlocks each level. A level is unlocked only by passing ITS previous
 // level's final exam — passing A1 does NOT transitively unlock B1 (you must pass A2).
@@ -17,13 +18,7 @@ export function hasPassedExam(progress: UserProgress, examId: string): boolean {
 }
 
 export function isLevelUnlocked(progress: UserProgress, levelId: string): boolean {
-  const levelOrder = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']
-  const idx = levelOrder.indexOf(levelId)
-  if (idx <= 0) return true // a1 always unlocked
-  const prevLevel = levelOrder[idx - 1]
-  const prevExam = EXAM_BY_LEVEL[prevLevel]
-  if (!prevExam) return true
-  return hasPassedExam(progress, prevExam)
+  return isLevelUnlockedForPlacement(progress, levelId)
 }
 
 export function getRequiredExamForLevel(levelId: string): string | null {
@@ -36,5 +31,5 @@ export function getRequiredExamForLevel(levelId: string): string | null {
 export function getLockedLevelMessage(levelId: string): string {
   const required = getRequiredExamForLevel(levelId)
   if (!required) return ''
-  return `Para desbloquear el nivel ${levelId.toUpperCase()} debes aprobar el examen final del nivel anterior.`
+  return `Para desbloquear el nivel ${levelId.toUpperCase()} haz la prueba de nivel o aprueba el examen final del nivel anterior.`
 }

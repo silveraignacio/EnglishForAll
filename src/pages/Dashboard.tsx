@@ -88,7 +88,7 @@ export function Dashboard() {
                     : 'bg-surface border-ink/10 text-ink-soft hover:border-brand-400',
                   !unlocked && l.status === 'available' && 'opacity-50'
                 )}
-                title={unlocked ? `Nivel ${l.name}` : 'Bloqueado: aprueba el examen del nivel anterior'}
+                title={unlocked ? `Nivel ${l.name}` : 'Bloqueado: haz la prueba de nivel o aprueba el examen anterior'}
               >
                 {l.name} {l.status === 'coming_soon' ? '(🔜)' : !unlocked ? '🔒' : ''}
               </button>
@@ -96,6 +96,36 @@ export function Dashboard() {
           })}
         </div>
       </section>
+
+      {!progress.placementResult ? (
+        <Link to="/placement" className="block">
+          <Card hoverable className="flex items-center gap-4 border-dashed border-brand-300 bg-brand-50/40">
+            <div className="text-3xl flex-none">🧭</div>
+            <div className="flex-1">
+              <h2 className="text-lg font-bold text-ink">¿No sabes por dónde empezar?</h2>
+              <p className="text-sm text-ink-soft">
+                Haz la prueba de nivel (≈10 min) y te recomendamos el nivel perfecto para ti.
+              </p>
+            </div>
+            <Button variant="primary" size="sm">Revisar mi nivel →</Button>
+          </Card>
+        </Link>
+      ) : (
+        <Card className="flex items-center gap-4">
+          <div className="text-3xl flex-none">🎯</div>
+          <div className="flex-1">
+            <p className="text-sm text-ink-light">Tu nivel recomendado</p>
+            <p className="font-bold text-ink">
+              {progress.placementResult.recommendedLevel.toUpperCase()}
+              {' · '}
+              {new Date(progress.placementResult.timestamp).toLocaleDateString('es')}
+            </p>
+          </div>
+          <Link to="/placement">
+            <Button variant="secondary" size="sm">Repetir prueba</Button>
+          </Link>
+        </Card>
+      )}
 
       {currentLesson && (
         <Card className="bg-gradient-to-br from-brand-50 to-white border-brand-200">

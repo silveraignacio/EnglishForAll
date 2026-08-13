@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { UserProgress, ExerciseRecord, ExamResult } from '@/types/progress'
+import type { UserProgress, ExerciseRecord, ExamResult, PlacementResult } from '@/types/progress'
 import { initialProgress } from '@/types/progress'
 import { todayKey, yesterdayKey } from '@/lib/utils'
 import { saveProgressToServer, loadProgressFromServer } from '@/lib/progressSync'
@@ -30,6 +30,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: 'modules-5', name: '5 módulos', description: 'Completa 5 módulos', icon: '📦' },
   { id: 'modules-15', name: 'Curso A1 completo', description: 'Completa los 15 módulos', icon: '🎓' },
   { id: 'exam-pass', name: 'Examen A1 superado', description: 'Aprueba el examen final A1', icon: '🎖️' },
+  { id: 'placement-done', name: 'Nivel evaluado', description: 'Completa la prueba de nivel', icon: '🧭' },
   { id: 'perfect-lesson', name: 'Lección perfecta', description: 'Acierta todos los ejercicios de una lección', icon: '💯' },
 ]
 
@@ -39,6 +40,7 @@ interface ProgressStore {
   completeLesson: (lessonId: string, allCorrect: boolean) => void
   completeModule: (moduleId: string) => void
   recordExam: (result: ExamResult) => void
+  recordPlacement: (result: PlacementResult) => void
   setCurrentLesson: (lessonId: string) => void
   resetProgress: () => void
   syncToServer: () => Promise<void>
@@ -150,6 +152,23 @@ export const useProgressStore = create<ProgressStore>()(
             ...updated,
             examResults,
             xp: updated.xp + xpToAdd,
+          })
+          if (useAuthStore.getState().user) saveProgressToServer(final)
+          return { progress: final }
+        }),
+      recordPlacement: (result) =>
+        set((state) => {
+          const updated = updateStreak(state.progress)
+          const wasNull = updated.placementResult === null
+          // 50 XP único por completar la prueba de nivel (no repetible).
+          const xpToAdd = wasNull ? 50 : 0
+          const achievements = [...updated.achievements]
+          if (!achievements.includes('placement-done')) achievements.push('placement-done')
+          const final = checkAchievements({
+            ...updated,
+            placementResult: result,
+            xp: updated.xp + xpToAdd,
+            achievements,
           })
           if (useAuthStore.getState().user) saveProgressToServer(final)
           return { progress: final }
