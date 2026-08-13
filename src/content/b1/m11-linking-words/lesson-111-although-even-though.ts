@@ -1,0 +1,245 @@
+import type { Lesson } from '../../types'
+
+export const lesson111AlthoughEvenThough: Lesson = {
+  id: 'b1-m11-l1',
+  moduleId: 'm11-linking-words',
+  order: 0,
+  title: 'although / even though / though (aunque)',
+  objective: 'Expresar contraste con although, even though y though, y evitar errores de interferencia con "but" y "even although".',
+  explanation_es: `Las palabras "although", "even though" y "though" significan "aunque" y se usan para expresar contraste: presentan una idea que sorprende o que es contraria a la otra parte de la frase.
+
+1) although = aunque.
+- Although it was raining, we went out. = Aunque estaba lloviendo, salimos.
+
+2) even though = aunque / a pesar de que (más enfático que "although").
+- Even though he was tired, he finished. = Aunque estaba cansado, terminó.
+
+3) though = aunque (más informal; suele ir al final de la frase).
+- It was expensive, though it was worth it. = Era caro, aunque valió la pena.
+- It was expensive. It was worth it, though. = Era caro. Aun así, valió la pena.
+
+REGLAS IMPORTANTES:
+- Una sola idea de contraste por frase. NO combines "although" con "but": ❌ Although it was raining, but we went out → ✅ Although it was raining, we went out.
+- Aunque la idea es la misma que en español ("aunque... pero..."), en inglés usamos solo una palabra de contraste.
+
+Diferencia de intensidad:
+- although = contraste normal.
+- even though = contraste fuerte, enfatiza que lo segundo sorprende.
+- though = informal, a menudo al final.
+
+¡OJO! "Even although" NO existe. Usa "even though" o "although".`,
+  examples: [
+    { english: 'Although it was raining, we went out.', spanish: 'Aunque estaba lloviendo, salimos.' },
+    { english: 'Even though he was tired, he finished.', spanish: 'Aunque estaba cansado, terminó.' },
+    { english: 'It was expensive, though it was worth it.', spanish: 'Era caro, aunque valió la pena.' },
+    { english: 'Although she is rich, she is very humble.', spanish: 'Aunque es rica, es muy humilde.' },
+    { english: 'It was a small hotel. It was very comfortable, though.', spanish: 'Era un hotel pequeño. Aun así, era muy cómodo.' },
+  ],
+  rule: `- although / even though / though = "aunque".
+- although + idea sorprendente: Although it was raining, we went out.
+- even though = más enfático: Even though he was tired, he finished.
+- though = informal, a menudo al final: It was worth it, though.
+- NO combines "although" con "but" en la misma frase.
+- "Even although" NO existe: usa "even though".`,
+  commonMistakes: [
+    { wrong: '❌ Although it was raining, but we went out.', correct: '✅ Although it was raining, we went out.', explanation: '"although" ya expresa contraste; añadir "but" es redundante y incorrecto. Solo una palabra de contraste por frase.' },
+    { wrong: '❌ Even although he was tired, he finished.', correct: '✅ Even though he was tired, he finished.', explanation: '"Even although" no existe en inglés. Se dice "even though" o "although".' },
+    { wrong: '❌ Though it was late, but she stayed.', correct: '✅ Though it was late, she stayed.', explanation: 'Igual que con "although", no combinamos "though" con "but".' },
+    { wrong: '❌ Although the price, I bought it.', correct: '✅ Although it was expensive, I bought it.', explanation: '"although" introduce una ORACIÓN (sujeto + verbo), no solo un sustantivo. Para sustantivos usamos "despite/in spite of".' },
+  ],
+  vocabulary: [
+    { word: 'although', translation_es: 'aunque', level: 'B1', category: 'linking words', partOfSpeech: 'conjunction', example: 'Although it was cold, we went for a walk.', exampleTranslation: 'Aunque hacía frío, salimos a pasear.' },
+    { word: 'even though', translation_es: 'aunque, a pesar de que', level: 'B1', category: 'linking words', partOfSpeech: 'conjunction', example: 'Even though I was tired, I kept working.', exampleTranslation: 'Aunque estaba cansado, seguí trabajando.' },
+    { word: 'though', translation_es: 'aunque, aun así', level: 'B1', category: 'linking words', partOfSpeech: 'adverb', example: 'The soup was cold. It was tasty, though.', exampleTranslation: 'La sopa estaba fría. Aun así, estaba rica.' },
+  ],
+  grammarPoints: [
+    {
+      id: 'gp-although-even-though-though',
+      level: 'B1',
+      name: 'although / even though / though',
+      explanation_es: 'Expresan contraste ("aunque"). even though es más enfático; though es informal y suele ir al final. No se combinan con "but".',
+      formula: 'Although/Even though + oración, + oración  |  oración, + though',
+      examples: ['Although it was raining, we went out.', 'Even though he was tired, he finished.', 'It was worth it, though.'],
+    },
+  ],
+  exercises: [
+    {
+      id: 'b1-m11-l1-ex1',
+      type: 'multiple_choice',
+      concept: 'although + clause',
+      difficulty: 1,
+      prompt: 'Completa: "___ it was raining, we went out."',
+      promptTranslation: 'Aunque estaba lloviendo, salimos.',
+      correctAnswer: 'Although',
+      options: ['Although', 'But', 'And'],
+      explanation: 'Introduce el contraste: Although it was raining, we went out.',
+    },
+    {
+      id: 'b1-m11-l1-ex2',
+      type: 'multiple_choice',
+      concept: 'although vs but',
+      difficulty: 2,
+      prompt: '¿Cuál es la frase correcta?',
+      promptTranslation: 'Which sentence is correct?',
+      correctAnswer: 'Although she was tired, she finished the race.',
+      options: ['Although she was tired, she finished the race.', 'Although she was tired, but she finished the race.', 'Although but she was tired, she finished the race.'],
+      explanation: 'No combinamos "although" con "but". Solo una palabra de contraste.',
+    },
+    {
+      id: 'b1-m11-l1-ex3',
+      type: 'fill_blank',
+      concept: 'even though (emphasis)',
+      difficulty: 2,
+      prompt: 'Completa: "___ though he was scared, he opened the door."',
+      promptTranslation: 'Aunque estaba asustado, abrió la puerta.',
+      correctAnswer: 'Even',
+      acceptedAnswers: ['Even', 'even'],
+      explanation: '"Even though" es la forma enfática de "although": Even though he was scared...',
+    },
+    {
+      id: 'b1-m11-l1-ex4',
+      type: 'true_false',
+      concept: 'even although does not exist',
+      difficulty: 2,
+      prompt: 'La expresión "even although" es correcta en inglés.',
+      promptTranslation: 'The expression "even although" is correct in English.',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE', 'f'],
+      explanation: 'Falso. "Even although" no existe. Se dice "even though" o "although".',
+    },
+    {
+      id: 'b1-m11-l1-ex5',
+      type: 'error_correction',
+      concept: 'no "but" after although',
+      difficulty: 3,
+      prompt: 'Corrige el error: "Although it was late, but she stayed."',
+      promptTranslation: 'Aunque era tarde, ella se quedó.',
+      correctAnswer: 'Although it was late, she stayed.',
+      acceptedAnswers: ['Although it was late, she stayed', 'Although it was late, she stayed.', 'although it was late, she stayed'],
+      acceptApproximate: true,
+      explanation: 'Quitamos "but": "although" ya expresa el contraste. → Although it was late, she stayed.',
+    },
+    {
+      id: 'b1-m11-l1-ex6',
+      type: 'translate',
+      concept: 'even though',
+      difficulty: 3,
+      prompt: 'Traduce: "Aunque estaba cansado, terminó."',
+      promptTranslation: 'Even though he was tired, he finished.',
+      correctAnswer: 'Even though he was tired, he finished.',
+      acceptedAnswers: ['Even though he was tired, he finished', 'Even though he was tired, he finished.', 'Although he was tired, he finished', 'Although he was tired, he finished.', 'even though he was tired, he finished'],
+      acceptApproximate: true,
+      explanation: '"Aunque" puede traducirse como "even though" o "although". → Even though he was tired, he finished.',
+    },
+    {
+      id: 'b1-m11-l1-ex7',
+      type: 'reorder',
+      concept: 'though at the end',
+      difficulty: 3,
+      prompt: 'Ordena las palabras: it / worth / was / though / It, / was / expensive / it',
+      promptTranslation: 'Era caro, aunque valió la pena.',
+      correctAnswer: 'It was expensive, though it was worth it.',
+      words: ['It', 'was', 'expensive', 'though', 'it', 'was', 'worth', 'it'],
+      explanation: 'Orden: oración + "though" al inicio de la segunda parte. → It was expensive, though it was worth it.',
+    },
+    {
+      id: 'b1-m11-l1-ex8',
+      type: 'match',
+      concept: 'although/even though/though matching',
+      difficulty: 3,
+      prompt: 'Relaciona cada frase con su traducción.',
+      promptTranslation: 'Match each sentence with its translation.',
+      correctAnswer: 'Although it was cold, we went swimming.=Aunque hacía frío, fuimos a nadar.; Even though she was rich, she was lonely.=Aunque era rica, estaba sola.; It was cheap, though.=Aun así, era barato.; Although he is young, he is very wise.=Aunque es joven, es muy sabio.',
+      pairs: [
+        { left: 'Although it was cold, we went swimming.', right: 'Aunque hacía frío, fuimos a nadar.' },
+        { left: 'Even though she was rich, she was lonely.', right: 'Aunque era rica, estaba sola.' },
+        { left: 'It was cheap, though.', right: 'Aun así, era barato.' },
+        { left: 'Although he is young, he is very wise.', right: 'Aunque es joven, es muy sabio.' },
+      ],
+      explanation: 'Las tres formas expresan "aunque"; "though" al final se traduce como "aun así".',
+    },
+    {
+      id: 'b1-m11-l1-ex9',
+      type: 'multiple_choice',
+      concept: 'though informal ending',
+      difficulty: 3,
+      prompt: 'Completa (informal): "I didn\'t like the film. It was interesting, ___."',
+      promptTranslation: 'No me gustó la película. Aun así, era interesante.',
+      correctAnswer: 'though',
+      options: ['though', 'but', 'even though'],
+      explanation: '"though" al final de la frase = "aun así" (informal).',
+    },
+    {
+      id: 'b1-m11-l1-ex10',
+      type: 'error_correction',
+      concept: 'although needs a clause',
+      difficulty: 4,
+      prompt: 'Corrige el error: "Although the rain, we had a picnic."',
+      promptTranslation: 'Aunque llovía, hicimos un picnic.',
+      correctAnswer: 'Although it was raining, we had a picnic.',
+      acceptedAnswers: ['Although it was raining, we had a picnic', 'Although it was raining, we had a picnic.', 'Although it rained, we had a picnic', 'although it was raining, we had a picnic'],
+      acceptApproximate: true,
+      explanation: '"although" necesita una oración completa (sujeto + verbo): Although it was raining... No va seguido solo de un sustantivo.',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'b1-m11-l1-mt1',
+      type: 'multiple_choice',
+      concept: 'even though',
+      difficulty: 1,
+      prompt: 'Completa: "___ though it was cold, she wore a t-shirt."',
+      promptTranslation: 'Aunque hacía frío, llevaba una camiseta.',
+      correctAnswer: 'Even',
+      options: ['Even', 'Also', 'So'],
+      explanation: '"Even though" introduce el contraste enfático.',
+    },
+    {
+      id: 'b1-m11-l1-mt2',
+      type: 'true_false',
+      concept: 'although + but wrong',
+      difficulty: 2,
+      prompt: 'La frase "Although it was sunny, but we stayed inside" es correcta.',
+      promptTranslation: 'The sentence "Although it was sunny, but we stayed inside" is correct.',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE', 'f'],
+      explanation: 'Falso. "although" no se combina con "but".',
+    },
+    {
+      id: 'b1-m11-l1-mt3',
+      type: 'fill_blank',
+      concept: 'though at the end',
+      difficulty: 2,
+      prompt: 'Completa: "The food was cold. It was good, ___."',
+      promptTranslation: 'La comida estaba fría. Aun así, era buena.',
+      correctAnswer: 'though',
+      acceptedAnswers: ['though', 'though.', 'Though'],
+      explanation: '"though" al final de la frase = "aun así".',
+    },
+    {
+      id: 'b1-m11-l1-mt4',
+      type: 'translate',
+      concept: 'although',
+      difficulty: 3,
+      prompt: 'Traduce: "Aunque era tarde, salimos a cenar."',
+      promptTranslation: 'Although it was late, we went out for dinner.',
+      correctAnswer: 'Although it was late, we went out for dinner.',
+      acceptedAnswers: ['Although it was late, we went out for dinner', 'Although it was late, we went out for dinner.', 'Even though it was late, we went out for dinner', 'although it was late, we went out for dinner'],
+      acceptApproximate: true,
+      explanation: '"Aunque era tarde" = Although it was late o Even though it was late.',
+    },
+    {
+      id: 'b1-m11-l1-mt5',
+      type: 'multiple_choice',
+      concept: 'which is correct',
+      difficulty: 3,
+      prompt: '¿Cuál es la frase correcta?',
+      promptTranslation: 'Which sentence is correct?',
+      correctAnswer: 'Although it was expensive, she bought it.',
+      options: ['Although it was expensive, she bought it.', 'Although it was expensive, but she bought it.', 'Even although it was expensive, she bought it.'],
+      explanation: 'Solo "although" es necesario; ni "but" ni "even although" se usan aquí.',
+    },
+  ],
+  reviewItems: ['b1-m10-l4'],
+  prerequisites: ['b1-m10-l4'],
+}

@@ -1,0 +1,286 @@
+import type { Lesson } from '../../types'
+
+export const lesson75MiniTest: Lesson = {
+  id: 'b1-m7-l5',
+  moduleId: 'm7-reported-speech',
+  order: 4,
+  title: 'Mini-test: estilo indirecto completo',
+  objective: 'Evaluar todo el estilo indirecto: oraciones afirmativas con backshift, preguntas (if/wh-), órdenes y peticiones, cambios de tiempo y lugar, y la conversión de una llamada telefónica a estilo indirecto.',
+  explanation_es: `Esta es la evaluación final del Módulo 7. Repasemos lo esencial del estilo indirecto:
+
+**Cambio de tiempo (backshift):**
+- am / is → was: "I am hungry." → She said she was hungry.
+- pasado simple → past perfect: "I worked in London." → He said he had worked in London.
+- will → would: "I will help." → She said she would help.
+- can → could: "I can swim." → He said he could swim.
+
+**Preguntas indirectas:**
+- Sí/no → ask + if/whether: "Are you tired?" → He asked me if I was tired.
+- Abiertas → wh- + sujeto + verbo (sin inversión): "Where do you live?" → She asked me where I lived.
+
+**Órdenes y peticiones:**
+- tell/ask + persona + to + verbo: "Sit down!" → He told me to sit down.
+- Negativa → not to + verbo: "Don't worry." → She told me not to worry.
+
+**Cambios de tiempo y lugar:**
+- here→there, now→then, today→that day, tomorrow→the next day, yesterday→the day before.
+
+**Errores típicos a evitar:**
+- ❌ She said she is hungry → ✅ She said she was hungry.
+- ❌ She asked me where did I live → ✅ She asked me where I lived.
+- ❌ He told me don't worry → ✅ He told me not to worry.`,
+  examples: [
+    { english: 'She said she had worked in London.', spanish: 'Ella dijo que había trabajado en Londres.' },
+    { english: 'He asked me if I was tired.', spanish: 'Él me preguntó si estaba cansado.' },
+    { english: 'She told me to sit down.', spanish: 'Ella me dijo que me sentara.' },
+    { english: 'He said he would see me the next day.', spanish: 'Él dijo que me vería al día siguiente.' },
+    { english: 'They asked me where I lived.', spanish: 'Ellos me preguntaron dónde vivía.' },
+  ],
+  rule: `**Resumen del módulo:**
+- Backshift: am→was, presente→pasado, pasado→had + participio, will→would, can→could.
+- Preguntas: ask + if (sí/no) o ask + wh- + sujeto + verbo (sin inversión).
+- Órdenes: tell/ask + persona + (not) to + verbo.
+- Tiempo/lugar: here→there, now→then, today→that day, tomorrow→the next day, yesterday→the day before.`,
+  commonMistakes: [
+    { wrong: '❌ She said she is hungry.', correct: '✅ She said she was hungry.', explanation: 'En estilo indirecto el presente cambia a pasado.' },
+    { wrong: '❌ She asked me where did I live.', correct: '✅ She asked me where I lived.', explanation: 'Las preguntas indirectas no llevan inversión.' },
+    { wrong: '❌ He told me don\'t worry.', correct: '✅ He told me not to worry.', explanation: 'Las órdenes negativas se convierten con "not to + verbo".' },
+  ],
+  vocabulary: [],
+  grammarPoints: [],
+  exercises: [
+    {
+      id: 'b1-m7-l5-ex1',
+      type: 'multiple_choice',
+      concept: 'module 7 - backshift am was',
+      difficulty: 1,
+      prompt: 'Completa: Directo: "I am busy." → "She said she ___ busy."',
+      promptTranslation: 'Ella dijo que estaba ocupada.',
+      correctAnswer: 'was',
+      options: ['was', 'is', 'has'],
+      explanation: '"Am" cambia a "was" en estilo indirecto.',
+    },
+    {
+      id: 'b1-m7-l5-ex2',
+      type: 'fill_blank',
+      concept: 'module 7 - backshift will would',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "I will call you." → "She said she ___ call me."',
+      promptTranslation: 'Ella dijo que me llamaría.',
+      correctAnswer: 'would',
+      acceptedAnswers: ['would', 'Would'],
+      explanation: '"Will" cambia a "would". → She said she would call me.',
+    },
+    {
+      id: 'b1-m7-l5-ex3',
+      type: 'error_correction',
+      concept: 'module 7 - reported question no inversion',
+      difficulty: 3,
+      prompt: 'Corrige el error: "She asked me where did I live."',
+      promptTranslation: 'Ella me preguntó dónde vivía.',
+      correctAnswer: 'She asked me where I lived.',
+      acceptedAnswers: ['She asked me where I lived', 'She asked me where I lived.', 'she asked me where i lived'],
+      acceptApproximate: true,
+      explanation: 'En las preguntas indirectas no hay inversión: where I lived.',
+    },
+    {
+      id: 'b1-m7-l5-ex4',
+      type: 'translate',
+      concept: 'module 7 - reported command',
+      difficulty: 3,
+      prompt: 'Traduce: "Me dijo que no llegara tarde."',
+      promptTranslation: 'He told me not to be late.',
+      correctAnswer: 'He told me not to be late.',
+      acceptedAnswers: ['He told me not to be late', 'He told me not to be late.', 'he told me not to be late'],
+      acceptApproximate: true,
+      explanation: '"Que no llegara tarde" = not to be late. → He told me not to be late.',
+    },
+    {
+      id: 'b1-m7-l5-ex5',
+      type: 'match',
+      concept: 'module 7 - reported speech review',
+      difficulty: 3,
+      prompt: 'Relaciona cada frase directa con su forma indirecta correcta.',
+      promptTranslation: 'Match each direct sentence with its correct reported form.',
+      correctAnswer: '"I will help."→she would help; "Are you tired?"→asked me if I was tired; "Don\'t worry."→told me not to worry; "I worked in London."→he had worked in London; "I\'m here now."→he was there then',
+      pairs: [
+        { left: '"I will help."', right: 'She said she would help.' },
+        { left: '"Are you tired?"', right: 'He asked me if I was tired.' },
+        { left: '"Don\'t worry."', right: 'She told me not to worry.' },
+        { left: '"I worked in London."', right: 'He said he had worked in London.' },
+        { left: '"I\'m here now."', right: 'He said he was there then.' },
+      ],
+      explanation: 'Cada elemento aplica un cambio: will→would, pregunta con if, orden negativa con not to, pasado→past perfect y here→there / now→then.',
+    },
+    {
+      id: 'b1-m7-l5-ex6',
+      type: 'reading',
+      concept: 'module 7 - report a phone call',
+      difficulty: 4,
+      prompt: 'Lee la llamada telefónica y responde cómo contamos cada frase en estilo indirecto.',
+      reading: {
+        text: 'A phone call\nAna: "I am at the station now. The train leaves tomorrow at nine."\nCarlos: "Where are you going?"\nAna: "I am going to visit my sister."\nCarlos: "Don\'t forget to call me when you arrive!"\nAna: "OK, I will call you."\n\nNow report what Ana and Carlos said.',
+        translation: 'Una llamada telefónica\nAna: "Estoy en la estación ahora. El tren sale mañana a las nueve."\nCarlos: "¿A dónde vas?"\nAna: "Voy a visitar a mi hermana."\nCarlos: "¡No olvides llamarme cuando llegues!"\nAna: "Vale, te llamaré."\n\nAhora cuenta en estilo indirecto lo que dijeron Ana y Carlos.',
+        questions: [
+          {
+            id: 'b1-m7-l5-ex6-q1',
+            type: 'multiple_choice',
+            concept: 'module 7 - report a phone call',
+            difficulty: 4,
+            prompt: 'Ana dijo: "I am at the station now." → ¿Cómo lo contamos?',
+            correctAnswer: 'Ana said she was at the station then.',
+            options: ['Ana said she is at the station now.', 'Ana said she was at the station then.', 'Ana told that she was at the station.'],
+            explanation: 'Con backshift (am→was), cambio de pronombre (I→she) y now→then: Ana said she was at the station then.',
+          },
+          {
+            id: 'b1-m7-l5-ex6-q2',
+            type: 'multiple_choice',
+            concept: 'module 7 - report a phone call',
+            difficulty: 4,
+            prompt: 'Ana dijo: "The train leaves tomorrow at nine." → ¿Cómo lo contamos?',
+            correctAnswer: 'Ana said the train left the next day at nine.',
+            options: ['Ana said the train left the next day at nine.', 'Ana said the train leaves tomorrow at nine.', 'Ana said the train had left the next day at nine.'],
+            explanation: 'Presente simple (leaves) retrocede a pasado (left) y "tomorrow" cambia a "the next day".',
+          },
+          {
+            id: 'b1-m7-l5-ex6-q3',
+            type: 'multiple_choice',
+            concept: 'module 7 - report a phone call',
+            difficulty: 4,
+            prompt: 'Carlos preguntó: "Where are you going?" → ¿Cómo lo contamos?',
+            correctAnswer: 'Carlos asked Ana where she was going.',
+            options: ['Carlos asked Ana where was she going.', 'Carlos asked Ana where she was going.', 'Carlos asked Ana where she is going.'],
+            explanation: 'Pregunta indirecta sin inversión y con backshift (are→was): where she was going.',
+          },
+          {
+            id: 'b1-m7-l5-ex6-q4',
+            type: 'multiple_choice',
+            concept: 'module 7 - report a phone call',
+            difficulty: 4,
+            prompt: 'Carlos dijo: "Don\'t forget to call me when you arrive!" → ¿Cómo lo contamos?',
+            correctAnswer: 'Carlos told Ana not to forget to call him when she arrived.',
+            options: ['Carlos told Ana not to forget to call him when she arrived.', 'Carlos told Ana don\'t forget to call him when she arrived.', 'Carlos told Ana to not forget to call him when she arrives.'],
+            explanation: 'Orden negativa con "not to + verbo" y pronombres cambiados: told Ana not to forget to call him.',
+          },
+          {
+            id: 'b1-m7-l5-ex6-q5',
+            type: 'multiple_choice',
+            concept: 'module 7 - report a phone call',
+            difficulty: 4,
+            prompt: 'Ana dijo: "I will call you." → ¿Cómo lo contamos?',
+            correctAnswer: 'Ana said she would call him.',
+            options: ['Ana said she would call him.', 'Ana said she will call him.', 'Ana said she would call me.'],
+            explanation: '"Will" cambia a "would" y "you" (Carlos) se convierte en "him". → Ana said she would call him.',
+          },
+        ],
+      },
+      correctAnswer: 'reading complete',
+      explanation: 'En una conversación telefónica reportada: backshift (am→was, leaves→left, are→was, will→would), cambios de pronombre (I→she, you→him), cambios de tiempo/lugar (tomorrow→the next day, now→then) y órdenes con not to + verbo.',
+    },
+    {
+      id: 'b1-m7-l5-ex7',
+      type: 'true_false',
+      concept: 'module 7 - reported speech review',
+      difficulty: 3,
+      prompt: '"I said her that the train was late" es una frase correcta.',
+      promptTranslation: '"I said her that the train was late" is correct.',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE', 'f'],
+      explanation: 'Falso. "Say" no lleva persona: la forma correcta es "I told her that the train was late".',
+    },
+    {
+      id: 'b1-m7-l5-ex8',
+      type: 'reorder',
+      concept: 'module 7 - reported question',
+      difficulty: 3,
+      prompt: 'Ordena las palabras: She / me / if / asked / tired / I / was',
+      promptTranslation: 'Ella me preguntó si estaba cansado.',
+      correctAnswer: 'She asked me if I was tired.',
+      words: ['She', 'asked', 'me', 'if', 'I', 'was', 'tired'],
+      explanation: 'Orden: sujeto + asked + persona + if + sujeto + verbo. → She asked me if I was tired.',
+    },
+    {
+      id: 'b1-m7-l5-ex9',
+      type: 'multiple_choice',
+      concept: 'module 7 - reported command',
+      difficulty: 3,
+      prompt: 'Completa: Directo: "Close the door." → "He told me ___ the door."',
+      promptTranslation: 'Él me dijo que cerrara la puerta.',
+      correctAnswer: 'to close',
+      options: ['to close', 'close', 'closing'],
+      explanation: 'Las órdenes en indirecto usan "to + verbo": told me to close the door.',
+    },
+    {
+      id: 'b1-m7-l5-ex10',
+      type: 'fill_blank',
+      concept: 'module 7 - backshift past perfect',
+      difficulty: 3,
+      prompt: 'Completa: Directo: "I left at six." → "She said she ___ left at six."',
+      promptTranslation: 'Ella dijo que había salido a las seis.',
+      correctAnswer: 'had',
+      acceptedAnswers: ['had', 'Had'],
+      explanation: 'El pasado simple (left) retrocede a past perfect: had left.',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'b1-m7-l5-mt1',
+      type: 'multiple_choice',
+      concept: 'module 7 final - backshift',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "I am tired." → "She said she ___ tired."',
+      promptTranslation: 'Ella dijo que estaba cansada.',
+      correctAnswer: 'was',
+      options: ['was', 'is', 'will be'],
+      explanation: '"Am" cambia a "was" en estilo indirecto.',
+    },
+    {
+      id: 'b1-m7-l5-mt2',
+      type: 'fill_blank',
+      concept: 'module 7 final - reported question',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "Where do you work?" → "She asked me where I ___."',
+      promptTranslation: 'Ella me preguntó dónde trabajaba.',
+      correctAnswer: 'worked',
+      acceptedAnswers: ['worked', 'Worked'],
+      explanation: 'Sin inversión y con backshift: where I worked.',
+    },
+    {
+      id: 'b1-m7-l5-mt3',
+      type: 'error_correction',
+      concept: 'module 7 final - reported command negative',
+      difficulty: 3,
+      prompt: 'Corrige el error: "He told me don\'t smoke here."',
+      promptTranslation: 'Él me dijo que no fumara aquí.',
+      correctAnswer: 'He told me not to smoke here.',
+      acceptedAnswers: ['He told me not to smoke here', 'He told me not to smoke here.', 'he told me not to smoke here'],
+      acceptApproximate: true,
+      explanation: 'La negativa en indirecto es "not to + verbo": told me not to smoke here.',
+    },
+    {
+      id: 'b1-m7-l5-mt4',
+      type: 'translate',
+      concept: 'module 7 final - time shift',
+      difficulty: 3,
+      prompt: 'Traduce: "Ella dijo que me vería al día siguiente."',
+      promptTranslation: 'She said she would see me the next day.',
+      correctAnswer: 'She said she would see me the next day.',
+      acceptedAnswers: ['She said she would see me the next day', 'She said that she would see me the next day', 'she said she would see me the next day.'],
+      acceptApproximate: true,
+      explanation: '"Al día siguiente" = the next day; "vería" = would see. → She said she would see me the next day.',
+    },
+    {
+      id: 'b1-m7-l5-mt5',
+      type: 'multiple_choice',
+      concept: 'module 7 final - backshift past',
+      difficulty: 4,
+      prompt: '¿Cuál es la forma correcta de estilo indirecto para "I saw the film."?',
+      promptTranslation: 'Which is the correct reported form of "I saw the film."?',
+      correctAnswer: 'He said he had seen the film.',
+      options: ['He said he saw the film.', 'He said he had seen the film.', 'He said he has seen the film.'],
+      explanation: 'El pasado simple (saw) retrocede a past perfect: had seen.',
+    },
+  ],
+  reviewItems: ['b1-m7-l4'],
+  prerequisites: ['b1-m7-l4'],
+}

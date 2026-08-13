@@ -1,0 +1,299 @@
+import type { Lesson } from '../../types'
+
+export const lesson14MiniTest: Lesson = {
+  id: 'b1-m1-l4',
+  moduleId: 'm1-second-conditional',
+  order: 3,
+  title: 'Mini-test: Second Conditional',
+  objective: 'Repasar el segundo condicional completo: forma, consejos, contraste con el primer condicional y lectura de sueños y deseos.',
+  explanation_es: `Este mini-test repasa todo lo aprendido en el módulo del segundo condicional.
+
+Recuerda las claves:
+
+1. Estructura del segundo condicional:
+   If + past simple , + would/could + verbo base
+
+2. "If I were you" para dar consejos (siempre "were", nunca "was" en inglés formal).
+
+3. Diferencia con el primer condicional:
+   - Real/posible → If + present , + will (If it rains, I will stay home.)
+   - Imaginario/irreal → If + past , + would (If I won the lottery, I would buy a house.)
+
+4. Errores a evitar:
+   - Nunca "would" después de "if".
+   - Nunca "will" en el resultado del segundo condicional.
+   - No mezcles los dos condicionales en una misma frase.
+
+Haz los ejercicios con calma y lee el texto final sobre sueños y deseos con atención.`,
+  examples: [
+    { english: 'If I had more time, I would learn to cook.', spanish: 'Si tuviera más tiempo, aprendería a cocinar.' },
+    { english: 'If I were you, I\'d apply for that job.', spanish: 'Si yo fuera tú, postularía a ese trabajo.', note: 'I\'d = I would.' },
+    { english: 'If she called me, I would be happy.', spanish: 'Si ella me llamara, estaría feliz.' },
+    { english: 'We would travel more if we earned more money.', spanish: 'Viajaríamos más si ganáramos más dinero.', note: 'Orden invertido.' },
+    { english: 'If I could speak French, I would move to Paris.', spanish: 'Si pudiera hablar francés, me mudaría a París.', note: 'could en la condición.' },
+  ],
+  rule: `Repaso:
+- Segundo condicional: If + past simple, would/could + verbo base. (Situaciones imaginarias.)
+- Primer condicional: If + present simple, will + verbo base. (Situaciones posibles.)
+- If I were you, I would... → para dar consejo.
+
+Nunca: "if would", "if will", ni mezclar tiempos.`,
+  commonMistakes: [
+    { wrong: '❌ If I would know, I would tell you.', correct: '✅ If I knew, I would tell you.', explanation: 'Después de "if" usamos past simple (knew), nunca "would".' },
+    { wrong: '❌ If she was here, she would help us.', correct: '✅ If she were here, she would help us.', explanation: 'Con he/she/it en hipótesis usamos "were" (subjuntivo).' },
+    { wrong: '❌ If I have more money, I would travel.', correct: '✅ If I had more money, I would travel.', explanation: 'Hipótesis irreal → if + past (had), no if + present (have).' },
+    { wrong: '❌ If I were you, I will call him.', correct: '✅ If I were you, I would call him.', explanation: 'Con "If I were you" el resultado siempre lleva "would", nunca "will".' },
+  ],
+  vocabulary: [
+    { word: 'dream', translation_es: 'sueño (deseo)', level: 'B1', category: 'life events', partOfSpeech: 'noun', example: 'My dream is to travel the world.', exampleTranslation: 'Mi sueño es viajar por el mundo.' },
+    { word: 'wish', translation_es: 'deseo', level: 'B1', category: 'life events', partOfSpeech: 'noun/verb', example: 'I wish I had more time.', exampleTranslation: 'Desearía tener más tiempo.' },
+    { word: 'ambition', translation_es: 'ambición', level: 'B1', category: 'life events', partOfSpeech: 'noun', example: 'Her ambition is to open a café.', exampleTranslation: 'Su ambición es abrir un café.' },
+    { word: 'job', translation_es: 'trabajo', level: 'A1', category: 'work', partOfSpeech: 'noun', example: 'If I were you, I would apply for that job.', exampleTranslation: 'Si yo fuera tú, postularía a ese trabajo.' },
+    { word: 'abroad', translation_es: 'en el extranjero', level: 'B1', category: 'travel', partOfSpeech: 'adverb', example: 'If I could, I would work abroad.', exampleTranslation: 'Si pudiera, trabajaría en el extranjero.' },
+    { word: 'talent', translation_es: 'talento', level: 'B1', category: 'life events', partOfSpeech: 'noun', example: 'If I had her talent, I would sing.', exampleTranslation: 'Si tuviera su talento, cantaría.' },
+  ],
+  grammarPoints: [
+    {
+      id: 'gp-second-conditional-review',
+      level: 'B1',
+      name: 'Second conditional (review)',
+      explanation_es: 'Repaso del segundo condicional: hipótesis irreales, consejos con "If I were you" y contraste con el primer condicional.',
+      formula: 'If + past simple, would/could + base verb',
+      examples: ['If I had more time, I would learn to cook.', 'If I were you, I\'d apply for that job.', 'If I won the lottery, I would buy a house.'],
+    },
+  ],
+  exercises: [
+    {
+      id: 'b1-m1-l4-ex1',
+      type: 'multiple_choice',
+      concept: 'second conditional review',
+      difficulty: 2,
+      prompt: 'Completa: "If I ___ more time, I would learn to cook."',
+      promptTranslation: 'Si tuviera más tiempo, aprendería a cocinar.',
+      correctAnswer: 'had',
+      options: ['had', 'have', 'would have'],
+      explanation: 'Segundo condicional → if + past simple: had. → If I had more time, I would learn to cook.',
+    },
+    {
+      id: 'b1-m1-l4-ex2',
+      type: 'multiple_choice',
+      concept: 'second conditional review',
+      difficulty: 2,
+      prompt: 'Completa el consejo: "If I were you, I ___ apply for that job."',
+      promptTranslation: 'Si yo fuera tú, postularía a ese trabajo.',
+      correctAnswer: 'would',
+      options: ['would', 'will', 'do'],
+      explanation: 'Con "If I were you" usamos would (o \'d) + verbo base para dar el consejo. → I would apply for that job.',
+    },
+    {
+      id: 'b1-m1-l4-ex3',
+      type: 'fill_blank',
+      concept: 'second conditional review',
+      difficulty: 3,
+      prompt: 'Completa: "If she called me, I ___ (be) happy."',
+      promptTranslation: 'Si ella me llamara, estaría feliz.',
+      correctAnswer: 'would be',
+      acceptedAnswers: ['would be', "'d be"],
+      explanation: 'Segundo condicional → would + verbo base: would be. → If she called me, I would be happy.',
+    },
+    {
+      id: 'b1-m1-l4-ex4',
+      type: 'reorder',
+      concept: 'second conditional review',
+      difficulty: 3,
+      prompt: 'Ordena la frase (segundo condicional, orden invertido):',
+      promptTranslation: 'Viajaríamos más si ganáramos más dinero.',
+      words: ['We', 'would', 'travel', 'more', 'if', 'we', 'earned', 'more', 'money.'],
+      correctAnswer: 'We would travel more if we earned more money.',
+      explanation: 'En orden invertido: la parte principal (would travel) va primero, luego "if" + past simple (earned). Sin coma.',
+    },
+    {
+      id: 'b1-m1-l4-ex5',
+      type: 'translate',
+      concept: 'second conditional review',
+      difficulty: 4,
+      prompt: 'Traduce: "Si pudiera hablar francés, me mudaría a París."',
+      correctAnswer: 'If I could speak French, I would move to Paris.',
+      acceptedAnswers: [
+        'If I could speak French, I would move to Paris',
+        'If I could speak French, I would move to Paris.',
+        'If I could speak French, I\'d move to Paris',
+        'If I could speak French, I\'d move to Paris.',
+      ],
+      acceptApproximate: true,
+      explanation: '"Si pudiera" = If I could + verbo base. "me mudaría" = I would move. → If I could speak French, I would move to Paris.',
+    },
+    {
+      id: 'b1-m1-l4-ex6',
+      type: 'error_correction',
+      concept: 'second conditional review',
+      difficulty: 4,
+      prompt: 'Corrige el error: "If I will have more time, I would read more."',
+      correctAnswer: 'If I had more time, I would read more.',
+      acceptedAnswers: [
+        'If I had more time, I would read more',
+        'If I had more time, I would read more.',
+        'If I had more time, I\'d read more',
+        'If I had more time, I\'d read more.',
+      ],
+      acceptApproximate: true,
+      explanation: 'Después de "if" usamos past simple (had), nunca "will". → If I had more time, I would read more.',
+    },
+    {
+      id: 'b1-m1-l4-ex7',
+      type: 'reading',
+      concept: 'dreams and wishes reading',
+      difficulty: 4,
+      prompt: 'Lee el texto sobre sueños y deseos, y responde:',
+      reading: {
+        text: 'Elena has a lot of dreams. If she had more money, she would buy a small house by the sea. If she spoke three languages, she could work for an international company. Her best friend always tells her: "If I were you, I would start an English course this year." Elena knows that if she studies regularly, she will improve. Winning the lottery is unlikely, but learning English is something she can do now.',
+        translation: 'Elena tiene muchos sueños. Si tuviera más dinero, compraría una casa pequeña junto al mar. Si hablara tres idiomas, podría trabajar para una empresa internacional. Su mejor amiga siempre le dice: "Si yo fuera tú, empezaría un curso de inglés este año." Elena sabe que si estudia con regularidad, mejorará. Ganar la lotería es improbable, pero aprender inglés es algo que puede hacer ahora.',
+        questions: [
+          {
+            id: 'b1-m1-l4-ex7-q1',
+            type: 'multiple_choice',
+            concept: 'dreams and wishes reading',
+            difficulty: 4,
+            prompt: '¿Qué haría Elena si tuviera más dinero?',
+            correctAnswer: 'She would buy a small house by the sea.',
+            options: ['She would work for an international company.', 'She would buy a small house by the sea.', 'She would travel around the world.'],
+            explanation: 'El texto dice: "If she had more money, she would buy a small house by the sea."',
+          },
+          {
+            id: 'b1-m1-l4-ex7-q2',
+            type: 'multiple_choice',
+            concept: 'dreams and wishes reading',
+            difficulty: 4,
+            prompt: '¿Qué consejo le da su amiga a Elena?',
+            correctAnswer: 'Start an English course this year.',
+            options: ['Buy a house by the sea.', 'Win the lottery.', 'Start an English course this year.'],
+            explanation: 'La amiga usa "If I were you, I would start an English course this year." Ese es el consejo.',
+          },
+          {
+            id: 'b1-m1-l4-ex7-q3',
+            type: 'multiple_choice',
+            concept: 'dreams and wishes reading',
+            difficulty: 4,
+            prompt: '¿Por qué "winning the lottery" se expresa como algo improbable?',
+            correctAnswer: 'Porque es una situación imaginaria, no real.',
+            options: ['Porque es una situación imaginaria, no real.', 'Porque Elena ya ganó la lotería.', 'Porque la lotería es fácil de ganar.'],
+            explanation: 'Ganar la lotería es improbable/imaginario, por eso se usa el segundo condicional (if + past + would).',
+          },
+        ],
+      },
+      correctAnswer: 'reading complete',
+      explanation: 'Identifica en el texto qué sueños son imaginarios (would/could) y qué plan es real (will improve).',
+    },
+    {
+      id: 'b1-m1-l4-ex8',
+      type: 'match',
+      concept: 'second conditional review matching',
+      difficulty: 3,
+      prompt: 'Relaciona cada comienzo con su final correcto:',
+      pairs: [
+        { left: 'If I had more time,', right: 'I would exercise every day.' },
+        { left: 'If I were you,', right: 'I\'d talk to the manager.' },
+        { left: 'If she knew the truth,', right: 'she wouldn\'t be sad.' },
+        { left: 'If it rains tomorrow,', right: 'we will cancel the picnic.' },
+        { left: 'If I spoke Italian,', right: 'I could order pizza easily.' },
+        { left: 'If you study hard,', right: 'you will pass the test.' },
+      ],
+      correctAnswer: 'If I had more time=I would exercise every day, If I were you=I\'d talk to the manager, If she knew the truth=she wouldn\'t be sad, If it rains tomorrow=we will cancel the picnic (primero), If I spoke Italian=I could order pizza easily, If you study hard=you will pass the test (primero).',
+      explanation: 'La mayoría son segundo condicional (if + past → would/could). Dos son primer condicional: "If it rains" (will cancel) y "If you study" (will pass).',
+    },
+    {
+      id: 'b1-m1-l4-ex9',
+      type: 'sentence_building',
+      concept: 'second conditional review',
+      difficulty: 4,
+      prompt: 'Construye una frase de segundo condicional con estas palabras:',
+      promptTranslation: 'Si pudiera, trabajaría en el extranjero.',
+      words: ['If', 'I', 'could,', 'I', 'would', 'work', 'abroad.'],
+      correctAnswer: 'If I could, I would work abroad.',
+      explanation: 'Estructura: If + could + coma + I would + verbo base (work). → If I could, I would work abroad.',
+    },
+    {
+      id: 'b1-m1-l4-ex10',
+      type: 'true_false',
+      concept: 'second conditional review',
+      difficulty: 3,
+      prompt: '"If I was you" es la forma correcta en inglés formal.',
+      correctAnswer: 'false',
+      explanation: 'Falso. En inglés formal, la forma correcta es "If I were you". "Was" es coloquial/informal.',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'b1-m1-l4-mt1',
+      type: 'multiple_choice',
+      concept: 'second conditional review',
+      difficulty: 2,
+      prompt: 'Elige la frase correcta:',
+      promptTranslation: 'Si tuviera más dinero, compraría una casa.',
+      correctAnswer: 'If I had more money, I would buy a house.',
+      options: [
+        'If I had more money, I would buy a house.',
+        'If I have more money, I would buy a house.',
+        'If I would have more money, I buy a house.',
+      ],
+      explanation: 'Segundo condicional correcto: if + past (had) + would + verbo base (buy). Las otras mezclan tiempos.',
+    },
+    {
+      id: 'b1-m1-l4-mt2',
+      type: 'fill_blank',
+      concept: 'second conditional review',
+      difficulty: 3,
+      prompt: 'Completa: "If I ___ (be) you, I would see a doctor."',
+      promptTranslation: 'Si yo fuera tú, vería a un médico.',
+      correctAnswer: 'were',
+      acceptedAnswers: ['were'],
+      explanation: '"If I were you" es una forma fija con "were". → If I were you, I would see a doctor.',
+    },
+    {
+      id: 'b1-m1-l4-mt3',
+      type: 'translate',
+      concept: 'second conditional review',
+      difficulty: 4,
+      prompt: 'Traduce: "Desearía tener más tiempo." (Usa "If I had...")',
+      correctAnswer: 'If I had more time, I would...',
+      acceptedAnswers: [
+        'If I had more time',
+        'If I had more time,',
+        'If I had more time, I would...',
+        'If I had more time, I would study more',
+        'If I had more time, I would study more.',
+        'If I had more time, I\'d study more',
+        'If I had more time, I\'d study more.',
+      ],
+      acceptApproximate: true,
+      explanation: '"If I had more time" = Si tuviera más tiempo. Completa con lo que harías: I would study more, I would rest, etc.',
+    },
+    {
+      id: 'b1-m1-l4-mt4',
+      type: 'error_correction',
+      concept: 'second conditional review',
+      difficulty: 4,
+      prompt: 'Corrige el error: "If she was here, she would help us."',
+      correctAnswer: 'If she were here, she would help us.',
+      acceptedAnswers: [
+        'If she were here, she would help us',
+        'If she were here, she would help us.',
+        'If she were here, she\'d help us',
+        'If she were here, she\'d help us.',
+      ],
+      acceptApproximate: true,
+      explanation: 'Con he/she/it en una hipótesis irreal usamos "were" (subjuntivo). → If she were here, she would help us.',
+    },
+    {
+      id: 'b1-m1-l4-mt5',
+      type: 'true_false',
+      concept: 'first vs second conditional review',
+      difficulty: 3,
+      prompt: '"If you study, you will pass the test." es el primer condicional porque estudiar es una acción posible.',
+      correctAnswer: 'true',
+      explanation: 'Correcto. Es posible estudiar y aprobar → primer condicional (if + present + will).',
+    },
+  ],
+  reviewItems: ['b1-m1-l3'],
+  prerequisites: ['b1-m1-l3'],
+}

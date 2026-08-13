@@ -1,0 +1,241 @@
+import type { Lesson } from '../../types'
+
+export const lesson123MakeLet: Lesson = {
+  id: 'a2-m12-l3',
+  moduleId: 'm12-gerunds-infinitives',
+  order: 2,
+  title: 'make / let + persona + verbo (sin "to")',
+  objective: 'Usar "make" (hacer que alguien haga algo) y "let" (permitir que alguien haga algo) con persona + verbo en forma base, sin "to".',
+  explanation_es: `Los verbos "make" y "let" tienen una estructura especial en inglés: no usamos "to" entre la persona y el verbo.
+
+- make + persona + verbo(base) = hacer que alguien haga algo
+  - My parents make me study. = Mis padres me hacen estudiar.
+  - The teacher made us repeat the sentence. = El profesor nos hizo repetir la frase.
+
+- let + persona + verbo(base) = permitir que alguien haga algo / dejar que alguien haga algo
+  - She let me use her car. = Ella me dejó usar su coche.
+  - My boss lets me leave early. = Mi jefe me deja salir temprano.
+
+En el pasado, "make" → "made" y "let" se mantiene igual: "She let me..." (let no cambia).
+
+¡MUY IMPORTANTE! Después de "make" y "let", el verbo va SIN "to".
+- ❌ My parents make me to study.
+- ✅ My parents make me study.
+- ❌ She let me to use her car.
+- ✅ She let me use her car.`,
+  examples: [
+    { english: 'My parents make me study.', spanish: 'Mis padres me hacen estudiar.', note: 'make + persona + verbo sin to' },
+    { english: 'She let me use her car.', spanish: 'Ella me dejó usar su coche.', note: 'let + persona + verbo sin to' },
+    { english: 'The teacher made us repeat the sentence.', spanish: 'El profesor nos hizo repetir la frase.' },
+    { english: 'He lets his son play video games.', spanish: 'Él deja que su hijo juegue a videojuegos.' },
+    { english: 'Don\'t make me laugh!', spanish: '¡No me hagas reír!', note: 'make + me + verbo' },
+  ],
+  rule: `Regla:
+- make + persona + verbo(base) sin "to" → My parents make me study.
+- let + persona + verbo(base) sin "to" → She let me use her car.
+- Pasado: make → made; let no cambia (let).
+- ❌ make me to study → ✅ make me study.`,
+  commonMistakes: [
+    { wrong: '❌ My parents make me to study.', correct: '✅ My parents make me study.', explanation: 'Después de "make" el verbo va sin "to": make me study.' },
+    { wrong: '❌ She let me to use her car.', correct: '✅ She let me use her car.', explanation: 'Después de "let" el verbo va sin "to": let me use.' },
+    { wrong: '❌ The teacher made us to repeat.', correct: '✅ The teacher made us repeat.', explanation: '"Make" en pasado (made) también va seguido del verbo sin "to".' },
+  ],
+  vocabulary: [
+    { word: 'make', translation_es: 'hacer que alguien haga algo', level: 'A2', category: 'causative verbs', partOfSpeech: 'verb', example: 'My parents make me study.', exampleTranslation: 'Mis padres me hacen estudiar.' },
+    { word: 'let', translation_es: 'permitir, dejar', level: 'A2', category: 'causative verbs', partOfSpeech: 'verb', example: 'She let me use her car.', exampleTranslation: 'Ella me dejó usar su coche.' },
+    { word: 'allow', translation_es: 'permitir', level: 'A2', category: 'verbs', partOfSpeech: 'verb', example: 'They allow us to use the library.', exampleTranslation: 'Nos permiten usar la biblioteca.' },
+    { word: 'permission', translation_es: 'permiso', level: 'A2', category: 'nouns', partOfSpeech: 'noun', example: 'He gave me permission to leave.', exampleTranslation: 'Me dio permiso para salir.' },
+  ],
+  grammarPoints: [
+    {
+      id: 'gp-make-let',
+      level: 'A2',
+      name: 'make / let + person + base verb',
+      explanation_es: '"Make" (hacer que alguien haga algo) y "let" (permitir) van seguidos de persona + verbo en forma base, sin "to".',
+      formula: 'make/let + person + verb (no "to")',
+      examples: ['My parents make me study.', 'She let me use her car.', 'The teacher made us repeat the sentence.'],
+    },
+  ],
+  exercises: [
+    {
+      id: 'a2-m12-l3-ex1',
+      type: 'multiple_choice',
+      concept: 'make + person + verb',
+      difficulty: 1,
+      prompt: 'Completa: "My parents make me ___."',
+      promptTranslation: 'Mis padres me hacen estudiar.',
+      correctAnswer: 'study',
+      options: ['study', 'to study', 'studying'],
+      explanation: 'Después de "make" el verbo va sin "to" y sin -ing: make me study.',
+    },
+    {
+      id: 'a2-m12-l3-ex2',
+      type: 'fill_blank',
+      concept: 'let + person + verb',
+      difficulty: 2,
+      prompt: 'Completa: "She let me ___ her car."',
+      promptTranslation: 'Ella me dejó usar su coche.',
+      correctAnswer: 'use',
+      acceptedAnswers: ['use', 'Use'],
+      explanation: 'Después de "let" el verbo va sin "to": let me use.',
+    },
+    {
+      id: 'a2-m12-l3-ex3',
+      type: 'multiple_choice',
+      concept: 'make + person + verb',
+      difficulty: 2,
+      prompt: 'Completa: "The teacher made us ___ the sentence."',
+      promptTranslation: 'El profesor nos hizo repetir la frase.',
+      correctAnswer: 'repeat',
+      options: ['repeat', 'to repeat', 'repeating'],
+      explanation: '"Made" (pasado de make) + verbo sin "to": made us repeat.',
+    },
+    {
+      id: 'a2-m12-l3-ex4',
+      type: 'error_correction',
+      concept: 'make + person + verb',
+      difficulty: 3,
+      prompt: 'Corrige el error: "My parents make me to study."',
+      promptTranslation: 'Mis padres me hacen estudiar.',
+      correctAnswer: 'My parents make me study.',
+      acceptedAnswers: ['My parents make me study', 'My parents make me study.', 'my parents make me study'],
+      acceptApproximate: true,
+      explanation: 'Después de "make" el verbo va sin "to": make me study.',
+    },
+    {
+      id: 'a2-m12-l3-ex5',
+      type: 'error_correction',
+      concept: 'let + person + verb',
+      difficulty: 3,
+      prompt: 'Corrige el error: "She let me to use her car."',
+      promptTranslation: 'Ella me dejó usar su coche.',
+      correctAnswer: 'She let me use her car.',
+      acceptedAnswers: ['She let me use her car', 'She let me use her car.', 'she let me use her car'],
+      acceptApproximate: true,
+      explanation: 'Después de "let" el verbo va sin "to": let me use her car.',
+    },
+    {
+      id: 'a2-m12-l3-ex6',
+      type: 'match',
+      concept: 'make / let',
+      difficulty: 2,
+      prompt: 'Relaciona cada frase con su traducción.',
+      promptTranslation: 'Match each sentence with its translation.',
+      correctAnswer: 'My parents make me study.=Mis padres me hacen estudiar; She let me use her car.=Ella me dejó usar su coche; The teacher made us repeat.=El profesor nos hizo repetir; He lets his son play.=Él deja que su hijo juegue; Don\'t make me laugh!=¡No me hagas reír!',
+      pairs: [
+        { left: 'My parents make me study.', right: 'Mis padres me hacen estudiar.' },
+        { left: 'She let me use her car.', right: 'Ella me dejó usar su coche.' },
+        { left: 'The teacher made us repeat.', right: 'El profesor nos hizo repetir.' },
+        { left: 'He lets his son play.', right: 'Él deja que su hijo juegue.' },
+        { left: "Don't make me laugh!", right: '¡No me hagas reír!' },
+      ],
+      explanation: '"Make" (obligar) y "let" (permitir) siempre van seguidos de persona + verbo en forma base.',
+    },
+    {
+      id: 'a2-m12-l3-ex7',
+      type: 'translate',
+      concept: 'make + person + verb',
+      difficulty: 3,
+      prompt: 'Traduce: "Mis padres me hacen estudiar."',
+      promptTranslation: 'My parents make me study.',
+      correctAnswer: 'My parents make me study.',
+      acceptedAnswers: ['My parents make me study', 'My parents make me study.', 'my parents make me study'],
+      acceptApproximate: true,
+      explanation: '"Hacer que alguien haga algo" = make + persona + verbo (sin to). → My parents make me study.',
+    },
+    {
+      id: 'a2-m12-l3-ex8',
+      type: 'true_false',
+      concept: 'let + person + verb',
+      difficulty: 2,
+      prompt: 'Después de "let" usamos "to" + verbo: "She let me to go".',
+      promptTranslation: 'After "let" we use "to" + verb: "She let me to go".',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE', 'f'],
+      explanation: 'Falso. Después de "let" el verbo va sin "to": She let me go.',
+    },
+    {
+      id: 'a2-m12-l3-ex9',
+      type: 'reorder',
+      concept: 'make + person + verb',
+      difficulty: 3,
+      prompt: 'Ordena las palabras: The teacher / repeat / made / us / the sentence',
+      promptTranslation: 'El profesor nos hizo repetir la frase.',
+      correctAnswer: 'The teacher made us repeat the sentence.',
+      words: ['The teacher', 'made', 'us', 'repeat', 'the sentence'],
+      explanation: 'Orden: sujeto + made + persona + verbo (sin to) + objeto. → The teacher made us repeat the sentence.',
+    },
+    {
+      id: 'a2-m12-l3-ex10',
+      type: 'multiple_choice',
+      concept: 'let + person + verb',
+      difficulty: 3,
+      prompt: 'Completa: "He let me ___ his phone."',
+      promptTranslation: 'Él me dejó usar su teléfono.',
+      correctAnswer: 'use',
+      options: ['use', 'to use', 'using'],
+      explanation: 'Después de "let" el verbo va sin "to": He let me use his phone.',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'a2-m12-l3-mt1',
+      type: 'multiple_choice',
+      concept: 'make + person + verb',
+      difficulty: 2,
+      prompt: 'Completa: "My boss makes me ___ early."',
+      promptTranslation: 'Mi jefe me hace llegar temprano.',
+      correctAnswer: 'arrive',
+      options: ['arrive', 'to arrive', 'arriving'],
+      explanation: '"Make" + persona + verbo sin "to": makes me arrive.',
+    },
+    {
+      id: 'a2-m12-l3-mt2',
+      type: 'fill_blank',
+      concept: 'let + person + verb',
+      difficulty: 2,
+      prompt: 'Completa: "My mum lets me ___ TV after dinner."',
+      promptTranslation: 'Mi madre me deja ver la tele después de cenar.',
+      correctAnswer: 'watch',
+      acceptedAnswers: ['watch', 'Watch'],
+      explanation: '"Let" + persona + verbo sin "to": lets me watch TV.',
+    },
+    {
+      id: 'a2-m12-l3-mt3',
+      type: 'error_correction',
+      concept: 'make + person + verb',
+      difficulty: 3,
+      prompt: 'Corrige el error: "The doctor made me to wait."',
+      promptTranslation: 'El médico me hizo esperar.',
+      correctAnswer: 'The doctor made me wait.',
+      acceptedAnswers: ['The doctor made me wait', 'The doctor made me wait.', 'the doctor made me wait'],
+      acceptApproximate: true,
+      explanation: 'Después de "made" el verbo va sin "to": made me wait.',
+    },
+    {
+      id: 'a2-m12-l3-mt4',
+      type: 'translate',
+      concept: 'let + person + verb',
+      difficulty: 3,
+      prompt: 'Traduce: "Ella me dejó usar su coche."',
+      promptTranslation: 'She let me use her car.',
+      correctAnswer: 'She let me use her car.',
+      acceptedAnswers: ['She let me use her car', 'She let me use her car.', 'she let me use her car'],
+      acceptApproximate: true,
+      explanation: '"Dejar/permitir" = let + persona + verbo (sin to). → She let me use her car.',
+    },
+    {
+      id: 'a2-m12-l3-mt5',
+      type: 'multiple_choice',
+      concept: 'make / let',
+      difficulty: 4,
+      prompt: '¿Cuál es la frase correcta?',
+      promptTranslation: 'Which sentence is correct?',
+      correctAnswer: 'They let us use the computer room.',
+      options: ['They let us to use the computer room.', 'They let us use the computer room.', 'They let us using the computer room.'],
+      explanation: '"Let" + persona + verbo en forma base, sin "to" y sin -ing: They let us use...',
+    },
+  ],
+  reviewItems: ['a2-m12-l2'],
+  prerequisites: ['a2-m12-l2'],
+}

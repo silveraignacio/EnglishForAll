@@ -1,0 +1,242 @@
+import type { Lesson } from '../../types'
+
+export const lesson71ReportedStatements: Lesson = {
+  id: 'b1-m7-l1',
+  moduleId: 'm7-reported-speech',
+  order: 0,
+  title: 'Estilo indirecto: oraciones afirmativas (repaso del backshift)',
+  objective: 'Repasar y consolidar el cambio de tiempos (backshift) en el estilo indirecto: presente→pasado, pasado→past perfect, will→would y can→could.',
+  explanation_es: `Cuando contamos lo que otra persona dijo, usamos el estilo indirecto (reported speech). En A2 ya viste lo básico; en B1 vamos a consolidarlo con todos los cambios de tiempo.
+
+El verbo que introduce la frase suele estar en pasado (said, told), y entonces el tiempo de lo dicho "retrocede un paso". Este retroceso se llama backshift:
+
+- am / is → was:  "I am hungry." → She said (that) she was hungry.
+- do / does y presente simple → pasado simple:  "I work here." → He said he worked here.
+- pasado simple → past perfect:  "I worked in London." → He said he had worked in London.
+- will → would:  "I will help." → She said she would help.
+- can → could:  "I can swim." → She said she could swim.
+
+También cambian los pronombres: el "I" de quien habló se convierte en he/she, y el "you" se convierte en me, him, us... según el contexto.
+
+Fíjate en que en español hacemos algo parecido: "Estoy cansado" → "Dijo que estaba cansado". El presente pasa a pasado.`,
+  examples: [
+    { english: 'Direct: "I am hungry." → Reported: She said (that) she was hungry.', spanish: 'Directo: "Tengo hambre." → Indirecto: Ella dijo que tenía hambre.', note: 'am → was' },
+    { english: 'Direct: "I worked in London." → Reported: He said he had worked in London.', spanish: 'Directo: "Trabajé en Londres." → Indirecto: Él dijo que había trabajado en Londres.', note: 'pasado simple → past perfect' },
+    { english: 'Direct: "I will help." → Reported: She said she would help.', spanish: 'Directo: "Ayudaré." → Indirecto: Ella dijo que ayudaría.', note: 'will → would' },
+    { english: 'Direct: "I can swim." → Reported: He said he could swim.', spanish: 'Directo: "Sé nadar." → Indirecto: Él dijo que sabía nadar.', note: 'can → could' },
+    { english: 'Direct: "I am working on a project." → Reported: She said she was working on a project.', spanish: 'Directo: "Estoy trabajando en un proyecto." → Indirecto: Ella dijo que estaba trabajando en un proyecto.', note: 'present continuous → past continuous' },
+  ],
+  rule: `Cambio de tiempos (backshift):
+- am / is / are → was / were
+- presente simple → pasado simple
+- presente continuo → pasado continuo
+- pasado simple → past perfect (had + participio)
+- will → would
+- can → could
+
+Estructura: Sujeto + said / told me + (that) + frase con el tiempo retrocedido.
+
+La palabra "that" es opcional: "She said she was hungry" y "She said that she was hungry" son ambas correctas.`,
+  commonMistakes: [
+    { wrong: '❌ She said she is hungry.', correct: '✅ She said she was hungry.', explanation: 'Lo dicho fue "I am hungry"; al pasar a indirecto, el presente cambia a pasado: was hungry.' },
+    { wrong: '❌ He said he worked in London (sin cambio).', correct: '✅ He said he had worked in London.', explanation: 'Si lo dicho ya estaba en pasado ("I worked"), al retroceder un paso pasa a past perfect: had worked.' },
+    { wrong: '❌ She said she will help.', correct: '✅ She said she would help.', explanation: 'Después de "said", "will" cambia siempre a "would".' },
+  ],
+  vocabulary: [
+    { word: 'report', translation_es: 'informar, contar (lo dicho)', level: 'B1', category: 'reporting verbs', partOfSpeech: 'verb', example: 'She reported that the meeting was cancelled.', exampleTranslation: 'Ella informó de que la reunión se había cancelado.' },
+    { word: 'admit', translation_es: 'admitir', level: 'B1', category: 'reporting verbs', partOfSpeech: 'verb', example: 'He admitted that he had made a mistake.', exampleTranslation: 'Él admitió que había cometido un error.' },
+    { word: 'claim', translation_es: 'afirmar, declarar', level: 'B1', category: 'reporting verbs', partOfSpeech: 'verb', example: 'She claimed that she had seen the suspect.', exampleTranslation: 'Ella afirmó que había visto al sospechoso.' },
+    { word: 'point out', translation_es: 'señalar (una idea)', level: 'B1', category: 'reporting verbs', partOfSpeech: 'phrasal verb', example: 'The teacher pointed out that the exam was next week.', exampleTranslation: 'El profesor señaló que el examen era la semana siguiente.' },
+  ],
+  grammarPoints: [
+    {
+      id: 'gp-reported-backshift',
+      level: 'B1',
+      name: 'Reported speech — backshift (repaso)',
+      explanation_es: 'Al convertir una oración a estilo indirecto, el tiempo verbal retrocede un paso: am→was, presente simple→pasado simple, pasado simple→past perfect, will→would y can→could.',
+      formula: 'said / told me + (that) + frase con backshift | "I am hungry." → She said (that) she was hungry.',
+      examples: ['She said she was hungry.', 'He said he had worked in London.', 'She said she would help.'],
+    },
+  ],
+  exercises: [
+    {
+      id: 'b1-m7-l1-ex1',
+      type: 'multiple_choice',
+      concept: 'reported speech backshift am-is',
+      difficulty: 1,
+      prompt: 'Completa: Directo: "I am hungry." → "She said she ___ hungry."',
+      promptTranslation: 'Ella dijo que tenía hambre.',
+      correctAnswer: 'was',
+      options: ['was', 'is', 'were'],
+      explanation: '"Am" cambia a "was" en estilo indirecto. → She said she was hungry.',
+    },
+    {
+      id: 'b1-m7-l1-ex2',
+      type: 'fill_blank',
+      concept: 'reported speech backshift present to past',
+      difficulty: 1,
+      prompt: 'Completa: Directo: "I work in Madrid." → "He said he ___ in Madrid."',
+      promptTranslation: 'Él dijo que trabajaba en Madrid.',
+      correctAnswer: 'worked',
+      acceptedAnswers: ['worked', 'Worked'],
+      explanation: 'El presente simple (work) cambia a pasado simple (worked). → He said he worked in Madrid.',
+    },
+    {
+      id: 'b1-m7-l1-ex3',
+      type: 'multiple_choice',
+      concept: 'reported speech backshift past to past perfect',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "I worked in London." → "He said he ___ in London."',
+      promptTranslation: 'Él dijo que había trabajado en Londres.',
+      correctAnswer: 'had worked',
+      options: ['had worked', 'worked', 'has worked'],
+      explanation: 'Si lo dicho ya está en pasado ("worked"), retrocede a past perfect: "had worked".',
+    },
+    {
+      id: 'b1-m7-l1-ex4',
+      type: 'fill_blank',
+      concept: 'reported speech backshift will would',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "I will help." → "She said she ___ help."',
+      promptTranslation: 'Ella dijo que ayudaría.',
+      correctAnswer: 'would',
+      acceptedAnswers: ['would', 'Would'],
+      explanation: '"Will" cambia a "would" en estilo indirecto. → She said she would help.',
+    },
+    {
+      id: 'b1-m7-l1-ex5',
+      type: 'multiple_choice',
+      concept: 'reported speech backshift can could',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "I can swim." → "He said he ___ swim."',
+      promptTranslation: 'Él dijo que sabía nadar.',
+      correctAnswer: 'could',
+      options: ['could', 'can', 'will'],
+      explanation: '"Can" cambia a "could" en estilo indirecto. → He said he could swim.',
+    },
+    {
+      id: 'b1-m7-l1-ex6',
+      type: 'error_correction',
+      concept: 'reported speech not shifting',
+      difficulty: 3,
+      prompt: 'Corrige el error (original: "I am hungry."): "She said she is hungry."',
+      promptTranslation: 'Ella dijo que tenía hambre.',
+      correctAnswer: 'She said she was hungry.',
+      acceptedAnswers: ['She said she was hungry', 'She said that she was hungry', 'she said she was hungry.'],
+      acceptApproximate: true,
+      explanation: 'En estilo indirecto el presente cambia a pasado: "am hungry" → "was hungry". → She said she was hungry.',
+    },
+    {
+      id: 'b1-m7-l1-ex7',
+      type: 'reorder',
+      concept: 'reported speech backshift',
+      difficulty: 3,
+      prompt: 'Ordena las palabras: She / said / that / had / she / worked / in / London',
+      promptTranslation: 'Ella dijo que había trabajado en Londres.',
+      correctAnswer: 'She said that she had worked in London.',
+      words: ['She', 'said', 'that', 'she', 'had', 'worked', 'in', 'London'],
+      explanation: 'Orden: sujeto + said + (that) + sujeto + had + participio. → She said that she had worked in London.',
+    },
+    {
+      id: 'b1-m7-l1-ex8',
+      type: 'translate',
+      concept: 'reported speech backshift will',
+      difficulty: 3,
+      prompt: 'Traduce: "Ella dijo que me ayudaría."',
+      promptTranslation: 'She said she would help me.',
+      correctAnswer: 'She said she would help me.',
+      acceptedAnswers: ['She said she would help me', 'She said that she would help me', 'she said she would help me.'],
+      acceptApproximate: true,
+      explanation: '"Me ayudaría" es un futuro condicional: "would help me". → She said she would help me.',
+    },
+    {
+      id: 'b1-m7-l1-ex9',
+      type: 'match',
+      concept: 'reported speech backshift',
+      difficulty: 3,
+      prompt: 'Relaciona cada frase directa con su versión en estilo indirecto.',
+      promptTranslation: 'Match each direct sentence with its reported form.',
+      correctAnswer: '"I am hungry."→she was hungry; "I worked in London."→he had worked in London; "I will help."→she would help; "I can swim."→he could swim; "I work in Madrid."→he worked in Madrid',
+      pairs: [
+        { left: '"I am hungry."', right: 'She said she was hungry.' },
+        { left: '"I worked in London."', right: 'He said he had worked in London.' },
+        { left: '"I will help."', right: 'She said she would help.' },
+        { left: '"I can swim."', right: 'He said he could swim.' },
+        { left: '"I work in Madrid."', right: 'He said he worked in Madrid.' },
+      ],
+      explanation: 'Cada tiempo retrocede un paso: am→was, worked→had worked, will→would, can→could y work→worked.',
+    },
+    {
+      id: 'b1-m7-l1-ex10',
+      type: 'true_false',
+      concept: 'reported speech not shifting',
+      difficulty: 4,
+      prompt: 'Directo: "I will call you." → "She said she will call me" es la forma correcta de estilo indirecto.',
+      promptTranslation: 'Direct: "I will call you." → "She said she will call me" is correct reported speech.',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE', 'f'],
+      explanation: 'Falso. Después de "said", "will" cambia a "would": She said she would call me.',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'b1-m7-l1-mt1',
+      type: 'multiple_choice',
+      concept: 'reported speech backshift am-is',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "I am happy." → "She said she ___ happy."',
+      promptTranslation: 'Ella dijo que estaba feliz.',
+      correctAnswer: 'was',
+      options: ['was', 'is', 'has'],
+      explanation: '"Am" cambia a "was". → She said she was happy.',
+    },
+    {
+      id: 'b1-m7-l1-mt2',
+      type: 'fill_blank',
+      concept: 'reported speech backshift past to past perfect',
+      difficulty: 2,
+      prompt: 'Completa: Directo: "I went to Paris." → "He said he ___ gone to Paris."',
+      promptTranslation: 'Él dijo que había ido a París.',
+      correctAnswer: 'had',
+      acceptedAnswers: ['had', 'Had'],
+      explanation: 'El pasado simple (went) retrocede a past perfect: "had gone".',
+    },
+    {
+      id: 'b1-m7-l1-mt3',
+      type: 'translate',
+      concept: 'reported speech backshift can',
+      difficulty: 3,
+      prompt: 'Traduce: "Él dijo que sabía nadar."',
+      promptTranslation: 'He said he could swim.',
+      correctAnswer: 'He said he could swim.',
+      acceptedAnswers: ['He said he could swim', 'He said that he could swim', 'he said he could swim.'],
+      acceptApproximate: true,
+      explanation: '"Sabía nadar" en indirecto = "could swim". → He said he could swim.',
+    },
+    {
+      id: 'b1-m7-l1-mt4',
+      type: 'error_correction',
+      concept: 'reported speech backshift will',
+      difficulty: 3,
+      prompt: 'Corrige el error (original: "I will help."): "She said she will help."',
+      promptTranslation: 'Ella dijo que ayudaría.',
+      correctAnswer: 'She said she would help.',
+      acceptedAnswers: ['She said she would help', 'She said that she would help', 'she said she would help.'],
+      acceptApproximate: true,
+      explanation: 'Después de "said", "will" cambia a "would". → She said she would help.',
+    },
+    {
+      id: 'b1-m7-l1-mt5',
+      type: 'multiple_choice',
+      concept: 'reported speech backshift have-had',
+      difficulty: 4,
+      prompt: '¿Cuál es la forma correcta de estilo indirecto para "I have finished."?',
+      promptTranslation: 'Which is the correct reported form of "I have finished."?',
+      correctAnswer: 'She said she had finished.',
+      options: ['She said she has finished.', 'She said she had finished.', 'She said she finished.'],
+      explanation: '"Have finished" (present perfect) retrocede a past perfect: "had finished".',
+    },
+  ],
+  reviewItems: ['a2-m12-l5'],
+  prerequisites: ['a2-m12-l5'],
+}

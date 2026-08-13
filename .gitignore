@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Env
+.env
+.env.local
+
+# PocketBase runtime data (never commit the database or logs)
+pb_data/
+pb_logs/
+pb/pocketbase
+pb/*.zip

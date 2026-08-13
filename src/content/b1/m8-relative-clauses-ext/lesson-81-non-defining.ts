@@ -1,0 +1,241 @@
+import type { Lesson } from '../../types'
+
+export const lesson81NonDefining: Lesson = {
+  id: 'b1-m8-l1',
+  moduleId: 'm8-relative-clauses-ext',
+  order: 0,
+  title: 'Oraciones de relativo no definidoras (non-defining relative clauses)',
+  objective: 'Usar oraciones de relativo no definidoras con who/which, separadas por comas, para añadir información extra que no define al sujeto.',
+  explanation_es: `En A2 aprendiste las oraciones de relativo definidoras (defining), las que identifican de quién o de qué hablamos: "The woman who lives next door is my aunt" (la mujer que vive al lado es mi tía — esa información es necesaria para saber de qué mujer hablamos).
+
+En B1 aprendemos las oraciones no definidoras (non-defining). Estas AÑADEN información extra sobre una persona o cosa que ya está identificada. Esa información no es necesaria para entender de quién hablamos.
+
+Características:
+1) Se separan con COMAS.
+2) No se usa "that" — solo "who" (personas) o "which" (cosas).
+3) Se pueden quitar sin que cambie el sentido de la frase.
+
+Ejemplos:
+- My brother, who lives in London, is a doctor. (Ya sé quién es mi hermano; "who lives in London" es información extra.)
+- This book, which I bought yesterday, is fantastic.
+
+En español sería: "Mi hermano, que vive en Londres, es médico". También en español separamos con comas.
+
+¡CUIDADO!
+- ❌ My brother, that lives in London, is a doctor. ("that" no se usa en no definidoras.)
+- ✅ My brother, who lives in London, is a doctor.`,
+  examples: [
+    { english: 'My brother, who lives in London, is a doctor.', spanish: 'Mi hermano, que vive en Londres, es médico.', note: 'información extra con who + comas' },
+    { english: 'This book, which I bought yesterday, is fantastic.', spanish: 'Este libro, que compré ayer, es fantástico.', note: 'información extra con which' },
+    { english: 'Our teacher, who is very patient, explains everything twice.', spanish: 'Nuestra profesora, que es muy paciente, lo explica todo dos veces.' },
+    { english: 'The museum, which is very old, is in the city centre.', spanish: 'El museo, que es muy antiguo, está en el centro de la ciudad.' },
+    { english: 'María, who speaks three languages, works in tourism.', spanish: 'María, que habla tres idiomas, trabaja en el turismo.', note: 'la coma separa la información extra' },
+  ],
+  rule: `Regla de las no definidoras:
+- Información extra que no define → va entre comas.
+- who = personas; which = cosas. NUNCA "that".
+- Si quitamos la parte entre comas, la frase sigue teniendo sentido.
+
+Estructura: Sujeto, + who/which + verbo + , + verbo principal.`,
+  commonMistakes: [
+    { wrong: '❌ My brother, that lives in London, is a doctor.', correct: '✅ My brother, who lives in London, is a doctor.', explanation: 'En las no definidoras no se usa "that"; con personas usamos "who".' },
+    { wrong: '❌ This book, who I bought yesterday, is fantastic.', correct: '✅ This book, which I bought yesterday, is fantastic.', explanation: 'Para cosas usamos "which", no "who".' },
+    { wrong: '❌ My brother who lives in London is a doctor (sin comas).', correct: '✅ My brother, who lives in London, is a doctor.', explanation: 'Sin las comas, la información parece necesaria para identificar de qué hermano hablamos; con comas es información extra.' },
+  ],
+  vocabulary: [
+    { word: 'architect', translation_es: 'arquitecto/a', level: 'B1', category: 'professions', partOfSpeech: 'noun', example: 'My sister, who is an architect, designed this building.', exampleTranslation: 'Mi hermana, que es arquitecta, diseñó este edificio.' },
+    { word: 'journalist', translation_es: 'periodista', level: 'B1', category: 'professions', partOfSpeech: 'noun', example: 'The journalist, who wrote the article, lives abroad.', exampleTranslation: 'El periodista, que escribió el artículo, vive en el extranjero.' },
+    { word: 'retire', translation_es: 'jubilarse', level: 'B1', category: 'life events', partOfSpeech: 'verb', example: 'My uncle, who retired last year, travels a lot.', exampleTranslation: 'Mi tío, que se jubiló el año pasado, viaja mucho.' },
+    { word: 'incredible', translation_es: 'increíble', level: 'B1', category: 'adjectives', partOfSpeech: 'adjective', example: 'This film, which is incredible, won several awards.', exampleTranslation: 'Esta película, que es increíble, ganó varios premios.' },
+  ],
+  grammarPoints: [
+    {
+      id: 'gp-non-defining',
+      level: 'B1',
+      name: 'Non-defining relative clauses',
+      explanation_es: 'Las oraciones de relativo no definidoras añaden información extra entre comas con who (personas) o which (cosas). Nunca se usa "that" y no son necesarias para identificar al sujeto.',
+      formula: 'Sujeto, + who/which + verbo, + verbo principal | My brother, who lives in London, is a doctor.',
+      examples: ['My brother, who lives in London, is a doctor.', 'This book, which I bought yesterday, is fantastic.'],
+    },
+  ],
+  exercises: [
+    {
+      id: 'b1-m8-l1-ex1',
+      type: 'multiple_choice',
+      concept: 'non-defining who',
+      difficulty: 1,
+      prompt: 'Completa: "My brother, ___ lives in London, is a doctor."',
+      promptTranslation: 'Mi hermano, que vive en Londres, es médico.',
+      correctAnswer: 'who',
+      options: ['who', 'which', 'that'],
+      explanation: 'En una no definidora con persona usamos "who". No se usa "that".',
+    },
+    {
+      id: 'b1-m8-l1-ex2',
+      type: 'fill_blank',
+      concept: 'non-defining which',
+      difficulty: 2,
+      prompt: 'Completa: "This book, ___ I bought yesterday, is fantastic."',
+      promptTranslation: 'Este libro, que compré ayer, es fantástico.',
+      correctAnswer: 'which',
+      acceptedAnswers: ['which', 'Which'],
+      explanation: 'Para una cosa (book) usamos "which" en la no definidora.',
+    },
+    {
+      id: 'b1-m8-l1-ex3',
+      type: 'multiple_choice',
+      concept: 'non-defining commas',
+      difficulty: 2,
+      prompt: '¿Cuál de estas frases tiene la puntuación correcta?',
+      promptTranslation: 'Which of these sentences has the correct punctuation?',
+      correctAnswer: 'The museum, which is very old, is in the city centre.',
+      options: ['The museum, which is very old, is in the city centre.', 'The museum which is very old is in the city centre.', 'The museum which, is very old, is in the city centre.'],
+      explanation: 'La información extra "which is very old" va entre comas.',
+    },
+    {
+      id: 'b1-m8-l1-ex4',
+      type: 'error_correction',
+      concept: 'non-defining that',
+      difficulty: 3,
+      prompt: 'Corrige el error: "My brother, that lives in London, is a doctor."',
+      promptTranslation: 'Mi hermano, que vive en Londres, es médico.',
+      correctAnswer: 'My brother, who lives in London, is a doctor.',
+      acceptedAnswers: ['My brother, who lives in London, is a doctor', 'My brother, who lives in London, is a doctor.', 'my brother, who lives in london, is a doctor'],
+      acceptApproximate: true,
+      explanation: 'En las no definidoras no se usa "that"; con persona usamos "who".',
+    },
+    {
+      id: 'b1-m8-l1-ex5',
+      type: 'reorder',
+      concept: 'non-defining which',
+      difficulty: 3,
+      prompt: 'Ordena las palabras: This / book / which / bought / yesterday / fantastic / I / is',
+      promptTranslation: 'Este libro, que compré ayer, es fantástico.',
+      correctAnswer: 'This book, which I bought yesterday, is fantastic.',
+      words: ['This', 'book', 'which', 'I', 'bought', 'yesterday', 'is', 'fantastic'],
+      explanation: 'Orden: sujeto + coma + which + frase + coma + verbo principal. → This book, which I bought yesterday, is fantastic.',
+    },
+    {
+      id: 'b1-m8-l1-ex6',
+      type: 'translate',
+      concept: 'non-defining who',
+      difficulty: 3,
+      prompt: 'Traduce: "Mi hermana, que vive en París, es arquitecta."',
+      promptTranslation: 'My sister, who lives in Paris, is an architect.',
+      correctAnswer: 'My sister, who lives in Paris, is an architect.',
+      acceptedAnswers: ['My sister, who lives in Paris, is an architect', 'My sister, who lives in Paris, is an architect.', 'my sister, who lives in paris, is an architect'],
+      acceptApproximate: true,
+      explanation: 'Información extra con who + comas: My sister, who lives in Paris, is an architect.',
+    },
+    {
+      id: 'b1-m8-l1-ex7',
+      type: 'match',
+      concept: 'non-defining clauses',
+      difficulty: 3,
+      prompt: 'Relaciona cada frase con su traducción.',
+      promptTranslation: 'Match each sentence with its translation.',
+      correctAnswer: 'My brother, who lives in London, is a doctor.=Mi hermano, que vive en Londres, es médico.; This book, which I bought yesterday, is fantastic.=Este libro, que compré ayer, es fantástico.; The museum, which is very old, is in the city centre.=El museo, que es muy antiguo, está en el centro.; Our teacher, who is very patient, explains everything twice.=Nuestra profesora, que es muy paciente, lo explica todo dos veces.',
+      pairs: [
+        { left: 'My brother, who lives in London, is a doctor.', right: 'Mi hermano, que vive en Londres, es médico.' },
+        { left: 'This book, which I bought yesterday, is fantastic.', right: 'Este libro, que compré ayer, es fantástico.' },
+        { left: 'The museum, which is very old, is in the city centre.', right: 'El museo, que es muy antiguo, está en el centro de la ciudad.' },
+        { left: 'Our teacher, who is very patient, explains everything twice.', right: 'Nuestra profesora, que es muy paciente, lo explica todo dos veces.' },
+      ],
+      explanation: 'Las no definidoras añaden información extra entre comas; who para personas y which para cosas.',
+    },
+    {
+      id: 'b1-m8-l1-ex8',
+      type: 'true_false',
+      concept: 'non-defining that',
+      difficulty: 3,
+      prompt: 'En las oraciones de relativo no definidoras podemos usar "that".',
+      promptTranslation: 'In non-defining relative clauses we can use "that".',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE', 'f'],
+      explanation: 'Falso. En las no definidoras se usa "who" o "which", nunca "that".',
+    },
+    {
+      id: 'b1-m8-l1-ex9',
+      type: 'fill_blank',
+      concept: 'non-defining which',
+      difficulty: 3,
+      prompt: 'Completa: "The house, ___ is very old, has a big garden."',
+      promptTranslation: 'La casa, que es muy antigua, tiene un jardín grande.',
+      correctAnswer: 'which',
+      acceptedAnswers: ['which', 'Which'],
+      explanation: 'Para una cosa (house) usamos "which" en la no definidora.',
+    },
+    {
+      id: 'b1-m8-l1-ex10',
+      type: 'multiple_choice',
+      concept: 'non-defining who',
+      difficulty: 4,
+      prompt: '¿Cuál es la frase correcta?',
+      promptTranslation: 'Which sentence is correct?',
+      correctAnswer: 'Ana, who is my best friend, is visiting.',
+      options: ['Ana, who is my best friend, is visiting.', 'Ana, that is my best friend, is visiting.', 'Ana, which is my best friend, is visiting.'],
+      explanation: 'Persona → who, entre comas, sin "that" ni "which".',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'b1-m8-l1-mt1',
+      type: 'multiple_choice',
+      concept: 'non-defining which',
+      difficulty: 2,
+      prompt: 'Completa: "The car, ___ is red, belongs to Tom."',
+      promptTranslation: 'El coche, que es rojo, pertenece a Tom.',
+      correctAnswer: 'which',
+      options: ['which', 'who', 'that'],
+      explanation: 'Cosa (car) → which en no definidora.',
+    },
+    {
+      id: 'b1-m8-l1-mt2',
+      type: 'fill_blank',
+      concept: 'non-defining who',
+      difficulty: 2,
+      prompt: 'Completa: "John, ___ I met last year, is very funny."',
+      promptTranslation: 'John, a quien conocí el año pasado, es muy divertido.',
+      correctAnswer: 'who',
+      acceptedAnswers: ['who', 'Who'],
+      explanation: 'Persona (John) → who en la no definidora.',
+    },
+    {
+      id: 'b1-m8-l1-mt3',
+      type: 'error_correction',
+      concept: 'non-defining that',
+      difficulty: 3,
+      prompt: 'Corrige el error: "This phone, that I bought in January, is excellent."',
+      promptTranslation: 'Este teléfono, que compré en enero, es excelente.',
+      correctAnswer: 'This phone, which I bought in January, is excellent.',
+      acceptedAnswers: ['This phone, which I bought in January, is excellent', 'This phone, which I bought in January, is excellent.', 'this phone, which i bought in january, is excellent'],
+      acceptApproximate: true,
+      explanation: 'En no definidora no se usa "that"; con cosa usamos "which".',
+    },
+    {
+      id: 'b1-m8-l1-mt4',
+      type: 'translate',
+      concept: 'non-defining who',
+      difficulty: 3,
+      prompt: 'Traduce: "El profesor, que es muy amable, explica todo dos veces."',
+      promptTranslation: 'The teacher, who is very kind, explains everything twice.',
+      correctAnswer: 'The teacher, who is very kind, explains everything twice.',
+      acceptedAnswers: ['The teacher, who is very kind, explains everything twice', 'The teacher, who is very kind, explains everything twice.', 'the teacher, who is very kind, explains everything twice'],
+      acceptApproximate: true,
+      explanation: 'Persona → who + comas: The teacher, who is very kind, explains everything twice.',
+    },
+    {
+      id: 'b1-m8-l1-mt5',
+      type: 'multiple_choice',
+      concept: 'non-defining commas',
+      difficulty: 4,
+      prompt: '¿Cuál de estas frases es correcta?',
+      promptTranslation: 'Which sentence is correct?',
+      correctAnswer: 'The film, which won an Oscar, is my favourite.',
+      options: ['The film, which won an Oscar, is my favourite.', 'The film which won an Oscar is my favourite.', 'The film, that won an Oscar, is my favourite.'],
+      explanation: 'No definidora con which entre comas; "that" no es válido aquí.',
+    },
+  ],
+  reviewItems: ['a2-m12-l5'],
+  prerequisites: ['a2-m12-l5'],
+}

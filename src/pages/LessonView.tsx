@@ -1,0 +1,376 @@
+import { useState, useMemo, useCallback } from 'react'
+import { useParams, useNavigate, Link } from 'react-router-dom'
+import { getCourse } from '@/content'
+import { useProgressStore } from '@/store/progressStore'
+import { useSettingsStore } from '@/store/settingsStore'
+import { Card } from '@/components/ui/Card'
+import { Button } from '@/components/ui/Button'
+import { Badge } from '@/components/ui/Badge'
+import { ProgressBar } from '@/components/ui/ProgressBar'
+import { ExerciseRenderer } from '@/components/exercises/ExerciseRenderer'
+import { Markdown } from '@/components/ui/Markdown'
+import type { ExerciseRecord } from '@/types/progress'
+import { cn } from '@/lib/utils'
+import { isLevelUnlocked } from '@/lib/access'
+
+type LessonPhase = 'explanation' | 'exercises' | 'miniTest' | 'results'
+
+export function LessonView() {
+  const { lessonId } = useParams<{ lessonId: string }>()
+  const navigate = useNavigate()
+  const course = getCourse()
+  const progress = useProgressStore((s) => s.progress)
+  const recordExercise = useProgressStore((s) => s.recordExercise)
+  const completeLesson = useProgressStore((s) => s.completeLesson)
+  const setCurrentLesson = useProgressStore((s) => s.setCurrentLesson)
+  const settings = useSettingsStore((s) => s.settings)
+
+  const lessonData = useMemo((): {
+    lesson: import('@/content/types').Lesson | null
+    module: import('@/content/types').Module | null
+    moduleIndex: number
+    lessonIndex: number
+    nextLesson: import('@/content/types').Lesson | null
+  } => {
+    const a1 = course.levels.find((l) => l.id === 'a1')
+    if (!a1) return { lesson: null, module: null, moduleIndex: -1, lessonIndex: -1, nextLesson: null }
+    for (let mi = 0; mi < a1.modules.length; mi++) {
+      const mod = a1.modules[mi]
+      for (let li = 0; li < mod.lessons.length; li++) {
+        const l = mod.lessons[li]
+        if (l.id === lessonId) {
+          const next = mod.lessons[li + 1] || (a1.modules[mi + 1]?.lessons[0] ?? null)
+          return { lesson: l, module: mod, moduleIndex: mi, lessonIndex: li, nextLesson: next }
+        }
+      }
+    }
+    return { lesson: null, module: null, moduleIndex: -1, lessonIndex: -1, nextLesson: null }
+  }, [course, lessonId])
+
+  const lesson = lessonData.lesson
+  const mod = lessonData.module
+  const moduleIndex = lessonData.moduleIndex
+  const lessonIndex = lessonData.lessonIndex
+  const nextLesson = lessonData.nextLesson
+
+  const [phase, setPhase] = useState<LessonPhase>('explanation')
+  const [exerciseIdx, setExerciseIdx] = useState(0)
+  const [score, setScore] = useState(0)
+  const [attemptResults, setAttemptResults] = useState<boolean[]>([])
+  const [miniTestIdx, setMiniTestIdx] = useState(0)
+  const [miniTestScore, setMiniTestScore] = useState(0)
+  const [miniTestResults, setMiniTestResults] = useState<boolean[]>([])
+
+  const handleRecord = useCallback(
+    (correct: boolean, userAnswer: string, attempts: number) => {
+      if (!lesson) return
+      const rec: ExerciseRecord = {
+        exerciseId: '',
+        lessonId: lesson.id,
+        correct,
+        attempts,
+        timestamp: Date.now(),
+        concept: '',
+        difficulty: 1,
+        userAnswer,
+      }
+      // Fill from current exercise
+      const exercises = phase === 'miniTest' ? lesson.miniTest : lesson.exercises
+      const ex = exercises[phase === 'miniTest' ? miniTestIdx : exerciseIdx]
+      rec.exerciseId = ex.id
+      rec.concept = ex.concept
+      rec.difficulty = ex.difficulty
+      recordExercise(rec)
+      if (correct) {
+        if (phase === 'miniTest') {
+          setMiniTestScore((s) => s + 1)
+          setMiniTestResults((r) => [...r, true])
+        } else {
+          setScore((s) => s + 1)
+          setAttemptResults((r) => [...r, true])
+        }
+      } else {
+        if (phase === 'miniTest') {
+          setMiniTestResults((r) => [...r, false])
+        } else {
+          setAttemptResults((r) => [...r, false])
+        }
+      }
+    },
+    [lesson, phase, exerciseIdx, miniTestIdx, recordExercise]
+  )
+
+  const handleNext = useCallback(() => {
+    if (!lesson) return
+    const exercises = phase === 'miniTest' ? lesson.miniTest : lesson.exercises
+    const cur = phase === 'miniTest' ? miniTestIdx : exerciseIdx
+    if (cur < exercises.length - 1) {
+      if (phase === 'miniTest') {
+        setMiniTestIdx(cur + 1)
+      } else {
+        setExerciseIdx(cur + 1)
+      }
+    } else {
+      // Finished current phase
+      if (phase === 'exercises') {
+        setPhase('miniTest')
+        setMiniTestIdx(0)
+      } else if (phase === 'miniTest') {
+        setPhase('results')
+        // Determine if lesson passed
+        const totalExercises = lesson.exercises.length
+        const totalMini = lesson.miniTest.length
+        const totalCorrect = score + miniTestScore
+        const totalAttempted = totalExercises + totalMini
+        const pct = totalAttempted > 0 ? (totalCorrect / totalAttempted) * 100 : 0
+        const passed = pct >= settings.passingThreshold
+        const allCorrect = totalCorrect === totalAttempted
+        if (passed) {
+          completeLesson(lesson.id, allCorrect)
+        }
+      }
+    }
+  }, [lesson, phase, exerciseIdx, miniTestIdx, score, miniTestScore, completeLesson, settings.passingThreshold])
+
+  if (!lesson || !mod) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-ink-soft mb-4">Lección no encontrada.</p>
+        <Link to="/"><Button variant="secondary">Volver al inicio</Button></Link>
+      </div>
+    )
+  }
+
+  const lessonLevelId = mod.levelId
+  const lessonUnlocked = isLevelUnlocked(progress, lessonLevelId)
+  if (!lessonUnlocked) {
+    return (
+      <div className="space-y-6 max-w-2xl mx-auto animate-fade-in text-center py-16">
+        <div className="text-5xl">🔒</div>
+        <h1 className="text-2xl font-extrabold">Nivel bloqueado</h1>
+        <p className="text-ink-soft">
+          Debes aprobar el examen final del nivel anterior para acceder a este contenido.
+        </p>
+        <div className="flex justify-center gap-3">
+          <Link to="/"><Button variant="ghost">Volver al inicio</Button></Link>
+          <Link to="/level/a1"><Button variant="primary">Ir al nivel A1</Button></Link>
+        </div>
+      </div>
+    )
+  }
+
+  const totalExercises = lesson.exercises.length
+  const totalMini = lesson.miniTest.length
+  const currentExercise = phase === 'exercises' ? lesson.exercises[exerciseIdx] : phase === 'miniTest' ? lesson.miniTest[miniTestIdx] : null
+
+  if (phase === 'explanation') {
+    return (
+      <div className="space-y-6 animate-fade-in max-w-3xl mx-auto">
+        <LessonBreadcrumb module={mod} lesson={lesson} moduleIndex={moduleIndex} lessonIndex={lessonIndex} />
+        <LessonExplanation lesson={lesson} />
+        <div className="flex items-center justify-between pt-4 border-t border-ink/5">
+          <Link to={`/level/a1`}>
+            <Button variant="ghost">← Módulos</Button>
+          </Link>
+          <Button variant="primary" size="lg" onClick={() => { setCurrentLesson(lesson.id); setPhase('exercises') }}>
+            Empezar práctica ({totalExercises} ejercicios) →
+          </Button>
+        </div>
+      </div>
+    )
+  }
+
+  if (phase === 'results') {
+    const totalCorrect = score + miniTestScore
+    const totalAttempted = totalExercises + totalMini
+    const pct = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0
+    const passed = pct >= settings.passingThreshold
+    return (
+      <div className="space-y-6 animate-fade-in max-w-2xl mx-auto text-center py-10">
+        <div className="text-6xl">{passed ? '🎉' : '💪'}</div>
+        <h2 className="text-2xl font-extrabold">
+          {passed ? '¡Lección completada!' : 'Sigue practicando'}
+        </h2>
+        <div className="max-w-sm mx-auto">
+          <ProgressBar value={pct} height="lg" showValue color={passed ? 'success' : 'warning'} />
+        </div>
+        <p className="text-ink-soft">
+          Aciertos: {totalCorrect} / {totalAttempted} ({pct}%)
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+          {nextLesson && passed ? (
+            <>
+              <Button variant="secondary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setMiniTestIdx(0); setScore(0); setMiniTestScore(0); setAttemptResults([]); setMiniTestResults([]) }}>
+                Repetir lección
+              </Button>
+              <Button variant="primary" onClick={() => navigate(`/lesson/${nextLesson.id}`)}>
+                Siguiente lección →
+              </Button>
+            </>
+          ) : !nextLesson && passed ? (
+            <Button variant="success" onClick={() => navigate(`/module/${mod!.id}/checkpoint`)}>
+              Hacer checkpoint del módulo →
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setMiniTestIdx(0); setScore(0); setMiniTestScore(0); setAttemptResults([]); setMiniTestResults([]) }}>
+              Repetir lección
+            </Button>
+          )}
+        </div>
+        {!passed && (
+          <p className="text-sm text-ink-light pt-2">
+            Necesitas al menos {settings.passingThreshold}% para completar la lección.
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  // Exercise / miniTest phase
+  const currentArr = phase === 'exercises' ? lesson.exercises : lesson.miniTest
+  const currentIdxVal = phase === 'exercises' ? exerciseIdx : miniTestIdx
+  const phaseTotal = currentArr.length
+  const phaseProgress = Math.round((currentIdxVal / phaseTotal) * 100)
+  const phaseLabel = phase === 'exercises' ? 'Práctica' : 'Mini-Test'
+
+  return (
+    <div className="space-y-5 max-w-3xl mx-auto">
+      <LessonBreadcrumb module={mod} lesson={lesson} moduleIndex={moduleIndex} lessonIndex={lessonIndex} compact />
+      <div className="flex items-center justify-between">
+        <Badge variant="brand">{phaseLabel}</Badge>
+        <span className="text-sm font-medium text-ink-soft">
+          {currentIdxVal + 1} / {phaseTotal}
+        </span>
+      </div>
+      <ProgressBar value={phaseProgress} height="sm" />
+      {currentExercise && (
+        <ExerciseRenderer
+          key={currentExercise.id + phase + currentIdxVal}
+          exercise={currentExercise}
+          onAnswer={handleRecord}
+          onNext={handleNext}
+          isLast={currentIdxVal === phaseTotal - 1 && (phase === 'exercises' || phase === 'miniTest')}
+        />
+      )}
+    </div>
+  )
+}
+
+function LessonBreadcrumb({ module: mod, lesson, moduleIndex, lessonIndex, compact }: {
+  module: import('@/content/types').Module
+  lesson: import('@/content/types').Lesson
+  moduleIndex: number
+  lessonIndex: number
+  compact?: boolean
+}) {
+  return (
+    <div className={cn('flex items-center gap-2 text-sm text-ink-light', compact && 'text-xs')}>
+      <Link to="/level/a1" className="hover:text-ink">A1</Link>
+      <span>/</span>
+      <Link to={`/level/a1#module-${moduleIndex}`} className="hover:text-ink">Módulo {moduleIndex + 1}</Link>
+      <span>/</span>
+      <span className="text-ink font-medium">Lección {lessonIndex + 1}</span>
+    </div>
+  )
+}
+
+function LessonExplanation({ lesson }: { lesson: import('@/content/types').Lesson }) {
+  return (
+    <article className="space-y-6">
+      <header>
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-ink mb-2">{lesson.title}</h1>
+        <p className="text-ink-soft text-base">{lesson.objective}</p>
+      </header>
+
+      {/* Explanation */}
+      <Card>
+        <h2 className="text-lg font-bold text-ink mb-3">📖 Explicación</h2>
+        <div className="text-ink-soft leading-relaxed">
+          <Markdown content={lesson.explanation_es} />
+        </div>
+      </Card>
+
+      {/* Examples */}
+      {lesson.examples.length > 0 && (
+        <Card>
+          <h2 className="text-lg font-bold text-ink mb-3">✏️ Ejemplos</h2>
+          <div className="space-y-3">
+            {lesson.examples.map((ex, i) => (
+              <div key={i} className="p-3 rounded-xl bg-surface-muted border border-ink/5">
+                <p className="text-ink font-medium">{ex.english}</p>
+                <p className="text-ink-light text-sm mt-0.5">= {ex.spanish}</p>
+                {ex.note && <p className="text-brand-600 text-xs mt-1.5 italic">{ex.note}</p>}
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Rule */}
+      <Card className="bg-brand-50 border-brand-100">
+        <h2 className="text-lg font-bold text-ink mb-3">📐 Regla</h2>
+        <div className="text-ink-soft leading-relaxed">
+          <Markdown content={lesson.rule} />
+        </div>
+      </Card>
+
+      {/* Common Mistakes */}
+      {lesson.commonMistakes.length > 0 && (
+        <Card className="bg-error-50/30 border-error-200/40">
+          <h2 className="text-lg font-bold text-error-600 mb-3">⚠️ Errores comunes</h2>
+          <ul className="space-y-3">
+            {lesson.commonMistakes.map((m, i) => (
+              <li key={i} className="border-l-2 border-error-300 pl-3">
+                <p className="text-error-600 text-sm line-through">{m.wrong}</p>
+                <p className="text-success-600 text-sm font-medium">{m.correct}</p>
+                <p className="text-ink-light text-xs mt-1">{m.explanation}</p>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      )}
+
+      {/* Vocabulary */}
+      {lesson.vocabulary.length > 0 && (
+        <Card>
+          <h2 className="text-lg font-bold text-ink mb-3">📚 Vocabulario</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {lesson.vocabulary.map((v, i) => (
+              <div key={i} className="p-3 rounded-lg bg-surface-muted border border-ink/5">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-ink">{v.word}</span>
+                  <Badge variant="muted">{v.partOfSpeech}</Badge>
+                </div>
+                <p className="text-ink-light text-sm">{v.translation_es}</p>
+                <p className="text-ink-faint text-xs mt-1 italic">"{v.example}"</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Grammar Points */}
+      {lesson.grammarPoints.length > 0 && (
+        <Card>
+          <h2 className="text-lg font-bold text-ink mb-3">🧩 Gramática</h2>
+          <div className="space-y-4">
+            {lesson.grammarPoints.map((g, i) => (
+              <div key={i} className="p-3 rounded-lg bg-surface-muted border border-ink/5">
+                <h3 className="font-semibold text-ink mb-1">{g.name}</h3>
+                <p className="text-ink-light text-sm mb-2">{g.explanation_es}</p>
+                <p className="text-brand-700 font-mono text-sm bg-brand-50 rounded px-2 py-1 inline-block">{g.formula}</p>
+                <ul className="mt-2 space-y-1">
+                  {g.examples.map((e, j) => (
+                    <li key={j} className="text-ink-soft text-sm">• {e}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+    </article>
+  )
+}
+
+export default LessonView

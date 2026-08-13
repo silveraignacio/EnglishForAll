@@ -1,0 +1,241 @@
+import type { Lesson } from '../../types'
+
+export const lesson91ThirdConditional: Lesson = {
+  id: 'b1-m9-l1',
+  moduleId: 'm9-third-conditional-wishes',
+  order: 0,
+  title: 'Tercer condicional: forma y significado',
+  objective: 'Formar y usar el tercer condicional (if + past perfect, would have + participio) para hablar de hipótesis y arrepentimientos del pasado.',
+  explanation_es: `El tercer condicional (third conditional) se usa para hablar de situaciones pasadas que NO ocurrieron y de sus consecuencias imaginarias. Expresa arrepentimiento o hipótesis sobre el pasado.
+
+Forma:
+- if + past perfect (had + participio) → would have + participio
+
+Ejemplos:
+- If I had studied more, I would have passed. = Si hubiera estudiado más, habría aprobado.
+- If she had known, she would have come. = Si ella hubiera sabido, habría venido.
+- We wouldn't have got lost if we had taken a map. = No nos habríamos perdido si hubiéramos llevado un mapa.
+
+¿Cómo se relaciona con el español? En español usamos "habría + participio" y "hubiera + participio". En inglés, en la parte de "if" usamos "had + participio", y en la parte del resultado "would have + participio".
+
+¡CUIDADO!
+- En la parte de "if" NO se usa "would": ❌ If I would have studied → ✅ If I had studied.
+- Después de "would have" usamos el PARTICIPIO pasado: ❌ I would have went → ✅ I would have gone.`,
+  examples: [
+    { english: 'If I had studied more, I would have passed.', spanish: 'Si hubiera estudiado más, habría aprobado.', note: 'if + had studied → would have passed' },
+    { english: 'If she had known, she would have come.', spanish: 'Si ella hubiera sabido, habría venido.', note: 'if + had known → would have come' },
+    { english: 'We wouldn\'t have got lost if we had taken a map.', spanish: 'No nos habríamos perdido si hubiéramos llevado un mapa.', note: 'negativa + if + had taken' },
+    { english: 'He would have called if he had had your number.', spanish: 'Él te habría llamado si hubiera tenido tu número.', note: 'had had = hubiera tenido' },
+    { english: 'They would have arrived on time if they had left earlier.', spanish: 'Ellos habrían llegado a tiempo si hubieran salido antes.' },
+  ],
+  rule: `Tercer condicional:
+- if + had + participio → would have + participio
+- Ejemplo: If I had studied more, I would have passed.
+
+Reglas clave:
+- En la parte de "if" NO se usa "would": ✅ if I had studied, ❌ if I would have studied.
+- Después de "would have" va el participio pasado: ✅ would have gone, ❌ would have went.
+- El orden puede invertirse: I would have passed if I had studied more.`,
+  commonMistakes: [
+    { wrong: '❌ If I would have studied more, I would have passed.', correct: '✅ If I had studied more, I would have passed.', explanation: 'En la parte de "if" usamos "had + participio", nunca "would have".' },
+    { wrong: '❌ I would have went to the party.', correct: '✅ I would have gone to the party.', explanation: 'Después de "would have" va el participio: "go" → "gone".' },
+    { wrong: '❌ If I had studied, I will have passed.', correct: '✅ If I had studied, I would have passed.', explanation: 'La consecuencia en pasado se expresa con "would have + participio", no con "will have".' },
+  ],
+  vocabulary: [
+    { word: 'regret', translation_es: 'arrepentimiento; lamentar', level: 'B1', category: 'feelings', partOfSpeech: 'noun/verb', example: 'If I had studied more, I wouldn\'t have this regret.', exampleTranslation: 'Si hubiera estudiado más, no tendría este arrepentimiento.' },
+    { word: 'opportunity', translation_es: 'oportunidad', level: 'B1', category: 'nouns', partOfSpeech: 'noun', example: 'I missed an opportunity because I had arrived late.', exampleTranslation: 'Perdí una oportunidad porque había llegado tarde.' },
+    { word: 'pass an exam', translation_es: 'aprobar un examen', level: 'B1', category: 'education', partOfSpeech: 'phrase', example: 'If I had studied more, I would have passed the exam.', exampleTranslation: 'Si hubiera estudiado más, habría aprobado el examen.' },
+    { word: 'get lost', translation_es: 'perderse', level: 'B1', category: 'travel', partOfSpeech: 'phrasal verb', example: 'We wouldn\'t have got lost if we had taken a map.', exampleTranslation: 'No nos habríamos perdido si hubiéramos llevado un mapa.' },
+  ],
+  grammarPoints: [
+    {
+      id: 'gp-third-conditional',
+      level: 'B1',
+      name: 'Third conditional (form & meaning)',
+      explanation_es: 'El tercer condicional expresa hipótesis no cumplidas en el pasado: if + past perfect (had + participio) y resultado con would have + participio.',
+      formula: 'If + had + participio, + would have + participio | If I had studied more, I would have passed.',
+      examples: ['If I had studied more, I would have passed.', 'If she had known, she would have come.', 'We wouldn\'t have got lost if we had taken a map.'],
+    },
+  ],
+  exercises: [
+    {
+      id: 'b1-m9-l1-ex1',
+      type: 'multiple_choice',
+      concept: 'third conditional if clause',
+      difficulty: 1,
+      prompt: 'Completa: "If I ___ studied more, I would have passed."',
+      promptTranslation: 'Si hubiera estudiado más, habría aprobado.',
+      correctAnswer: 'had',
+      options: ['had', 'have', 'would'],
+      explanation: 'En la parte de "if" usamos "had + participio": if I had studied.',
+    },
+    {
+      id: 'b1-m9-l1-ex2',
+      type: 'fill_blank',
+      concept: 'third conditional would have',
+      difficulty: 2,
+      prompt: 'Completa: "If she had known, she ___ have come."',
+      promptTranslation: 'Si ella hubiera sabido, habría venido.',
+      correctAnswer: 'would',
+      acceptedAnswers: ['would', 'Would'],
+      explanation: 'La consecuencia usa "would have + participio": she would have come.',
+    },
+    {
+      id: 'b1-m9-l1-ex3',
+      type: 'multiple_choice',
+      concept: 'third conditional if clause',
+      difficulty: 2,
+      prompt: 'Completa: "We wouldn\'t have got lost if we ___ taken a map."',
+      promptTranslation: 'No nos habríamos perdido si hubiéramos llevado un mapa.',
+      correctAnswer: 'had',
+      options: ['had', 'have', 'would'],
+      explanation: 'La parte de "if" lleva past perfect: if we had taken a map.',
+    },
+    {
+      id: 'b1-m9-l1-ex4',
+      type: 'error_correction',
+      concept: 'third conditional if would',
+      difficulty: 3,
+      prompt: 'Corrige el error: "If I would have studied more, I would have passed."',
+      promptTranslation: 'Si hubiera estudiado más, habría aprobado.',
+      correctAnswer: 'If I had studied more, I would have passed.',
+      acceptedAnswers: ['If I had studied more, I would have passed', 'If I had studied more, I would have passed.', 'if i had studied more, i would have passed'],
+      acceptApproximate: true,
+      explanation: 'En la parte de "if" no se usa "would": if I had studied.',
+    },
+    {
+      id: 'b1-m9-l1-ex5',
+      type: 'reorder',
+      concept: 'third conditional',
+      difficulty: 3,
+      prompt: 'Ordena las palabras: If / I / had / studied, / I / would / have / passed',
+      promptTranslation: 'Si hubiera estudiado más, habría aprobado.',
+      correctAnswer: 'If I had studied, I would have passed.',
+      words: ['If', 'I', 'had', 'studied', 'I', 'would', 'have', 'passed'],
+      explanation: 'Orden: If + sujeto + had + participio, + sujeto + would have + participio. → If I had studied, I would have passed.',
+    },
+    {
+      id: 'b1-m9-l1-ex6',
+      type: 'translate',
+      concept: 'third conditional',
+      difficulty: 3,
+      prompt: 'Traduce: "Si hubiera estudiado más, habría aprobado."',
+      promptTranslation: 'If I had studied more, I would have passed.',
+      correctAnswer: 'If I had studied more, I would have passed.',
+      acceptedAnswers: ['If I had studied more, I would have passed', 'If I had studied more, I would have passed.', 'if i had studied more, i would have passed'],
+      acceptApproximate: true,
+      explanation: '"Hubiera estudiado" = had studied; "habría aprobado" = would have passed.',
+    },
+    {
+      id: 'b1-m9-l1-ex7',
+      type: 'match',
+      concept: 'third conditional',
+      difficulty: 3,
+      prompt: 'Relaciona cada condición con su consecuencia.',
+      promptTranslation: 'Match each condition with its result.',
+      correctAnswer: 'If I had studied more=I would have passed.; If she had known=she would have come.; If we had taken a map=we wouldn\'t have got lost.; If he had had your number=he would have called.; If they had left earlier=they would have arrived on time.',
+      pairs: [
+        { left: 'If I had studied more', right: 'I would have passed.' },
+        { left: 'If she had known', right: 'she would have come.' },
+        { left: 'If we had taken a map', right: 'we wouldn\'t have got lost.' },
+        { left: 'If he had had your number', right: 'he would have called.' },
+        { left: 'If they had left earlier', right: 'they would have arrived on time.' },
+      ],
+      explanation: 'Todas siguen la estructura if + had + participio → would (not) have + participio.',
+    },
+    {
+      id: 'b1-m9-l1-ex8',
+      type: 'true_false',
+      concept: 'third conditional if would',
+      difficulty: 3,
+      prompt: 'En el tercer condicional, después de "if" usamos "would have".',
+      promptTranslation: 'In the third conditional, we use "would have" after "if".',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE', 'f'],
+      explanation: 'Falso. Después de "if" usamos "had + participio": if I had studied.',
+    },
+    {
+      id: 'b1-m9-l1-ex9',
+      type: 'fill_blank',
+      concept: 'third conditional had had',
+      difficulty: 3,
+      prompt: 'Completa: "He would have called if he had ___ your number."',
+      promptTranslation: 'Él te habría llamado si hubiera tenido tu número.',
+      correctAnswer: 'had',
+      acceptedAnswers: ['had', 'Had'],
+      explanation: 'Con "have" en la parte de "if" se forma "had had": if he had had your number.',
+    },
+    {
+      id: 'b1-m9-l1-ex10',
+      type: 'multiple_choice',
+      concept: 'third conditional participle',
+      difficulty: 4,
+      prompt: 'Completa: "I would have ___ (go) to the party."',
+      promptTranslation: 'Habría ido a la fiesta.',
+      correctAnswer: 'gone',
+      options: ['gone', 'went', 'go'],
+      explanation: 'Después de "would have" va el participio: "go" → "gone".',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'b1-m9-l1-mt1',
+      type: 'multiple_choice',
+      concept: 'third conditional',
+      difficulty: 2,
+      prompt: 'Completa: "If she had come, we ___ her."',
+      promptTranslation: 'Si ella hubiera venido, la habríamos visto.',
+      correctAnswer: 'would have seen',
+      options: ['would have seen', 'had seen', 'will see'],
+      explanation: 'Consecuencia en pasado: would have + participio → would have seen.',
+    },
+    {
+      id: 'b1-m9-l1-mt2',
+      type: 'fill_blank',
+      concept: 'third conditional would',
+      difficulty: 2,
+      prompt: 'Completa: "If I had known, I ___ have helped."',
+      promptTranslation: 'Si hubiera sabido, habría ayudado.',
+      correctAnswer: 'would',
+      acceptedAnswers: ['would', 'Would'],
+      explanation: 'La consecuencia usa "would have + participio": would have helped.',
+    },
+    {
+      id: 'b1-m9-l1-mt3',
+      type: 'error_correction',
+      concept: 'third conditional participle',
+      difficulty: 3,
+      prompt: 'Corrige el error: "I would have went to the meeting."',
+      promptTranslation: 'Habría ido a la reunión.',
+      correctAnswer: 'I would have gone to the meeting.',
+      acceptedAnswers: ['I would have gone to the meeting', 'I would have gone to the meeting.', 'i would have gone to the meeting'],
+      acceptApproximate: true,
+      explanation: 'Después de "would have" va el participio: "went" → "gone".',
+    },
+    {
+      id: 'b1-m9-l1-mt4',
+      type: 'translate',
+      concept: 'third conditional',
+      difficulty: 3,
+      prompt: 'Traduce: "No nos habríamos perdido si hubiéramos llevado un mapa."',
+      promptTranslation: 'We wouldn\'t have got lost if we had taken a map.',
+      correctAnswer: 'We wouldn\'t have got lost if we had taken a map.',
+      acceptedAnswers: ["We wouldn't have got lost if we had taken a map", "We wouldn't have gotten lost if we had taken a map", "we wouldn't have got lost if we had taken a map"],
+      acceptApproximate: true,
+      explanation: '"Habríamos" = would have; "hubiéramos llevado" = had taken (past perfect).',
+    },
+    {
+      id: 'b1-m9-l1-mt5',
+      type: 'multiple_choice',
+      concept: 'third conditional if would',
+      difficulty: 4,
+      prompt: '¿Cuál de estas frases es correcta?',
+      promptTranslation: 'Which sentence is correct?',
+      correctAnswer: 'If I had known, I would have told you.',
+      options: ['If I had known, I would have told you.', 'If I would have known, I would have told you.', 'If I had known, I would have told you.', 'If I have known, I would have told you.'],
+      explanation: '"If + had + participio" (If I had known) y consecuencia con "would have told".',
+    },
+  ],
+  reviewItems: ['a2-m12-l5'],
+  prerequisites: ['a2-m12-l5'],
+}

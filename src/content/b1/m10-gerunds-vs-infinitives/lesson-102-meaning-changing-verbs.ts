@@ -1,0 +1,248 @@
+import type { Lesson } from '../../types'
+
+export const lesson102MeaningChangingVerbs: Lesson = {
+  id: 'b1-m10-l2',
+  moduleId: 'm10-gerunds-vs-infinitives',
+  order: 1,
+  title: 'Verbos que cambian de significado: stop, remember, forget, try',
+  objective: 'Entender que con stop, remember, forget y try, elegir -ing o "to" cambia el significado de la frase.',
+  explanation_es: `En la lección anterior vimos verbos donde -ing y "to" significan lo mismo. PERO con stop, remember, forget y try, la elección CAMBIA el significado. ¡Presta mucha atención!
+
+1) stop + -ing = dejar de hacer algo (algo que hacíamos).
+- I stopped smoking. = Dejé de fumar.
+stop + to = detenerse para hacer algo.
+- I stopped to smoke. = Me detuve para fumar.
+
+2) remember + -ing = recordar algo que YA hicimos.
+- I remember locking the door. = Recuerdo haber cerrado la puerta (ya lo hice).
+remember + to = recordar que DEBES hacer algo (no olvidar).
+- Remember to lock the door. = No olvides cerrar la puerta.
+
+3) forget + -ing = olvidar que ya hiciste algo.
+- I'll never forget meeting her. = Nunca olvidaré haberla conocido.
+forget + to = olvidar hacer algo que debías.
+- I forgot to call him. = Olvidé llamarlo.
+
+4) try + -ing = probar algo como experimento.
+- Try drinking tea. = Prueba a beber té (para ver si te gusta o te ayuda).
+try + to = intentar hacer algo difícil.
+- Try to open the window. = Intenta abrir la ventana.
+
+Regla práctica: con estos 4 verbos, -ing mira hacia el PASADO (lo que ya pasó o lo que solíamos hacer) y "to" mira hacia el FUTURO (lo que vamos a hacer).`,
+  examples: [
+    { english: 'I stopped smoking.', spanish: 'Dejé de fumar.', note: 'stop + -ing = dejar de hacer algo.' },
+    { english: 'I stopped to smoke.', spanish: 'Me detuve para fumar.', note: 'stop + to = detenerse para hacer algo.' },
+    { english: 'I remember locking the door.', spanish: 'Recuerdo haber cerrado la puerta.', note: 'remember + -ing = recordar algo ya hecho.' },
+    { english: 'Remember to lock the door.', spanish: 'No olvides cerrar la puerta.', note: 'remember + to = recordar que debes hacer algo.' },
+    { english: 'Try drinking tea.', spanish: 'Prueba a beber té.', note: 'try + -ing = probar como experimento.' },
+    { english: 'Try to open the window.', spanish: 'Intenta abrir la ventana.', note: 'try + to = intentar algo difícil.' },
+  ],
+  rule: `- stop + -ing = dejar de hacer algo; stop + to = detenerse para hacer algo.
+- remember + -ing = recordar algo ya hecho; remember + to = recordar que debes hacer algo.
+- forget + -ing = olvidar algo ya hecho; forget + to = olvidar hacer algo.
+- try + -ing = probar algo; try + to = intentar hacer algo difícil.
+Regla general: -ing mira al pasado, "to" mira al futuro.`,
+  commonMistakes: [
+    { wrong: '❌ I stopped to smoke = dejé de fumar.', correct: '✅ I stopped smoking = dejé de fumar.', explanation: 'Dejar de hacer algo se dice con stop + -ing. "Stop to smoke" significa "me detuve para fumar".' },
+    { wrong: '❌ Remember locking the door! = no olvides cerrar la puerta.', correct: '✅ Remember to lock the door! = no olvides cerrar la puerta.', explanation: 'Un recordatorio (hacer algo todavía) usa remember + to.' },
+    { wrong: '❌ I forgot to send the email = olvidé haber enviado el email.', correct: '✅ I forgot sending the email = olvidé haber enviado el email.', explanation: 'Olvidar algo que YA hiciste se dice con forget + -ing.' },
+    { wrong: '❌ Try to drinking herbal tea.', correct: '✅ Try drinking herbal tea.', explanation: 'Tras "try" no mezclamos "to" con -ing: es try + -ing o try + to + verbo, nunca try + to + -ing.' },
+  ],
+  vocabulary: [
+    { word: 'stop', translation_es: 'parar, dejar de', level: 'B1', category: 'verbs', partOfSpeech: 'verb', example: 'I stopped eating sugar.', exampleTranslation: 'Dejé de comer azúcar.' },
+    { word: 'remember', translation_es: 'recordar, acordarse', level: 'B1', category: 'verbs', partOfSpeech: 'verb', example: 'Remember to buy milk.', exampleTranslation: 'No olvides comprar leche.' },
+    { word: 'forget', translation_es: 'olvidar', level: 'B1', category: 'verbs', partOfSpeech: 'verb', example: 'I forgot to bring my keys.', exampleTranslation: 'Olvidé traer mis llaves.' },
+    { word: 'try', translation_es: 'intentar, probar', level: 'B1', category: 'verbs', partOfSpeech: 'verb', example: 'Try calling him again.', exampleTranslation: 'Prueba a llamarlo otra vez.' },
+  ],
+  grammarPoints: [
+    {
+      id: 'gp-meaning-changing-verbs',
+      level: 'B1',
+      name: 'Meaning-changing verbs (stop/remember/forget/try)',
+      explanation_es: 'Con stop, remember, forget y try, el gerundio (-ing) mira al pasado (algo ya hecho o una costumbre) y el infinitivo (to) mira al futuro (algo que vamos a hacer).',
+      formula: 'stop/remember/forget/try + -ing  ↔  stop/remember/forget/try + to + verbo',
+      examples: ['I stopped smoking.', 'I stopped to smoke.', 'I remember locking the door.', 'Remember to lock the door.', 'Try drinking tea.', 'Try to open the window.'],
+    },
+  ],
+  exercises: [
+    {
+      id: 'b1-m10-l2-ex1',
+      type: 'multiple_choice',
+      concept: 'stop + ing vs stop + to',
+      difficulty: 1,
+      prompt: 'Completa: "I want to ___ smoking. It is bad for me."',
+      promptTranslation: 'Quiero dejar de fumar. Es malo para mí.',
+      correctAnswer: 'stop',
+      options: ['stop', 'stopping', 'stopped'],
+      explanation: 'Aquí "stop" es el verbo principal tras "want to", y "smoking" es el gerundio que expresa la acción que dejamos: to stop smoking.',
+    },
+    {
+      id: 'b1-m10-l2-ex2',
+      type: 'multiple_choice',
+      concept: 'remember + ing vs remember + to',
+      difficulty: 2,
+      prompt: '¿Cuál es correcta si YA he cerrado la puerta?',
+      promptTranslation: 'Which is correct if I have ALREADY locked the door?',
+      correctAnswer: 'I remember locking the door.',
+      options: ['I remember locking the door.', 'Remember to lock the door.', 'I remember lock the door.'],
+      explanation: 'Recordar algo que ya hicimos = remember + -ing: remember locking the door.',
+    },
+    {
+      id: 'b1-m10-l2-ex3',
+      type: 'fill_blank',
+      concept: 'try + ing (experiment)',
+      difficulty: 2,
+      prompt: 'Completa: "I can\'t sleep. I\'ll try ___ (drink) some warm milk."',
+      promptTranslation: 'No puedo dormir. Probaré a beber un poco de leche caliente.',
+      correctAnswer: 'drinking',
+      acceptedAnswers: ['drinking', 'to drink'],
+      explanation: 'Probar algo como experimento = try + -ing (try drinking) o try + to (try to drink).',
+    },
+    {
+      id: 'b1-m10-l2-ex4',
+      type: 'error_correction',
+      concept: 'stop + ing meaning',
+      difficulty: 3,
+      prompt: 'Corrige el error de significado: "She stopped to eat meat last year. (dejó de comer carne)"',
+      promptTranslation: 'She stopped eating meat last year.',
+      correctAnswer: 'She stopped eating meat last year.',
+      acceptedAnswers: ['She stopped eating meat last year', 'She stopped eating meat last year.', 'she stopped eating meat last year'],
+      acceptApproximate: true,
+      explanation: 'Dejar de hacer algo = stop + -ing: stopped eating. "Stopped to eat" significaría "se detuvo para comer".',
+    },
+    {
+      id: 'b1-m10-l2-ex5',
+      type: 'true_false',
+      concept: 'forget + ing vs forget + to',
+      difficulty: 3,
+      prompt: '"I forgot to lock the door" significa que olvidé cerrar la puerta (no la cerré).',
+      promptTranslation: '"I forgot to lock the door" means I did not lock it.',
+      correctAnswer: 'true',
+      acceptedAnswers: ['True', 'TRUE', 't'],
+      explanation: 'Verdadero. forget + to = olvidar hacer algo que debías; la acción no se hizo.',
+    },
+    {
+      id: 'b1-m10-l2-ex6',
+      type: 'translate',
+      concept: 'remember + ing (past)',
+      difficulty: 3,
+      prompt: 'Traduce: "Recuerdo haberla conocido."',
+      promptTranslation: 'I remember meeting her.',
+      correctAnswer: 'I remember meeting her.',
+      acceptedAnswers: ['I remember meeting her', 'I remember meeting her.', 'i remember meeting her'],
+      acceptApproximate: true,
+      explanation: 'Recordar algo que ya pasó = remember + -ing: remember meeting her.',
+    },
+    {
+      id: 'b1-m10-l2-ex7',
+      type: 'reorder',
+      concept: 'stop + to (in order to)',
+      difficulty: 3,
+      prompt: 'Ordena las palabras: He / stopped / to / the / answer / phone',
+      promptTranslation: 'Él se detuvo para contestar el teléfono.',
+      correctAnswer: 'He stopped to answer the phone.',
+      words: ['He', 'stopped', 'to', 'answer', 'the', 'phone'],
+      explanation: 'Detenerse PARA hacer algo = stop + to + verbo. → He stopped to answer the phone.',
+    },
+    {
+      id: 'b1-m10-l2-ex8',
+      type: 'multiple_choice',
+      concept: 'try + to (difficult task)',
+      difficulty: 3,
+      prompt: 'Completa: "The door is stuck. ___ to open it."',
+      promptTranslation: 'La puerta está atascada. Intenta abrirla.',
+      correctAnswer: 'Try',
+      options: ['Try', 'Trying', 'To try'],
+      explanation: 'Intentar algo difícil = try + to + verbo. → Try to open it. (Imperativo con "try".)',
+    },
+    {
+      id: 'b1-m10-l2-ex9',
+      type: 'match',
+      concept: 'meaning-changing verbs matching',
+      difficulty: 4,
+      prompt: 'Relaciona cada frase con su significado.',
+      promptTranslation: 'Match each sentence with its meaning.',
+      correctAnswer: 'I stopped smoking.=Dejé de fumar (ya no fumo).; I stopped to smoke.=Me detuve para fumar.; I remember locking the door.=Recuerdo haberla cerrado (ya la cerré).; Remember to lock the door.=No olvides cerrarla (todavía no la cierras).; Try drinking tea.=Prueba a beber té (experimento).; Try to open it.=Intenta abrirlo (es difícil).',
+      pairs: [
+        { left: 'I stopped smoking.', right: 'Dejé de fumar (ya no fumo).' },
+        { left: 'I stopped to smoke.', right: 'Me detuve para fumar.' },
+        { left: 'I remember locking the door.', right: 'Recuerdo haberla cerrado (ya la cerré).' },
+        { left: 'Remember to lock the door.', right: 'No olvides cerrarla (todavía no la cierras).' },
+        { left: 'Try drinking tea.', right: 'Prueba a beber té (experimento).' },
+        { left: 'Try to open it.', right: 'Intenta abrirlo (es difícil).' },
+      ],
+      explanation: '-ing mira al pasado (lo ya hecho o una costumbre); "to" mira al futuro (algo que vamos a hacer).',
+    },
+    {
+      id: 'b1-m10-l2-ex10',
+      type: 'fill_blank',
+      concept: 'forget + to',
+      difficulty: 4,
+      prompt: 'Completa: "Don\'t forget ___ (call) your mother tonight."',
+      promptTranslation: 'No olvides llamar a tu madre esta noche.',
+      correctAnswer: 'to call',
+      acceptedAnswers: ['to call', 'To call'],
+      explanation: 'Olvidar/no olvidar hacer algo pendiente = forget + to + verbo: forget to call.',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'b1-m10-l2-mt1',
+      type: 'multiple_choice',
+      concept: 'stop + ing',
+      difficulty: 1,
+      prompt: 'Completa: "Last year I ___ working at the bank." (dejé de trabajar)',
+      promptTranslation: 'El año pasado dejé de trabajar en el banco.',
+      correctAnswer: 'stopped',
+      options: ['stopped', 'stop', 'stopping'],
+      explanation: 'Dejar de hacer algo en pasado = stopped + -ing: stopped working.',
+    },
+    {
+      id: 'b1-m10-l2-mt2',
+      type: 'fill_blank',
+      concept: 'remember + to (reminder)',
+      difficulty: 2,
+      prompt: 'Completa: "Remember ___ (bring) your passport tomorrow."',
+      promptTranslation: 'No olvides traer tu pasaporte mañana.',
+      correctAnswer: 'to bring',
+      acceptedAnswers: ['to bring', 'To bring'],
+      explanation: 'Recordatorio de algo pendiente = remember + to + verbo: remember to bring.',
+    },
+    {
+      id: 'b1-m10-l2-mt3',
+      type: 'multiple_choice',
+      concept: 'try + ing vs try + to',
+      difficulty: 3,
+      prompt: '¿Qué significa "I tried to study but it was too noisy"?',
+      promptTranslation: 'What does the sentence mean?',
+      correctAnswer: 'Intenté estudiar, pero no pude concentrarme.',
+      options: ['Intenté estudiar, pero no pude concentrarme.', 'Estudié como experimento.', 'Olvidé estudiar.'],
+      explanation: 'try + to = intentar hacer algo difícil. Aquí intentó estudiar, pero el ruido se lo impidió.',
+    },
+    {
+      id: 'b1-m10-l2-mt4',
+      type: 'error_correction',
+      concept: 'forget + ing (already done)',
+      difficulty: 3,
+      prompt: 'Corrige el error: "I will never forget to meet my favourite singer." (olvidaré haberlo conocido)',
+      promptTranslation: 'I will never forget meeting my favourite singer.',
+      correctAnswer: 'I will never forget meeting my favourite singer.',
+      acceptedAnswers: ['I will never forget meeting my favourite singer', 'I will never forget meeting my favourite singer.', 'i will never forget meeting my favourite singer'],
+      acceptApproximate: true,
+      explanation: 'Olvidar algo que YA pasó = forget + -ing: forget meeting. Con "to meet" significaría "olvidar ir a conocerlo".',
+    },
+    {
+      id: 'b1-m10-l2-mt5',
+      type: 'multiple_choice',
+      concept: 'remember + ing meaning',
+      difficulty: 4,
+      prompt: '¿Cuál es el significado correcto de "I remember sending the email"?',
+      promptTranslation: 'What does "I remember sending the email" mean?',
+      correctAnswer: 'Recuerdo haber enviado el email (ya lo envié).',
+      options: ['Recuerdo haber enviado el email (ya lo envié).', 'Recuerdo que debo enviar el email.', 'Olvidé enviar el email.'],
+      explanation: 'remember + -ing = recordar algo que ya hicimos: ya envié el email y lo recuerdo.',
+    },
+  ],
+  reviewItems: ['b1-m10-l1'],
+  prerequisites: ['b1-m10-l1'],
+}

@@ -1,0 +1,217 @@
+import type { Lesson } from '../../types'
+
+export const lesson81FoodVocab: Lesson = {
+  id: 'a1-m8-l1',
+  moduleId: 'm8-food',
+  order: 0,
+  title: 'Vocabulario de comida y bebida',
+  objective: 'Aprender el vocabulario básico de comida y bebida en inglés y usarlo en frases sencillas.',
+  explanation_es: `En esta lección aprenderás el vocabulario básico de comida y bebida en inglés. Son palabras que usas todos los días, así que es importante conocerlas bien.
+
+**Comida (food):**
+- apple (manzana), banana (plátano), orange (naranja), bread (pan), cheese (queso), chicken (pollo), fish (pescado), meat (carne), rice (arroz), pasta (pasta), salad (ensalada), soup (sopa), vegetable (verdura), fruit (fruta), tomato (tomate), potato (patata), egg (huevo).
+
+**Bebida (drinks):**
+- milk (leche), water (agua), coffee (café), tea (té), juice (zumo), beer (cerveza), wine (vino).
+
+**Tres verbos muy importantes:**
+- **eat** (comer) se usa con comida sólida: I eat an apple. = Como una manzana.
+- **drink** (beber) se usa con bebidas: She drinks coffee. = Ella bebe café.
+- **have** (tomar) se usa para las comidas del día: We have rice and chicken for dinner. = Tenemos arroz y pollo para cenar.
+
+Un dato importante: algunas palabras son **incontables** (uncountable). Eso significa que no tienen plural y que no podemos decir "one water" ni "two breads". Son incontables: water, milk, bread, rice, meat, cheese, soup. Para decir una cantidad de estas cosas usamos "some" (un poco de): "I need some water."
+
+Otra regla: cuando hablamos de comida en general, NO usamos el artículo "the". Decimos "I like coffee", no "I like the coffee".`,
+  examples: [
+    { english: 'I eat an apple every day.', spanish: 'Como una manzana todos los días.', note: 'eat + comida sólida.' },
+    { english: 'She drinks coffee in the morning.', spanish: 'Ella bebe café por la mañana.', note: 'drink + bebida.' },
+    { english: 'We have rice and chicken for dinner.', spanish: 'Tenemos arroz y pollo para cenar.', note: 'have + comida del día.' },
+    { english: 'I need some water.', spanish: 'Necesito un poco de agua.', note: 'water es incontable: sin plural, con "some".' },
+    { english: 'I like coffee.', spanish: 'Me gusta el café.', note: 'Comida en general: sin "the".' },
+    { english: 'The soup is hot.', spanish: 'La sopa está caliente.', note: 'soup es incontable: no se dice "a soup".' },
+  ],
+  rule: `**Reglas de esta lección:**
+- **eat** + comida sólida: I eat an apple.
+- **drink** + bebida: She drinks coffee.
+- **have** + comida del día: We have dinner.
+- Palabras incontables (water, milk, bread, rice, meat, cheese, soup): no tienen plural y no usan "a/an". Para una cantidad usamos "some": I need some water.
+- Comida en general: sin artículo "the": I like coffee.`,
+  commonMistakes: [
+    { wrong: '❌ I need a water.', correct: '✅ I need water.', explanation: '"water" es incontable: no se puede contar, así que no usamos "a". Para una cantidad usamos "some": I need some water.' },
+    { wrong: '❌ I like breads.', correct: '✅ I like bread.', explanation: '"bread" (pan) es incontable en inglés: no tiene plural, nunca decimos "breads".' },
+    { wrong: '❌ I like the coffee.', correct: '✅ I like coffee.', explanation: 'Cuando hablamos de la comida en general, no usamos "the". Decimos "I like coffee".' },
+    { wrong: '❌ I drink an apple.', correct: '✅ I eat an apple.', explanation: 'Una manzana es comida sólida: usamos "eat", no "drink". "drink" es para bebidas.' },
+  ],
+  vocabulary: [
+    { word: 'apple', translation_es: 'manzana', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I eat an apple every day.', exampleTranslation: 'Como una manzana todos los días.' },
+    { word: 'banana', translation_es: 'plátano', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'She likes bananas.', exampleTranslation: 'A ella le gustan los plátanos.' },
+    { word: 'orange', translation_es: 'naranja', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I drink orange juice.', exampleTranslation: 'Bebo zumo de naranja.' },
+    { word: 'bread', translation_es: 'pan', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I eat bread with cheese.', exampleTranslation: 'Como pan con queso.' },
+    { word: 'cheese', translation_es: 'queso', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'This cheese is good.', exampleTranslation: 'Este queso es bueno.' },
+    { word: 'chicken', translation_es: 'pollo', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'We have chicken for dinner.', exampleTranslation: 'Tenemos pollo para cenar.' },
+    { word: 'fish', translation_es: 'pescado', level: 'A1', category: 'food', partOfSpeech: 'noun', example: "He doesn't like fish.", exampleTranslation: 'A él no le gusta el pescado.' },
+    { word: 'meat', translation_es: 'carne', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I eat meat on Sunday.', exampleTranslation: 'Como carne los domingos.' },
+    { word: 'rice', translation_es: 'arroz', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'We have rice and chicken.', exampleTranslation: 'Tenemos arroz y pollo.' },
+    { word: 'pasta', translation_es: 'pasta', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I love pasta.', exampleTranslation: 'Me encanta la pasta.' },
+    { word: 'salad', translation_es: 'ensalada', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'She makes a salad.', exampleTranslation: 'Ella prepara una ensalada.' },
+    { word: 'soup', translation_es: 'sopa', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'The soup is hot.', exampleTranslation: 'La sopa está caliente.' },
+    { word: 'vegetable', translation_es: 'verdura', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'Eat your vegetables!', exampleTranslation: '¡Come tus verduras!' },
+    { word: 'fruit', translation_es: 'fruta', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I eat fruit every day.', exampleTranslation: 'Como fruta todos los días.' },
+    { word: 'tomato', translation_es: 'tomate', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'The tomato is red.', exampleTranslation: 'El tomate es rojo.' },
+    { word: 'potato', translation_es: 'patata', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I like potatoes.', exampleTranslation: 'Me gustan las patatas.' },
+    { word: 'egg', translation_es: 'huevo', level: 'A1', category: 'food', partOfSpeech: 'noun', example: 'I have an egg for breakfast.', exampleTranslation: 'Tomo un huevo para desayunar.' },
+    { word: 'milk', translation_es: 'leche', level: 'A1', category: 'drinks', partOfSpeech: 'noun', example: 'I drink milk in the morning.', exampleTranslation: 'Bebo leche por la mañana.' },
+    { word: 'water', translation_es: 'agua', level: 'A1', category: 'drinks', partOfSpeech: 'noun', example: 'I need some water.', exampleTranslation: 'Necesito un poco de agua.' },
+    { word: 'coffee', translation_es: 'café', level: 'A1', category: 'drinks', partOfSpeech: 'noun', example: 'She drinks coffee in the morning.', exampleTranslation: 'Ella bebe café por la mañana.' },
+    { word: 'tea', translation_es: 'té', level: 'A1', category: 'drinks', partOfSpeech: 'noun', example: 'Would you like some tea?', exampleTranslation: '¿Quieres un poco de té?' },
+    { word: 'juice', translation_es: 'zumo', level: 'A1', category: 'drinks', partOfSpeech: 'noun', example: 'I want some juice.', exampleTranslation: 'Quiero un poco de zumo.' },
+    { word: 'beer', translation_es: 'cerveza', level: 'A1', category: 'drinks', partOfSpeech: 'noun', example: 'He drinks beer with dinner.', exampleTranslation: 'Él bebe cerveza con la cena.' },
+    { word: 'wine', translation_es: 'vino', level: 'A1', category: 'drinks', partOfSpeech: 'noun', example: 'The wine is red.', exampleTranslation: 'El vino es tinto.' },
+  ],
+  grammarPoints: [],
+  exercises: [
+    {
+      id: 'a1-m8-l1-ex1',
+      type: 'match',
+      concept: 'food vocabulary - match',
+      difficulty: 1,
+      prompt: 'Relaciona cada comida con su traducción.',
+      promptTranslation: 'Match each food with its translation.',
+      correctAnswer: '',
+      pairs: [
+        { left: 'apple', right: 'manzana' },
+        { left: 'bread', right: 'pan' },
+        { left: 'cheese', right: 'queso' },
+        { left: 'fish', right: 'pescado' },
+        { left: 'rice', right: 'arroz' },
+        { left: 'milk', right: 'leche' },
+      ],
+      explanation: 'Estas son palabras básicas de comida y bebida: apple = manzana, bread = pan, cheese = queso, fish = pescado, rice = arroz, milk = leche.',
+    },
+    {
+      id: 'a1-m8-l1-ex2',
+      type: 'multiple_choice',
+      concept: 'food vocabulary - eat + food',
+      difficulty: 1,
+      prompt: 'Completa: "I eat an ___ every day."',
+      promptTranslation: 'Como una manzana todos los días.',
+      correctAnswer: 'apple',
+      options: ['apple', 'banana', 'bread'],
+      explanation: 'La frase dice "an ___" (una...). "Apple" empieza con sonido de vocal, así que usamos "an apple". → I eat an apple every day.',
+    },
+    {
+      id: 'a1-m8-l1-ex3',
+      type: 'multiple_choice',
+      concept: 'drinks vocabulary - drink + beverage',
+      difficulty: 1,
+      prompt: 'Completa: "She drinks ___ in the morning."',
+      promptTranslation: 'Ella bebe café por la mañana.',
+      correctAnswer: 'coffee',
+      options: ['milk', 'coffee', 'juice'],
+      explanation: 'Por la mañana (in the morning) mucha gente bebe café. "Drink" se usa con bebidas: She drinks coffee in the morning.',
+    },
+    {
+      id: 'a1-m8-l1-ex4',
+      type: 'multiple_choice',
+      concept: 'food vocabulary - have + meal',
+      difficulty: 2,
+      prompt: 'Completa: "We have rice and ___ for dinner."',
+      promptTranslation: 'Tenemos arroz y pollo para cenar.',
+      correctAnswer: 'chicken',
+      options: ['cheese', 'chicken', 'bread'],
+      explanation: 'Una comida típica es arroz con pollo: "rice and chicken". → We have rice and chicken for dinner.',
+    },
+    {
+      id: 'a1-m8-l1-ex5',
+      type: 'fill_blank',
+      concept: 'drinks vocabulary - milk',
+      difficulty: 2,
+      prompt: 'Completa: "I drink ___ with breakfast." (leche)',
+      promptTranslation: 'Bebo leche con el desayuno.',
+      correctAnswer: 'milk',
+      acceptedAnswers: ['milk', 'Milk'],
+      explanation: 'La traducción de "leche" es "milk". Es incontable: no decimos "a milk" ni "milks". → I drink milk with breakfast.',
+    },
+    {
+      id: 'a1-m8-l1-ex6',
+      type: 'fill_blank',
+      concept: 'food vocabulary - potatoes',
+      difficulty: 2,
+      prompt: 'Completa: "He eats meat and ___." (patatas)',
+      promptTranslation: 'Él come carne y patatas.',
+      correctAnswer: 'potatoes',
+      acceptedAnswers: ['potatoes', 'Potatoes'],
+      explanation: 'La traducción de "patata" es "potato" y su plural es "potatoes" (termina en -o y añade -es). → He eats meat and potatoes.',
+    },
+    {
+      id: 'a1-m8-l1-ex7',
+      type: 'translate',
+      concept: 'drinks vocabulary - translate',
+      difficulty: 3,
+      prompt: 'Traduce: "Ella bebe café por la mañana."',
+      correctAnswer: 'She drinks coffee in the morning.',
+      acceptedAnswers: ['She drinks coffee in the morning', 'she drinks coffee in the morning.', 'she drinks coffee in the morning'],
+      acceptApproximate: true,
+      explanation: '"Ella bebe" → She drinks (3ª persona: drink + s). "café" → coffee. "por la mañana" → in the morning.',
+    },
+    {
+      id: 'a1-m8-l1-ex8',
+      type: 'translate',
+      concept: 'food vocabulary - translate',
+      difficulty: 3,
+      prompt: 'Traduce: "Como una manzana todos los días."',
+      correctAnswer: 'I eat an apple every day.',
+      acceptedAnswers: ['I eat an apple every day', 'i eat an apple every day.', 'i eat an apple every day'],
+      acceptApproximate: true,
+      explanation: '"Como" → I eat (con comida usamos eat). "una manzana" → an apple. "todos los días" → every day.',
+    },
+  ],
+  miniTest: [
+    {
+      id: 'a1-m8-l1-mt1',
+      type: 'multiple_choice',
+      concept: 'food vocabulary - uncountable water',
+      difficulty: 2,
+      prompt: 'Completa: "I drink ___ with dinner."',
+      promptTranslation: 'Bebo agua con la cena.',
+      correctAnswer: 'water',
+      options: ['water', 'waters', 'a water'],
+      explanation: '"Agua" es "water" y es incontable: no usamos "a" ni plural "waters". → I drink water with dinner.',
+    },
+    {
+      id: 'a1-m8-l1-mt2',
+      type: 'fill_blank',
+      concept: 'food vocabulary - bread',
+      difficulty: 2,
+      prompt: 'Completa: "I like ___." (pan)',
+      promptTranslation: 'Me gusta el pan.',
+      correctAnswer: 'bread',
+      acceptedAnswers: ['bread', 'Bread'],
+      explanation: '"Pan" es "bread" y es incontable: nunca decimos "breads". → I like bread.',
+    },
+    {
+      id: 'a1-m8-l1-mt3',
+      type: 'translate',
+      concept: 'food vocabulary - general, no article',
+      difficulty: 3,
+      prompt: 'Traduce: "Me gusta el café."',
+      correctAnswer: 'I like coffee.',
+      acceptedAnswers: ['I like coffee', 'i like coffee.', 'i like coffee'],
+      acceptApproximate: true,
+      explanation: 'Para la comida en general no usamos "the": "I like coffee", no "I like the coffee".',
+    },
+    {
+      id: 'a1-m8-l1-mt4',
+      type: 'true_false',
+      concept: 'food vocabulary - countable vs uncountable',
+      difficulty: 3,
+      prompt: 'Frase correcta: "The word bread has a plural form: breads."',
+      promptTranslation: 'La palabra "bread" tiene forma plural: "breads".',
+      correctAnswer: 'false',
+      acceptedAnswers: ['False', 'FALSE'],
+      explanation: 'Falso. "bread" es incontable y no tiene plural. Nunca decimos "breads".',
+    },
+  ],
+  reviewItems: ['a1-m7-l5'],
+  prerequisites: ['a1-m7-l5'],
+}
