@@ -36,13 +36,15 @@ Esto arranca el servidor en `http://127.0.0.1:8090` (admin UI en `/_/`).
 
 ### 3. Aplicar el schema
 
-Con PocketBase corriendo, en otra terminal:
+Con PocketBase corriendo, en otra terminal. **Primera vez:** crea el admin en la UI (`http://127.0.0.1:8090/_/`), luego:
 
 ```bash
-node pb/setup.mjs
+PB_ADMIN_EMAIL=tu@email.com PB_ADMIN_PASSWORD=tu_password node pb/setup.mjs
 ```
 
-Este script crea las colecciones necesarias (users, progress) si no existen y configura las reglas de acceso.
+> Las credenciales de admin se leen de las variables de entorno `PB_ADMIN_EMAIL` y `PB_ADMIN_PASSWORD`. Sin ellas, el script aborta con un error claro — no hay contraseñas por defecto.
+
+Este script crea las colecciones necesarias (users, progress) si no existen y configura las reglas de acceso. Es seguro reejecutarlo (no duplica colecciones).
 
 ### 4. Configurar la app
 

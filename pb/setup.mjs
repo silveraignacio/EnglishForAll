@@ -6,8 +6,18 @@
 // or set PB_ADMIN_EMAIL + PB_ADMIN_PASSWORD env vars.
 
 const PB_URL = process.env.POCKETBASE_URL || 'http://127.0.0.1:8090'
-const ADMIN_EMAIL = process.env.PB_ADMIN_EMAIL || 'admin@example.com'
-const ADMIN_PASSWORD = process.env.PB_ADMIN_PASSWORD || 'admin12345'
+const ADMIN_EMAIL = process.env.PB_ADMIN_EMAIL
+const ADMIN_PASSWORD = process.env.PB_ADMIN_PASSWORD
+
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
+  console.error(
+    '❌ Falta configuración de admin de PocketBase.\n\n' +
+      '   Define PB_ADMIN_EMAIL y PB_ADMIN_PASSWORD:\n\n' +
+      '   PB_ADMIN_EMAIL=tu@email.com PB_ADMIN_PASSWORD=tu_password node pb/setup.mjs\n\n' +
+      '   (Crea el admin la primera vez en la UI de PocketBase: http://127.0.0.1:8090/_/)'
+  )
+  process.exit(1)
+}
 
 async function request(path, { method = 'GET', body, token } = {}) {
   const res = await fetch(`${PB_URL}${path}`, {
