@@ -331,6 +331,7 @@ export function ExamPage() {
         onAnswer={handleAnswer}
         onNext={handleNext}
         isLast={phaseIdx === phases.length - 1 && exIdx === area.exercises.length - 1}
+        strictMode
       />
     </div>
   )

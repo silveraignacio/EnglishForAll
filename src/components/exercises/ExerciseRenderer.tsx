@@ -4,6 +4,7 @@ import { isAnswerCorrect, cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Markdown } from '@/components/ui/Markdown'
+import { SpeakButton } from '@/components/ui/SpeakButton'
 
 interface Feedback {
   correct: boolean
@@ -15,9 +16,11 @@ export interface ExerciseRendererProps {
   onAnswer: (correct: boolean, userAnswer: string, attempts: number) => void
   onNext?: () => void
   isLast?: boolean
+  /** In "assessment" mode, the user cannot advance until they answer correctly. */
+  strictMode?: boolean
 }
 
-export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast }: ExerciseRendererProps) {
+export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMode }: ExerciseRendererProps) {
   const [feedback, setFeedback] = useState<Feedback | null>(null)
   const [attempts, setAttempts] = useState(0)
   const [locked, setLocked] = useState(false)
@@ -51,9 +54,10 @@ export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast }: Exercis
           correctAnswer={exercise.correctAnswer}
           explanation={feedback.explanation}
           attempts={attempts}
+          strictMode={strictMode}
         />
       )}
-      {feedback && (
+      {feedback && (!strictMode || feedback.correct) && (
         <div className="mt-4 flex justify-end">
           <Button onClick={handleNext} variant={feedback.correct ? 'primary' : 'secondary'}>
             {isLast ? 'Ver resultados' : 'Siguiente'}
@@ -134,6 +138,21 @@ function ExerciseBody({
 }
 
 // ----- Multiple Choice -----
+function PromptWithAudio({ exercise, promptClass }: { exercise: Exercise; promptClass?: string }) {
+  return (
+    <div className="mb-4">
+      <div className={cn('flex items-start gap-2', promptClass || 'text-lg text-ink leading-relaxed')}>
+        <p className="flex-1">{exercise.prompt}</p>
+        <SpeakButton text={exercise.prompt} size="sm" className="mt-0.5 flex-none" />
+      </div>
+      {exercise.promptTranslation && (
+        <p className="text-sm text-ink-light mt-1 italic">{exercise.promptTranslation}</p>
+      )}
+    </div>
+  )
+}
+
+// ----- Multiple Choice -----
 function MultipleChoice({
   exercise,
   locked,
@@ -148,10 +167,7 @@ function MultipleChoice({
 
   return (
     <div>
-      <p className="text-lg text-ink mb-4 leading-relaxed">{exercise.prompt}</p>
-      {exercise.promptTranslation && (
-        <p className="text-sm text-ink-light mb-4 italic">{exercise.promptTranslation}</p>
-      )}
+      <PromptWithAudio exercise={exercise} />
       <div className="space-y-2.5">
         {options.map((opt) => (
           <button
@@ -170,6 +186,7 @@ function MultipleChoice({
             )}
           >
             <span className="font-medium text-ink">{opt}</span>
+            <SpeakButton text={opt} size="sm" className="ml-auto flex-none" />
           </button>
         ))}
       </div>
@@ -195,10 +212,7 @@ function FillBlank({
   }
   return (
     <form onSubmit={handleSubmit}>
-      <p className="text-lg text-ink mb-4 leading-relaxed">{exercise.prompt}</p>
-      {exercise.promptTranslation && (
-        <p className="text-sm text-ink-light mb-4 italic">{exercise.promptTranslation}</p>
-      )}
+      <PromptWithAudio exercise={exercise} />
       <input
         type="text"
         value={value}
@@ -236,11 +250,15 @@ function TranslateExercise({
   }
   return (
     <form onSubmit={handleSubmit}>
-      <p className="text-lg text-ink mb-1">{exercise.prompt}</p>
-      {exercise.promptTranslation && (
-        <p className="text-sm text-ink-light mb-4 italic">{exercise.promptTranslation}</p>
-      )}
-      {!exercise.promptTranslation && <div className="mb-4" />}
+      <div className="mb-4">
+        <div className="flex items-start gap-2 text-lg text-ink">
+          <p className="flex-1">{exercise.prompt}</p>
+          <SpeakButton text={exercise.prompt} size="sm" className="mt-0.5 flex-none" />
+        </div>
+        {exercise.promptTranslation && (
+          <p className="text-sm text-ink-light mt-1 italic">{exercise.promptTranslation}</p>
+        )}
+      </div>
       <input
         type="text"
         value={value}
@@ -353,10 +371,7 @@ function TrueFalse({
   }
   return (
     <div>
-      <p className="text-lg text-ink mb-4 leading-relaxed">{exercise.prompt}</p>
-      {exercise.promptTranslation && (
-        <p className="text-sm text-ink-light mb-4 italic">{exercise.promptTranslation}</p>
-      )}
+      <PromptWithAudio exercise={exercise} />
       <div className="grid grid-cols-2 gap-3">
         <button
           onClick={() => handleSelect('true')}
@@ -643,11 +658,13 @@ function FeedbackPanel({
   correctAnswer,
   explanation,
   attempts,
+  strictMode,
 }: {
   correct: boolean
   correctAnswer: string
   explanation: string
   attempts: number
+  strictMode?: boolean
 }) {
   return (
     <div
@@ -667,11 +684,17 @@ function FeedbackPanel({
         </div>
         <div>
           <p className={cn('font-semibold mb-1', correct ? 'text-success-600' : 'text-error-600')}>
-            {correct ? (attempts > 1 ? '¡Correcto!' : '¡Correcto!') : 'No del todo correcto'}
+            {correct ? '¡Correcto!' : 'No del todo correcto'}
           </p>
-          {!correct && (
+          {!correct && !strictMode && (
             <p className="text-sm text-ink-soft mb-2">
-              La respuesta correcta es: <strong>{correctAnswer}</strong>
+              La respuesta correcta es: <strong>{correctAnswer}</strong>{' '}
+              <SpeakButton text={correctAnswer} size="sm" className="inline-flex align-middle" />
+            </p>
+          )}
+          {!correct && strictMode && (
+            <p className="text-sm text-warning-600 font-medium mb-2">
+              Vuelve a intentarlo — en la evaluación necesitas responder correctamente para continuar.
             </p>
           )}
           <div className="text-sm text-ink-soft leading-relaxed">

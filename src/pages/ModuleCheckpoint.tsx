@@ -147,6 +147,7 @@ export function ModuleCheckpoint() {
         onAnswer={handleAnswer}
         onNext={handleNext}
         isLast={idx === total - 1}
+        strictMode
       />
     </div>
   )

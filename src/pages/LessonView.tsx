@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/Badge'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { ExerciseRenderer } from '@/components/exercises/ExerciseRenderer'
 import { Markdown } from '@/components/ui/Markdown'
+import { SpeakButton } from '@/components/ui/SpeakButton'
 import type { ExerciseRecord } from '@/types/progress'
 import { cn } from '@/lib/utils'
 import { isLevelUnlocked } from '@/lib/access'
@@ -297,7 +298,10 @@ function LessonExplanation({ lesson }: { lesson: import('@/content/types').Lesso
           <div className="space-y-3">
             {lesson.examples.map((ex, i) => (
               <div key={i} className="p-3 rounded-xl bg-surface-muted border border-ink/5">
-                <p className="text-ink font-medium">{ex.english}</p>
+                <div className="flex items-start gap-2">
+                  <p className="text-ink font-medium">{ex.english}</p>
+                  <SpeakButton text={ex.english} size="sm" />
+                </div>
                 <p className="text-ink-light text-sm mt-0.5">= {ex.spanish}</p>
                 {ex.note && <p className="text-brand-600 text-xs mt-1.5 italic">{ex.note}</p>}
               </div>
@@ -338,11 +342,17 @@ function LessonExplanation({ lesson }: { lesson: import('@/content/types').Lesso
             {lesson.vocabulary.map((v, i) => (
               <div key={i} className="p-3 rounded-lg bg-surface-muted border border-ink/5">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-ink">{v.word}</span>
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <span className="font-semibold text-ink truncate">{v.word}</span>
+                    <SpeakButton text={v.word} size="sm" />
+                  </div>
                   <Badge variant="muted">{v.partOfSpeech}</Badge>
                 </div>
                 <p className="text-ink-light text-sm">{v.translation_es}</p>
-                <p className="text-ink-faint text-xs mt-1 italic">"{v.example}"</p>
+                <div className="flex items-start gap-1 mt-1">
+                  <p className="text-ink-faint text-xs italic">"{v.example}"</p>
+                  <SpeakButton text={v.example} size="sm" className="!p-0.5 text-xs" />
+                </div>
               </div>
             ))}
           </div>
