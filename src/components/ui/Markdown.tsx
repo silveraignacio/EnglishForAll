@@ -73,6 +73,68 @@ interface MarkdownProps {
   className?: string
 }
 
+// Detect a Markdown table: a header row with pipes, followed by a separator row
+// like |---|:---|, optionally followed by body rows.
+function isTableStart(lines: string[], i: number): boolean {
+  const header = /^\s*\|.*\|.*$/.test(lines[i] ?? '')
+  const sep = /^\s*\|?[\s:|-]+\|[\s:|-]*\|?\s*$/.test(lines[i + 1] ?? '')
+  return header && sep && lines[i].includes('|')
+}
+
+function parseTableCell(text: string): ReactNode {
+  return parseInline(text.trim())
+}
+
+function renderTable(lines: string[], startIdx: number, keyBase: number): { node: ReactNode; consumed: number } {
+  const headerLine = lines[startIdx].trim()
+  const bodyLines: string[] = []
+  let i = startIdx + 2
+  while (i < lines.length) {
+    const t = lines[i].trim()
+    if (!t) break
+    if (/^\s*\|.*\|.*$/.test(t)) bodyLines.push(t)
+    else break
+    i++
+  }
+  const splitRow = (row: string) =>
+    row
+      .trim()
+      .replace(/^\|/, '')
+      .replace(/\|$/, '')
+      .split('|')
+      .map(parseTableCell)
+
+  const headers = splitRow(headerLine)
+  const rows = bodyLines.map(splitRow)
+  const node = (
+    <div key={`table-${keyBase}`} className="my-3 overflow-x-auto">
+      <table className="w-full text-sm border-collapse">
+        <thead>
+          <tr>
+            {headers.map((h, hi) => (
+              <th key={hi} className="border border-ink/10 bg-surface-muted px-3 py-2 text-left font-semibold text-ink">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, ri) => (
+            <tr key={ri} className="odd:bg-surface-subtle">
+              {row.map((cell, ci) => (
+                <td key={ci} className="border border-ink/10 px-3 py-2 text-ink-soft align-top">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+  return { node, consumed: i - startIdx }
+}
+
 export function Markdown({ content, className }: MarkdownProps) {
   const lines = content.split('\n')
   const blocks: ReactNode[] = []
@@ -92,10 +154,19 @@ export function Markdown({ content, className }: MarkdownProps) {
     listType = null
   }
 
-  for (const rawLine of lines) {
+  for (let li = 0; li < lines.length; li++) {
+    const rawLine = lines[li]
     const line = rawLine.trimEnd()
     const ulMatch = /^\s*[-*+]\s+(.*)$/.exec(line)
     const olMatch = /^\s*\d+[.)]\s+(.*)$/.exec(line)
+
+    if (isTableStart(lines, li)) {
+      flushList()
+      const { node, consumed } = renderTable(lines, li, key++)
+      blocks.push(node)
+      li += consumed - 1
+      continue
+    }
 
     if (ulMatch) {
       if (listType !== 'ul') {
