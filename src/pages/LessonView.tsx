@@ -33,15 +33,15 @@ export function LessonView() {
     lessonIndex: number
     nextLesson: import('@/content/types').Lesson | null
   } => {
-    const a1 = course.levels.find((l) => l.id === 'a1')
-    if (!a1) return { lesson: null, module: null, moduleIndex: -1, lessonIndex: -1, nextLesson: null }
-    for (let mi = 0; mi < a1.modules.length; mi++) {
-      const mod = a1.modules[mi]
-      for (let li = 0; li < mod.lessons.length; li++) {
-        const l = mod.lessons[li]
-        if (l.id === lessonId) {
-          const next = mod.lessons[li + 1] || (a1.modules[mi + 1]?.lessons[0] ?? null)
-          return { lesson: l, module: mod, moduleIndex: mi, lessonIndex: li, nextLesson: next }
+    for (const level of course.levels) {
+      for (let mi = 0; mi < level.modules.length; mi++) {
+        const mod = level.modules[mi]
+        for (let li = 0; li < mod.lessons.length; li++) {
+          const l = mod.lessons[li]
+          if (l.id === lessonId) {
+            const next = mod.lessons[li + 1] || (level.modules[mi + 1]?.lessons[0] ?? null)
+            return { lesson: l, module: mod, moduleIndex: mi, lessonIndex: li, nextLesson: next }
+          }
         }
       }
     }

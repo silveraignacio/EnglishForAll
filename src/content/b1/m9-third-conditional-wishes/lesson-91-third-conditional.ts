@@ -232,7 +232,7 @@ Reglas clave:
       prompt: '¿Cuál de estas frases es correcta?',
       promptTranslation: 'Which sentence is correct?',
       correctAnswer: 'If I had known, I would have told you.',
-      options: ['If I had known, I would have told you.', 'If I would have known, I would have told you.', 'If I had known, I would have told you.', 'If I have known, I would have told you.'],
+      options: ['If I had known, I would have told you.', 'If I would have known, I would have told you.', 'If I had known, I would tell you.', 'If I have known, I would have told you.'],
       explanation: '"If + had + participio" (If I had known) y consecuencia con "would have told".',
     },
   ],

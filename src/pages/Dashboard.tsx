@@ -15,11 +15,20 @@ export function Dashboard() {
 
   const levels = course.levels
 
-  // Determine active level: first unlocked level with content, or the first unlocked available one
+  // Determine active level: the placement-recommended level (if any and
+  // still unlocked/available) takes priority — otherwise fall back to the
+  // first unlocked level with incomplete lessons. Without this, a user
+  // placed at B1 would keep seeing A1 by default just because they hadn't
+  // completed every single A1 lesson (reverse-unlock keeps A1 accessible
+  // for reference, it doesn't mean the user is "working on" A1).
   const activeLevelId = useMemo(() => {
     const unlockedAvailable = levels.filter(
       (l) => l.status === 'available' && isLevelUnlocked(progress, l.id)
     )
+    const recommended = progress.placementResult?.recommendedLevel
+    if (recommended && unlockedAvailable.some((l) => l.id === recommended)) {
+      return recommended
+    }
     // prefer a level with incomplete lessons
     for (const l of unlockedAvailable) {
       const all = l.modules.flatMap((m) => m.lessons)
@@ -42,10 +51,17 @@ export function Dashboard() {
   const completedCount = allLessons.filter((l) => progress.completedLessons.includes(l.id)).length
   const overallPct = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0
 
-  // Find current lesson across all unlocked levels (for the "Continue" card)
+  // Find current lesson for the "Continue" card. If a placement result put
+  // the user at, say, B1, look there first — otherwise fall back to
+  // scanning every unlocked level from A1 up.
   const currentLesson = useMemo(() => {
     const unlockedLevels = levels.filter((l) => l.status === 'available' && isLevelUnlocked(progress, l.id))
-    for (const lvl of unlockedLevels) {
+    const recommended = progress.placementResult?.recommendedLevel
+    const recommendedLevel = recommended ? unlockedLevels.find((l) => l.id === recommended) : null
+    const orderedLevels = recommendedLevel
+      ? [recommendedLevel, ...unlockedLevels.filter((l) => l.id !== recommendedLevel.id)]
+      : unlockedLevels
+    for (const lvl of orderedLevels) {
       for (const m of lvl.modules) {
         const next = m.lessons.find((l) => !progress.completedLessons.includes(l.id))
         if (next) return { lesson: next, module: m, level: lvl }

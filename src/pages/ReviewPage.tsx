@@ -15,8 +15,6 @@ export function ReviewPage() {
 
   // Collect exercises from weak concepts, plus recently failed exercises
   const reviewExercises = useMemo(() => {
-    const a1 = course.levels.find((l) => l.id === 'a1')
-    if (!a1) return []
     const weak = new Set(progress.weakConcepts)
     const recentFail = new Set(
       progress.exerciseHistory
@@ -25,17 +23,19 @@ export function ReviewPage() {
         .map((h) => h.exerciseId)
     )
     const all: { lessonId: string; exercise: import('@/content/types').Exercise }[] = []
-    a1.modules.forEach((m) => {
-      m.lessons.forEach((l) => {
-        l.exercises.forEach((e) => {
-          if (weak.has(e.concept) || recentFail.has(e.id)) {
-            all.push({ lessonId: l.id, exercise: e })
-          }
-        })
-        l.miniTest.forEach((e) => {
-          if (weak.has(e.concept) || recentFail.has(e.id)) {
-            all.push({ lessonId: l.id, exercise: e })
-          }
+    course.levels.forEach((lvl) => {
+      lvl.modules.forEach((m) => {
+        m.lessons.forEach((l) => {
+          l.exercises.forEach((e) => {
+            if (weak.has(e.concept) || recentFail.has(e.id)) {
+              all.push({ lessonId: l.id, exercise: e })
+            }
+          })
+          l.miniTest.forEach((e) => {
+            if (weak.has(e.concept) || recentFail.has(e.id)) {
+              all.push({ lessonId: l.id, exercise: e })
+            }
+          })
         })
       })
     })

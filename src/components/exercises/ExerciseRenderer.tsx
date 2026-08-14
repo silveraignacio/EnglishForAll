@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import type { Exercise } from '@/content/types'
-import { isAnswerCorrect, cn } from '@/lib/utils'
+import { isAnswerCorrect, shuffle, normalize, cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Markdown } from '@/components/ui/Markdown'
@@ -317,7 +317,7 @@ function Reorder({
   onResult: (correct: boolean, userAnswer: string) => void
 }) {
   const words = exercise.words || []
-  const [available, setAvailable] = useState<string[]>(words)
+  const [available, setAvailable] = useState<string[]>(() => shuffle(words))
   const [selected, setSelected] = useState<string[]>([])
 
   const addWord = (word: string, index: number) => {
@@ -446,20 +446,29 @@ function Match({
   const [rightUsed, setRightUsed] = useState<Set<number>>(new Set())
 
   const leftItems = pairs.map(p => p.left)
-  const rightItems = pairs.map(p => p.right)
+  // rightOrder[displayPosition] = original pair index, shuffled so the
+  // correct match isn't always at the same row as the left item.
+  const [rightOrder] = useState<number[]>(() => shuffle(pairs.map((_, i) => i)))
+  const rightItems = rightOrder.map(i => pairs[i].right)
 
   const handleLeftClick = (idx: number) => {
     if (locked || rightSetFull()) return
     setLeftSel(idx)
   }
-  const handleRightClick = (idx: number) => {
-    if (locked || leftSel === null || rightUsed.has(idx)) return
-    const newMatches = { ...matches, [leftSel]: idx }
+  const handleRightClick = (displayIdx: number) => {
+    if (locked || leftSel === null || rightUsed.has(displayIdx)) return
+    const rightPairIdx = rightOrder[displayIdx]
+    const newMatches = { ...matches, [leftSel]: rightPairIdx }
     setMatches(newMatches)
-    setRightUsed(new Set([...rightUsed, idx]))
+    setRightUsed(new Set([...rightUsed, displayIdx]))
     setLeftSel(null)
     if (Object.keys(newMatches).length === pairs.length) {
-      const allCorrect = pairs.every((_, i) => newMatches[i] === i)
+      // Compare by right-hand text, not index: several left items can
+      // legitimately share the same right-hand label (e.g. categorization
+      // exercises), so any of those duplicate slots must count as correct.
+      const allCorrect = pairs.every(
+        (p, i) => normalize(pairs[newMatches[i]].right) === normalize(p.right)
+      )
       onResult(allCorrect, JSON.stringify(newMatches))
     }
   }

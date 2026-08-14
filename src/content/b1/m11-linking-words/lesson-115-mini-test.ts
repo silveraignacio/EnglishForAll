@@ -169,10 +169,10 @@ Errores típicos:
       type: 'reorder',
       concept: 'module 11 - however between sentences',
       difficulty: 3,
-      prompt: 'Ordena las palabras: nice / is / a / car. / expensive / However, / is / it / very',
+      prompt: 'Ordena las palabras: nice / a / car. / expensive / However, / it\'s / It\'s / very',
       promptTranslation: 'Es un buen coche. Sin embargo, es muy caro.',
       correctAnswer: 'It\'s a nice car. However, it\'s very expensive.',
-      words: ['It', 'is', 'a', 'nice', 'car.', 'However,', 'it', 'is', 'very', 'expensive'],
+      words: ['It\'s', 'a', 'nice', 'car.', 'However,', 'it\'s', 'very', 'expensive'],
       explanation: 'Primera frase + punto + However, + segunda frase. → It\'s a nice car. However, it\'s very expensive.',
     },
     {

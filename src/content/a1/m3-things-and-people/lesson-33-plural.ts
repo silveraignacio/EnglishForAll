@@ -225,7 +225,7 @@ Recuerda: con los plurales, usamos "are" (no "is") y "these/those" en plural, pe
       prompt: 'Plural de "apple":',
       promptTranslation: 'Plural de "apple"',
       correctAnswer: 'apples',
-      options: ['apples', 'apples', 'applies'],
+      options: ['apples', 'apple', 'applies'],
       explanation: 'Regla general: +s. → apples.',
     },
     {
