@@ -806,9 +806,10 @@ function Listening({
 interface WritingFeedback {
   score: number
   level: string
-  grammar: string
-  vocabulary: string
-  coherence: string
+  content: string
+  communicativeAchievement: string
+  organisation: string
+  language: string
   feedback_es: string
 }
 
@@ -839,7 +840,17 @@ function Writing({
       const res = await fetch(`${pbUrl}/api/evaluate-writing`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ topic: exercise.prompt, text: value, concept: exercise.concept, difficulty: exercise.difficulty }),
+        body: JSON.stringify({
+          topic: exercise.prompt,
+          text: value,
+          concept: exercise.concept,
+          difficulty: exercise.difficulty,
+          taskType: exercise.taskType,
+          targetReader: exercise.targetReader,
+          register: exercise.register,
+          contentPoints: exercise.contentPoints,
+          requiresOwnIdea: exercise.requiresOwnIdea,
+        }),
       })
       const data = await res.json()
       if (!res.ok) {
@@ -859,9 +870,18 @@ function Writing({
   return (
     <form onSubmit={handleSubmit}>
       <PromptWithAudio exercise={exercise} />
-      <p className="text-sm text-ink-light mb-2">
+      <p className="text-sm text-ink-light mb-1">
         ✍️ Escribí {minWords > 0 ? `entre ${minWords} y ${maxWords} palabras` : `hasta ${maxWords} palabras`} en inglés sobre el tema.
       </p>
+      {exercise.targetReader && (
+        <p className="text-sm text-ink-light mb-1">👤 Destinatario: {exercise.targetReader}{exercise.register ? ` · registro ${exercise.register}` : ''}</p>
+      )}
+      {exercise.contentPoints && exercise.contentPoints.length > 0 && (
+        <ul className="text-sm text-ink-light mb-2 list-disc list-inside">
+          {exercise.contentPoints.map((p, i) => <li key={i}>{p}</li>)}
+          {exercise.requiresOwnIdea && <li>Agregá una idea propia además de estos puntos.</li>}
+        </ul>
+      )}
       <textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -888,9 +908,10 @@ function Writing({
             <span className="text-sm font-semibold text-brand-700">Nivel estimado: {result.level}</span>
           </div>
           <ul className="text-sm text-ink-soft space-y-1 mb-2">
-            <li><strong>Gramática:</strong> {result.grammar}</li>
-            <li><strong>Vocabulario:</strong> {result.vocabulary}</li>
-            <li><strong>Coherencia:</strong> {result.coherence}</li>
+            <li><strong>Contenido:</strong> {result.content}</li>
+            <li><strong>Comunicación:</strong> {result.communicativeAchievement}</li>
+            <li><strong>Organización:</strong> {result.organisation}</li>
+            <li><strong>Lenguaje:</strong> {result.language}</li>
           </ul>
           <p className="text-sm text-ink">{result.feedback_es}</p>
         </div>
@@ -952,9 +973,17 @@ function Speaking({
         )}
       </div>
       {!SpeechRecognitionCtor ? (
-        <p className="text-sm text-error-600">
-          Tu navegador no soporta reconocimiento de voz (probá con Chrome o Safari).
-        </p>
+        <div>
+          <p className="text-sm text-ink-light mb-3">
+            Tu navegador no soporta reconocimiento de voz automático (funciona en Chrome y Safari). Escuchá el modelo, repetilo en voz alta, y marcá si lo lograste.
+          </p>
+          {!done && !locked && (
+            <Button type="button" variant="primary" onClick={() => { setDone(true); onResult(true, '(autoevaluado)') }}>
+              ✓ Lo dije correctamente
+            </Button>
+          )}
+          {done && <p className="text-sm text-success-600">✓ Autoevaluado</p>}
+        </div>
       ) : (
         <Button type="button" variant={listening ? 'secondary' : 'primary'} disabled={locked || done} onClick={startListening}>
           {listening ? '🎙️ Escuchando...' : done ? '✓ Grabado' : '🎤 Hablar'}

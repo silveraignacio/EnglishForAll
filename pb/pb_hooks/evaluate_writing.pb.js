@@ -16,6 +16,11 @@ routerAdd("POST", "/api/evaluate-writing", (e) => {
   const body = info.body || {}
   const topic = String(body.topic || "").trim()
   const text = String(body.text || "").trim()
+  const taskType = body.taskType ? String(body.taskType) : null
+  const targetReader = body.targetReader ? String(body.targetReader) : null
+  const register = body.register ? String(body.register) : null
+  const contentPoints = Array.isArray(body.contentPoints) ? body.contentPoints.map(String) : []
+  const requiresOwnIdea = !!body.requiresOwnIdea
 
   if (!topic || !text) {
     return e.json(400, { error: { message: "Faltan 'topic' o 'text' en la petición." } })
@@ -29,12 +34,25 @@ routerAdd("POST", "/api/evaluate-writing", (e) => {
     return e.json(500, { error: { message: "El servidor no tiene configurada la clave de evaluación (OPENCODE_API_KEY)." } })
   }
 
+  // Mirrors the Cambridge B1 Preliminary / B2 First writing rubric: four
+  // subscales (Content, Communicative Achievement, Organisation, Language),
+  // each scored 0-5, used at every CEFR level for consistency. Per the
+  // official marking guidance: non-impeding errors should not be penalised
+  // heavily, and ambitious language use (even with minor mistakes) should
+  // score higher than a trivially correct but simple text.
+  const taskContext = [
+    taskType ? `Task type: ${taskType}.` : null,
+    targetReader ? `Target reader: ${targetReader}.` : null,
+    register ? `Required register: ${register}.` : null,
+    contentPoints.length ? `Content points to cover: ${contentPoints.join("; ")}.` : null,
+    requiresOwnIdea ? "The learner must add one own idea beyond the given content points." : null,
+  ].filter(Boolean).join(" ")
+
   const systemPrompt = [
-    "You are a CEFR English writing examiner (A1-C2 scale).",
-    "Evaluate the learner's text for the given topic and respond ONLY with strict JSON",
-    '(no markdown, no code fences) matching exactly this shape:',
-    '{"score": <0-100 integer>, "level": "<A1|A2|B1|B2|C1|C2>", "grammar": "<1 short sentence, in Spanish>", "vocabulary": "<1 short sentence, in Spanish>", "coherence": "<1 short sentence, in Spanish>", "feedback_es": "<2-3 sentences of actionable feedback, in Spanish>"}',
-    "Be encouraging but honest. Base the level estimate on grammar accuracy, vocabulary range, and task achievement for the given topic.",
+    "You are a CEFR English writing examiner (A1-C2 scale), using the same 4-subscale rubric as Cambridge B1 Preliminary / B2 First writing (Content, Communicative Achievement, Organisation, Language — each scored 0-5).",
+    "Non-impeding errors (spelling/punctuation that doesn't break communication) should NOT be penalised heavily. Ambitious language use with minor mistakes should score HIGHER than a trivially correct but simple text — reward range and complexity, not just accuracy.",
+    "Respond ONLY with strict JSON (no markdown, no code fences) matching exactly this shape:",
+    '{"score": <0-100 integer, roughly (content+communicativeAchievement+organisation+language)*5>, "level": "<A1|A2|B1|B2|C1|C2>", "content": "<1 short sentence in Spanish: did it cover the task/content points>", "communicativeAchievement": "<1 short sentence in Spanish: register and appropriateness for the target reader>", "organisation": "<1 short sentence in Spanish: coherence and cohesive devices>", "language": "<1 short sentence in Spanish: vocabulary range and grammar accuracy>", "feedback_es": "<2-3 sentences of actionable, encouraging feedback in Spanish>"}',
   ].join(" ")
 
   let res
@@ -50,7 +68,7 @@ routerAdd("POST", "/api/evaluate-writing", (e) => {
         model: "deepseek-v4-flash",
         messages: [
           { role: "system", content: systemPrompt },
-          { role: "user", content: "Topic: " + topic + "\n\nText:\n" + text },
+          { role: "user", content: "Topic: " + topic + (taskContext ? "\n" + taskContext : "") + "\n\nText:\n" + text },
         ],
         max_tokens: 500,
       }),

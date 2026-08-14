@@ -46,9 +46,12 @@ function checkExercise(ex, loc) {
   counts.exercises++
   counts.byType[ex.type] = (counts.byType[ex.type] || 0) + 1
 
-  // `match` is graded from `pairs`, `writing` from an AI evaluation — an
-  // empty correctAnswer there is the authored convention, not a bug.
-  const gradedByCorrectAnswer = !['reading', 'match', 'writing'].includes(ex.type)
+  // `match` is graded from `pairs`, `writing` from an AI evaluation, and
+  // `speaking` in 'free' mode from self-report — an empty correctAnswer
+  // there is the authored convention, not a bug.
+  const gradedByCorrectAnswer =
+    !['reading', 'match', 'writing'].includes(ex.type) &&
+    !(ex.type === 'speaking' && ex.speakingMode === 'free')
 
   if (gradedByCorrectAnswer) {
     if (ex.correctAnswer == null || ex.correctAnswer === '') {
@@ -159,8 +162,9 @@ function checkExercise(ex, loc) {
   }
 
   if (ex.type === 'speaking') {
-    if (!ex.correctAnswer || !ex.correctAnswer.trim()) {
-      errors.push(`${loc}: speaking "${ex.id}" has no target phrase (correctAnswer)`)
+    const mode = ex.speakingMode || 'repeat'
+    if (mode === 'repeat' && (!ex.correctAnswer || !ex.correctAnswer.trim())) {
+      errors.push(`${loc}: speaking "${ex.id}" (mode=repeat) has no target phrase (correctAnswer)`)
     }
   }
 }

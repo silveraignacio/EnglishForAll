@@ -57,10 +57,26 @@ export interface Exercise {
   acceptApproximate?: boolean
   /** 'listening' only. */
   listening?: ListeningClip
-  /** 'writing' only — guidance shown to the learner, enforced client-side before submitting for AI evaluation. */
+  /**
+   * 'writing' only. `prompt` holds the topic; these mirror the Cambridge
+   * B1/B2 writing rubric fields so the AI evaluator has real task context
+   * instead of a bare topic string. minWords/maxWords are enforced
+   * client-side before submitting for evaluation.
+   */
+  taskType?: 'email' | 'article' | 'story' | 'essay' | 'review' | 'report'
+  targetReader?: string
+  register?: 'formal' | 'neutral' | 'informal'
+  contentPoints?: string[]
+  requiresOwnIdea?: boolean
   minWords?: number
   maxWords?: number
-  /** 'speaking' only — phrase the learner must say aloud; correctAnswer holds it for text-based types. */
+  /**
+   * 'speaking' only. 'repeat' (default): correctAnswer holds the phrase to
+   * read aloud, graded by fuzzy match against the transcript — works
+   * without AI. 'free': prompt is an open topic/question, graded by
+   * self-report only for now (no AI speaking evaluation yet).
+   */
+  speakingMode?: 'repeat' | 'free'
 }
 
 export interface VocabItem {
