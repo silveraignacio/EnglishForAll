@@ -196,9 +196,10 @@ export function PlacementPage() {
         </div>
         <Card className="bg-brand-50/60 border-brand-100 text-left">
           <p className="text-sm text-ink-soft leading-relaxed">
-            Si no sabes una respuesta, responde lo que creas y sigue adelante.
-            No hay respuestas «malas»: la prueba solo sirve para saber por dónde
-            empezar. Si es tu primera vez, hazla tranquilo.
+            Si no sabes una respuesta, responde lo que creas y sigue adelante. No hay respuestas «malas»:
+            la prueba solo sirve para saber por dónde empezar. Durante las preguntas no se muestra si
+            acertaste — el resultado aparece todo junto al final. No puedes volver atrás ni cambiar una
+            respuesta, así que confía en tu primera opción.
           </p>
         </Card>
         {existing && (
@@ -301,6 +302,7 @@ export function PlacementPage() {
           onAnswer={handleConfirmAnswer}
           onNext={handleNextConfirm}
           isLast={confirmIdx === confirmExercises.length - 1}
+          silentMode
         />
       </div>
     )
@@ -335,6 +337,7 @@ export function PlacementPage() {
           onAnswer={handleAnswer}
           onNext={handleNextPhase1}
           isLast={isLastOverall}
+          silentMode
         />
       )}
     </div>

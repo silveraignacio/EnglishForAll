@@ -18,18 +18,32 @@ export interface ExerciseRendererProps {
   isLast?: boolean
   /** In "assessment" mode, the user cannot advance until they answer correctly. */
   strictMode?: boolean
+  /**
+   * "Silent" mode (placement test): no feedback is shown, the answer is not
+   * revealed, there is no retry — after a single attempt the exercise locks
+   * and only a "Siguiente" button appears. The result is computed at the end.
+   */
+  silentMode?: boolean
 }
 
-export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMode }: ExerciseRendererProps) {
+export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMode, silentMode }: ExerciseRendererProps) {
   const [feedback, setFeedback] = useState<Feedback | null>(null)
   const [attempts, setAttempts] = useState(0)
   const [locked, setLocked] = useState(false)
+  const [answered, setAnswered] = useState(false)
 
   const handleResult = (correct: boolean, userAnswer: string) => {
+    if (silentMode && answered) return
     const newAttempts = attempts + 1
     setAttempts(newAttempts)
-    setFeedback({ correct, explanation: exercise.explanation })
-    if (correct) setLocked(true)
+    if (silentMode) {
+      // In silent mode we never reveal the result; we just lock after one attempt.
+      setLocked(true)
+      setAnswered(true)
+    } else {
+      setFeedback({ correct, explanation: exercise.explanation })
+      if (correct) setLocked(true)
+    }
     onAnswer(correct, userAnswer, newAttempts)
   }
 
@@ -37,6 +51,7 @@ export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMod
     setFeedback(null)
     setAttempts(0)
     setLocked(false)
+    setAnswered(false)
     onNext?.()
   }
 
@@ -48,7 +63,7 @@ export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMod
         locked={locked}
         onResult={handleResult}
       />
-      {feedback && (
+      {feedback && !silentMode && (
         <FeedbackPanel
           correct={feedback.correct}
           correctAnswer={exercise.correctAnswer}
@@ -57,7 +72,14 @@ export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMod
           strictMode={strictMode}
         />
       )}
-      {feedback && (!strictMode || feedback.correct) && (
+      {silentMode && answered && (
+        <div className="mt-4 flex justify-end">
+          <Button onClick={handleNext} variant="primary">
+            {isLast ? 'Ver resultados' : 'Siguiente'}
+          </Button>
+        </div>
+      )}
+      {!silentMode && feedback && (!strictMode || feedback.correct) && (
         <div className="mt-4 flex justify-end">
           <Button onClick={handleNext} variant={feedback.correct ? 'primary' : 'secondary'}>
             {isLast ? 'Ver resultados' : 'Siguiente'}
@@ -213,12 +235,15 @@ function FillBlank({
   return (
     <form onSubmit={handleSubmit}>
       <PromptWithAudio exercise={exercise} />
+      <p className="text-sm text-ink-light mb-2">
+        ✏️ Rellena solo el hueco (___): escribe la palabra o palabras que faltan, no la frase entera.
+      </p>
       <input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={locked}
-        placeholder="Escribe tu respuesta..."
+        placeholder="Escribe la palabra que falta..."
         autoFocus
         className="input mb-4"
         aria-label={exercise.prompt}
@@ -250,7 +275,7 @@ function TranslateExercise({
   }
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-4">
+      <div className="mb-2">
         <div className="flex items-start gap-2 text-lg text-ink">
           <p className="flex-1">{exercise.prompt}</p>
           <SpeakButton text={exercise.prompt} size="sm" className="mt-0.5 flex-none" />
@@ -259,12 +284,15 @@ function TranslateExercise({
           <p className="text-sm text-ink-light mt-1 italic">{exercise.promptTranslation}</p>
         )}
       </div>
+      <p className="text-sm text-ink-light mb-2">
+        🌎 Traduce la frase <strong>entera</strong> al inglés (con mayúscula al inicio y punto final).
+      </p>
       <input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={locked}
-        placeholder="Traduce a inglés..."
+        placeholder="Escribe la frase completa en inglés..."
         autoFocus
         className="input mb-4"
         aria-label={exercise.prompt}
@@ -507,13 +535,15 @@ function ErrorCorrection({
       {exercise.promptTranslation && (
         <p className="text-sm text-ink-light mb-4 italic">{exercise.promptTranslation}</p>
       )}
-      <p className="text-sm text-error-600 mb-3">Hay un error en esta frase. Escribe la frase completa correctamente:</p>
+      <p className="text-sm text-error-600 mb-3">
+        🛠️ Hay un error en la frase. Reescribe la frase <strong>entera</strong>, ya corregida (no solo la palabra que cambia):
+      </p>
       <input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={locked}
-        placeholder="Escribe la frase completa correctamente..."
+        placeholder="Escribe la frase completa corregida..."
         autoFocus
         className="input mb-4"
         aria-label={exercise.prompt}
