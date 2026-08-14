@@ -1,10 +1,12 @@
-import { useState, type ReactNode } from 'react'
+import { useState, useRef, type ReactNode } from 'react'
 import type { Exercise } from '@/content/types'
 import { isAnswerCorrect, shuffle, normalize, cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Markdown } from '@/components/ui/Markdown'
 import { SpeakButton } from '@/components/ui/SpeakButton'
+import { useSpeech } from '@/hooks/useSpeech'
+import { pbUrl } from '@/lib/pocketbase'
 
 interface Feedback {
   correct: boolean
@@ -102,6 +104,9 @@ function ExerciseHeader({ exercise }: { exercise: Exercise }) {
     reading: 'Comprensión de lectura',
     sentence_building: 'Construir frase',
     select_correct: 'Elegir frase correcta',
+    listening: 'Comprensión auditiva',
+    writing: 'Escritura',
+    speaking: 'Pronunciación',
   }
   return (
     <div className="flex items-center justify-between mb-4">
@@ -154,6 +159,12 @@ function ExerciseBody({
       return <SentenceBuilding exercise={exercise} locked={locked} onResult={onResult} />
     case 'reading':
       return <Reading exercise={exercise} locked={locked} onResult={onResult} />
+    case 'listening':
+      return <Listening exercise={exercise} locked={locked} onResult={onResult} />
+    case 'writing':
+      return <Writing exercise={exercise} locked={locked} onResult={onResult} />
+    case 'speaking':
+      return <Speaking exercise={exercise} locked={locked} onResult={onResult} />
     default:
       return <div>Tipo no soportado: {exercise.type}</div>
   }
@@ -620,6 +631,28 @@ function SentenceBuilding({
 }
 
 // ----- Reading -----
+/**
+ * Shared by Reading and Listening: a set of sub-questions (usually
+ * multiple_choice) that must all be answered before the parent exercise
+ * reports a result — otherwise the outer "Siguiente" button never appears.
+ */
+function useSubQuestionResults(questionIds: string[], locked: boolean, onResult: (correct: boolean, userAnswer: string) => void) {
+  const results = useRef<Record<string, boolean>>({})
+  const reported = useRef(false)
+
+  const recordAnswer = (id: string, correct: boolean) => {
+    if (locked || reported.current) return
+    results.current = { ...results.current, [id]: correct }
+    if (Object.keys(results.current).length === questionIds.length) {
+      reported.current = true
+      const allCorrect = questionIds.every((id) => results.current[id])
+      onResult(allCorrect, JSON.stringify(results.current))
+    }
+  }
+
+  return { recordAnswer }
+}
+
 function Reading({
   exercise,
   locked,
@@ -630,6 +663,8 @@ function Reading({
   onResult: (correct: boolean, userAnswer: string) => void
 }) {
   const reading = exercise.reading
+  const questionIds = (reading?.questions ?? []).map((q, i) => q.id || String(i))
+  const { recordAnswer } = useSubQuestionResults(questionIds, locked, onResult)
   if (!reading) return null
   return (
     <div>
@@ -647,14 +682,27 @@ function Reading({
       )}
       <div className="space-y-4">
         {reading.questions.map((q, idx) => (
-          <ReadingSubQuestion key={q.id || idx} exercise={q} locked={locked} />
+          <SubQuestion
+            key={q.id || idx}
+            exercise={q}
+            locked={locked}
+            onAnswered={(correct) => recordAnswer(q.id || String(idx), correct)}
+          />
         ))}
       </div>
     </div>
   )
 }
 
-function ReadingSubQuestion({ exercise, locked }: { exercise: Exercise; locked: boolean }) {
+function SubQuestion({
+  exercise,
+  locked,
+  onAnswered,
+}: {
+  exercise: Exercise
+  locked: boolean
+  onAnswered: (correct: boolean) => void
+}) {
   const [selected, setSelected] = useState<string | null>(null)
   const [showResult, setShowResult] = useState(false)
   const options = exercise.options || []
@@ -669,6 +717,7 @@ function ReadingSubQuestion({ exercise, locked }: { exercise: Exercise; locked: 
             onClick={() => {
               setSelected(opt)
               setShowResult(true)
+              onAnswered(opt === exercise.correctAnswer)
             }}
             className={cn(
               'flex items-center gap-2 w-full text-left px-3 py-2 rounded-lg border-2 text-sm transition-all',
@@ -690,6 +739,244 @@ function ReadingSubQuestion({ exercise, locked }: { exercise: Exercise; locked: 
     </div>
   )
 }
+
+// ----- Listening -----
+function Listening({
+  exercise,
+  locked,
+  onResult,
+}: {
+  exercise: Exercise
+  locked: boolean
+  onResult: (correct: boolean, userAnswer: string) => void
+}) {
+  const listening = exercise.listening
+  const { speak, isSupported } = useSpeech()
+  const [played, setPlayed] = useState(false)
+  const questionIds = (listening?.questions ?? []).map((q, i) => q.id || String(i))
+  const { recordAnswer } = useSubQuestionResults(questionIds, locked, onResult)
+  if (!listening) return null
+
+  return (
+    <div>
+      <p className="text-lg text-ink mb-4">{exercise.prompt}</p>
+      {!isSupported ? (
+        <p className="text-sm text-error-600 mb-4">
+          Tu navegador no soporta la reproducción de audio necesaria para este ejercicio.
+        </p>
+      ) : (
+        <div className="flex flex-wrap gap-2 mb-6">
+          <Button
+            type="button"
+            variant="primary"
+            onClick={() => {
+              setPlayed(true)
+              speak(listening.audioText, 0.95)
+            }}
+          >
+            🔊 {played ? 'Escuchar de nuevo' : 'Escuchar audio'}
+          </Button>
+          {played && (
+            <Button type="button" variant="secondary" onClick={() => speak(listening.audioText, 0.6)}>
+              🐢 Escuchar más lento
+            </Button>
+          )}
+        </div>
+      )}
+      {played && (
+        <div className="space-y-4">
+          {listening.questions.map((q, idx) => (
+            <SubQuestion
+              key={q.id || idx}
+              exercise={q}
+              locked={locked}
+              onAnswered={(correct) => recordAnswer(q.id || String(idx), correct)}
+            />
+          ))}
+        </div>
+      )}
+      {!played && isSupported && (
+        <p className="text-sm text-ink-faint">Escuchá el audio para ver las preguntas.</p>
+      )}
+    </div>
+  )
+}
+
+// ----- Writing -----
+interface WritingFeedback {
+  score: number
+  level: string
+  grammar: string
+  vocabulary: string
+  coherence: string
+  feedback_es: string
+}
+
+function Writing({
+  exercise,
+  locked,
+  onResult,
+}: {
+  exercise: Exercise
+  locked: boolean
+  onResult: (correct: boolean, userAnswer: string) => void
+}) {
+  const [value, setValue] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
+  const [result, setResult] = useState<WritingFeedback | null>(null)
+  const wordCount = value.trim() ? value.trim().split(/\s+/).length : 0
+  const minWords = exercise.minWords ?? 0
+  const maxWords = exercise.maxWords ?? Infinity
+  const withinRange = wordCount >= minWords && wordCount <= maxWords
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!withinRange || locked || status === 'loading') return
+    setStatus('loading')
+    setErrorMsg('')
+    try {
+      const res = await fetch(`${pbUrl}/api/evaluate-writing`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic: exercise.prompt, text: value, concept: exercise.concept, difficulty: exercise.difficulty }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setErrorMsg(data?.error?.message || data?.message || 'No se pudo evaluar el texto. Probá de nuevo en unos minutos.')
+        setStatus('error')
+        return
+      }
+      setResult(data)
+      setStatus('idle')
+      onResult(data.score >= 60, value)
+    } catch {
+      setErrorMsg('No se pudo conectar con el servicio de evaluación. Probá de nuevo en unos minutos.')
+      setStatus('error')
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <PromptWithAudio exercise={exercise} />
+      <p className="text-sm text-ink-light mb-2">
+        ✍️ Escribí {minWords > 0 ? `entre ${minWords} y ${maxWords} palabras` : `hasta ${maxWords} palabras`} en inglés sobre el tema.
+      </p>
+      <textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        disabled={locked || !!result}
+        rows={6}
+        placeholder="Escribe tu texto en inglés aquí..."
+        className="input mb-2 resize-y"
+      />
+      <p className={cn('text-xs mb-4', withinRange ? 'text-ink-faint' : 'text-error-600')}>
+        {wordCount} palabras
+      </p>
+      {!result && !locked && (
+        <Button type="submit" variant="primary" disabled={!withinRange || status === 'loading'}>
+          {status === 'loading' ? 'Evaluando...' : 'Enviar para evaluación'}
+        </Button>
+      )}
+      {status === 'error' && (
+        <p className="text-sm text-error-600 mt-3">{errorMsg}</p>
+      )}
+      {result && (
+        <div className="mt-4 p-4 rounded-xl border-2 border-brand-200 bg-brand-50/50">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-bold text-ink">Puntaje: {result.score}/100</span>
+            <span className="text-sm font-semibold text-brand-700">Nivel estimado: {result.level}</span>
+          </div>
+          <ul className="text-sm text-ink-soft space-y-1 mb-2">
+            <li><strong>Gramática:</strong> {result.grammar}</li>
+            <li><strong>Vocabulario:</strong> {result.vocabulary}</li>
+            <li><strong>Coherencia:</strong> {result.coherence}</li>
+          </ul>
+          <p className="text-sm text-ink">{result.feedback_es}</p>
+        </div>
+      )}
+    </form>
+  )
+}
+
+// ----- Speaking -----
+function Speaking({
+  exercise,
+  locked,
+  onResult,
+}: {
+  exercise: Exercise
+  locked: boolean
+  onResult: (correct: boolean, userAnswer: string) => void
+}) {
+  const { speak, isSupported: ttsSupported } = useSpeech()
+  const [listening, setListening] = useState(false)
+  const [transcript, setTranscript] = useState('')
+  const [done, setDone] = useState(false)
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null)
+
+  const SpeechRecognitionCtor: SpeechRecognitionConstructor | undefined =
+    typeof window !== 'undefined'
+      ? (window as unknown as { SpeechRecognition?: SpeechRecognitionConstructor; webkitSpeechRecognition?: SpeechRecognitionConstructor }).SpeechRecognition ??
+        (window as unknown as { SpeechRecognition?: SpeechRecognitionConstructor; webkitSpeechRecognition?: SpeechRecognitionConstructor }).webkitSpeechRecognition
+      : undefined
+
+  const startListening = () => {
+    if (!SpeechRecognitionCtor || locked || done) return
+    const recognition = new SpeechRecognitionCtor()
+    recognitionRef.current = recognition
+    recognition.lang = 'en-US'
+    recognition.interimResults = false
+    recognition.maxAlternatives = 1
+    recognition.onresult = (event) => {
+      const said = event.results[0]?.[0]?.transcript ?? ''
+      setTranscript(said)
+      setDone(true)
+      setListening(false)
+      const correct = isAnswerCorrect(said, { ...exercise, acceptApproximate: true })
+      onResult(correct, said)
+    }
+    recognition.onerror = () => setListening(false)
+    recognition.onend = () => setListening(false)
+    setListening(true)
+    recognition.start()
+  }
+
+  return (
+    <div>
+      <PromptWithAudio exercise={exercise} />
+      <div className="p-4 rounded-xl bg-surface-muted mb-4 flex items-center gap-3">
+        <p className="text-lg font-medium text-ink flex-1">{exercise.correctAnswer}</p>
+        {ttsSupported && (
+          <SpeakButton text={exercise.correctAnswer} label="Escuchar pronunciación modelo" />
+        )}
+      </div>
+      {!SpeechRecognitionCtor ? (
+        <p className="text-sm text-error-600">
+          Tu navegador no soporta reconocimiento de voz (probá con Chrome o Safari).
+        </p>
+      ) : (
+        <Button type="button" variant={listening ? 'secondary' : 'primary'} disabled={locked || done} onClick={startListening}>
+          {listening ? '🎙️ Escuchando...' : done ? '✓ Grabado' : '🎤 Hablar'}
+        </Button>
+      )}
+      {transcript && (
+        <p className="text-sm text-ink-light mt-3">Dijiste: "{transcript}"</p>
+      )}
+    </div>
+  )
+}
+
+interface SpeechRecognitionLike {
+  lang: string
+  interimResults: boolean
+  maxAlternatives: number
+  onresult: ((event: { results: { [index: number]: { [index: number]: { transcript: string } } } }) => void) | null
+  onerror: (() => void) | null
+  onend: (() => void) | null
+  start: () => void
+}
+type SpeechRecognitionConstructor = new () => SpeechRecognitionLike
 
 // ----- Feedback Panel -----
 function FeedbackPanel({

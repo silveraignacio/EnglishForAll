@@ -12,6 +12,9 @@ export type ExerciseType =
   | 'reading'
   | 'sentence_building'
   | 'select_correct'
+  | 'listening'
+  | 'writing'
+  | 'speaking'
 
 export interface MatchPair {
   left: string
@@ -21,6 +24,18 @@ export interface MatchPair {
 export interface ReadingPassage {
   text: string
   translation?: string
+  questions: Exercise[]
+}
+
+/**
+ * `audioText` is read aloud by TTS (or, for authentic clips, matches an
+ * `audioUrl` recording) but must NEVER be shown or translated to the
+ * learner during the exercise — only the questions are, and they're
+ * answered in English from what was heard, not from reading a transcript.
+ */
+export interface ListeningClip {
+  audioText: string
+  audioUrl?: string
   questions: Exercise[]
 }
 
@@ -40,6 +55,12 @@ export interface Exercise {
   sentences?: string[]
   reading?: ReadingPassage
   acceptApproximate?: boolean
+  /** 'listening' only. */
+  listening?: ListeningClip
+  /** 'writing' only — guidance shown to the learner, enforced client-side before submitting for AI evaluation. */
+  minWords?: number
+  maxWords?: number
+  /** 'speaking' only — phrase the learner must say aloud; correctAnswer holds it for text-based types. */
 }
 
 export interface VocabItem {

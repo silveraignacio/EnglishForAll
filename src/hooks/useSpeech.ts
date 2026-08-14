@@ -5,7 +5,7 @@ import { useCallback } from 'react'
  * (sin servicios de pago ni dependencias externas).
  */
 export function useSpeech() {
-  const speak = useCallback((text: string) => {
+  const speak = useCallback((text: string, rate = 0.9) => {
     if (typeof window === 'undefined' || !window.speechSynthesis) return
     window.speechSynthesis.cancel()
     // Una sola letra en mayúscula (p. ej. al deletrear el alfabeto) hace
@@ -14,7 +14,7 @@ export function useSpeech() {
     const spokenText = /^[A-Z]$/.test(text) ? text.toLowerCase() : text
     const utterance = new SpeechSynthesisUtterance(spokenText)
     utterance.lang = 'en-US'
-    utterance.rate = 0.9
+    utterance.rate = rate
     window.speechSynthesis.speak(utterance)
   }, [])
 

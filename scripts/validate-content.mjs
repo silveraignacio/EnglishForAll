@@ -13,7 +13,8 @@ const srcDir = join(__dirname, '..', 'src')
 
 const EXERCISE_TYPES = [
   'multiple_choice', 'fill_blank', 'translate', 'reorder', 'true_false',
-  'match', 'error_correction', 'reading', 'sentence_building', 'select_correct'
+  'match', 'error_correction', 'reading', 'sentence_building', 'select_correct',
+  'listening', 'writing', 'speaking'
 ]
 
 let errors = []
@@ -65,11 +66,13 @@ for (const file of lessonFiles) {
     const nextIdIdx = slice.slice(m[0].length).search(/\n\s*id:\s*['"`]/)
     if (nextIdIdx >= 0) slice = slice.slice(0, m[0].length + nextIdIdx)
     // Check required fields
-    const isReading = m[1] === 'reading'
-    // Reading exercises are graded by their sub-questions; outer correctAnswer is informational.
-    if (!isReading && !slice.includes('correctAnswer')) {
+    // Reading/listening are graded by their sub-questions, writing by AI —
+    // the outer correctAnswer is informational/absent for those.
+    const skipsCorrectAnswer = m[1] === 'reading' || m[1] === 'listening' || m[1] === 'writing'
+    if (!skipsCorrectAnswer && !slice.includes('correctAnswer')) {
       errors.push(`${label} (${m[1]} #${exerciseCount}): missing correctAnswer`)
     }
+    const isReading = m[1] === 'reading'
     if (!isReading && !slice.includes('explanation')) {
       errors.push(`${label} (${m[1]} #${exerciseCount}): missing explanation`)
     }

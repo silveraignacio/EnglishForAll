@@ -46,9 +46,9 @@ function checkExercise(ex, loc) {
   counts.exercises++
   counts.byType[ex.type] = (counts.byType[ex.type] || 0) + 1
 
-  // `match` exercises are graded from `pairs`, not `correctAnswer` — an
+  // `match` is graded from `pairs`, `writing` from an AI evaluation — an
   // empty correctAnswer there is the authored convention, not a bug.
-  const gradedByCorrectAnswer = ex.type !== 'reading' && ex.type !== 'match'
+  const gradedByCorrectAnswer = !['reading', 'match', 'writing'].includes(ex.type)
 
   if (gradedByCorrectAnswer) {
     if (ex.correctAnswer == null || ex.correctAnswer === '') {
@@ -128,6 +128,39 @@ function checkExercise(ex, loc) {
   if (ex.type === 'reading' && ex.reading) {
     for (const q of ex.reading.questions || []) {
       checkExercise(q, `${loc} (reading sub-question)`)
+    }
+  }
+
+  if (ex.type === 'listening') {
+    if (!ex.listening || !ex.listening.audioText || !ex.listening.audioText.trim()) {
+      errors.push(`${loc}: listening "${ex.id}" has no audioText for TTS to read`)
+    }
+    // The prompt/promptTranslation must never leak the audio content —
+    // that would defeat the listening comprehension exercise.
+    if (ex.listening?.audioText && ex.prompt && normalize(ex.prompt) === normalize(ex.listening.audioText)) {
+      errors.push(`${loc}: listening "${ex.id}" prompt duplicates audioText — it would reveal the transcript`)
+    }
+    const questions = ex.listening?.questions || []
+    if (questions.length < 1) {
+      errors.push(`${loc}: listening "${ex.id}" has no comprehension questions`)
+    }
+    for (const q of questions) {
+      checkExercise(q, `${loc} (listening sub-question)`)
+    }
+  }
+
+  if (ex.type === 'writing') {
+    if (ex.minWords != null && ex.maxWords != null && ex.minWords > ex.maxWords) {
+      errors.push(`${loc}: writing "${ex.id}" has minWords (${ex.minWords}) > maxWords (${ex.maxWords})`)
+    }
+    if (!ex.prompt || !ex.prompt.trim()) {
+      errors.push(`${loc}: writing "${ex.id}" has no topic prompt`)
+    }
+  }
+
+  if (ex.type === 'speaking') {
+    if (!ex.correctAnswer || !ex.correctAnswer.trim()) {
+      errors.push(`${loc}: speaking "${ex.id}" has no target phrase (correctAnswer)`)
     }
   }
 }
