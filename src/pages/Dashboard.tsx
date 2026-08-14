@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useProgressStore } from '@/store/progressStore'
+import { useAuthStore } from '@/store/authStore'
 import { getCourse } from '@/content'
 import { Card } from '@/components/ui/Card'
 import { ProgressBar } from '@/components/ui/ProgressBar'
@@ -8,12 +9,28 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 import { isLevelUnlocked } from '@/lib/access'
+import { LandingSection } from '@/pages/LandingSection'
 
 export function Dashboard() {
   const progress = useProgressStore((s) => s.progress)
+  const user = useAuthStore((s) => s.user)
   const course = getCourse()
 
   const levels = course.levels
+
+  // Brand-new visitor: no account and no progress yet (nothing to lose by
+  // showing marketing content instead of an empty personal dashboard).
+  // Anyone with local progress or an account keeps seeing their dashboard —
+  // this must never hide progress a returning anonymous user already has.
+  const isNewVisitor =
+    !user &&
+    progress.completedLessons.length === 0 &&
+    progress.xp === 0 &&
+    !progress.placementResult
+
+  if (isNewVisitor) {
+    return <LandingSection levels={levels} />
+  }
 
   // Determine active level: the placement-recommended level (if any and
   // still unlocked/available) takes priority — otherwise fall back to the
