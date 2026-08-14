@@ -85,10 +85,15 @@ Ejemplo real desplegado en `englishforall.silversolutions.dpdns.org`:
 2. **Schema**: crea `pb_migrations/1_progress.js` siguiendo el patrón de migración JSVM de PocketBase (así se aplica al arrancar), o usa `pb/setup.mjs` con `POCKETBASE_URL` y las credenciales admin.
 3. **Nginx**: sirve el frontend estático (`dist/`) y hace proxy de `/api/` y `/_/` al PocketBase local:
    ```
-   location /api/ { proxy_pass http://127.0.0.1:8092; ... }
-   location /_/   { proxy_pass http://127.0.0.1:8092; ... }
-   location /     { try_files $uri /index.html; }
+   location /api/   { proxy_pass http://127.0.0.1:8092; ... }
+   location /_/     { proxy_pass http://127.0.0.1:8092; ... }
+   location /admin/ { try_files $uri $uri/index.html =404; }
+   location /       { try_files $uri /index.html; }
    ```
+   El bloque `/admin/` es necesario porque `public/admin/index.html` (panel de alumnos, ver más abajo) es un
+   archivo estático fuera del bundle de React — sin ese bloque, `try_files $uri /index.html;` del SPA capta
+   `/admin/` (URI con barra final, sin nombre de archivo) antes de que nginx resuelva el índice del directorio,
+   y sirve el `index.html` de la app en vez del panel.
 4. **Build del frontend** apuntando a la URL pública:
    ```
    VITE_POCKETBASE_URL=https://tu-dominio.com npm run build
@@ -96,3 +101,16 @@ Ejemplo real desplegado en `englishforall.silversolutions.dpdns.org`:
    (El frontend habla con `/api` a través de nginx, nunca directo a PocketBase.)
 5. **TLS**: `certbot --nginx -d tu-dominio.com`.
 6. **Seguridad**: PocketBase solo escucha en `127.0.0.1`; el firewall no necesita abrir ningún puerto extra más allá de 80/443. Todo entra por nginx.
+
+## Panel de alumnos (`public/admin/index.html`)
+
+Página estática independiente del bundle de React, en `https://tu-dominio.com/admin/`. Se loguea con las
+credenciales de superadmin de PocketBase (mismas que `/_/`) y lee en vivo, vía `fetch` a `/api/collections/...`
+del mismo origen (sin CORS), las colecciones `progress` y `users` para mostrar: alumnos registrados, activos
+en los últimos 7 días, XP/racha promedio, distribución por nivel recomendado, % de completitud promedio por
+nivel, y los conceptos donde más alumnos tienen dificultad (agregado de `weakConcepts`). El token de sesión se
+guarda solo en `sessionStorage` (se pierde al cerrar la pestaña).
+
+`LEVEL_LESSON_TOTALS` dentro del archivo está hardcodeado (a1: 73, a2: 50, b1: 49) — actualizarlo a mano cuando
+se agreguen lecciones o se lance B2, porque la página no importa el contenido del curso (es un archivo estático
+suelto, no parte del build de Vite).

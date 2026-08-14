@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>English On Course — Panel de alumnos</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-0: #ffffff;
+    --surface-1: #f7f7f5;
+    --surface-2: #efeeea;
+    --border: #e2e0da;
+    --text-primary: #16150f;
+    --text-secondary: #5c5a52;
+    --text-muted: #8b8880;
+    --series-1: #2a78d6; /* blue   - A1 */
+    --series-2: #eb6834; /* orange - A2 */
+    --series-3: #1baf7a; /* aqua   - B1 */
+    --series-4: #eda100; /* yellow - B2 */
+    --seq-100: #cde2fb;
+    --seq-700: #0d366b;
+    --good: #1baf7a;
+    --warn: #eda100;
+    --crit: #e34948;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-0: #171715;
+      --surface-1: #1f1f1c;
+      --surface-2: #2a2a26;
+      --border: #3a3934;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #8b8880;
+      --series-1: #3987e5;
+      --series-2: #d95926;
+      --series-3: #199e70;
+      --series-4: #c98500;
+      --seq-100: #184f95;
+      --seq-700: #cde2fb;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-0: #171715;
+    --surface-1: #1f1f1c;
+    --surface-2: #2a2a26;
+    --border: #3a3934;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #8b8880;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 24px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .sub { color: var(--text-secondary); font-size: .9rem; margin-bottom: 24px; }
+  .card {
+    background: var(--surface-0);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .login-card { max-width: 420px; margin: 60px auto; }
+  label { display: block; font-size: .85rem; color: var(--text-secondary); margin: 12px 0 4px; }
+  input {
+    width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface-1); color: var(--text-primary); font-size: .95rem;
+  }
+  button {
+    margin-top: 16px; width: 100%; padding: 10px 16px; border-radius: 8px; border: none;
+    background: var(--series-1); color: #fff; font-weight: 600; font-size: .95rem; cursor: pointer;
+  }
+  button:disabled { opacity: .5; cursor: default; }
+  .err { color: var(--crit); font-size: .85rem; margin-top: 10px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .tile { background: var(--surface-0); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+  .tile .n { font-size: 1.7rem; font-weight: 700; }
+  .tile .l { font-size: .8rem; color: var(--text-secondary); margin-top: 2px; }
+  h2 { font-size: 1rem; margin: 0 0 14px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: .85rem; }
+  .bar-label { width: 90px; flex: none; color: var(--text-secondary); }
+  .bar-track { flex: 1; background: var(--surface-2); border-radius: 5px; height: 20px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 5px; min-width: 3px; }
+  .bar-val { width: 56px; flex: none; text-align: right; font-variant-numeric: tabular-nums; color: var(--text-secondary); }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); }
+  th { color: var(--text-secondary); font-weight: 600; }
+  .muted { color: var(--text-muted); }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; font-size: .8rem; color: var(--text-secondary); }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
+  .logout { float: right; background: none; width: auto; color: var(--text-secondary); font-weight: 500; text-decoration: underline; padding: 0; margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+// Reads directly from this app's own PocketBase (same origin — no CORS issue).
+// Auth: PocketBase superadmin credentials, kept in sessionStorage only.
+const PB_URL = location.origin
+
+// Lesson totals per level — update as content grows (B2 etc.).
+const LEVEL_LESSON_TOTALS = { a1: 73, a2: 50, b1: 49, b2: 0, c1: 0, c2: 0 }
+const LEVEL_LABELS = { a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1', c2: 'C2' }
+const LEVEL_COLORS = { a1: 'var(--series-1)', a2: 'var(--series-2)', b1: 'var(--series-3)', b2: 'var(--series-4)' }
+
+const app = document.getElementById('app')
+const token = () => sessionStorage.getItem('pb_admin_token')
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+}
+
+async function pbFetch(path, opts = {}) {
+  const res = await fetch(PB_URL + path, {
+    ...opts,
+    headers: { ...(opts.headers || {}), Authorization: token() ? 'Bearer ' + token() : '' },
+  })
+  if (!res.ok) throw new Error('HTTP ' + res.status)
+  return res.json()
+}
+
+async function fetchAll(collection) {
+  let page = 1
+  const perPage = 200
+  let items = []
+  while (true) {
+    const data = await pbFetch(`/api/collections/${collection}/records?page=${page}&perPage=${perPage}`)
+    items = items.concat(data.items)
+    if (page >= data.totalPages) break
+    page++
+  }
+  return items
+}
+
+function renderLogin(errorMsg) {
+  app.innerHTML = `
+    <div class="card login-card">
+      <h1>📊 Panel de alumnos</h1>
+      <p class="sub">Iniciá sesión con tu cuenta de superadmin de PocketBase.</p>
+      <label>Email</label>
+      <input id="email" type="email" autocomplete="username" />
+      <label>Contraseña</label>
+      <input id="password" type="password" autocomplete="current-password" />
+      <button id="loginBtn">Entrar</button>
+      ${errorMsg ? `<p class="err">${esc(errorMsg)}</p>` : ''}
+    </div>
+  `
+  document.getElementById('loginBtn').onclick = async () => {
+    const email = document.getElementById('email').value.trim()
+    const password = document.getElementById('password').value
+    const btn = document.getElementById('loginBtn')
+    btn.disabled = true
+    btn.textContent = 'Entrando...'
+    try {
+      const data = await pbFetch('/api/collections/_superusers/auth-with-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ identity: email, password }),
+      })
+      sessionStorage.setItem('pb_admin_token', data.token)
+      loadDashboard()
+    } catch {
+      renderLogin('Email o contraseña incorrectos.')
+    }
+  }
+}
+
+function bar(label, value, max, color) {
+  const pct = max > 0 ? Math.max((value / max) * 100, value > 0 ? 2 : 0) : 0
+  return `
+    <div class="bar-row">
+      <div class="bar-label">${esc(label)}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
+      <div class="bar-val">${esc(value)}</div>
+    </div>
+  `
+}
+
+async function loadDashboard() {
+  app.innerHTML = `<div class="card"><p class="sub">Cargando datos de alumnos…</p></div>`
+  try {
+    const [progressRecords, users] = await Promise.all([
+      fetchAll('progress'),
+      fetchAll('users'),
+    ])
+    render(progressRecords, users)
+  } catch (e) {
+    app.innerHTML = `<div class="card"><p class="err">No se pudieron cargar los datos (${esc(e.message)}). Puede que el token haya expirado.</p><button id="retryBtn">Volver a intentar login</button></div>`
+    document.getElementById('retryBtn').onclick = () => { sessionStorage.removeItem('pb_admin_token'); renderLogin() }
+  }
+}
+
+function render(progressRecords, users) {
+  const usersById = Object.fromEntries(users.map((u) => [u.id, u]))
+  const parsed = progressRecords.map((r) => ({
+    userId: r.user,
+    email: usersById[r.user]?.email || '(usuario eliminado)',
+    created: usersById[r.user]?.created || r.created,
+    data: r.data || {},
+  }))
+
+  const total = parsed.length
+  const now = Date.now()
+  const sevenDaysAgo = now - 7 * 24 * 60 * 60 * 1000
+  const activeLast7 = parsed.filter((p) => {
+    const d = p.data.lastStudyDate
+    if (!d) return false
+    const t = new Date(d).getTime()
+    return !isNaN(t) && t >= sevenDaysAgo
+  }).length
+
+  const avgXp = total ? Math.round(parsed.reduce((a, p) => a + (p.data.xp || 0), 0) / total) : 0
+  const avgStreak = total ? (parsed.reduce((a, p) => a + (p.data.streak || 0), 0) / total).toFixed(1) : '0'
+
+  // Distribution by placement-recommended level (falls back to "sin evaluar")
+  const levelCounts = {}
+  for (const p of parsed) {
+    const lvl = p.data.placementResult?.recommendedLevel || 'sin_evaluar'
+    levelCounts[lvl] = (levelCounts[lvl] || 0) + 1
+  }
+  const levelKeys = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].filter((k) => LEVEL_LESSON_TOTALS[k] > 0)
+  const maxLevelCount = Math.max(1, ...Object.values(levelCounts))
+
+  // Average completion % per level (lessons completed whose id starts with that level prefix)
+  const completionByLevel = {}
+  for (const lvl of levelKeys) {
+    const total_ = LEVEL_LESSON_TOTALS[lvl]
+    if (!total_) continue
+    const pcts = parsed.map((p) => {
+      const done = (p.data.completedLessons || []).filter((id) => id.startsWith(lvl + '-')).length
+      return Math.min(100, Math.round((done / total_) * 100))
+    })
+    completionByLevel[lvl] = pcts.length ? Math.round(pcts.reduce((a, b) => a + b, 0) / pcts.length) : 0
+  }
+
+  // Weak concepts, aggregated
+  const weakCount = {}
+  for (const p of parsed) {
+    for (const c of p.data.weakConcepts || []) weakCount[c] = (weakCount[c] || 0) + 1
+  }
+  const topWeak = Object.entries(weakCount).sort((a, b) => b[1] - a[1]).slice(0, 10)
+
+  // Table rows sorted by XP desc
+  const rows = parsed
+    .slice()
+    .sort((a, b) => (b.data.xp || 0) - (a.data.xp || 0))
+    .slice(0, 50)
+
+  app.innerHTML = `
+    <button class="logout" id="logoutBtn">Cerrar sesión</button>
+    <h1>📊 Panel de alumnos</h1>
+    <p class="sub">English On Course · datos en vivo desde PocketBase</p>
+
+    <div class="tiles">
+      <div class="tile"><div class="n">${total}</div><div class="l">Alumnos registrados</div></div>
+      <div class="tile"><div class="n">${activeLast7}</div><div class="l">Activos últimos 7 días</div></div>
+      <div class="tile"><div class="n">${avgXp}</div><div class="l">XP promedio</div></div>
+      <div class="tile"><div class="n">${avgStreak}</div><div class="l">Racha promedio (días)</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Nivel recomendado (prueba de nivel)</h2>
+      ${levelKeys.map((k) => bar(LEVEL_LABELS[k], levelCounts[k] || 0, maxLevelCount, LEVEL_COLORS[k])).join('')}
+      ${bar('Sin evaluar', levelCounts['sin_evaluar'] || 0, maxLevelCount, 'var(--text-muted)')}
+    </div>
+
+    <div class="card">
+      <h2>Completitud promedio por nivel</h2>
+      ${levelKeys.map((k) => bar(LEVEL_LABELS[k], completionByLevel[k] || 0, 100, LEVEL_COLORS[k]) ).join('')}
+      <p class="sub" style="margin-top:8px">% de lecciones completadas, promediado entre todos los alumnos (incluye a quienes todavía no empezaron ese nivel).</p>
+    </div>
+
+    <div class="card">
+      <h2>Conceptos donde más les cuesta (agregado)</h2>
+      ${topWeak.length ? `<table><thead><tr><th>Concepto</th><th>Alumnos afectados</th></tr></thead><tbody>
+        ${topWeak.map(([c, n]) => `<tr><td>${esc(c)}</td><td>${n}</td></tr>`).join('')}
+      </tbody></table>` : '<p class="muted">Sin datos suficientes todavía.</p>'}
+    </div>
+
+    <div class="card">
+      <h2>Alumnos (top 50 por XP)</h2>
+      <table>
+        <thead><tr><th>Email</th><th>XP</th><th>Racha</th><th>Nivel</th><th>Última actividad</th></tr></thead>
+        <tbody>
+          ${rows.map((p) => `
+            <tr>
+              <td>${esc(p.email)}</td>
+              <td>${p.data.xp || 0}</td>
+              <td>${p.data.streak || 0}</td>
+              <td>${esc(p.data.placementResult?.recommendedLevel?.toUpperCase() || '—')}</td>
+              <td class="muted">${p.data.lastStudyDate ? esc(new Date(p.data.lastStudyDate).toLocaleDateString('es')) : '—'}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `
+  document.getElementById('logoutBtn').onclick = () => { sessionStorage.removeItem('pb_admin_token'); renderLogin() }
+}
+
+if (token()) {
+  loadDashboard()
+} else {
+  renderLogin()
+}
+</script>
+</body>
+</html>
