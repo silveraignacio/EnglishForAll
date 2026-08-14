@@ -50,7 +50,7 @@ function checkExercise(ex, loc) {
   // `speaking` in 'free' mode from self-report — an empty correctAnswer
   // there is the authored convention, not a bug.
   const gradedByCorrectAnswer =
-    !['reading', 'match', 'writing'].includes(ex.type) &&
+    !['reading', 'listening', 'match', 'writing'].includes(ex.type) &&
     !(ex.type === 'speaking' && ex.speakingMode === 'free')
 
   if (gradedByCorrectAnswer) {
