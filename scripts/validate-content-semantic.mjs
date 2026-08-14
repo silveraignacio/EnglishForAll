@@ -128,9 +128,21 @@ function checkExercise(ex, loc) {
     // by text equality, not slot index, so duplicates are solvable.
   }
 
+  // The SubQuestion renderer only knows how to display multiple_choice /
+  // select_correct (via `options`) and true_false (synthesized) — any
+  // other type nested inside reading/listening renders with no way to
+  // answer it.
+  const SUPPORTED_SUBQUESTION_TYPES = new Set(['multiple_choice', 'select_correct', 'true_false'])
+  function checkSubQuestion(q, loc) {
+    if (!SUPPORTED_SUBQUESTION_TYPES.has(q.type)) {
+      errors.push(`${loc}: sub-question "${q.id}" has type "${q.type}", which SubQuestion cannot render (only multiple_choice/select_correct/true_false)`)
+    }
+    checkExercise(q, loc)
+  }
+
   if (ex.type === 'reading' && ex.reading) {
     for (const q of ex.reading.questions || []) {
-      checkExercise(q, `${loc} (reading sub-question)`)
+      checkSubQuestion(q, `${loc} (reading sub-question)`)
     }
   }
 
@@ -148,7 +160,7 @@ function checkExercise(ex, loc) {
       errors.push(`${loc}: listening "${ex.id}" has no comprehension questions`)
     }
     for (const q of questions) {
-      checkExercise(q, `${loc} (listening sub-question)`)
+      checkSubQuestion(q, `${loc} (listening sub-question)`)
     }
   }
 

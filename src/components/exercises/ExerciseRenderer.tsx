@@ -705,7 +705,9 @@ function SubQuestion({
 }) {
   const [selected, setSelected] = useState<string | null>(null)
   const [showResult, setShowResult] = useState(false)
-  const options = exercise.options || []
+  // true_false sub-questions carry no `options` — synthesize the two fixed choices.
+  const options = exercise.type === 'true_false' ? ['true', 'false'] : exercise.options || []
+  const optionLabel = (opt: string) => (exercise.type === 'true_false' ? (opt === 'true' ? 'Verdadero' : 'Falso') : opt)
   return (
     <div className="p-3 rounded-xl bg-surface-muted border border-ink/5">
       <p className="text-ink mb-2">{exercise.prompt}</p>
@@ -727,13 +729,13 @@ function SubQuestion({
               showResult && exercise.correctAnswer === opt && selected !== opt && 'border-success-500 bg-success-50/50'
             )}
           >
-            {opt}
+            {optionLabel(opt)}
           </button>
         ))}
       </div>
       {showResult && (
         <p className={cn('mt-2 text-sm', selected === exercise.correctAnswer ? 'text-success-600' : 'text-error-600')}>
-          {selected === exercise.correctAnswer ? 'Correcto.' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+          {selected === exercise.correctAnswer ? 'Correcto.' : `Incorrecto. La respuesta correcta es: ${optionLabel(exercise.correctAnswer)}`}
         </p>
       )}
     </div>

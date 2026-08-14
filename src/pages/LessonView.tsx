@@ -170,7 +170,7 @@ export function LessonView() {
         <LessonBreadcrumb module={mod} lesson={lesson} moduleIndex={moduleIndex} lessonIndex={lessonIndex} />
         <LessonExplanation lesson={lesson} />
         <div className="flex items-center justify-between pt-4 border-t border-ink/5">
-          <Link to={`/level/a1`}>
+          <Link to={`/level/${mod.levelId}`}>
             <Button variant="ghost">← Módulos</Button>
           </Link>
           <Button variant="primary" size="lg" onClick={() => { setCurrentLesson(lesson.id); setPhase('exercises') }}>
@@ -264,11 +264,12 @@ function LessonBreadcrumb({ module: mod, lesson, moduleIndex, lessonIndex, compa
   lessonIndex: number
   compact?: boolean
 }) {
+  const levelId = mod.levelId
   return (
     <div className={cn('flex items-center gap-2 text-sm text-ink-light', compact && 'text-xs')}>
-      <Link to="/level/a1" className="hover:text-ink">A1</Link>
+      <Link to={`/level/${levelId}`} className="hover:text-ink">{levelId.toUpperCase()}</Link>
       <span>/</span>
-      <Link to={`/level/a1#module-${moduleIndex}`} className="hover:text-ink">Módulo {moduleIndex + 1}</Link>
+      <Link to={`/level/${levelId}#module-${moduleIndex}`} className="hover:text-ink">Módulo {moduleIndex + 1}</Link>
       <span>/</span>
       <span className="text-ink font-medium">Lección {lessonIndex + 1}</span>
     </div>
