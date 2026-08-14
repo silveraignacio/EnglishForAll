@@ -32,19 +32,22 @@ Atención a "it": lo usamos para cosas, animales, ideas y situaciones impersonal
     { english: 'We are friends.', spanish: 'Nosotros somos amigos.' },
     { english: 'They are from Spain.', spanish: 'Ellos son de España.' },
   ],
-  rule: `Regla general:
-- I + am
-- You / We / They + are
-- He / She / It + is
+  rule: `**Tabla del verbo "to be" (ser / estar):**
 
-Contracciones frecuentes:
-- I am → I'm
-- You are → You're
-- He is → He's
-- She is → She's
-- It is → It's
-- We are → We're
-- They are → They're
+| Pronombre | Afirmativo | Contracción | Ejemplo |
+|-----------|------------|-------------|---------|
+| I | am | I'm | I am Ignacio. |
+| You | are | You're | You are María. |
+| He | is | He's | He is John. |
+| She | is | She's | She is a teacher. |
+| It | is | It's | It is a book. |
+| We | are | We're | We are friends. |
+| They | are | They're | They are from Spain. |
+
+**Regla de oro:**
+- I + **am**
+- You / We / They + **are**
+- He / She / It + **is**
 
 En inglés, SIEMPRE necesitamos un sujeto. No podemos decir solo "am Ignacio" — hay que decir "I am Ignacio".`,
   commonMistakes: [

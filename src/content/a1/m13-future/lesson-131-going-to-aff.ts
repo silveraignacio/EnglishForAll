@@ -34,14 +34,23 @@ Recuerda las contracciones del verbo "to be": I am → I'm, She is → She's, Th
     { english: 'They are going to learn English.', spanish: 'Ellos van a aprender inglés.' },
   ],
   rule: `Sujeto + to be (am/is/are) + going to + verbo en infinitivo
-- I am going to study.
-- She is going to visit.
-- We are going to buy.
 
-To be según el sujeto:
-- I → am
-- He / She / It → is
-- You / We / They → are
+**Tabla con el verbo *study*:**
+
+| Pronombre | to be | going to + verbo | Ejemplo |
+|-----------|-------|------------------|---------|
+| I | am | going to study | I am going to study English. |
+| He | is | going to study | He is going to study tomorrow. |
+| She | is | going to study | She is going to study law. |
+| It | is | going to work | It is going to work. |
+| You | are | going to study | You are going to study. |
+| We | are | going to study | We are going to study together. |
+| They | are | going to study | They are going to study abroad. |
+
+**Regla de oro:**
+- I → **am**
+- He / She / It → **is**
+- You / We / They → **are**
 
 Contracciones frecuentes: I'm, You're, He's, She's, We're, They're.`,
   commonMistakes: [

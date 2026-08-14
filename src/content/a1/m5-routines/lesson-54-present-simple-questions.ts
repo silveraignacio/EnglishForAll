@@ -63,14 +63,30 @@ NOTA: "What do you do?" / "What does he do?" son formas estándar para preguntar
     { english: 'Yes, I do. / No, I don\'t.', spanish: 'Sí. / No.', note: 'Respuestas cortas con do/don\'t.' },
   ],
   rule: `**Preguntas — Present Simple:**
-- **Do** + I/you/we/they + verbo (infinitivo) + ...?
-- **Does** + he/she/it + verbo (infinitivo) + ...?
+
+**Tabla de preguntas con el verbo *work*:**
+
+| Pronombre | Auxiliar | Pregunta | Traducción |
+|-----------|----------|----------|------------|
+| I | do | Do I work here? | ¿Trabajo aquí? |
+| You | do | Do you work in Madrid? | ¿Trabajas en Madrid? |
+| He | does | Does he work in a bank? | ¿Trabaja él en un banco? |
+| She | does | Does she work at home? | ¿Trabaja ella en casa? |
+| It | does | Does it work? | ¿Funciona? |
+| We | do | Do we work together? | ¿Trabajamos juntos? |
+| They | do | Do they work in London? | ¿Trabajan ellos en Londres? |
+
+**Regla de oro:**
+- **Do** + I / you / we / they + verbo (infinitivo) + ...? → *Do you work?*
+- **Does** + he / she / it + verbo (infinitivo) + ...? → *Does she work?*
 
 **WH-questions:** palabra interrogativa (What/Where/How) + Do/Does + sujeto + verbo + ...?
+- Where do you work? → ¿Dónde trabajas?
+- What does he do? → ¿Qué hace él?
 
 **Respuestas cortas:**
-- Yes, I/you/we/they + do. / No, ... + don\'t.
-- Yes, he/she/it + does. / No, ... + doesn\'t.
+- Yes, I/you/we/they + do. / No, ... + don't.
+- Yes, he/she/it + does. / No, ... + doesn't.
 
 ⚠️ Después de **Does**, el verbo NO lleva -s. La -s ya está en "does".`,
   commonMistakes: [

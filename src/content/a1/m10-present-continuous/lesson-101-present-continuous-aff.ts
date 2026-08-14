@@ -39,9 +39,22 @@ Con sujeto + to be + verbo -ing ya tienes la frase completa.`,
   ],
   rule: `Estructura: Sujeto + to be (am/is/are) + verbo + -ing
 
-- I am working.
-- He / She / It is working.
-- You / We / They are working.
+**Tabla con el verbo *work*:**
+
+| Pronombre | to be | Verbo -ing | Ejemplo |
+|-----------|-------|-----------|---------|
+| I | am | working | I am working. |
+| He | is | working | He is working. |
+| She | is | working | She is working. |
+| It | is | working | It is working. |
+| You | are | working | You are working. |
+| We | are | working | We are working. |
+| They | are | working | They are working. |
+
+**Regla de oro:**
+- I → **am**
+- He / She / It → **is**
+- You / We / They → **are**
 
 Contracciones: I'm, He's, She's, It's, We're, They're.
 

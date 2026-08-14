@@ -37,9 +37,23 @@ Recuerda: "was" va con I, he, she, it. "Were" va con you, we, they. Nunca digas 
     { english: 'Were you at home?', spanish: '¿Estabas en casa?', note: 'En preguntas, were va al principio.' },
     { english: 'Where were you yesterday?', spanish: '¿Dónde estabas ayer?', note: 'Where were you...? = ¿Dónde estabas...?' },
   ],
-  rule: `**Pasado de "to be":**
-- I / He / She / It + was
-- You / We / They + were
+  rule: `**Pasado de "to be" (ser / estar):**
+
+**Tabla de conjugación:**
+
+| Pronombre | Afirmativo | Negativo (corto) | Ejemplo |
+|-----------|------------|------------------|---------|
+| I | was | wasn't | I was at home. |
+| He | was | wasn't | He was happy. |
+| She | was | wasn't | She was a teacher. |
+| It | was | wasn't | It was cold. |
+| You | were | weren't | You were at school. |
+| We | were | weren't | We were friends. |
+| They | were | weren't | They were in London. |
+
+**Regla de oro:**
+- I / He / She / It + **was**
+- You / We / They + **were**
 
 **Negativo:**
 - wasn't = was not

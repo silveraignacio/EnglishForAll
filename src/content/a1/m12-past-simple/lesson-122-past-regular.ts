@@ -45,14 +45,27 @@ Ejemplos:
     { english: 'She watched TV last night.', spanish: 'Ella vio la tele anoche.', note: 'watch → watched.' },
   ],
   rule: `**Past Simple de verbos regulares = verbo + -ed:**
-- work → worked, play → played, watch → watched
+
+**Tabla del verbo *work* (todas las personas iguales):**
+
+| Pronombre | Pasado | Ejemplo | Traducción |
+|-----------|--------|---------|------------|
+| I | worked | I worked yesterday. | Trabajé ayer. |
+| You | worked | You worked today. | Trabajaste hoy. |
+| He | worked | He worked in Madrid. | Él trabajó en Madrid. |
+| She | worked | She worked at home. | Ella trabajó en casa. |
+| It | worked | It worked well. | Funcionó bien. |
+| We | worked | We worked together. | Trabajamos juntos. |
+| They | worked | They worked in London. | Ellos trabajaron en Londres. |
+
+**DIFERENCIA con el Present Simple:** en pasado NO añadimos -s en 3ª persona. Es la misma forma para todos:
+- Present: I work / He works (cambia)
+- Past: I worked / He worked (NO cambia)
 
 **Reglas de ortografía:**
 - Termina en -e → añade solo -d: live → lived.
 - Consonante + -y → -ied: study → studied.
 - Conso + vocal + conso (una sílaba) → duplica: stop → stopped.
-
-**Todas las personas iguales:** I worked, you worked, he worked, we worked, they worked. (Sin -s.)
 
 **Expresiones de tiempo pasado:**
 - yesterday (ayer), last week/month/year (la semana/el mes/el año pasado), ago (hace), in 2020 (en 2020).`,

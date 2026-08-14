@@ -47,14 +47,28 @@ En inglés NO decimos "I no work". Necesitamos el verbo auxiliar "do/does" para 
     { english: 'I don\'t have a car.', spanish: 'No tengo coche.', note: 'don\'t + have (sin -s).' },
   ],
   rule: `**Negativo — Present Simple:**
-- I/You/We/They + **don\'t** + verbo (infinitivo)
-- He/She/It + **doesn\'t** + verbo (infinitivo)
 
-⚠️ **CLAVE:** Después de **don\'t / doesn\'t**, el verbo principal NO lleva -s. Vuelve a la forma base (infinitivo).
+**Tabla del verbo *work* en negativo:**
 
-- ✅ She doesn\'t work.   🔴 She doesn\'t works.
-- ✅ He doesn\'t watch TV.  🔴 He doesn\'t watches TV.
-- ✅ He doesn\'t have a car. 🔴 He doesn\'t has a car.` +
+| Pronombre | Negativo | Ejemplo | Traducción |
+|-----------|----------|---------|------------|
+| I | don't work | I don't work on Sundays. | No trabajo los domingos. |
+| You | don't work | You don't work here. | Tú no trabajas aquí. |
+| He | doesn't work | He doesn't work today. | Él no trabaja hoy. |
+| She | doesn't work | She doesn't work in a bank. | Ella no trabaja en un banco. |
+| It | doesn't work | It doesn't work. | No funciona. |
+| We | don't work | We don't work at night. | No trabajamos de noche. |
+| They | don't work | They don't work in Madrid. | Ellos no trabajan en Madrid. |
+
+**Regla de oro:**
+- I / You / We / They + **don't** + verbo (infinitivo) → *I don't work*
+- He / She / It + **doesn't** + verbo (infinitivo) → *She doesn't work*
+
+⚠️ **CLAVE:** Después de **don't / doesn't**, el verbo principal NO lleva -s. Vuelve a la forma base (infinitivo).
+
+- ✅ She doesn't work.   🔴 She doesn't works.
+- ✅ He doesn't watch TV.  🔴 He doesn't watches TV.
+- ✅ He doesn't have a car. 🔴 He doesn't has a car.` +
     ``,
   commonMistakes: [
     { wrong: '❌ She don\'t work.', correct: '✅ She doesn\'t work.', explanation: 'Con "she" usamos "doesn\'t", no "don\'t".' },

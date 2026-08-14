@@ -67,8 +67,22 @@ NOTA: El Present Simple NO se usa para algo que está pasando ahora mismo (eso e
     { english: 'Water boils at 100 degrees.', spanish: 'El agua hierve a 100 grados.', note: 'Hecho general. It (water) → boil + s = boils.' },
   ],
   rule: `**Afirmativo — Present Simple:**
-- I / You / We / They + verbo (sin -s)
-- He / She / It + verbo + -s
+
+**Tabla de conjugación del verbo *work* (trabajar):**
+
+| Pronombre | Verbo | Ejemplo | Traducción |
+|-----------|-------|---------|------------|
+| I | work | I work in Madrid. | Yo trabajo en Madrid. |
+| You | work | You work in a shop. | Tú trabajas en una tienda. |
+| He | works | He works in a bank. | Él trabaja en un banco. |
+| She | works | She works at home. | Ella trabaja en casa. |
+| It | works | It works well. | Funciona bien. |
+| We | work | We work together. | Nosotros trabajamos juntos. |
+| They | work | They work in London. | Ellos trabajan en Londres. |
+
+**Regla de oro:**
+- I / You / We / They + verbo **sin -s** → *I work, You work, We work, They work*
+- He / She / It + verbo **+ -s** → *He works, She works, It works*
 
 **Reglas de escritura de la -s (3ª persona):**
 1. Regla general: añade -s → work → works

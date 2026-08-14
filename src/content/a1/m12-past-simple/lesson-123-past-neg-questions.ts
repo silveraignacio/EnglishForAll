@@ -32,16 +32,31 @@ Respuestas cortas:
     { english: 'Where did you go?', spanish: '¿Dónde fuiste?', note: 'Where did + sujeto + verbo?' },
     { english: 'Yes, I did. / No, I didn\'t.', spanish: 'Sí. / No.', note: 'Respuestas cortas en pasado.' },
   ],
-  rule: `**Negativo en pasado:**
-- Sujeto + didn't + verbo (infinitivo)
-- I didn't work yesterday. = No trabajé ayer.
+  rule: `**Negativo en pasado — tabla con el verbo *work*:**
 
-**Preguntas en pasado:**
-- Did + sujeto + verbo (infinitivo)?
-- Did you work yesterday? = ¿Trabajaste ayer?
-- Where did you go? = ¿Dónde fuiste?
+| Pronombre | Negativo | Ejemplo | Traducción |
+|-----------|----------|---------|------------|
+| I | didn't work | I didn't work yesterday. | No trabajé ayer. |
+| You | didn't work | You didn't work today. | No trabajaste hoy. |
+| He | didn't work | He didn't work in Madrid. | Él no trabajó en Madrid. |
+| She | didn't work | She didn't work at home. | Ella no trabajó en casa. |
+| It | didn't work | It didn't work. | No funcionó. |
+| We | didn't work | We didn't work on Sunday. | No trabajamos el domingo. |
+| They | didn't work | They didn't work yesterday. | Ellos no trabajaron ayer. |
 
-**Regla de oro:** Después de "did" o "didn't", el verbo SIEMPRE va en infinitivo (sin -ed).
+**Preguntas en pasado — tabla con el verbo *work*:**
+
+| Pronombre | Pregunta | Traducción |
+|-----------|----------|------------|
+| I | Did I work here? | ¿Trabajé aquí? |
+| You | Did you work yesterday? | ¿Trabajaste ayer? |
+| He | Did he work in a bank? | ¿Trabajó él en un banco? |
+| She | Did she work at home? | ¿Trabajó ella en casa? |
+| It | Did it work? | ¿Funcionó? |
+| We | Did we work together? | ¿Trabajamos juntos? |
+| They | Did they work in London? | ¿Trabajaron ellos en Londres? |
+
+**Regla de oro:** Después de "did" o "didn't", el verbo SIEMPRE va en infinitivo (sin -ed). En pasado, el auxiliar "did" ya indica el tiempo — el verbo no cambia.
 
 **Respuestas cortas:**
 - Yes, I did. / No, I didn't.`,

@@ -3,8 +3,8 @@
 export function normalize(s: string): string {
   return s
     .toLowerCase()
-    .trim()
     .replace(/[.,!?;:'"]/g, '')
+    .trim()
     .replace(/\s+/g, ' ')
 }
 

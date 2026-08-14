@@ -507,13 +507,13 @@ function ErrorCorrection({
       {exercise.promptTranslation && (
         <p className="text-sm text-ink-light mb-4 italic">{exercise.promptTranslation}</p>
       )}
-      <p className="text-sm text-error-600 mb-3">Hay un error en esta frase. Escríbela correctamente:</p>
+      <p className="text-sm text-error-600 mb-3">Hay un error en esta frase. Escribe la frase completa correctamente:</p>
       <input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={locked}
-        placeholder="Escribe la frase corregida..."
+        placeholder="Escribe la frase completa correctamente..."
         autoFocus
         className="input mb-4"
         aria-label={exercise.prompt}
