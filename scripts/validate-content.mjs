@@ -38,7 +38,7 @@ function findFiles(dir) {
 }
 
 const lessonFiles = []
-for (const levelDir of ['a1', 'a2', 'b1']) {
+for (const levelDir of ['a1', 'a2', 'b1', 'b2']) {
   lessonFiles.push(...findFiles(join(srcDir, 'content', levelDir)))
 }
 
@@ -101,7 +101,7 @@ let a1Dir, moduleDirs = []
 try {
   a1Dir = join(srcDir, 'content', 'a1')
   moduleDirs = readdirSync(a1Dir).filter(n => n.startsWith('m'))
-  for (const levelDir of ['a2', 'b1']) {
+  for (const levelDir of ['a2', 'b1', 'b2']) {
     const dir = join(srcDir, 'content', levelDir)
     try {
       moduleDirs.push(...readdirSync(dir).filter(n => n.startsWith('m')))

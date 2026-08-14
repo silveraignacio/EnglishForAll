@@ -7,6 +7,7 @@ export const EXAM_BY_LEVEL: Record<string, string> = {
   a1: 'a1-final',
   a2: 'a2-final',
   b1: 'b1-final',
+  b2: 'b2-final',
 }
 
 export const PASS_THRESHOLD = 60
