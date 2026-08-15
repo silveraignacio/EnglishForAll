@@ -37,7 +37,7 @@ export function ProgressBar({
       )}
       <div className={cn('w-full bg-surface-muted rounded-full overflow-hidden', heightClass)}>
         <div
-          className={cn('rounded-full transition-all duration-500 ease-out', colorClass)}
+          className={cn('h-full rounded-full transition-all duration-500 ease-out', colorClass)}
           style={{ width: `${pct}%` }}
           role="progressbar"
           aria-valuenow={Math.round(pct)}

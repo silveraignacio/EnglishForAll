@@ -111,6 +111,11 @@ en los últimos 7 días, XP/racha promedio, distribución por nivel recomendado,
 nivel, y los conceptos donde más alumnos tienen dificultad (agregado de `weakConcepts`). El token de sesión se
 guarda solo en `sessionStorage` (se pierde al cerrar la pestaña).
 
-`LEVEL_LESSON_TOTALS` dentro del archivo está hardcodeado (a1: 73, a2: 50, b1: 49) — actualizarlo a mano cuando
-se agreguen lecciones o se lance B2, porque la página no importa el contenido del curso (es un archivo estático
-suelto, no parte del build de Vite).
+`LEVEL_LESSON_TOTALS` dentro del archivo está hardcodeado (a1: 73, a2: 50, b1: 49, b2: 45) — actualizarlo a mano
+cuando se agreguen lecciones, porque la página no importa el contenido del curso (es un archivo estático suelto,
+no parte del build de Vite).
+
+**Protección adicional:** además del login de superadmin, `/admin/` tiene HTTP Basic Auth a nivel nginx
+(`auth_basic` + `/etc/nginx/.htpasswd-admin` en el servidor, fuera del repo) — así ni siquiera se llega al
+formulario de login sin esa contraseña. Para generar/rotar el hash: `openssl passwd -apr1 'tu_password'` y
+pegar `admin:<hash>` en `/etc/nginx/.htpasswd-admin` en el servidor (no se versiona en git).

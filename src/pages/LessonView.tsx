@@ -14,7 +14,7 @@ import type { ExerciseRecord } from '@/types/progress'
 import { cn } from '@/lib/utils'
 import { isLevelUnlocked } from '@/lib/access'
 
-type LessonPhase = 'explanation' | 'exercises' | 'miniTest' | 'results'
+type LessonPhase = 'explanation' | 'exercises' | 'results'
 
 export function LessonView() {
   const { lessonId } = useParams<{ lessonId: string }>()
@@ -58,9 +58,13 @@ export function LessonView() {
   const [exerciseIdx, setExerciseIdx] = useState(0)
   const [score, setScore] = useState(0)
   const [attemptResults, setAttemptResults] = useState<boolean[]>([])
-  const [miniTestIdx, setMiniTestIdx] = useState(0)
-  const [miniTestScore, setMiniTestScore] = useState(0)
-  const [miniTestResults, setMiniTestResults] = useState<boolean[]>([])
+
+  // Practice exercises and the mini-test are one continuous sequence for the
+  // learner — no separate "phase" screen or counter reset in between.
+  const allExercises = useMemo(
+    () => (lesson ? [...lesson.exercises, ...lesson.miniTest] : []),
+    [lesson]
+  )
 
   const handleRecord = useCallback(
     (correct: boolean, userAnswer: string, attempts: number) => {
@@ -76,62 +80,38 @@ export function LessonView() {
         userAnswer,
       }
       // Fill from current exercise
-      const exercises = phase === 'miniTest' ? lesson.miniTest : lesson.exercises
-      const ex = exercises[phase === 'miniTest' ? miniTestIdx : exerciseIdx]
+      const ex = allExercises[exerciseIdx]
       rec.exerciseId = ex.id
       rec.concept = ex.concept
       rec.difficulty = ex.difficulty
       recordExercise(rec)
       if (correct) {
-        if (phase === 'miniTest') {
-          setMiniTestScore((s) => s + 1)
-          setMiniTestResults((r) => [...r, true])
-        } else {
-          setScore((s) => s + 1)
-          setAttemptResults((r) => [...r, true])
-        }
+        setScore((s) => s + 1)
+        setAttemptResults((r) => [...r, true])
       } else {
-        if (phase === 'miniTest') {
-          setMiniTestResults((r) => [...r, false])
-        } else {
-          setAttemptResults((r) => [...r, false])
-        }
+        setAttemptResults((r) => [...r, false])
       }
     },
-    [lesson, phase, exerciseIdx, miniTestIdx, recordExercise]
+    [lesson, allExercises, exerciseIdx, recordExercise]
   )
 
   const handleNext = useCallback(() => {
     if (!lesson) return
-    const exercises = phase === 'miniTest' ? lesson.miniTest : lesson.exercises
-    const cur = phase === 'miniTest' ? miniTestIdx : exerciseIdx
-    if (cur < exercises.length - 1) {
-      if (phase === 'miniTest') {
-        setMiniTestIdx(cur + 1)
-      } else {
-        setExerciseIdx(cur + 1)
-      }
+    if (exerciseIdx < allExercises.length - 1) {
+      setExerciseIdx(exerciseIdx + 1)
     } else {
-      // Finished current phase
-      if (phase === 'exercises') {
-        setPhase('miniTest')
-        setMiniTestIdx(0)
-      } else if (phase === 'miniTest') {
-        setPhase('results')
-        // Determine if lesson passed
-        const totalExercises = lesson.exercises.length
-        const totalMini = lesson.miniTest.length
-        const totalCorrect = score + miniTestScore
-        const totalAttempted = totalExercises + totalMini
-        const pct = totalAttempted > 0 ? (totalCorrect / totalAttempted) * 100 : 0
-        const passed = pct >= settings.passingThreshold
-        const allCorrect = totalCorrect === totalAttempted
-        if (passed) {
-          completeLesson(lesson.id, allCorrect)
-        }
+      setPhase('results')
+      // Determine if lesson passed. `score` already reflects the answer to
+      // this last exercise — handleRecord runs before handleNext.
+      const totalAttempted = allExercises.length
+      const pct = totalAttempted > 0 ? (score / totalAttempted) * 100 : 0
+      const passed = pct >= settings.passingThreshold
+      const allCorrect = score === totalAttempted
+      if (passed) {
+        completeLesson(lesson.id, allCorrect)
       }
     }
-  }, [lesson, phase, exerciseIdx, miniTestIdx, score, miniTestScore, completeLesson, settings.passingThreshold])
+  }, [lesson, allExercises, exerciseIdx, score, completeLesson, settings.passingThreshold])
 
   if (!lesson || !mod) {
     return (
@@ -160,9 +140,8 @@ export function LessonView() {
     )
   }
 
-  const totalExercises = lesson.exercises.length
-  const totalMini = lesson.miniTest.length
-  const currentExercise = phase === 'exercises' ? lesson.exercises[exerciseIdx] : phase === 'miniTest' ? lesson.miniTest[miniTestIdx] : null
+  const totalExercises = allExercises.length
+  const currentExercise = phase === 'exercises' ? allExercises[exerciseIdx] : null
 
   if (phase === 'explanation') {
     return (
@@ -182,9 +161,8 @@ export function LessonView() {
   }
 
   if (phase === 'results') {
-    const totalCorrect = score + miniTestScore
-    const totalAttempted = totalExercises + totalMini
-    const pct = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0
+    const totalAttempted = totalExercises
+    const pct = totalAttempted > 0 ? Math.round((score / totalAttempted) * 100) : 0
     const passed = pct >= settings.passingThreshold
     return (
       <div className="space-y-6 animate-fade-in max-w-2xl mx-auto text-center py-10">
@@ -196,12 +174,12 @@ export function LessonView() {
           <ProgressBar value={pct} height="lg" showValue color={passed ? 'success' : 'warning'} />
         </div>
         <p className="text-ink-soft">
-          Aciertos: {totalCorrect} / {totalAttempted} ({pct}%)
+          Aciertos: {score} / {totalAttempted} ({pct}%)
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
           {nextLesson && passed ? (
             <>
-              <Button variant="secondary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setMiniTestIdx(0); setScore(0); setMiniTestScore(0); setAttemptResults([]); setMiniTestResults([]) }}>
+              <Button variant="secondary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setScore(0); setAttemptResults([]) }}>
                 Repetir lección
               </Button>
               <Button variant="primary" onClick={() => navigate(`/lesson/${nextLesson.id}`)}>
@@ -213,7 +191,7 @@ export function LessonView() {
               Hacer checkpoint del módulo →
             </Button>
           ) : (
-            <Button variant="primary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setMiniTestIdx(0); setScore(0); setMiniTestScore(0); setAttemptResults([]); setMiniTestResults([]) }}>
+            <Button variant="primary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setScore(0); setAttemptResults([]) }}>
               Repetir lección
             </Button>
           )}
@@ -227,30 +205,26 @@ export function LessonView() {
     )
   }
 
-  // Exercise / miniTest phase
-  const currentArr = phase === 'exercises' ? lesson.exercises : lesson.miniTest
-  const currentIdxVal = phase === 'exercises' ? exerciseIdx : miniTestIdx
-  const phaseTotal = currentArr.length
-  const phaseProgress = Math.round((currentIdxVal / phaseTotal) * 100)
-  const phaseLabel = phase === 'exercises' ? 'Práctica' : 'Mini-Test'
+  // Exercise phase — practice and mini-test exercises flow as a single sequence.
+  const phaseProgress = Math.round((exerciseIdx / totalExercises) * 100)
 
   return (
     <div className="space-y-5 max-w-3xl mx-auto">
       <LessonBreadcrumb module={mod} lesson={lesson} moduleIndex={moduleIndex} lessonIndex={lessonIndex} compact />
       <div className="flex items-center justify-between">
-        <Badge variant="brand">{phaseLabel}</Badge>
+        <Badge variant="brand">Práctica</Badge>
         <span className="text-sm font-medium text-ink-soft">
-          {currentIdxVal + 1} / {phaseTotal}
+          {exerciseIdx + 1} / {totalExercises}
         </span>
       </div>
       <ProgressBar value={phaseProgress} height="sm" />
       {currentExercise && (
         <ExerciseRenderer
-          key={currentExercise.id + phase + currentIdxVal}
+          key={currentExercise.id + exerciseIdx}
           exercise={currentExercise}
           onAnswer={handleRecord}
           onNext={handleNext}
-          isLast={currentIdxVal === phaseTotal - 1 && (phase === 'exercises' || phase === 'miniTest')}
+          isLast={exerciseIdx === totalExercises - 1}
         />
       )}
     </div>
