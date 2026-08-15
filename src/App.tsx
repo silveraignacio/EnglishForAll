@@ -1,15 +1,20 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route, useParams } from 'react-router-dom'
 import { Layout } from '@/components/layout/Layout'
-import { Dashboard } from '@/pages/Dashboard'
-import { LevelPath } from '@/pages/LevelPath'
-import { LessonView } from '@/pages/LessonView'
-import { ModuleCheckpoint } from '@/pages/ModuleCheckpoint'
-import { ReviewPage } from '@/pages/ReviewPage'
-import { Achievements } from '@/pages/Achievements'
-import { ExamPage } from '@/pages/ExamPage'
-import { LoginPage } from '@/pages/LoginPage'
-import { RegisterPage } from '@/pages/RegisterPage'
-import { PlacementPage } from '@/pages/PlacementPage'
+
+// Each page (and the course content it pulls in via getCourse()) is only
+// downloaded when its route is actually visited, instead of all bundled
+// into the entry chunk a visitor pays for just to see the dashboard.
+const Dashboard = lazy(() => import('@/pages/Dashboard').then((m) => ({ default: m.Dashboard })))
+const LevelPath = lazy(() => import('@/pages/LevelPath').then((m) => ({ default: m.LevelPath })))
+const LessonView = lazy(() => import('@/pages/LessonView').then((m) => ({ default: m.LessonView })))
+const ModuleCheckpoint = lazy(() => import('@/pages/ModuleCheckpoint').then((m) => ({ default: m.ModuleCheckpoint })))
+const ReviewPage = lazy(() => import('@/pages/ReviewPage').then((m) => ({ default: m.ReviewPage })))
+const Achievements = lazy(() => import('@/pages/Achievements').then((m) => ({ default: m.Achievements })))
+const ExamPage = lazy(() => import('@/pages/ExamPage').then((m) => ({ default: m.ExamPage })))
+const LoginPage = lazy(() => import('@/pages/LoginPage').then((m) => ({ default: m.LoginPage })))
+const RegisterPage = lazy(() => import('@/pages/RegisterPage').then((m) => ({ default: m.RegisterPage })))
+const PlacementPage = lazy(() => import('@/pages/PlacementPage').then((m) => ({ default: m.PlacementPage })))
 
 // Keyed wrappers force a full remount when the URL param changes, so the
 // component resets its internal state (phase, score, idx) instead of
@@ -29,21 +34,31 @@ function KeyedExam() {
   return <ExamPage key={examId} />
 }
 
+function PageFallback() {
+  return (
+    <div className="flex justify-center py-20">
+      <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin" />
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <Layout>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/level/:levelId" element={<LevelPath />} />
-        <Route path="/lesson/:lessonId" element={<KeyedLesson />} />
-        <Route path="/module/:moduleId/checkpoint" element={<KeyedCheckpoint />} />
-        <Route path="/review" element={<ReviewPage />} />
-        <Route path="/achievements" element={<Achievements />} />
-        <Route path="/exam/:examId" element={<KeyedExam />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/placement" element={<PlacementPage />} />
-      </Routes>
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/level/:levelId" element={<LevelPath />} />
+          <Route path="/lesson/:lessonId" element={<KeyedLesson />} />
+          <Route path="/module/:moduleId/checkpoint" element={<KeyedCheckpoint />} />
+          <Route path="/review" element={<ReviewPage />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/exam/:examId" element={<KeyedExam />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/placement" element={<PlacementPage />} />
+        </Routes>
+      </Suspense>
     </Layout>
   )
 }
