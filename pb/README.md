@@ -59,7 +59,9 @@ VITE_POCKETBASE_URL=http://localhost:8090 npm run dev
 | Colección | Tipo | Campos | Uso |
 |-----------|------|--------|-----|
 | `users` | Auth (email/password) | nombre | Registro y login |
-| `progress` | Base | `user` (relation→users), `data` (json) | Progreso del curso por usuario |
+| `progress` | Base | `user` (relation→users), `completedLessons` (json array), `examResults` (json array), `exerciseResults` (json array), `lastActivityDate` (text), `streak` (number), `placementResult` (json) | Progreso del curso por usuario |
+
+> **Nota:** son columnas planas, no un solo campo `data` json — `src/lib/progressSync.ts` mapea `UserProgress` a esas columnas explícitamente. **`xp`, `completedModules`, `achievements` y `weakConcepts` NO se sincronizan al servidor** — viven solo en el store local del navegador (persist de zustand) y se recalculan/pierden en cada sync desde el servidor. Si se quiere que sobrevivan entre dispositivos, hay que agregarlos como columnas y mapearlos en `progressSync.ts`.
 
 ## Reglas de acceso
 
@@ -112,9 +114,10 @@ Ejemplo real desplegado en `englishforall.silversolutions.dpdns.org`:
 Página estática independiente del bundle de React, en `https://tu-dominio.com/admin/`. Se loguea con las
 credenciales de superadmin de PocketBase (mismas que `/_/`) y lee en vivo, vía `fetch` a `/api/collections/...`
 del mismo origen (sin CORS), las colecciones `progress` y `users` para mostrar: alumnos registrados, activos
-en los últimos 7 días, XP/racha promedio, distribución por nivel recomendado, % de completitud promedio por
-nivel, y los conceptos donde más alumnos tienen dificultad (agregado de `weakConcepts`). El token de sesión se
-guarda solo en `sessionStorage` (se pierde al cerrar la pestaña).
+en los últimos 7 días, ejercicios respondidos/racha promedio, exámenes aprobados, distribución por nivel
+recomendado, % de completitud promedio por nivel, y los conceptos donde más alumnos tienen dificultad (derivado
+de `exerciseResults` en el navegador — `weakConcepts` no existe como columna server-side, ver nota de arriba).
+El token de sesión se guarda solo en `sessionStorage` (se pierde al cerrar la pestaña).
 
 `LEVEL_LESSON_TOTALS` dentro del archivo está hardcodeado (a1: 73, a2: 50, b1: 49, b2: 45) — actualizarlo a mano
 cuando se agreguen lecciones, porque la página no importa el contenido del curso (es un archivo estático suelto,

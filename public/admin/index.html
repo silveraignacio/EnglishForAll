@@ -206,32 +206,56 @@ async function loadDashboard() {
   }
 }
 
+// The "progress" collection stores dedicated columns (completedLessons,
+// examResults, exerciseResults, lastActivityDate, streak, placementResult)
+// — NOT a nested "data" json blob. There is no server-side xp,
+// completedModules, achievements or weakConcepts column (those live only in
+// the browser's local progress store and are never synced), so this page
+// derives what it can from exerciseResults instead of pretending they exist.
+function deriveWeakConcepts(exerciseResults) {
+  const byConcept = {}
+  for (const rec of exerciseResults || []) {
+    if (!rec.concept) continue
+    const c = (byConcept[rec.concept] ||= { correct: 0, total: 0 })
+    c.total++
+    if (rec.correct) c.correct++
+  }
+  return Object.entries(byConcept)
+    .filter(([, s]) => s.total >= 3 && s.correct / s.total < 0.5)
+    .map(([concept]) => concept)
+}
+
 function render(progressRecords, users) {
   const usersById = Object.fromEntries(users.map((u) => [u.id, u]))
   const parsed = progressRecords.map((r) => ({
     userId: r.user,
     email: usersById[r.user]?.email || '(usuario eliminado)',
     created: usersById[r.user]?.created || r.created,
-    data: r.data || {},
+    completedLessons: r.completedLessons || [],
+    examResults: r.examResults || [],
+    exerciseResults: r.exerciseResults || [],
+    lastActivityDate: r.lastActivityDate || null,
+    streak: r.streak || 0,
+    placementResult: r.placementResult || null,
   }))
 
   const total = parsed.length
   const now = Date.now()
   const sevenDaysAgo = now - 7 * 24 * 60 * 60 * 1000
   const activeLast7 = parsed.filter((p) => {
-    const d = p.data.lastStudyDate
-    if (!d) return false
-    const t = new Date(d).getTime()
+    if (!p.lastActivityDate) return false
+    const t = new Date(p.lastActivityDate).getTime()
     return !isNaN(t) && t >= sevenDaysAgo
   }).length
 
-  const avgXp = total ? Math.round(parsed.reduce((a, p) => a + (p.data.xp || 0), 0) / total) : 0
-  const avgStreak = total ? (parsed.reduce((a, p) => a + (p.data.streak || 0), 0) / total).toFixed(1) : '0'
+  const avgExercises = total ? Math.round(parsed.reduce((a, p) => a + p.exerciseResults.length, 0) / total) : 0
+  const avgStreak = total ? (parsed.reduce((a, p) => a + p.streak, 0) / total).toFixed(1) : '0'
+  const examsPassed = parsed.reduce((a, p) => a + p.examResults.filter((e) => e.totalScore >= 60).length, 0)
 
   // Distribution by placement-recommended level (falls back to "sin evaluar")
   const levelCounts = {}
   for (const p of parsed) {
-    const lvl = p.data.placementResult?.recommendedLevel || 'sin_evaluar'
+    const lvl = p.placementResult?.recommendedLevel || 'sin_evaluar'
     levelCounts[lvl] = (levelCounts[lvl] || 0) + 1
   }
   const levelKeys = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].filter((k) => LEVEL_LESSON_TOTALS[k] > 0)
@@ -243,23 +267,23 @@ function render(progressRecords, users) {
     const total_ = LEVEL_LESSON_TOTALS[lvl]
     if (!total_) continue
     const pcts = parsed.map((p) => {
-      const done = (p.data.completedLessons || []).filter((id) => id.startsWith(lvl + '-')).length
+      const done = p.completedLessons.filter((id) => id.startsWith(lvl + '-')).length
       return Math.min(100, Math.round((done / total_) * 100))
     })
     completionByLevel[lvl] = pcts.length ? Math.round(pcts.reduce((a, b) => a + b, 0) / pcts.length) : 0
   }
 
-  // Weak concepts, aggregated
+  // Weak concepts, derived from exerciseResults and aggregated across students
   const weakCount = {}
   for (const p of parsed) {
-    for (const c of p.data.weakConcepts || []) weakCount[c] = (weakCount[c] || 0) + 1
+    for (const c of deriveWeakConcepts(p.exerciseResults)) weakCount[c] = (weakCount[c] || 0) + 1
   }
   const topWeak = Object.entries(weakCount).sort((a, b) => b[1] - a[1]).slice(0, 10)
 
-  // Table rows sorted by XP desc
+  // Table rows sorted by lessons completed desc
   const rows = parsed
     .slice()
-    .sort((a, b) => (b.data.xp || 0) - (a.data.xp || 0))
+    .sort((a, b) => b.completedLessons.length - a.completedLessons.length)
     .slice(0, 50)
 
   app.innerHTML = `
@@ -270,8 +294,9 @@ function render(progressRecords, users) {
     <div class="tiles">
       <div class="tile"><div class="n">${total}</div><div class="l">Alumnos registrados</div></div>
       <div class="tile"><div class="n">${activeLast7}</div><div class="l">Activos últimos 7 días</div></div>
-      <div class="tile"><div class="n">${avgXp}</div><div class="l">XP promedio</div></div>
+      <div class="tile"><div class="n">${avgExercises}</div><div class="l">Ejercicios respondidos (promedio)</div></div>
       <div class="tile"><div class="n">${avgStreak}</div><div class="l">Racha promedio (días)</div></div>
+      <div class="tile"><div class="n">${examsPassed}</div><div class="l">Exámenes aprobados (total)</div></div>
     </div>
 
     <div class="card">
@@ -294,17 +319,18 @@ function render(progressRecords, users) {
     </div>
 
     <div class="card">
-      <h2>Alumnos (top 50 por XP)</h2>
+      <h2>Alumnos (top 50 por lecciones completadas)</h2>
       <table>
-        <thead><tr><th>Email</th><th>XP</th><th>Racha</th><th>Nivel</th><th>Última actividad</th></tr></thead>
+        <thead><tr><th>Email</th><th>Lecciones</th><th>Ejercicios</th><th>Racha</th><th>Nivel</th><th>Última actividad</th></tr></thead>
         <tbody>
           ${rows.map((p) => `
             <tr>
               <td>${esc(p.email)}</td>
-              <td>${p.data.xp || 0}</td>
-              <td>${p.data.streak || 0}</td>
-              <td>${esc(p.data.placementResult?.recommendedLevel?.toUpperCase() || '—')}</td>
-              <td class="muted">${p.data.lastStudyDate ? esc(new Date(p.data.lastStudyDate).toLocaleDateString('es')) : '—'}</td>
+              <td>${p.completedLessons.length}</td>
+              <td>${p.exerciseResults.length}</td>
+              <td>${p.streak}</td>
+              <td>${esc(p.placementResult?.recommendedLevel?.toUpperCase() || '—')}</td>
+              <td class="muted">${p.lastActivityDate ? esc(new Date(p.lastActivityDate).toLocaleDateString('es')) : '—'}</td>
             </tr>
           `).join('')}
         </tbody>
