@@ -203,15 +203,27 @@ function MultipleChoice({
       <PromptWithAudio exercise={exercise} />
       <div className="space-y-2.5">
         {options.map((opt) => (
-          <button
+          <div
             key={opt}
-            disabled={locked}
+            role="button"
+            tabIndex={locked ? -1 : 0}
+            aria-disabled={locked}
             onClick={() => {
+              if (locked) return
               setSelected(opt)
               onResult(opt === exercise.correctAnswer, opt)
             }}
+            onKeyDown={(e) => {
+              if (locked) return
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                setSelected(opt)
+                onResult(opt === exercise.correctAnswer, opt)
+              }
+            }}
             className={cn(
-              'flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl border-2 transition-all',
+              'flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl border-2 transition-all cursor-pointer',
+              locked && 'cursor-default',
               'border-ink/10 hover:border-brand-400 hover:bg-brand-50',
               selected === opt && 'border-brand-500 bg-brand-50',
               locked && selected === opt && exercise.correctAnswer === opt && 'border-success-500 bg-success-50',
@@ -220,7 +232,7 @@ function MultipleChoice({
           >
             <span className="font-medium text-ink">{opt}</span>
             <SpeakButton text={opt} size="sm" className="ml-auto flex-none" />
-          </button>
+          </div>
         ))}
       </div>
     </div>
