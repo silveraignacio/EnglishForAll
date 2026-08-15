@@ -85,15 +85,20 @@ Ejemplo real desplegado en `englishforall.silversolutions.dpdns.org`:
 2. **Schema**: crea `pb_migrations/1_progress.js` siguiendo el patrón de migración JSVM de PocketBase (así se aplica al arrancar), o usa `pb/setup.mjs` con `POCKETBASE_URL` y las credenciales admin.
 3. **Nginx**: sirve el frontend estático (`dist/`) y hace proxy de `/api/` y `/_/` al PocketBase local:
    ```
-   location /api/   { proxy_pass http://127.0.0.1:8092; ... }
-   location /_/     { proxy_pass http://127.0.0.1:8092; ... }
-   location /admin/ { try_files $uri $uri/index.html =404; }
-   location /       { try_files $uri /index.html; }
+   location = /admin { return 301 https://$host/admin/; }
+   location /api/    { proxy_pass http://127.0.0.1:8092; ... }
+   location /_/      { proxy_pass http://127.0.0.1:8092; ... }
+   location /admin/  { try_files $uri $uri/index.html =404; }
+   location /        { try_files $uri /index.html; }
    ```
    El bloque `/admin/` es necesario porque `public/admin/index.html` (panel de alumnos, ver más abajo) es un
    archivo estático fuera del bundle de React — sin ese bloque, `try_files $uri /index.html;` del SPA capta
    `/admin/` (URI con barra final, sin nombre de archivo) antes de que nginx resuelva el índice del directorio,
-   y sirve el `index.html` de la app en vez del panel.
+   y sirve el `index.html` de la app en vez del panel. El bloque `location = /admin` (sin barra) es igual de
+   necesario: sin él, `/admin` (como escribe la gente a mano, sin la barra) no matchea `location /admin/` y
+   también cae en el catch-all del SPA — hace un 301 a `/admin/` con esquema forzado a https (si no, el bloque
+   del puerto 80 genera un Location `http://`, y algunos clientes no reenvían las credenciales al saltar de
+   http a https).
 4. **Build del frontend** apuntando a la URL pública:
    ```
    VITE_POCKETBASE_URL=https://tu-dominio.com npm run build
@@ -115,7 +120,5 @@ guarda solo en `sessionStorage` (se pierde al cerrar la pestaña).
 cuando se agreguen lecciones, porque la página no importa el contenido del curso (es un archivo estático suelto,
 no parte del build de Vite).
 
-**Protección adicional:** además del login de superadmin, `/admin/` tiene HTTP Basic Auth a nivel nginx
-(`auth_basic` + `/etc/nginx/.htpasswd-admin` en el servidor, fuera del repo) — así ni siquiera se llega al
-formulario de login sin esa contraseña. Para generar/rotar el hash: `openssl passwd -apr1 'tu_password'` y
-pegar `admin:<hash>` en `/etc/nginx/.htpasswd-admin` en el servidor (no se versiona en git).
+**Protección:** solo el login de superadmin de PocketBase (mismo que `/_/`) — se evaluó agregar HTTP Basic Auth
+de nginx como capa extra, pero se descartó por redundante ya que el login interno ya exige esas credenciales.
