@@ -767,35 +767,47 @@ function Listening({
   const listening = exercise.listening
   const { speak, isSupported } = useSpeech()
   const [played, setPlayed] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
   const questionIds = (listening?.questions ?? []).map((q, i) => q.id || String(i))
   const { recordAnswer } = useSubQuestionResults(questionIds, locked, onResult)
   if (!listening) return null
 
+  const hasRealAudio = !!listening.audioUrl
+  const canPlay = hasRealAudio || isSupported
+
+  const play = (rate: number) => {
+    setPlayed(true)
+    if (hasRealAudio && audioRef.current) {
+      audioRef.current.playbackRate = rate
+      audioRef.current.currentTime = 0
+      audioRef.current.play().catch(() => {})
+    } else {
+      speak(listening.audioText, rate)
+    }
+  }
+
   return (
     <div>
       <p className="text-lg text-ink mb-4">{exercise.prompt}</p>
-      {!isSupported ? (
+      {hasRealAudio && <audio ref={audioRef} src={listening.audioUrl} preload="none" />}
+      {!canPlay ? (
         <p className="text-sm text-error-600 mb-4">
           Tu navegador no soporta la reproducción de audio necesaria para este ejercicio.
         </p>
       ) : (
-        <div className="flex flex-wrap gap-2 mb-6">
-          <Button
-            type="button"
-            variant="primary"
-            onClick={() => {
-              setPlayed(true)
-              speak(listening.audioText, 0.95)
-            }}
-          >
+        <div className="flex flex-wrap gap-2 mb-2">
+          <Button type="button" variant="primary" onClick={() => play(hasRealAudio ? 1 : 0.95)}>
             🔊 {played ? 'Escuchar de nuevo' : 'Escuchar audio'}
           </Button>
           {played && (
-            <Button type="button" variant="secondary" onClick={() => speak(listening.audioText, 0.6)}>
+            <Button type="button" variant="secondary" onClick={() => play(hasRealAudio ? 0.7 : 0.6)}>
               🐢 Escuchar más lento
             </Button>
           )}
         </div>
+      )}
+      {hasRealAudio && listening.attribution && (
+        <p className="text-xs text-ink-faint mb-4">{listening.attribution}</p>
       )}
       {played && (
         <div className="space-y-4">

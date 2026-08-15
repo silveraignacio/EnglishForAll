@@ -36,6 +36,8 @@ export interface ReadingPassage {
 export interface ListeningClip {
   audioText: string
   audioUrl?: string
+  /** Required whenever audioUrl points to a reused recording (e.g. "Audio: VOA Learning English"). */
+  attribution?: string
   questions: Exercise[]
 }
 
