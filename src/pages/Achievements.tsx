@@ -71,7 +71,7 @@ export function Achievements() {
             {progress.examResults.map((r, i) => (
               <Card key={i} className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold text-ink">{r.examId === 'a1-final' ? 'Examen final A1' : r.examId}</p>
+                  <p className="font-semibold text-ink">Examen final {r.examId.replace('-final', '').toUpperCase()}</p>
                   <p className="text-xs text-ink-light">{new Date(r.timestamp).toLocaleDateString('es')}</p>
                 </div>
                 <div className="text-right">

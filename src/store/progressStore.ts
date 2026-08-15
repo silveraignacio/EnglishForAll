@@ -5,6 +5,9 @@ import { initialProgress } from '@/types/progress'
 import { todayKey, yesterdayKey } from '@/lib/utils'
 import { saveProgressToServer, loadProgressFromServer } from '@/lib/progressSync'
 import { useAuthStore } from '@/store/authStore'
+import { getCourse } from '@/content'
+
+const LEVEL_NAMES: Record<string, string> = { a1: 'A1', a2: 'A2', b1: 'B1', b2: 'B2', c1: 'C1', c2: 'C2' }
 
 interface Achievement {
   id: string
@@ -18,6 +21,26 @@ const XP_PER_LESSON = 50
 const XP_PER_MODULE = 200
 const XP_PER_EXAM_PASS = 500
 
+// Level-completion and exam-pass achievements are generated from the real
+// course content (module counts per level) instead of hardcoded — so they
+// automatically pick up new levels (B2 today, C1/C2 later) without anyone
+// remembering to add a badge by hand.
+const AVAILABLE_LEVELS = getCourse().levels.filter((l) => l.status === 'available' && l.modules.length > 0)
+
+const LEVEL_COMPLETE_ACHIEVEMENTS: Achievement[] = AVAILABLE_LEVELS.map((l) => ({
+  id: `level-complete-${l.id}`,
+  name: `Curso ${LEVEL_NAMES[l.id] ?? l.id.toUpperCase()} completo`,
+  description: `Completa los ${l.modules.length} módulos de ${LEVEL_NAMES[l.id] ?? l.id.toUpperCase()}`,
+  icon: '🎓',
+}))
+
+const EXAM_PASS_ACHIEVEMENTS: Achievement[] = AVAILABLE_LEVELS.map((l) => ({
+  id: `exam-pass-${l.id}`,
+  name: `Examen ${LEVEL_NAMES[l.id] ?? l.id.toUpperCase()} superado`,
+  description: `Aprueba el examen final de ${LEVEL_NAMES[l.id] ?? l.id.toUpperCase()}`,
+  icon: '🎖️',
+}))
+
 export const ACHIEVEMENTS: Achievement[] = [
   { id: 'first-lesson', name: 'Primera lección', description: 'Completa tu primera lección', icon: '🌱' },
   { id: 'streak-3', name: 'Racha de 3 días', description: 'Estudia 3 días seguidos', icon: '🔥' },
@@ -27,9 +50,9 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: 'xp-500', name: '500 XP', description: 'Alcanza 500 XP', icon: '⚡' },
   { id: 'xp-1000', name: '1000 XP', description: 'Alcanza 1000 XP', icon: '⚡' },
   { id: 'module-1', name: 'Primer módulo', description: 'Completa tu primer módulo', icon: '📦' },
-  { id: 'modules-5', name: '5 módulos', description: 'Completa 5 módulos', icon: '📦' },
-  { id: 'modules-15', name: 'Curso A1 completo', description: 'Completa los 15 módulos', icon: '🎓' },
-  { id: 'exam-pass', name: 'Examen A1 superado', description: 'Aprueba el examen final A1', icon: '🎖️' },
+  { id: 'modules-5', name: '5 módulos', description: 'Completa 5 módulos (de cualquier nivel)', icon: '📦' },
+  ...LEVEL_COMPLETE_ACHIEVEMENTS,
+  ...EXAM_PASS_ACHIEVEMENTS,
   { id: 'placement-done', name: 'Nivel evaluado', description: 'Completa la prueba de nivel', icon: '🧭' },
   { id: 'perfect-lesson', name: 'Lección perfecta', description: 'Acierta todos los ejercicios de una lección', icon: '💯' },
 ]
@@ -60,7 +83,13 @@ function checkAchievements(progress: UserProgress): UserProgress {
   if (!unlocked('xp-1000') && progress.xp >= 1000) newlyEarned.push('xp-1000')
   if (!unlocked('module-1') && progress.completedModules.length >= 1) newlyEarned.push('module-1')
   if (!unlocked('modules-5') && progress.completedModules.length >= 5) newlyEarned.push('modules-5')
-  if (!unlocked('modules-15') && progress.completedModules.length >= 15) newlyEarned.push('modules-15')
+
+  for (const level of AVAILABLE_LEVELS) {
+    const id = `level-complete-${level.id}`
+    if (unlocked(id)) continue
+    const allDone = level.modules.every((m) => progress.completedModules.includes(m.id))
+    if (allDone) newlyEarned.push(id)
+  }
 
   return { ...progress, achievements: newlyEarned }
 }
@@ -142,16 +171,27 @@ export const useProgressStore = create<ProgressStore>()(
         set((state) => {
           const updated = updateStreak(state.progress)
           const examResults = [...updated.examResults, result]
+          // examId looks like "a1-final" — the achievement is per level, so
+          // passing B1's exam after already passing A1's still gives the
+          // full first-time bonus.
+          const levelId = result.examId.replace('-final', '')
+          const achievementId = `exam-pass-${levelId}`
+          const alreadyUnlocked = updated.achievements.includes(achievementId)
           let xpToAdd = 0
-          if (result.totalScore >= 60 && !updated.achievements.includes('exam-pass')) {
-            xpToAdd += XP_PER_EXAM_PASS
-          } else if (result.totalScore >= 60) {
-            xpToAdd += 100
+          const achievements = [...updated.achievements]
+          if (result.totalScore >= 60) {
+            if (!alreadyUnlocked) {
+              xpToAdd += XP_PER_EXAM_PASS
+              if (ACHIEVEMENTS.some((a) => a.id === achievementId)) achievements.push(achievementId)
+            } else {
+              xpToAdd += 100
+            }
           }
           const final = checkAchievements({
             ...updated,
             examResults,
             xp: updated.xp + xpToAdd,
+            achievements,
           })
           if (useAuthStore.getState().user) saveProgressToServer(final)
           return { progress: final }
