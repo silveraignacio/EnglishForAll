@@ -59,6 +59,7 @@ export default function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/placement" element={<PlacementPage />} />
           <Route path="/cheatsheet" element={<CheatSheet />} />
+          <Route path="/cheatsheet/:levelId" element={<CheatSheet />} />
         </Routes>
       </Suspense>
     </Layout>

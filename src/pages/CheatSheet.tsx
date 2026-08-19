@@ -1,3 +1,4 @@
+import { Link, useParams } from 'react-router-dom'
 import { getCourse } from '@/content'
 import { Button } from '@/components/ui/Button'
 import type { Lesson } from '@/content/types'
@@ -6,10 +7,18 @@ import type { Lesson } from '@/content/types'
 // (afirmativo, negativo, pregunta, casuística) usando los datos `formation`
 // que ya viven en cada lección. Sirve para leer y recordar rápido, y se
 // exporta a PDF con scripts/generate-cheatsheet-pdf.mjs.
+//
+// Se puede filtrar por nivel con /cheatsheet (todos) o /cheatsheet/:levelId
+// (p. ej. /cheatsheet/a1). Al imprimir o guardar en PDF solo sale el nivel
+// seleccionado.
 export function CheatSheet() {
+  const { levelId } = useParams()
   const course = getCourse()
   const levels = course.levels.filter((l) => l.status === 'available')
-  const sections = levels
+  const selected = levelId ? levels.find((l) => l.id === levelId) : undefined
+  const visibleLevels = selected ? [selected] : levels
+
+  const sections = visibleLevels
     .map((level) => ({
       level,
       lessons: level.modules
@@ -17,6 +26,10 @@ export function CheatSheet() {
         .filter((l): l is Lesson & { formation: NonNullable<Lesson['formation']> } => !!l.formation),
     }))
     .filter((s) => s.lessons.length > 0)
+
+  const pdfFile = selected
+    ? `/cheatsheet/english-tenses-cheatsheet-${selected.id}.pdf`
+    : '/cheatsheet/english-tenses-cheatsheet.pdf'
 
   return (
     <div className="cheatsheet">
@@ -30,11 +43,24 @@ export function CheatSheet() {
         </div>
         <div className="flex gap-2">
           <Button variant="secondary" onClick={() => window.print()}>🖨️ Imprimir / PDF</Button>
-          <a href="/cheatsheet/english-tenses-cheatsheet.pdf" download className="inline-flex">
+          <a href={pdfFile} download className="inline-flex">
             <Button variant="primary">⬇️ Descargar PDF</Button>
           </a>
         </div>
       </header>
+
+      {/* Filtro por nivel */}
+      <nav className="flex flex-wrap gap-2 mb-6 print:hidden" aria-label="Filtrar cheat sheet por nivel">
+        <LevelTab to="/cheatsheet" active={!selected} label="Todos" />
+        {levels.map((l) => (
+          <LevelTab
+            key={l.id}
+            to={`/cheatsheet/${l.id}`}
+            active={selected?.id === l.id}
+            label={`Nivel ${l.name}`}
+          />
+        ))}
+      </nav>
 
       {sections.map(({ level, lessons }) => (
         <section key={level.id} className="cheatsheet-page">
@@ -53,6 +79,22 @@ export function CheatSheet() {
         English4All · Generado automáticamente desde el contenido del curso. Imprimí o guardá como PDF.
       </footer>
     </div>
+  )
+}
+
+function LevelTab({ to, active, label }: { to: string; active: boolean; label: string }) {
+  return (
+    <Link
+      to={to}
+      aria-current={active ? 'page' : undefined}
+      className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+        active
+          ? 'bg-brand-600 text-white shadow-sm'
+          : 'bg-surface border border-ink/10 text-ink-soft hover:bg-brand-50 hover:text-brand-700'
+      }`}
+    >
+      {label}
+    </Link>
   )
 }
 

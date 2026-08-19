@@ -33,6 +33,9 @@ const OUT_FILE = path.join(OUT_DIR, 'english-tenses-cheatsheet.pdf')
 
 const PORT = process.env.CHEATSHEET_PORT || '4173'
 
+// Niveles disponibles (c1/c2 son placeholders y no tienen formación todavía).
+const LEVELS = ['a1', 'a2', 'b1', 'b2']
+
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript',
@@ -82,24 +85,38 @@ async function main() {
 
   const browser = await chromium.launch()
   const server = await serve()
+  const fs = await import('node:fs')
+  fs.mkdirSync(OUT_DIR, { recursive: true })
+
+  // Genera un PDF para todos los niveles y uno por cada nivel disponible.
+  // La app usa HashRouter: la ruta del cheat sheet es /#/cheatsheet (todos) o
+  // /#/cheatsheet/<levelId> (un solo nivel).
+  const targets = [
+    { levelId: null, file: OUT_FILE },
+    ...LEVELS.map((levelId) => ({
+      levelId,
+      file: path.join(OUT_DIR, `english-tenses-cheatsheet-${levelId}.pdf`),
+    })),
+  ]
+
   try {
     const page = await browser.newPage({ viewport: { width: 1024, height: 800 } })
-    // La app usa HashRouter: la ruta del cheat sheet es /#/cheatsheet.
-    await page.goto(`http://localhost:${PORT}/#/cheatsheet`, { waitUntil: 'networkidle' })
-    // Esperar a que React renderice las secciones por nivel.
-    await page.waitForSelector('.cheatsheet-page', { timeout: 20000 })
     // Emular medios de impresión para aplicar el CSS de @media print.
     await page.emulateMedia({ media: 'print' })
 
-    const fs = await import('node:fs')
-    fs.mkdirSync(OUT_DIR, { recursive: true })
-    await page.pdf({
-      path: OUT_FILE,
-      format: 'A4',
-      printBackground: true,
-      margin: { top: 0, right: 0, bottom: 0, left: 0 }, // los márgenes los controla el @page del CSS
-    })
-    console.log(`PDF generado: ${OUT_FILE}`)
+    for (const { levelId, file } of targets) {
+      const route = levelId ? `/#/cheatsheet/${levelId}` : '/#/cheatsheet'
+      await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'networkidle' })
+      // Esperar a que React renderice las secciones por nivel.
+      await page.waitForSelector('.cheatsheet-page', { timeout: 20000 })
+      await page.pdf({
+        path: file,
+        format: 'A4',
+        printBackground: true,
+        margin: { top: 0, right: 0, bottom: 0, left: 0 }, // los márgenes los controla el @page del CSS
+      })
+      console.log(`PDF generado: ${file}`)
+    }
   } finally {
     await browser.close()
     server.close()
