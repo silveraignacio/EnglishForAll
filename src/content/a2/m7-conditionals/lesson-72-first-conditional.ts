@@ -41,6 +41,36 @@ También podemos usar la forma negativa "won't" (will not): "We won't go out if 
 - Con "will" el verbo va en forma base (sin -s): you will pass.
 - El orden puede invertirse: "I will call you if I arrive late."
 - Negativo: won't (will not) en el resultado, don't/doesn't en la if-clause.`,
+  formation: {
+    title: 'Cómo se forma el first conditional',
+    intro: 'El first conditional habla de situaciones posibles en el futuro: if + presente simple, will + verbo en forma base. will va en el resultado, nunca en la if-clause.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'If + sujeto + presente simple, sujeto + will + verbo en forma base',
+        examples: [
+          { english: 'If it rains, we will stay at home.', spanish: 'Si llueve, nos quedaremos en casa.' },
+          { english: 'If you study hard, you will pass the exam.', spanish: 'Si estudias mucho, aprobarás el examen.' },
+          { english: 'If she has time, she will come to the party.', spanish: 'Si tiene tiempo, vendrá a la fiesta.' },
+        ],
+        note: 'La if-clause lleva presente simple (has, rains); el resultado lleva will + verbo en forma base (will come, will pass).',
+      },
+      {
+        name: 'Negativo',
+        formula: 'If + sujeto + presente simple (o don\'t/doesn\'t), sujeto + won\'t + verbo en forma base',
+        examples: [
+          { english: "We won't go out if it rains.", spanish: 'No saldremos si llueve.' },
+          { english: "If you don't eat breakfast, you will be hungry.", spanish: 'Si no desayunas, tendrás hambre.' },
+        ],
+        note: "won't = will not (resultado negativo). La negativa en la if-clause usa don't/doesn't: If we don't hurry.",
+      },
+    ],
+    notes: [
+      'NUNCA se usa "will" en la parte con "if": If it rains (no "if it will rain").',
+      'El orden puede invertirse sin coma: I will call you if I arrive late. (= Te llamaré si llego tarde.)',
+      'Contracciones habituales: I\'ll, we\'ll, you\'ll + verbo (I\'ll call you).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ If it will rain, we will stay at home.', correct: '✅ If it rains, we will stay at home.', explanation: 'En la parte con "if" usamos presente simple, nunca "will". El "will" va en la parte del resultado.' },
     { wrong: '❌ If you study hard, you pass the exam.', correct: '✅ If you study hard, you will pass the exam.', explanation: 'Para una posibilidad futura, el resultado lleva "will": you will pass.' },

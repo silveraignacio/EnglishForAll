@@ -76,6 +76,53 @@ Reglas clave:
 - Relativas NO DEFINIDORAS llevan comas y se usan cuando la información es EXTRA (el sustantivo ya está identificado).
 - En registro formal, NUNCA dejas la preposición al final.
 - Preposición + WHOM (personas), preposición + WHICH (cosas). NO "preposición + who".`,
+  formation: {
+    title: 'Cómo se forma "whose" y la preposición + which/whom formal',
+    intro: 'Hay dos estructuras clave: "whose" expresa posesión en relativas (definidoras sin comas, no definidoras con comas), y en registro formal movemos la preposición al inicio, delante de which (cosas) o whom (personas).',
+    patterns: [
+      {
+        name: 'Whose — relativa definidora (sin comas)',
+        formula: 'Sustantivo + whose + sustantivo + verbo + complemento',
+        examples: [
+          { english: 'The student whose essay won the prize is studying journalism.', spanish: 'El estudiante cuyo ensayo ganó el premio estudia periodismo.' },
+          { english: 'The family whose house burned down is staying with relatives.', spanish: 'La familia cuya casa se quemó se está quedando con parientes.' },
+        ],
+        note: '"Whose" es invariable: whose book, whose books, whose idea.',
+      },
+      {
+        name: 'Whose — relativa no definidora (con comas)',
+        formula: 'Sustantivo, whose + sustantivo + verbo, + verbo principal',
+        examples: [
+          { english: 'Dr. Martinez, whose research is world-famous, gave a lecture yesterday.', spanish: 'El Dr. Martínez, cuya investigación es famosa mundialmente, dio una conferencia ayer.' },
+          { english: 'My neighbor, whose daughter attends the same university, is a teacher.', spanish: 'Mi vecino, cuya hija asiste a la misma universidad, es maestro.' },
+        ],
+        note: 'Las no definidoras siempre llevan comas alrededor de la cláusula.',
+      },
+      {
+        name: 'Preposición + which (cosas) — registro formal',
+        formula: 'Preposición + which + resto de la cláusula',
+        examples: [
+          { english: 'The topic about which we debated is still relevant today.', spanish: 'El tema sobre el que debatimos sigue siendo relevante hoy.' },
+          { english: 'The report to which he referred is out of print.', spanish: 'El informe al que se refirió está agotado.' },
+        ],
+        note: 'En formal la preposición va ANTES de which; en informal queda al final ("the topic we debated about").',
+      },
+      {
+        name: 'Preposición + whom (personas) — registro formal',
+        formula: 'Preposición + whom + resto de la cláusula',
+        examples: [
+          { english: 'The colleague with whom she collaborated wrote an excellent report.', spanish: 'La colega con la que colaboró escribió un excelente informe.' },
+          { english: 'The person to whom you spoke is the manager.', spanish: 'La persona con la que hablaste es la gerenta.' },
+        ],
+        note: 'Después de preposición se usa whom (objeto), nunca who.',
+      },
+    ],
+    notes: [
+      'En inglés informal hablado, la preposición va al final ("the topic we spoke about"); la forma formal preposición + which/whom es propia de textos académicos y legales.',
+      'Nunca se usa "preposición + that" ni "preposición + who" en registro formal.',
+      'Las no definidoras con "whose" llevan comas; las definidoras no.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The woman whose car was stolen she called the police.', correct: '✅ The woman whose car was stolen called the police.', explanation: 'NO duplicas el sujeto. "Whose car was stolen" YA actúa como el sujeto de "called", no necesitas "she" de nuevo.' },
     { wrong: '❌ My friend, whose brother is an engineer studies medicine.', correct: '✅ My friend, whose brother is an engineer, studies medicine.', explanation: 'Las relativas NO DEFINIDORAS llevan COMAS alrededor: antes y después (o antes y final si es al final de frase).' },
@@ -220,6 +267,7 @@ Reglas clave:
       listening: {
         audioText:
           "Dr. Chen, whose research has changed the field of medicine, recently retired. She worked with colleagues whose dedication was inspiring. The topics for which they studied were complex. The students to whom she taught became leaders in their fields. Her contributions to the field for which she dedicated her life will not be forgotten.",
+        audioUrl: '/audio/tts/b2-m4-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m4-l1-ex9-q1',

@@ -43,6 +43,49 @@ Resumen de posiciones:
 - too + adjetivo + to: too hot to drink.
 - adjetivo + enough + to: old enough to drive. ("enough" va DESPUÉS del adjetivo.)
 - so + adjetivo (sin sustantivo); such a/an + adjetivo + sustantivo.`,
+  formation: {
+    title: 'Cómo se intensifica con so/such...that y too/enough',
+    intro: 'so + adjetivo + that y such a/an + adjetivo + sustantivo + that dan énfasis con consecuencia; too + adjetivo indica exceso y adjetivo + enough indica suficiencia.',
+    patterns: [
+      {
+        name: 'so + adjetivo + that',
+        formula: 'Sujeto + be + so + adjetivo + that + oración',
+        examples: [
+          { english: 'The film was so boring that I left.', spanish: 'La película era tan aburrida que me fui.' },
+          { english: 'The music was so loud that we couldn\'t talk.', spanish: 'La música estaba tan alta que no podíamos hablar.' },
+        ],
+        note: '"So" acompaña a un adjetivo solo, sin sustantivo.',
+      },
+      {
+        name: 'such a/an + adjetivo + sustantivo + that',
+        formula: 'Sujeto + be + such a/an + adjetivo + sustantivo + that + oración',
+        examples: [
+          { english: 'It was such a good film that I watched it twice.', spanish: 'Era una película tan buena que la vi dos veces.' },
+        ],
+        note: 'Con un sustantivo contable singular usamos "such a/an". Con plural o incontable, solo "such".',
+      },
+      {
+        name: 'too + adjetivo + to (exceso)',
+        formula: 'Sujeto + be + too + adjetivo + to + verbo base',
+        examples: [
+          { english: 'The coffee is too hot to drink.', spanish: 'El café está demasiado caliente para beberlo.' },
+        ],
+      },
+      {
+        name: 'adjetivo + enough + to (suficiencia)',
+        formula: 'Sujeto + be + adjetivo + enough + to + verbo base',
+        examples: [
+          { english: 'She is old enough to drive.', spanish: 'Tiene edad suficiente para conducir.' },
+        ],
+        note: '"Enough" va DESPUÉS del adjetivo: hot enough, old enough.',
+      },
+    ],
+    notes: [
+      'Posición clave: too + adjetivo (too hot) pero adjetivo + enough (hot enough).',
+      'so + adjetivo (sin sustantivo) vs such a/an + adjetivo + sustantivo.',
+      '"Too" y "enough" no se usan juntos: son ideas opuestas (exceso vs suficiencia).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ It was so good film that I watched it twice.', correct: '✅ It was such a good film that I watched it twice.', explanation: '"so" acompaña a un adjetivo solo (so good). Si hay un sustantivo contable singular (film), usamos "such a/an".' },
     { wrong: '❌ The coffee is enough hot to drink.', correct: '✅ The coffee is hot enough to drink.', explanation: '"enough" va DESPUÉS del adjetivo: hot enough.' },
@@ -193,6 +236,7 @@ Resumen de posiciones:
       listening: {
         audioText:
           "I went to a new restaurant yesterday. The food was so delicious that I ordered more. The waiter was such a friendly person that I left him a good tip. The restaurant was too noisy to have a quiet conversation, however. The prices were expensive enough that it\'s not a place for everyday visits. Despite that, it was such a wonderful experience that I\'ll definitely go back again soon.",
+        audioUrl: '/audio/tts/b1-m11-l4-ex11.mp3',
         questions: [
           {
             id: 'b1-m11-l4-ex11-q1',

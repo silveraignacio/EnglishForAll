@@ -38,6 +38,35 @@ OJO: no añadimos un pronombre objeto extra al final del verbo.
 - who/which/that son OPCIONALES: "The woman I met yesterday is my boss."
 - NUNCA añadir un pronombre objeto extra: ❌ who I met her → ✅ (who) I met.
 - En estas relativas el sujeto va después de la palabra relativa: who + I + met.`,
+  formation: {
+    title: 'Cómo se forman las relativas de objeto',
+    intro: 'Cuando la persona o cosa RECIBE la acción (es el objeto), la relativa se convierte en opcional: podemos omitir who/which/that. Después de la relativa va un nuevo sujeto que hace la acción.',
+    patterns: [
+      {
+        name: 'Personas (who/that opcional)',
+        formula: 'persona + (who/that) + sujeto + verbo',
+        examples: [
+          { english: 'The woman (who) I met yesterday is my boss.', spanish: 'La mujer que conocí ayer es mi jefa.' },
+          { english: 'The man (who) I saw at the station is my neighbour.', spanish: 'El hombre que vi en la estación es mi vecino.' },
+        ],
+        note: '"I" es el sujeto y la persona es el objeto: yo la conocí. Por eso who/that se puede quitar.',
+      },
+      {
+        name: 'Cosas (which/that opcional)',
+        formula: 'cosa + (which/that) + sujeto + verbo',
+        examples: [
+          { english: 'The film (that) we watched was great.', spanish: 'La película que vimos fue genial.' },
+          { english: 'The house (which) they bought is beautiful.', spanish: 'La casa que compraron es preciosa.' },
+        ],
+        note: 'Sin la relativa, la frase sigue siendo correcta: The film we watched was great.',
+      },
+    ],
+    notes: [
+      'NUNCA añadas un pronombre objeto extra al final del verbo: ❌ who I met her → ✅ (who) I met.',
+      'La relativa de objeto va seguida de sujeto + verbo: who + I + met.',
+      'Pista: si en la relativa hay otro sujeto, la relativa es objeto y se puede omitir.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The woman who I met her yesterday is my boss.', correct: '✅ The woman (who) I met yesterday is my boss.', explanation: 'No repetimos el objeto "her" después del verbo "met". En inglés el objeto ya está en la relativa.' },
     { wrong: '❌ The film that we watched it was great.', correct: '✅ The film (that) we watched was great.', explanation: 'No añadimos "it" después de "watched". El objeto ya está representado por "that".' },

@@ -42,6 +42,51 @@ En frases afirmativas es muy común usar "a lot of" en lugar de "much"/"many". E
 **Preguntar cantidades:**
 - How much + incontable? \u2192 How much money do you have?
 - How many + contable en plural? \u2192 How many shirts do you want?`,
+  formation: {
+    title: 'Cómo se usan much, many y a lot of',
+    intro: 'Para hablar de cantidades: "much" va con incontables, "many" con contables en plural y "a lot of" con ambos. Para preguntar: "how much" + incontable y "how many" + contable en plural.',
+    patterns: [
+      {
+        name: 'much + incontable',
+        formula: 'much + sustantivo incontable',
+        examples: [
+          { english: "I don't have much time.", spanish: 'No tengo mucho tiempo.' },
+          { english: 'How much money do you have?', spanish: '¿Cuánto dinero tienes?' },
+        ],
+        note: 'Incontables: water, money, time, food.',
+      },
+      {
+        name: 'many + contable plural',
+        formula: 'many + sustantivo contable en plural',
+        examples: [
+          { english: 'There are many shops in the city.', spanish: 'Hay muchas tiendas en la ciudad.' },
+          { english: 'How many shirts do you want?', spanish: '¿Cuántas camisas quieres?' },
+        ],
+        note: 'Contables en plural: apples, shirts, friends, shops.',
+      },
+      {
+        name: 'a lot of + ambos',
+        formula: 'a lot of + sustantivo contable o incontable',
+        examples: [
+          { english: 'She has a lot of friends.', spanish: 'Ella tiene muchos amigos.' },
+          { english: 'We bought a lot of water.', spanish: 'Compramos mucha agua.' },
+        ],
+        note: 'En frases afirmativas preferimos "a lot of" antes de "much" o "many".',
+      },
+      {
+        name: 'Preguntar cantidades',
+        formula: 'How much + incontable? | How many + contable en plural?',
+        examples: [
+          { english: 'How much water do you have?', spanish: '¿Cuánta agua tienes?' },
+          { english: 'How many apples do you want?', spanish: '¿Cuántas manzanas quieres?' },
+        ],
+      },
+    ],
+    notes: [
+      '"People" es contable en plural: many people (no "much people").',
+      'En frases negativas con incontables usamos "much": I don\'t have much money.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ How much apples?', correct: '✅ How many apples?', explanation: '"Apples" es contable y plural: usamos "how many". "How much" es solo para incontables (water, money, time).' },
     { wrong: '❌ There are much people.', correct: '✅ There are many people.', explanation: '"People" es contable en plural (personas), así que usamos "many", no "much".' },

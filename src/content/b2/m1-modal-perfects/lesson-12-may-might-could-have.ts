@@ -59,6 +59,45 @@ Reglas:
 4. El verbo siempre en participio pasado: may have forgotten, might have left, could have done.
 5. En forma negativa: may not have / might not have / couldn't have (no pasó).
 6. NO confundir con "could + infinitivo" (presente): "She could arrive" (es posible que llegue ahora) ≠ "She could have arrived" (era posible que llegara / que haya llegado).`,
+  formation: {
+    title: 'Cómo se forma may / might / could have — Posibilidad en el pasado',
+    intro: 'Para hablar de una posibilidad (no certeza) sobre el pasado usamos el auxiliar have + participio: may/might/could have. Con could have también expresamos arrepentimiento por una oportunidad perdida.',
+    patterns: [
+      {
+        name: 'Afirmativo — posibilidad',
+        formula: 'Sujeto + may / might / could + have + participio pasado + complemento',
+        examples: [
+          { english: 'She may have forgotten about the meeting.', spanish: 'Es posible que se haya olvidado de la reunión.' },
+          { english: 'They might have taken a different route.', spanish: 'Podrían haber tomado una ruta diferente.' },
+          { english: 'He could have been at home, but I\'m not sure.', spanish: 'Podría haber estado en casa, pero no estoy seguro.' },
+        ],
+        note: 'May have y might have son intercambiables; might have es más usado en conversación.',
+      },
+      {
+        name: 'Afirmativo — arrepentimiento (solo could have)',
+        formula: 'Sujeto + could + have + participio pasado + complemento (tenía la oportunidad, pero no la usé)',
+        examples: [
+          { english: 'You could have told me about it!', spanish: '¡Me podrías haber dicho sobre eso!' },
+          { english: 'I could have bought that house ten years ago, but I didn\'t.', spanish: 'Podría haber comprado esa casa hace diez años, pero no lo hice.' },
+        ],
+        note: 'Con arrepentimiento, could have implica capacidad u oportunidad perdida, no obligación.',
+      },
+      {
+        name: 'Negativo — posibilidad de que no pasara',
+        formula: 'Sujeto + may/might not + have + participio pasado · Sujeto + couldn\'t + have + participio pasado',
+        examples: [
+          { english: 'She may not have received the message.', spanish: 'Es posible que no haya recibido el mensaje.' },
+          { english: 'He couldn\'t have taken the train, it left hours ago.', spanish: 'No pudo haber tomado el tren, salió hace horas.' },
+        ],
+        note: 'May not have y might not have = es posible que NO haya pasado. Couldn\'t have = seguro que no pasó.',
+      },
+    ],
+    notes: [
+      'Son más débiles que must have (certeza): si tenés pruebas fuertes, usás must have; si es solo una posibilidad, usás may/might/could have.',
+      '"Might have" nunca se escribe "might of": es el auxiliar have, no la preposición of.',
+      'En habla rápida, "could have" y "might have" se reducen (suenan como "coulda" / "mighta").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ He might of forgotten the keys.', correct: '✅ He might have forgotten the keys.', explanation: '"Might have", no "might of". "Have" es el auxiliar, nunca "of".' },
     { wrong: '❌ She could arrived home earlier.', correct: '✅ She could have arrived home earlier.', explanation: 'Después de "could have" va el participio pasado (arrived), no el infinitivo.' },
@@ -188,6 +227,7 @@ Reglas:
       listening: {
         audioText:
           "I can\'t find my wallet. I might have left it at the office, or it could have fallen out of my pocket when I was at the supermarket. My brother might have borrowed it by accident. Actually, I may have put it in a different jacket. Let me think... I could have taken it out at the ATM, but I don\'t remember. Oh wait, I may have left it at the restaurant last night!",
+        audioUrl: '/audio/tts/b2-m1-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m1-l2-ex9-q1',

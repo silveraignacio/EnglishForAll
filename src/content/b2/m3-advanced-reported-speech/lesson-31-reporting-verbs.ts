@@ -127,6 +127,47 @@ Reglas críticas:
 3. Patrón 3 SÍ requiere un objeto entre el verbo y to-.
 4. Para negar en Patrón 1, se niega el verbo de reporte, no el -ing: "He didn't admit..." o "He denied...".
 5. Para negar en Patrón 2 y 3, se usa "not to": "He refused to go" o "She warned me not to tell".`,
+  formation: {
+    title: 'Cómo se forman los reporting verbs — tres patrones',
+    intro: 'El verbo de reporte determina la estructura que lo sigue: algunos usan -ing (admit, deny, suggest), otros to-infinitivo (promise, refuse, offer) y otros exigen un objeto entre el verbo y el infinitivo (warn, persuade, convince).',
+    patterns: [
+      {
+        name: 'Patrón 1 — verbo + -ing',
+        formula: 'admit / deny / suggest / mention + verbo en -ing',
+        examples: [
+          { english: 'He admitted stealing the money.', spanish: 'Admitió haber robado el dinero.' },
+          { english: 'She denied telling lies.', spanish: 'Negó haber mentido.' },
+          { english: 'She suggested taking a break.', spanish: 'Sugirió hacer un descanso.' },
+        ],
+        note: 'Reportan una acción completa o pasada. No se usa to-: suggested taking, nunca "suggested to take".',
+      },
+      {
+        name: 'Patrón 2 — verbo + to-infinitivo',
+        formula: 'promise / refuse / offer / agree + to-infinitivo',
+        examples: [
+          { english: 'She promised to help.', spanish: 'Prometió ayudar.' },
+          { english: 'He refused to apologize.', spanish: 'Se rehusó a disculparse.' },
+          { english: 'They offered to pay.', spanish: 'Ofrecieron pagar.' },
+        ],
+        note: 'Reportan una intención o compromiso futuro. Sin objeto entre el verbo y el infinitivo.',
+      },
+      {
+        name: 'Patrón 3 — verbo + objeto + (not) to-infinitivo',
+        formula: 'warn / persuade / convince + objeto (persona) + (not) to-infinitivo',
+        examples: [
+          { english: 'He warned me not to go.', spanish: 'Me advirtió que no fuera.' },
+          { english: 'She persuaded them to stay.', spanish: 'Los persuadió a quedarse.' },
+          { english: 'They convinced us to invest in the project.', spanish: 'Nos convencieron a invertir en el proyecto.' },
+        ],
+        note: 'El objeto es obligatorio y va ANTES del infinitivo: warned me not to, no "warned not to".',
+      },
+    ],
+    notes: [
+      'Para negar en el patrón 1 se niega el verbo de reporte (He didn\'t admit... / He denied...); en los patrones 2 y 3 se usa "not to".',
+      'Algunos verbos admiten variantes: "He admitted making a mistake" o "He admitted to making a mistake" (mismo significado).',
+      'No mezclar patrones: suggest + -ing, promise + to, warn + objeto + to.',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ He promised stealing the money.',
@@ -416,6 +457,7 @@ Reglas críticas:
       listening: {
         audioText:
           "Anna told me about her friend's situation. Her friend admitted making a terrible mistake at work. The boss refused to accept her apology. Anna suggested looking for a new job. Her friend promised to send her resume to different companies. Anna also warned her not to make the same mistake again. She convinced her to be more careful in the future.",
+        audioUrl: '/audio/tts/b2-m3-l1-ex10.mp3',
         questions: [
           {
             id: 'b2-m3-l1-ex10-q1',

@@ -30,6 +30,35 @@ OJO: en inglés "each other" es una expresión fija de dos palabras. No la confu
 - "Each other" = el uno al otro / mutuamente. Se usa entre dos o más personas que hacen algo entre sí.
 - "Ourselves" (reflexivo) = a nosotros mismos. No significa "mutuamente".
 - Ejemplo: We help each other (nos ayudamos mutuamente) vs We help ourselves (nos ayudamos a nosotros mismos).`,
+  formation: {
+    title: 'Cómo se forma "each other"',
+    intro: '"Each other" significa "el uno al otro" o "mutuamente" y se usa cuando dos o más personas hacen algo entre sí. No confundas con los reflexivos.',
+    patterns: [
+      {
+        name: 'each other (mutuamente)',
+        formula: 'sujeto (dos o más) + verbo + each other',
+        examples: [
+          { english: 'We help each other.', spanish: 'Nos ayudamos el uno al otro.' },
+          { english: 'They love each other.', spanish: 'Se quieren el uno al otro.' },
+        ],
+        note: 'La acción es mutua: cada uno hace algo al otro.',
+      },
+      {
+        name: 'Con objeto directo',
+        formula: 'sujeto + verbo + each other + objeto',
+        examples: [
+          { english: 'My friends and I send each other messages.', spanish: 'Mis amigos y yo nos enviamos mensajes el uno al otro.' },
+          { english: 'We tell each other our secrets.', spanish: 'Nos contamos nuestros secretos.' },
+        ],
+        note: '"Each other" va después del verbo, antes del objeto: send each other messages.',
+      },
+    ],
+    notes: [
+      '"Each other" son dos palabras separadas y sin -s al final: each other, no "eachothers".',
+      'each other (mutuamente) ≠ ourselves (a nosotros mismos): We help each other vs We help ourselves.',
+      'Con dos o más personas siempre "each other"; es una expresión fija.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ We help ourselves.', correct: '✅ We help each other.', explanation: 'Si el significado es "mutuamente" (el uno al otro), usamos "each other". "Ourselves" = a nosotros mismos.' },
     { wrong: '❌ They love eachothers.', correct: '✅ They love each other.', explanation: '"Each other" son dos palabras separadas, sin "s" al final: each other, no "eachothers".' },

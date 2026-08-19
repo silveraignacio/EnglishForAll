@@ -37,6 +37,35 @@ Fíjate en que en español hacemos algo parecido: "Estoy cansado" → "Dijo que 
 Estructura: Sujeto + said / told me + (that) + frase con el tiempo retrocedido.
 
 La palabra "that" es opcional: "She said she was hungry" y "She said that she was hungry" son ambas correctas.`,
+  formation: {
+    title: 'Cómo se forma el estilo indirecto — afirmaciones y backshift',
+    intro: 'Cuando contamos lo que alguien dijo, el verbo introductor (said/told me) está en pasado y el tiempo de lo dicho retrocede un paso: es el backshift.',
+    patterns: [
+      {
+        name: 'Afirmación reportada',
+        formula: 'Sujeto + said / told me + (that) + sujeto + verbo con backshift',
+        examples: [
+          { english: 'Direct: "I am hungry." → She said (that) she was hungry.', spanish: 'Directo: "Tengo hambre." → Ella dijo que tenía hambre.' },
+          { english: 'Direct: "I will help." → She said she would help.', spanish: 'Directo: "Ayudaré." → Ella dijo que ayudaría.' },
+          { english: 'Direct: "I worked in London." → He said he had worked in London.', spanish: 'Directo: "Trabajé en Londres." → Él dijo que había trabajado en Londres.' },
+        ],
+        note: 'La palabra "that" es opcional: She said she was hungry / She said that she was hungry.',
+      },
+      {
+        name: 'Backshift (cambios de tiempo)',
+        formula: 'am/is/are → was/were · presente simple → pasado simple · presente continuo → pasado continuo · pasado simple → past perfect (had + participio) · will → would · can → could',
+        examples: [
+          { english: 'Direct: "I can swim." → He said he could swim.', spanish: 'Directo: "Sé nadar." → Él dijo que sabía nadar.' },
+          { english: 'Direct: "I am working on a project." → She said she was working on a project.', spanish: 'Directo: "Estoy trabajando en un proyecto." → Ella dijo que estaba trabajando en un proyecto.' },
+        ],
+      },
+    ],
+    notes: [
+      'También cambian los pronombres: "I" → he/she; "you" → me/him/her/us según el contexto.',
+      'Si lo dicho ya estaba en pasado, retrocede a past perfect: "I worked" → he said he had worked.',
+      'En español ocurre algo parecido: "Estoy cansado" → "Dijo que estaba cansado".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She said she is hungry.', correct: '✅ She said she was hungry.', explanation: 'Lo dicho fue "I am hungry"; al pasar a indirecto, el presente cambia a pasado: was hungry.' },
     { wrong: '❌ He said he worked in London (sin cambio).', correct: '✅ He said he had worked in London.', explanation: 'Si lo dicho ya estaba en pasado ("I worked"), al retroceder un paso pasa a past perfect: had worked.' },
@@ -188,6 +217,7 @@ La palabra "that" es opcional: "She said she was hungry" y "She said that she wa
       listening: {
         audioText:
           "Hi, I'm Emma. I had a very busy week. I worked late at the office on Monday and Tuesday. On Wednesday, I attended a training session about new software. On Thursday, I had a meeting with my manager. He said I was doing a great job. I felt very happy about that. On Friday, I went to the cinema with my friends. We watched a comedy and we had a lot of fun.",
+        audioUrl: '/audio/tts/b1-m7-l1-ex11.mp3',
         questions: [
           {
             id: 'b1-m7-l1-ex11-q1',

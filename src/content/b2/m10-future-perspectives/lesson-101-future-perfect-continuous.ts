@@ -55,6 +55,43 @@ Reglas de formación:
 1. Will + have + been + verbo-ing (este orden es fijo).
 2. El verbo SIEMPRE en forma -ing, sin excepciones.
 3. Suele ir acompañado de una duración (for 2 hours, for 5 years) o contexto temporal (by 2030, by the time...).`,
+  formation: {
+    title: 'Cómo se forma el Future Perfect Continuous',
+    intro: 'El Future Perfect Continuous (will have been + -ing) expresa cuánto tiempo habrá estado en progreso una acción hasta un punto futuro. Siempre lleva una duración (for 2 hours) o un punto temporal (by 2030, by the time...).',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + will + have + been + verbo en -ing + duración / punto temporal',
+        examples: [
+          { english: 'By 2030, I will have been working here for 20 years.', spanish: 'Para 2030, habré estado trabajando acá durante 20 años.' },
+          { english: 'By the time she finishes her degree, she will have been studying for 4 years.', spanish: 'Cuando termine su carrera, habrá estado estudiando durante 4 años.' },
+        ],
+        note: 'El orden es fijo: will + have + been + -ing. El verbo SIEMPRE en -ing.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + will not (won\'t) + have been + verbo en -ing + duración / punto temporal',
+        examples: [
+          { english: 'He won\'t have been waiting very long when you arrive.', spanish: 'No habrá estado esperando mucho tiempo cuando llegues.' },
+          { english: 'She won\'t have been working here for long by then.', spanish: 'No habrá estado trabajando aquí mucho tiempo para entonces.' },
+        ],
+        note: 'Contracción: won\'t = will not.',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Will + sujeto + have been + verbo en -ing + duración / punto temporal...?',
+        examples: [
+          { english: 'Will you have been waiting long by the time I arrive?', spanish: '¿Habrás estado esperando mucho cuando llegue?' },
+          { english: 'Will they have been building the house for 2 years by next summer?', spanish: '¿Habrán estado construyendo la casa durante 2 años para el próximo verano?' },
+        ],
+      },
+    ],
+    notes: [
+      'El énfasis está en la DURACIÓN continua, no en la acción completada: eso lo distingue del future perfect simple (will have worked).',
+      'Se combina mucho con by + fecha futura (by 2030) y by the time + presente (by the time you arrive).',
+      'En habla rápida, "will have been" se reduce (suena casi como "wil-uv-bin").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I will have work here for 20 years.', correct: '✅ I will have been working here for 20 years.', explanation: 'Necesitamos "have been" + -ing para expresar duración. "Will have work" no existe.' },
     { wrong: '❌ She will been working on it for months.', correct: '✅ She will have been working on it for months.', explanation: 'Falta el "have": will HAVE been -ing, no será "will been".' },
@@ -188,6 +225,7 @@ Reglas de formación:
       listening: {
         audioText:
           "By next year, our company will have been operating in this market for 10 years. We will have been developing new products for 5 years by then. Our team will have been growing steadily, and by 2030, we will have been serving over a million customers. I\'m proud of what we\'ve built so far.",
+        audioUrl: '/audio/tts/b2-m10-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m10-l1-ex9-q1',

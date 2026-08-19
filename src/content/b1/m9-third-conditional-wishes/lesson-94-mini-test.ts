@@ -229,6 +229,7 @@ export const lesson94MiniTest: Lesson = {
       listening: {
         audioText:
           "I\'ve been thinking about my career lately. If I had taken that job offer ten years ago, I would have moved to London. But I turned it down because I wasn\'t brave enough. I wish I had been more courageous. If only I hadn\'t let fear stop me! However, if I hadn\'t stayed here, I wouldn\'t have met my current team, who are amazing. So maybe some decisions work out better than we expect.",
+        audioUrl: '/audio/tts/b1-m9-l4-ex11.mp3',
         questions: [
           {
             id: 'b1-m9-l4-ex11-q1',

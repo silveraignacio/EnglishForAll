@@ -237,6 +237,7 @@ Errores típicos:
       listening: {
         audioText:
           "My new job is great, although the commute is really long. Even though I have to wake up at six every morning, I don't mind because the salary is much better. However, I miss my old team a lot. The office is so far from my house that I spend almost two hours travelling every day. Because of that, I'm thinking about moving closer to the city.",
+        audioUrl: '/audio/tts/b1-m11-l5-ex11.mp3',
         questions: [
           {
             id: 'b1-m11-l5-ex11-q1',

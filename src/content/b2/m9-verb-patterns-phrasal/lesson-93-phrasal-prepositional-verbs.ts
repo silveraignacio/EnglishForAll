@@ -142,6 +142,44 @@ Estructuras comunes:
    - What have you run out of?
 
 REGLA: La preposición es PARTE INTEGRAL del verbo y debe estar presente, AUNQUE pueda estar colgante al final en preguntas/relativos.`,
+  formation: {
+    title: 'Cómo se forman los phrasal-prepositional verbs',
+    intro: 'Son verbos de tres componentes: verbo + partícula + preposición + objeto. La preposición es parte integral del verbo y no puede omitirse, aunque pueda quedar colgante al final en preguntas.',
+    patterns: [
+      {
+        name: 'Estructura básica — verbo + partícula + preposición + objeto',
+        formula: 'Verbo + partícula + preposición + objeto',
+        examples: [
+          { english: 'I look forward to hearing from you.', spanish: 'Espero con entusiasmo escuchar de ti.' },
+          { english: 'I can\'t put up with this noise any longer.', spanish: 'Ya no puedo soportar este ruido.' },
+        ],
+        note: 'La preposición (to, with) es obligatoria: "look forward to", "put up with".',
+      },
+      {
+        name: 'Preposición colgante en preguntas',
+        formula: 'Pronombre interrogativo + verbo + partícula + preposición (al final)',
+        examples: [
+          { english: 'What are you looking forward to?', spanish: '¿Qué estás esperando con entusiasmo?' },
+          { english: 'What are you dealing with at the moment?', spanish: '¿Con qué estás lidiando en este momento?' },
+        ],
+        note: 'La preposición colgante al final es correcta y común en inglés moderno.',
+      },
+      {
+        name: 'Con adverbio intercalado (menos común)',
+        formula: 'Verbo + partícula + adverbio + preposición + objeto',
+        examples: [
+          { english: 'I\'m looking very much forward to the trip.', spanish: 'Estoy esperando con muchas ganas el viaje.' },
+          { english: 'We are really looking forward to meeting you.', spanish: 'Realmente esperamos con entusiasmo conocerte.' },
+        ],
+        note: 'En la mayoría de los casos la estructura es rígida, sin nada en el medio.',
+      },
+    ],
+    notes: [
+      'La preposición es integral: "put up with" no puede ser solo "put up" si querés decir "tolerar".',
+      'Ejemplos comunes: look forward to, put up with, get on with, come up with, run out of, deal with.',
+      'La preposición colgante es totalmente aceptada hoy en inglés hablado y escrito.',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ "I look forward your reply."',
@@ -371,6 +409,7 @@ REGLA: La preposición es PARTE INTEGRAL del verbo y debe estar presente, AUNQUE
       listening: {
         audioText:
           'A: I\'m really looking forward to the holiday. B: Me too! I can\'t wait. A: How are you getting on with your new team at work? B: Really well. I get on well with all my colleagues. But I have to deal with a lot of difficult projects. A: That sounds tough. How do you manage? B: Well, my team always comes up with great ideas. And I\'m glad I don\'t have to put up with as much stress as last year. A: That\'s great!',
+        audioUrl: '/audio/tts/b2-m9-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m9-l3-ex9-q1',

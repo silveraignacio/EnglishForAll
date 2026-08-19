@@ -123,6 +123,45 @@ Pasos para identificar si es cortesía o condicional:
 1. ¿El resultado depende lógicamente de la condición? → Condicional.
 2. ¿El "if" es solo para sonar más educado? → Cortesía.
 `,
+  formation: {
+    title: 'Cómo se forma wish / if only + past perfect y las fórmulas de cortesía',
+    intro: 'Wish e if only + past perfect expresan arrepentimiento por algo que no pasó (o que pasó y no se quería). En la cortesía, if + pasado simple se usa como estrategia social para pedir algo de forma indirecta, no como condición lógica.',
+    patterns: [
+      {
+        name: 'Arrepentimiento — wish / if only + past perfect',
+        formula: 'wish / if only + had + participio pasado + complemento',
+        examples: [
+          { english: 'I wish I had studied harder for the exam.', spanish: 'Desearía haber estudiado más para el examen.' },
+          { english: 'If only I had known the truth!', spanish: '¡Si solo hubiera sabido la verdad!' },
+        ],
+        note: 'If only es más enfático y emocional que I wish.',
+      },
+      {
+        name: 'Arrepentimiento negativo',
+        formula: 'wish / if only + hadn\'t + participio pasado + complemento',
+        examples: [
+          { english: 'I wish I hadn\'t eaten so much cake.', spanish: 'Desearía no haber comido tanto pastel.' },
+          { english: 'If only I hadn\'t said that!', spanish: '¡Si solo no hubiera dicho eso!' },
+        ],
+        note: 'Para arrepentirse de una acción que SÍ ocurrió pero que no se quería.',
+      },
+      {
+        name: 'Cortesía — if + pasado simple / auxiliar',
+        formula: 'If you could/would... · If you don\'t mind... · I was wondering if you could... + proposición principal',
+        examples: [
+          { english: 'If you don\'t mind, could you pass me the water?', spanish: 'Si no te importa, ¿podrías pasarme el agua?' },
+          { english: 'I was wondering if you could help me with this project.', spanish: 'Me preguntaba si podrías ayudarme con este proyecto.' },
+          { english: 'If I may suggest something, I think we should reconsider.', spanish: 'Si me permites sugerir algo, creo que deberíamos reconsiderar.' },
+        ],
+        note: 'No es un condicional real: el favor no depende lógicamente de la condición.',
+      },
+    ],
+    notes: [
+      'Con wish NO se usa will: para presente/futuro se usa would; para pasado se usa past perfect (had + participio).',
+      'If only + past perfect, nunca "If only I would have known": el would solo va en la cláusula principal de un condicional.',
+      'I was wondering if + could es la forma más cortés, porque agrega una capa de indirecta a la pregunta.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I wish I will study harder next time.', correct: '✅ I wish I would study harder next time. OR I wish I had studied harder.', explanation: 'Con "wish" NO uses "will". Para presente/futuro: "would". Para pasado: "past perfect (had studied)".' },
     { wrong: '❌ If only I would have known!', correct: '✅ If only I had known!', explanation: '"If only" + past perfect, no "would have". El "would" va solo en la cláusula principal de condicionales, no después de "if only".' },
@@ -272,6 +311,7 @@ Pasos para identificar si es cortesía o condicional:
       listening: {
         audioText:
           "Sarah is talking to her friend Tom. She says: I wish I had taken that job in London when I had the chance. If only I had been braver! Now I\'m stuck here, and I regret it. Tom responds: Well, if you don\'t mind, I could help you look for similar opportunities now. I was wondering if you could send me your resume, and I\'ll see what I can find. Sarah replies: That would be amazing. If I may ask, could you also check with your friend David? He works in recruitment.",
+        audioUrl: '/audio/tts/b2-m6-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m6-l3-ex9-q1',

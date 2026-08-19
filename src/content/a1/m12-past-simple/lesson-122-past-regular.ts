@@ -69,6 +69,28 @@ Ejemplos:
 
 **Expresiones de tiempo pasado:**
 - yesterday (ayer), last week/month/year (la semana/el mes/el año pasado), ago (hace), in 2020 (en 2020).`,
+  formation: {
+    title: 'Cómo se forma el Past Simple — Verbos regulares (-ed)',
+    intro: 'Para hablar de acciones terminadas en el pasado con verbos regulares, añadimos -ed al verbo. La forma es la misma para todas las personas.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + verbo + -ed + complemento (+ expresión de tiempo)',
+        examples: [
+          { english: 'I worked yesterday.', spanish: 'Trabajé ayer.' },
+          { english: 'She lived in Paris.', spanish: 'Ella vivió en París.' },
+          { english: 'They studied English last year.', spanish: 'Ellos estudiaron inglés el año pasado.' },
+          { english: 'He stopped working in 2020.', spanish: 'Él dejó de trabajar en 2020.' },
+        ],
+        note: 'El pasado es igual para todas las personas: I worked, you worked, he worked... (ninguna lleva -s).',
+      },
+    ],
+    notes: [
+      'Reglas de ortografía: verbo en -e → solo -d (live → lived); consonante + -y → -ied (study → studied); una sílaba con consonante-vocal-consonante → duplicar la consonante (stop → stopped).',
+      'Verbos de dos sílabas como "listen" no duplican: listen → listened.',
+      'Expresiones de tiempo: yesterday, last week/month/year, ago (two days ago), in 2020.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I work yesterday.', correct: '✅ I worked yesterday.', explanation: 'Con una expresión de pasado (yesterday) necesitamos la forma pasada con -ed: worked.' },
     { wrong: '❌ She studed English.', correct: '✅ She studied English.', explanation: 'Con consonante + -y, cambiamos la y por -ied: study → studied.' },

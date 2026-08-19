@@ -58,6 +58,29 @@ Recuerda: la forma pasada se usa solo en frases AFIRMATIVAS. En negativas y preg
 En negativas y preguntas usamos el infinitivo con did/didn't:
 - I didn't go. (no "I didn't went")
 - Did you see it? (no "Did you saw it?")`,
+  formation: {
+    title: 'Cómo se forma el Past Simple — Verbos irregulares',
+    intro: 'Los verbos irregulares no siguen la regla de -ed: cada uno tiene su propia forma de pasado que hay que memorizar.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + forma irregular de pasado + complemento',
+        examples: [
+          { english: 'I went to the cinema.', spanish: 'Fui al cine.' },
+          { english: 'She had breakfast at 7.', spanish: 'Ella desayunó a las 7.' },
+          { english: 'We bought a new car.', spanish: 'Compramos un coche nuevo.' },
+          { english: 'He saw a film.', spanish: 'Él vio una película.' },
+          { english: 'I knew the answer.', spanish: 'Sabía la respuesta.' },
+        ],
+        note: 'La forma pasada es igual para todas las personas: I went, she went, they went.',
+      },
+    ],
+    notes: [
+      'La forma pasada se usa SOLO en afirmativo. En negativo y preguntas con did/didn\'t, el verbo vuelve al infinitivo: I didn\'t go (no "didn\'t went") · Did you see it? (no "Did you saw it?").',
+      'Irregulares comunes A1: go→went, have→had, make→made, do→did, see→saw, get→got, take→took, come→came, buy→bought, eat→ate, drink→drank, sleep→slept, write→wrote, give→gave, find→found, tell→told, say→said, know→knew, think→thought.',
+      '"Read" se escribe igual en presente y pasado, pero en pasado se pronuncia "red".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I goed to the cinema.', correct: '✅ I went to the cinema.', explanation: '"Go" es irregular: su pasado es "went", no "goed".' },
     { wrong: '❌ She buyed a car.', correct: '✅ She bought a car.', explanation: '"Buy" es irregular: su pasado es "bought", no "buyed".' },

@@ -242,6 +242,7 @@ Nunca: "been work", "being working", ni continuous con verbos de estado.`,
       listening: {
         audioText:
           "This week has been really busy for me. I've been working in the garden every day, and my back is really sore from all the digging. I've been planting new flowers since Monday, and I've already planted about twenty of them. I've lived in this house for ten years now, but I've never had time to fix the garden properly until this week.",
+        audioUrl: '/audio/tts/b1-m3-l3-ex12.mp3',
         questions: [
           {
             id: 'b1-m3-l3-ex12-q1',

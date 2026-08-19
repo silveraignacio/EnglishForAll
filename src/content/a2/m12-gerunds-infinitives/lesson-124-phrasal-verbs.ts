@@ -40,6 +40,45 @@ Diferencia: "look for" (buscar) vs "look at" (mirar). Son significados diferente
 - Con sustantivos, ambas posiciones son válidas: turn off the lights = turn the lights off.
 
 Ojo: look for (buscar) ≠ look at (mirar).`,
+  formation: {
+    title: 'Cómo se forman los phrasal verbs',
+    intro: 'Un phrasal verb es un verbo + partícula (up, on, off, for, after...) que juntos tienen un significado especial. La posición de la partícula cambia según usemos sustantivo o pronombre.',
+    patterns: [
+      {
+        name: 'Verbo + partícula',
+        formula: 'verbo + partícula (get up, turn off, look for, look after...)',
+        examples: [
+          { english: 'I get up at seven.', spanish: 'Me levanto a las siete.' },
+          { english: 'She looks after her little brother.', spanish: 'Ella cuida de su hermano pequeño.' },
+        ],
+        note: 'El phrasal verb se aprende como una unidad con su propio significado.',
+      },
+      {
+        name: 'Con sustantivo (dos posiciones)',
+        formula: 'verbo + partícula + sustantivo | verbo + sustantivo + partícula',
+        examples: [
+          { english: 'Turn off the lights.', spanish: 'Apaga las luces.' },
+          { english: 'Turn the lights off.', spanish: 'Apaga las luces.' },
+        ],
+        note: 'Con sustantivo, ambas posiciones son válidas: turn off the lights = turn the lights off.',
+      },
+      {
+        name: 'Con pronombre (entre verbo y partícula)',
+        formula: 'verbo + pronombre + partícula',
+        examples: [
+          { english: 'Please turn it off.', spanish: 'Por favor, apágalo.' },
+          { english: 'Could you turn the music down?', spanish: '¿Podrías bajar la música?' },
+          { english: 'Please put it on.', spanish: 'Por favor, póntelo.' },
+        ],
+        note: 'Con pronombres (it, them, me...) la posición es obligatoria: entre el verbo y la partícula.',
+      },
+    ],
+    notes: [
+      'Con pronombre, el pronombre va ENTRE verbo y partícula: ❌ turn off it → ✅ turn it off.',
+      'look for (buscar) ≠ look at (mirar): son significados diferentes.',
+      'Cada phrasal verb tiene un significado fijo que hay que memorizar: get up, wake up, give up...',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Please turn off it.', correct: '✅ Please turn it off.', explanation: 'Con pronombres (it, them...), el pronombre va entre el verbo y la partícula: turn it off.' },
     { wrong: '❌ I\'m looking at my keys (queriendo decir "busco mis llaves").', correct: '✅ I\'m looking for my keys.', explanation: '"Look for" = buscar. "Look at" = mirar. Son significados diferentes.' },

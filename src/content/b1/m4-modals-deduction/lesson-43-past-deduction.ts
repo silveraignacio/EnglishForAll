@@ -52,6 +52,42 @@ Reglas:
   - must have → deducción positiva segura del pasado.
   - can't have → deducción negativa segura del pasado.
   - might have → posibilidad en el pasado.`,
+  formation: {
+    title: 'Cómo se forma la deducción en pasado — must have / can\'t have / might have',
+    intro: 'Para deducir sobre el pasado usamos un modal + have + participio pasado: must have (seguro que sí pasó), can\'t have (seguro que no) y might have (es posible).',
+    patterns: [
+      {
+        name: 'Deducción pasada positiva',
+        formula: 'Sujeto + must + have + past participle + complemento',
+        examples: [
+          { english: 'They must have missed the train.', spanish: 'Deben de haber perdido el tren.' },
+          { english: 'She must have been tired after the flight.', spanish: 'Debió de estar cansada después del vuelo.' },
+          { english: 'The floor is wet. It must have rained.', spanish: 'El suelo está mojado. Debe de haber llovido.' },
+        ],
+      },
+      {
+        name: 'Deducción pasada negativa',
+        formula: 'Sujeto + can\'t + have + past participle + complemento',
+        examples: [
+          { english: 'She can\'t have forgotten your birthday.', spanish: 'No puede haber olvidado tu cumpleaños.' },
+          { english: 'He can\'t have left early — his coat is here.', spanish: 'No puede haberse ido temprano — su abrigo está aquí.' },
+        ],
+      },
+      {
+        name: 'Posibilidad pasada',
+        formula: 'Sujeto + might + have + past participle + complemento',
+        examples: [
+          { english: 'He might have taken the wrong bus.', spanish: 'Quizá haya cogido el autobús equivocado.' },
+          { english: 'He might have gone to the bank.', spanish: 'Quizá haya ido al banco.' },
+        ],
+      },
+    ],
+    notes: [
+      'Después de "have" SIEMPRE va el participio pasado: gone, taken, forgotten (no "must have went").',
+      '"Have" no cambia con la persona: he must have, they must have (nunca "must has").',
+      'En español: must have = debe de haber; can\'t have = no puede haber; might have = quizá haya.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ They must has missed the train.', correct: '✅ They must have missed the train.', explanation: 'Tras "must" siempre "have", nunca "has": must have.' },
     { wrong: '❌ He must have went home.', correct: '✅ He must have gone home.', explanation: 'Después de "have" va el participio (gone), no el pasado (went).' },
@@ -243,6 +279,7 @@ Reglas:
       listening: {
         audioText:
           "I haven\'t heard from Sarah since Friday. Something must have happened — she always responds to my messages. She might have gone away for the weekend without telling anyone. Maybe she went to the beach or the mountains. But one thing is sure: she can\'t have forgotten about my birthday party! I invited her personally. She must have been really busy or something went wrong. I hope she\'s okay.",
+        audioUrl: '/audio/tts/b1-m4-l3-ex13.mp3',
         questions: [
           {
             id: 'b1-m4-l3-ex13-q1',

@@ -44,6 +44,36 @@ Ausencia de obligación: Sujeto + don't/doesn't have to + verbo
 DIFERENCIA CLAVE:
 - mustn't = prohibición (no lo hagas).
 - don't have to = no es obligatorio (puedes hacerlo o no).`,
+  formation: {
+    title: 'Cómo se forma have to / don\'t have to',
+    intro: 'have to expresa una obligación (a menudo externa: reglas, trabajo) y don\'t have to expresa ausencia de obligación (no es necesario, pero puedes hacerlo).',
+    patterns: [
+      {
+        name: 'Afirmativo (obligación)',
+        formula: 'Sujeto + have to / has to + verbo en forma base + complemento',
+        examples: [
+          { english: 'I have to work tomorrow.', spanish: 'Tengo que trabajar mañana.' },
+          { english: 'She has to study.', spanish: 'Ella tiene que estudiar.' },
+          { english: 'He has to get up early on weekdays.', spanish: 'Él tiene que levantarse temprano entre semana.' },
+        ],
+        note: 'Con I/you/we/they → have to. Con he/she/it → has to. No confundas: I have to (no "I has to").',
+      },
+      {
+        name: 'Negativo (ausencia de obligación)',
+        formula: 'Sujeto + don\'t / doesn\'t + have to + verbo en forma base + complemento',
+        examples: [
+          { english: "You don't have to come if you're tired.", spanish: 'No hace falta que vengas si estás cansado.' },
+          { english: "They don't have to pay.", spanish: 'No tienen que pagar.' },
+          { english: "We don't have to cook tonight.", spanish: 'No hace falta cocinar esta noche.' },
+        ],
+        note: "don't have to = no es obligatorio (puedes hacerlo o no). Con he/she/it: doesn't have to. Ojo: no es una prohibición.",
+      },
+    ],
+    notes: [
+      'Diferencia clave: mustn\'t = prohibido (no lo hagas) · don\'t have to = no es obligatorio (puedes hacerlo o no).',
+      'No olvides el "to" de have to: I have to go (no "I have go").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I has to work tomorrow.', correct: '✅ I have to work tomorrow.', explanation: 'Con "I" usamos "have to". "Has to" solo con he/she/it.' },
     { wrong: '❌ I have go home now.', correct: '✅ I have to go home now.', explanation: 'No olvides el "to": have to + verbo.' },

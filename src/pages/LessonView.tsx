@@ -293,6 +293,54 @@ function LessonExplanation({ lesson }: { lesson: import('@/content/types').Lesso
         </div>
       </Card>
 
+      {/* Formation — cómo se forma el tiempo/forma verbal (sección clave) */}
+      {lesson.formation && (
+        <Card className="border-2 border-brand-300 bg-gradient-to-b from-brand-50 to-white shadow-sm">
+          <div className="flex flex-wrap items-center gap-2 mb-1">
+            <span className="inline-flex items-center rounded-full bg-brand-600 text-white text-xs font-bold px-2.5 py-0.5 uppercase tracking-wider">
+              ⭐ Clave
+            </span>
+            <h2 className="text-lg font-extrabold text-ink">{lesson.formation.title}</h2>
+          </div>
+          {lesson.formation.intro && (
+            <p className="text-ink-soft text-sm mb-4">{lesson.formation.intro}</p>
+          )}
+          <div className="space-y-4">
+            {lesson.formation.patterns.map((p, i) => (
+              <div key={i} className="rounded-xl border border-brand-100 bg-white p-4">
+                <h3 className="font-bold text-brand-700 mb-2">{p.name}</h3>
+                <p className="font-mono text-sm bg-brand-50 border-l-4 border-brand-500 text-brand-800 rounded-r-md px-3 py-2 mb-3">
+                  {p.formula}
+                </p>
+                <ul className="space-y-1.5">
+                  {p.examples.map((e, j) => (
+                    <li key={j} className="flex items-start gap-2">
+                      <span className="text-ink font-medium">{e.english}</span>
+                      <SpeakButton text={e.english} size="sm" />
+                      <span className="text-ink-light text-sm">= {e.spanish}</span>
+                    </li>
+                  ))}
+                </ul>
+                {p.note && <p className="text-brand-600 text-xs italic mt-2">💡 {p.note}</p>}
+              </div>
+            ))}
+          </div>
+          {lesson.formation.notes && lesson.formation.notes.length > 0 && (
+            <div className="mt-4 rounded-xl bg-amber-50 border border-amber-200 p-4">
+              <h3 className="font-bold text-amber-800 text-sm mb-2">⚠️ Casos particulares</h3>
+              <ul className="space-y-1">
+                {lesson.formation.notes.map((n, i) => (
+                  <li key={i} className="text-ink-soft text-sm flex gap-2">
+                    <span className="text-amber-600 font-bold">•</span>
+                    <span>{n}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </Card>
+      )}
+
       {/* Common Mistakes */}
       {lesson.commonMistakes.length > 0 && (
         <Card className="bg-error-50/30 border-error-200/40">

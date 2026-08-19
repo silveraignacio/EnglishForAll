@@ -39,6 +39,42 @@ DIFERENCIAS CLAVE con "used to":
 - used to expresa hábitos Y estados; would solo hábitos.
 - No se usa "would" para estados: ❌ She would live in Barcelona → ✅ She used to live in Barcelona.
 - Negativo: wouldn't + verbo. Pregunta: Would + sujeto + verbo?`,
+  formation: {
+    title: 'Cómo se forma would para hábitos del pasado',
+    intro: 'would + verbo en forma base expresa hábitos del pasado en narraciones con tono nostálgico. Solo sirve para hábitos (acciones repetidas), no para estados.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + would + verbo en forma base + complemento',
+        examples: [
+          { english: 'When I was young, I would go fishing every summer.', spanish: 'Cuando era joven, solía ir a pescar cada verano.' },
+          { english: 'She would always wake up early.', spanish: 'Ella siempre se despertaba temprano.' },
+          { english: 'He would tell us stories at night.', spanish: 'Él nos contaba historias por la noche.' },
+          { english: 'They would visit their grandparents every Sunday.', spanish: 'Ellos solían visitar a sus abuelos cada domingo.' },
+        ],
+        note: 'Se suele combinar con always, every summer, every Sunday para marcar la repetición.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + wouldn\'t + verbo en forma base + complemento',
+        examples: [
+          { english: 'She wouldn\'t eat vegetables when she was a child.', spanish: 'No comía verduras cuando era niña.' },
+        ],
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Would + sujeto + verbo en forma base + ...?',
+        examples: [
+          { english: 'Would you go there often?', spanish: '¿Ibas allí a menudo?' },
+        ],
+      },
+    ],
+    notes: [
+      'would va seguido de la forma base SIN "to": would go (no "would to go").',
+      'would solo expresa hábitos, no estados: She used to live in Barcelona (no "She would live in Barcelona").',
+      'used to es más neutro y hablado; would suena más literario y nostálgico, sobre todo en narraciones.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I would to go fishing every summer.', correct: '✅ I would go fishing every summer.', explanation: 'Tras "would" va el verbo en forma base SIN "to": would go.' },
     { wrong: '❌ She would live in Barcelona. (con el sentido de "solía vivir")', correct: '✅ She used to live in Barcelona.', explanation: '"would" solo expresa hábitos, no estados. Para estados pasados (vivir, ser, tener) usamos "used to".' },
@@ -189,6 +225,7 @@ DIFERENCIAS CLAVE con "used to":
       listening: {
         audioText:
           "When I was a student, I would spend hours in the library every day. On weekends, my friends and I would go to the pizza place near the university — we would always order the same thing! Before exams, I wouldn't sleep much; I would stay up all night studying. Those were difficult times, but I enjoyed the feeling of being part of a group. Now as a teacher, I would tell my students the same thing: study hard, but also take care of yourself.",
+        audioUrl: '/audio/tts/b1-m12-l2-ex11.mp3',
         questions: [
           {
             id: 'b1-m12-l2-ex11-q1',

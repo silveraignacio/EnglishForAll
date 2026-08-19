@@ -36,6 +36,36 @@ Regla: verbo + to + verbo(base):
 - "I'd like" = "I would like" (forma educada de "quiero/quisiera").
 
 Contraste con el módulo anterior: enjoy/hate/finish van con -ing; want/need/decide van con to + verbo.`,
+  formation: {
+    title: 'Cómo se forma "to" + infinitivo tras ciertos verbos',
+    intro: 'Después de verbos como want, need, decide, plan, hope y would like usamos "to" + verbo en forma base. El "to" es obligatorio, nunca se omite.',
+    patterns: [
+      {
+        name: 'Verbo + to + infinitivo',
+        formula: 'sujeto + want/need/decide/plan/hope + to + verbo (forma base)',
+        examples: [
+          { english: 'I want to learn English.', spanish: 'Quiero aprender inglés.' },
+          { english: 'She decided to move to Valencia.', spanish: 'Ella decidió mudarse a Valencia.' },
+          { english: 'They need to buy some food.', spanish: 'Necesitan comprar algo de comida.' },
+        ],
+        note: 'El segundo verbo va SIEMPRE en forma base, después de "to": want to learn, decided to move.',
+      },
+      {
+        name: 'would like + to + infinitivo',
+        formula: 'sujeto + would like + to + verbo (forma base)',
+        examples: [
+          { english: 'I\'d like to order.', spanish: 'Me gustaría pedir.' },
+          { english: 'We would like to see you soon.', spanish: 'Nos gustaría verte pronto.' },
+        ],
+        note: '"I\'d like" = "I would like". Es la forma educada de "quiero".',
+      },
+    ],
+    notes: [
+      'Nunca omitas el "to": ❌ I want learn English → ✅ I want to learn English.',
+      'Contraste con el módulo anterior: enjoy/hate/finish van con -ing; want/need/decide van con to + verbo.',
+      '"Would like" lleva "to": ❌ I would like go → ✅ I would like to go.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I want learn English.', correct: '✅ I want to learn English.', explanation: '"Want" necesita "to" antes del segundo verbo: want to learn.' },
     { wrong: '❌ I would like go.', correct: '✅ I would like to go.', explanation: '"Would like" se construye con "to" + verbo: would like to go.' },

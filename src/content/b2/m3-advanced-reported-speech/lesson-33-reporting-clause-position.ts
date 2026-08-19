@@ -421,6 +421,7 @@ Adverbios comunes: reluctantly, quietly, loudly, clearly, allegedly, confidently
       listening: {
         audioText:
           "In his history lecture, Professor Smith said: \"Ancient philosophers had very different views. Plato argued that knowledge is eternal and unchanging. Aristotle, on the other hand, believed that knowledge comes from experience. Marx later stated that economic systems drive society. As the modern economist Adam Smith said, \"It is not from the benevolence of the butcher that we expect our dinner, but from his self-interest.\" These ideas remain relevant today.\"",
+        audioUrl: '/audio/tts/b2-m3-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m3-l3-ex9-q1',

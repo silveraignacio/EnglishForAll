@@ -53,6 +53,35 @@ Recuerda:
 - There ARE three chairs (plural).
 
 No existe contracción común para "there are".`,
+  formation: {
+    title: 'Cómo se forma "There is / There are" — Afirmativo',
+    intro: 'Para decir que algo existe ("hay") usamos "there is" con un sustantivo singular y "there are" con un plural. El verbo depende del sustantivo que le sigue.',
+    patterns: [
+      {
+        name: 'Afirmativo — singular',
+        formula: 'There is + a/an + sustantivo singular + lugar',
+        examples: [
+          { english: 'There is a book on the table.', spanish: 'Hay un libro en la mesa.' },
+          { english: 'There\'s a sofa in the living room.', spanish: 'Hay un sofá en la sala de estar.' },
+          { english: 'There is a garden behind the house.', spanish: 'Hay un jardín detrás de la casa.' },
+        ],
+        note: 'La forma corta de "there is" es "there\'s", muy común en el habla.',
+      },
+      {
+        name: 'Afirmativo — plural',
+        formula: 'There are + número/adjetivo + sustantivo plural + lugar',
+        examples: [
+          { english: 'There are three chairs in the kitchen.', spanish: 'Hay tres sillas en la cocina.' },
+          { english: 'There are two bedrooms in my house.', spanish: 'Hay dos dormitorios en mi casa.' },
+        ],
+        note: 'No existe una contracción habitual para "there are": escribimos "there are", no "there\'re".',
+      },
+    ],
+    notes: [
+      'El verbo (is/are) depende del sustantivo: "There IS a book" (singular) · "There ARE three chairs" (plural).',
+      'Siempre necesitamos "there": no decimos "Is a book on the table" sin "there".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ There is two chairs.', correct: '✅ There are two chairs.', explanation: '"Two chairs" es plural, así que usamos "there are", no "there is".' },
     { wrong: '❌ There are a book.', correct: '✅ There is a book.', explanation: '"A book" es singular, así que usamos "there is".' },

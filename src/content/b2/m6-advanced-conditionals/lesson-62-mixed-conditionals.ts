@@ -109,6 +109,44 @@ REGLAS CLAVE:
 4. Nunca confundas con terceras condicionales: ambas pueden sonar parecidas, pero en Tipo 1 el resultado es PRESENTE, no pasado.
 5. Ambas expresan situaciones contrafácticas (que NO son verdaderas en la realidad).
 `,
+  formation: {
+    title: 'Cómo se forman las condicionales mixtas',
+    intro: 'Las condicionales mixtas combinan dos marcos temporales: una condición pasada con un resultado presente (Tipo 1) o una condición presente con un resultado pasado (Tipo 2).',
+    patterns: [
+      {
+        name: 'Tipo 1 — condición pasada → resultado presente',
+        formula: 'If + past perfect (had + participio), sujeto + would + infinitivo',
+        examples: [
+          { english: 'If I had studied medicine, I\'d be a doctor now.', spanish: 'Si hubiera estudiado medicina, sería médico ahora.' },
+          { english: 'If we had invested in that company, we\'d be rich by now.', spanish: 'Si hubiéramos invertido en esa empresa, seríamos ricos ahora.' },
+        ],
+        note: 'Es el tipo más común: lo que no hice en el pasado explica cómo soy ahora.',
+      },
+      {
+        name: 'Tipo 2 — condición presente → resultado pasado',
+        formula: 'If + past simple (was/were/did), sujeto + would have + participio pasado',
+        examples: [
+          { english: 'If I weren\'t so busy now, I would have gone to the party yesterday.', spanish: 'Si no estuviera tan ocupado ahora, habría ido a la fiesta ayer.' },
+          { english: 'If she weren\'t afraid of flying, she would have taken the last flight.', spanish: 'Si no le diera miedo volar, habría tomado el último vuelo.' },
+        ],
+        note: 'Menos común; se usa solo cuando hay una relación lógica clara entre el presente y lo que habría pasado.',
+      },
+      {
+        name: 'Negativa',
+        formula: 'If + hadn\'t / weren\'t ..., sujeto + wouldn\'t + infinitivo / wouldn\'t have + participio',
+        examples: [
+          { english: 'If I hadn\'t moved to Australia, I wouldn\'t have this job now.', spanish: 'Si no me hubiera mudado a Australia, no tendría este trabajo ahora.' },
+          { english: 'If the plan were better now, we wouldn\'t have lost so much money last year.', spanish: 'Si el plan fuera mejor ahora, no habríamos perdido tanto dinero el año pasado.' },
+        ],
+      },
+    ],
+    notes: [
+      'En Tipo 1, el resultado va en presente (would be, would speak), NO en pasado (would have been).',
+      'En Tipo 2, la condición va en past simple (were, had, knew) y el resultado en would have + participio.',
+      'Ambas son contrafácticas: describen situaciones que NO son verdaderas.',
+      'No confundir con el tercer condicional puro: If I had studied, I would have passed (pasado + pasado) vs. mixta Tipo 1 If I had studied, I would be a doctor (pasado + presente).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ If I had studied medicine, I would have been a doctor now.', correct: '✅ If I had studied medicine, I would be a doctor now.', explanation: 'Mixta Tipo 1 usa "would be" (presente), no "would have been" (pasado). El "had studied" es la única parte en past perfect.' },
     { wrong: '❌ If I hadn\'t moved, I don\'t live here now.', correct: '✅ If I hadn\'t moved, I wouldn\'t live here now.', explanation: 'Necesitas "would" en la cláusula principal, no simple present. Es un condicional, no un hecho real.' },
@@ -258,6 +296,7 @@ REGLAS CLAVE:
       listening: {
         audioText:
           "Robert is reflecting on his life. He says: If I had pursued my dream of becoming a musician, I would be performing in concerts now. But I chose engineering instead. Also, if I weren\'t so focused on my career now, I would have spent more time with my family last year. My wife always says: if you had moved to the countryside, we would be much happier now. But here we are in the city, and I think... if I hadn\'t been so stubborn, things might have been different.",
+        audioUrl: '/audio/tts/b2-m6-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m6-l2-ex9-q1',

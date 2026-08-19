@@ -72,6 +72,44 @@ Reglas:
 1. El verbo SIEMPRE en -ing.
 2. En wh-questions, el wh-word va al inicio.
 3. La cortesía funciona cuando presupone que la acción ya estará ocurriendo.`,
+  formation: {
+    title: 'Cómo se forman las preguntas con Future Continuous y las formas corteses',
+    intro: 'Las preguntas con future continuous se forman con Will + sujeto + be + -ing. Este mismo patrón se usa como estrategia de cortesía: al presuponer que la acción seguirá ocurriendo, la pregunta suena menos invasiva que una directa con do/does.',
+    patterns: [
+      {
+        name: 'Pregunta sí/no',
+        formula: 'Will + sujeto + be + verbo en -ing + ...?',
+        examples: [
+          { english: 'Will you be using the car tonight?', spanish: '¿Usarás el auto esta noche?' },
+          { english: 'Will she be working tomorrow when I call?', spanish: '¿Estará trabajando mañana cuando llame?' },
+        ],
+        note: 'El verbo SIEMPRE en -ing y con be: Will you BE using, no "Will you using".',
+      },
+      {
+        name: 'Pregunta wh-',
+        formula: 'Wh-word (What/When/Where/Why) + will + sujeto + be + verbo en -ing + ...?',
+        examples: [
+          { english: 'What will you be doing this weekend?', spanish: '¿Qué estarás haciendo este fin de semana?' },
+          { english: 'Where will you be staying during your trip?', spanish: '¿Dónde estarás alojándote durante tu viaje?' },
+        ],
+        note: 'El wh-word va primero; después will + sujeto + be + -ing.',
+      },
+      {
+        name: 'Cortesía',
+        formula: 'Will you be + -ing...? (en lugar de imperativos o preguntas directas con do/does)',
+        examples: [
+          { english: 'Will you be needing anything else?', spanish: '¿Necesitarás algo más?' },
+          { english: 'Will you be finishing the report soon?', spanish: '¿Terminarás el informe pronto?' },
+        ],
+        note: 'Más educado que "Do you need anything?" o "Give me the report!". Con be able to: Will you be able to help me?',
+      },
+    ],
+    notes: [
+      'La cortesía funciona porque presupone que la acción ya estará ocurriendo, no que estás pidiendo un favor especial.',
+      'Suele acompañarse de un contexto temporal específico: tonight, tomorrow at 3 PM, this weekend.',
+      'Útil para preguntar por disponibilidad o planes sin sonar impositivo.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Will you using the car tonight?', correct: '✅ Will you be using the car tonight?', explanation: 'Falta "be": Will + you + BE + -ing.' },
     { wrong: '❌ What you will be doing tomorrow?', correct: '✅ What will you be doing tomorrow?', explanation: 'En wh-questions, el orden es Wh-word + will + sujeto + be + -ing, no "What you will be".' },
@@ -211,6 +249,7 @@ Reglas:
       listening: {
         audioText:
           "Welcome! Will you be staying with us for a few nights? Will you be needing any assistance with your luggage? What will you be doing during your stay? Will you be dining with us this evening? Don\'t hesitate to ask if you\'ll be needing anything else.",
+        audioUrl: '/audio/tts/b2-m10-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m10-l2-ex9-q1',

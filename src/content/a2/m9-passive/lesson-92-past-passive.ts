@@ -46,6 +46,28 @@ Fíjate en el número: con sujeto plural usamos "were":
 - was → singular. were → plural.
 - El participio no cambia con was/were.
 - Verbos irregulares comunes: build → built, break → broken, take → taken, write → written, send → sent.`,
+  formation: {
+    title: 'Cómo se forma la voz pasiva en pasado',
+    intro: 'Para acciones pasadas en pasiva usamos was/were + participio pasado. El foco está en la acción, no en quién la hizo.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + was / were + participio pasado + complemento',
+        examples: [
+          { english: 'This house was built in 1980.', spanish: 'Esta casa fue construida en 1980.' },
+          { english: 'The window was broken last night.', spanish: 'La ventana se rompió anoche.' },
+          { english: 'These photos were taken in 2010.', spanish: 'Estas fotos fueron tomadas en 2010.' },
+          { english: 'The letters were sent yesterday.', spanish: 'Las cartas fueron enviadas ayer.' },
+        ],
+        note: 'was → singular (I, he, she, it). were → plural (you, we, they). El participio no cambia con was/were.',
+      },
+    ],
+    notes: [
+      'El participio es el mismo que en la pasiva de presente: regulares -ed (cancelled, painted); irregulares forma propia.',
+      'Irregulares comunes: build → built, break → broken, take → taken, write → written, send → sent.',
+      'Ojo: no añadas -ed a un participio irregular: were built (no "were builded") y no uses el pasado simple: was broken (no "was broke").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ This house was build in 1980.', correct: '✅ This house was built in 1980.', explanation: '"Build" es irregular; el participio es "built", no "build".' },
     { wrong: '❌ The window was broke last night.', correct: '✅ The window was broken last night.', explanation: 'El participio de "break" es "broken", no el pasado simple "broke".' },

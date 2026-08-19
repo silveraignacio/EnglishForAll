@@ -49,6 +49,42 @@ En esta lección nos enfocamos en singular: **this is / that is**.`,
 - **that** = allí / lejos — singular. Va con "is": "That is..."
 - No cambian con el género (this/that valen para masculino y femenino).
 - Plurales (A2): "these" (cerca) y "those" (lejos) van con "are".`,
+  formation: {
+    title: 'Cómo se usan this / that',
+    intro: 'Los demostrativos sirven para señalar. "this" indica algo cerca de mí (aquí) y "that" algo lejos (allí). En A1 usamos las formas singulares con "is".',
+    patterns: [
+      {
+        name: 'Cerca: this',
+        formula: 'This + is + sustantivo singular',
+        examples: [
+          { english: 'This is my house.', spanish: 'Esta es mi casa.' },
+          { english: 'This is my friend, John.', spanish: 'Este es mi amigo, John.' },
+        ],
+        note: '"this" = cerca de mí (aquí).',
+      },
+      {
+        name: 'Lejos: that',
+        formula: 'That + is + sustantivo singular',
+        examples: [
+          { english: 'That is your bike.', spanish: 'Ese es tu bicicleta.' },
+          { english: 'That is a big tree.', spanish: 'Ese es un árbol grande.' },
+        ],
+        note: '"that" = lejos de mí (allí).',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Is this/that + sustantivo singular?',
+        examples: [
+          { english: 'Is this your pen?', spanish: '¿Es este tu bolígrafo?' },
+        ],
+        note: 'En las respuestas cortas usamos "it", no el demostrativo: Yes, it is.',
+      },
+    ],
+    notes: [
+      '"this" y "that" no cambian con el género: valen para masculino y femenino.',
+      'En plural (A2) se usan "these" (cerca) y "those" (lejos) con "are".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ This are my book.', correct: '✅ This is my book.', explanation: '"This" es singular, va con "is", no "are". → This is my book.' },
     { wrong: '❌ That are a car.', correct: '✅ That is a car.', explanation: '"That" es singular, va con "is", no "are". → That is a car.' },

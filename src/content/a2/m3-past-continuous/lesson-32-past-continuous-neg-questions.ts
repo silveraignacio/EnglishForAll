@@ -52,6 +52,51 @@ Cuando preguntamos QUÉ estaba haciendo alguien, la pregunta empieza con "What":
 3. Respuestas cortas: Yes, I was. / No, I wasn't. / Yes, they were. / No, they weren't.
 4. WH-questions: What/Where + was/were + sujeto + verbo -ing? → "What were you doing?"
 5. Concordancia: you/we/they → were. I/he/she/it → was.`,
+  formation: {
+    title: 'Cómo se forma el Past Continuous — Negativo y Preguntas',
+    intro: 'Para negar ponemos not después de was/were (wasn\'t / weren\'t); para preguntar, invertimos el orden y ponemos was/were al principio.',
+    patterns: [
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + wasn\'t / weren\'t + verbo + -ing + complemento',
+        examples: [
+          { english: 'I wasn\'t sleeping.', spanish: 'No estaba durmiendo.' },
+          { english: 'They weren\'t listening.', spanish: 'Ellos no estaban escuchando.' },
+        ],
+        note: 'wasn\'t = was not. weren\'t = were not. Nunca "not was": I wasn\'t sleeping.',
+      },
+      {
+        name: 'Pregunta sí/no',
+        formula: 'Was / Were + sujeto + verbo + -ing + ...?',
+        examples: [
+          { english: 'Were you working at 6?', spanish: '¿Estabas trabajando a las 6?' },
+          { english: 'Was she sleeping?', spanish: '¿Estaba ella durmiendo?' },
+        ],
+        note: 'Con you/we/they → Were. Con I/he/she/it → Was. En la pregunta, was/were va antes del sujeto.',
+      },
+      {
+        name: 'Pregunta con WH-',
+        formula: 'What / Where + was/were + sujeto + verbo + -ing + ...?',
+        examples: [
+          { english: 'What were you doing at 10 last night?', spanish: '¿Qué estabas haciendo a las 10 anoche?' },
+          { english: 'Where were you going?', spanish: '¿A dónde ibas?' },
+        ],
+        note: 'Para preguntar por información añadimos la palabra interrogativa al principio: What/Where + was/were + sujeto + -ing.',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + was/were. / No, + sujeto + wasn\'t/weren\'t.',
+        examples: [
+          { english: 'Yes, I was. / No, I wasn\'t.', spanish: 'Sí, estaba. / No, no estaba.' },
+          { english: 'Yes, they were. / No, they weren\'t.', spanish: 'Sí, estaban. / No, no estaban.' },
+        ],
+      },
+    ],
+    notes: [
+      'En las respuestas cortas repetimos el auxiliar: Yes, I was (no "Yes, I was working").',
+      'La negativa nunca se forma con "not" suelto: I wasn\'t sleeping (no "I not was sleeping").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Was you watching TV?', correct: '✅ Were you watching TV?', explanation: 'Con "you" usamos "Were", no "Was".' },
     { wrong: '❌ I not was sleeping.', correct: '✅ I wasn\'t sleeping.', explanation: 'La negativa es "wasn\'t" (= was not) después del sujeto: I wasn\'t sleeping. No se dice "not was".' },

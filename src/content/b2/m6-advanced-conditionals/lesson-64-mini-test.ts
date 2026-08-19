@@ -136,6 +136,7 @@ Buen suerte en el test.
       listening: {
         audioText:
           "A teacher is speaking to her student Alex. She says: You can pass this course as long as you complete all your assignments. I wish you had started studying earlier, though. If only you had paid attention in class! Now, if you don\'t mind, I\'d like to discuss your options. I was wondering if you could dedicate two hours every evening to your studies. Provided that you do this, you\'ll have a good chance of improving. Also, unless you submit your project by Friday, I won\'t be able to grade it in time.",
+        audioUrl: '/audio/tts/b2-m6-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m6-l4-ex9-q1',

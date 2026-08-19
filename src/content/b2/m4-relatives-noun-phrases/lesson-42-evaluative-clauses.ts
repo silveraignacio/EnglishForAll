@@ -236,6 +236,7 @@ Reglas clave:
       listening: {
         audioText:
           "Our department recently hired a new director, which was exciting. She introduced several state-of-the-art technologies, which surprised us. The former director had been very traditional, which limited our growth. Now we have up-to-date equipment and modern methods, which has improved our productivity significantly. Her future plans include more training programs, which I think is excellent.",
+        audioUrl: '/audio/tts/b2-m4-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m4-l2-ex9-q1',

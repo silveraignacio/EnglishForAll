@@ -227,6 +227,7 @@ Este test incluye ejercicios variados de todos los temas. Pasá el 80% para demo
       listening: {
         audioText:
           "I remember starting my first job at a small company. I was nervous at first, but I soon got on well with my colleagues. However, I had to put up with a very demanding manager. After a year, I tried to change departments, and it worked! Now I look forward to going to work every day. I even came up with some innovative ideas that were well received. The best decision I made was to stop worrying so much and focus on what I could control.",
+        audioUrl: '/audio/tts/b2-m9-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m9-l4-ex9-q1',

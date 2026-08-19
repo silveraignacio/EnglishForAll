@@ -64,6 +64,45 @@ Recuerda: "was" va con I, he, she, it. "Were" va con you, we, they. Nunca digas 
 - Was + I/he/she/it...? → Was she happy?
 - Were + you/we/they...? → Were you at home?
 - Where/When + was/were...? → Where were you yesterday?`,
+  formation: {
+    title: 'Cómo se forma el pasado de "to be" — was / were',
+    intro: 'El pasado del verbo "to be" tiene solo dos formas: was (I, he, she, it) y were (you, we, they).',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + was / were + complemento',
+        examples: [
+          { english: 'I was at home.', spanish: 'Yo estaba en casa.' },
+          { english: 'She was happy.', spanish: 'Ella estaba feliz.' },
+          { english: 'We were at the party.', spanish: 'Estábamos en la fiesta.' },
+        ],
+        note: 'I/He/She/It → was · You/We/They → were. Nunca "I were" ni "you was".',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + wasn\'t / weren\'t + complemento',
+        examples: [
+          { english: 'I wasn\'t tired.', spanish: 'No estaba cansado.' },
+          { english: 'They weren\'t at school.', spanish: 'No estaban en la escuela.' },
+        ],
+        note: 'Contracciones: was + not = wasn\'t · were + not = weren\'t.',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Was / Were + sujeto + complemento + ...?',
+        examples: [
+          { english: 'Were you at home?', spanish: '¿Estabas en casa?' },
+          { english: 'Was she happy?', spanish: '¿Estaba ella feliz?' },
+          { english: 'Where were you yesterday?', spanish: '¿Dónde estabas ayer?' },
+        ],
+        note: 'En las preguntas, was/were va antes del sujeto. Con WH- (Where/When), la palabra interrogativa va al principio.',
+      },
+    ],
+    notes: [
+      'Recuerda: was → I, he, she, it · were → you, we, they.',
+      'La negativa se forma con "not" (o wasn\'t/weren\'t), nunca con "no" antes del verbo: I wasn\'t (no "I no was").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I were at home.', correct: '✅ I was at home.', explanation: 'Con "I" usamos "was", no "were". → I was at home.' },
     { wrong: '❌ You was there.', correct: '✅ You were there.', explanation: 'Con "you" usamos "were", no "was". → You were there.' },

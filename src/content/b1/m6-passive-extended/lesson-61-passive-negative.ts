@@ -56,6 +56,36 @@ Contracciones: isn't, aren't, wasn't, weren't.
 OJO:
 - Tras to be va SIEMPRE el participio pasado: is spoken, was delivered, are followed.
 - ❌ is speak, ❌ was deliver, ❌ are follow.`,
+  formation: {
+    title: 'Cómo se forma la pasiva negativa (presente y pasado)',
+    intro: 'La pasiva negativa se forma con el verbo to be (presente o pasado) + not + participio pasado. El sujeto recibe la acción; no importa quién la hace.',
+    patterns: [
+      {
+        name: 'Presente',
+        formula: 'Sujeto + is/are + not + past participle + complemento',
+        examples: [
+          { english: 'English is not spoken in that country.', spanish: 'El inglés no se habla en ese país.' },
+          { english: 'These rules are not followed.', spanish: 'Estas reglas no se siguen.' },
+          { english: 'This movie isn\'t shown on TV.', spanish: 'Esta película no se emite en la tele.' },
+        ],
+        note: 'is con singular, are con plural. Contracciones: isn\'t, aren\'t.',
+      },
+      {
+        name: 'Pasado',
+        formula: 'Sujeto + was/were + not + past participle + complemento',
+        examples: [
+          { english: 'The package wasn\'t delivered yesterday.', spanish: 'El paquete no fue entregado ayer.' },
+          { english: 'The windows were not cleaned last week.', spanish: 'Las ventanas no fueron limpiadas la semana pasada.' },
+        ],
+        note: 'was con singular, were con plural. Contracciones: wasn\'t, weren\'t.',
+      },
+    ],
+    notes: [
+      'Después de "to be" va SIEMPRE el participio pasado: is spoken, was delivered, are followed (no "is speak").',
+      'La pasiva negativa no usa "don\'t/doesn\'t": English is not spoken (no "English doesn\'t spoken").',
+      'Cuidado con "open" como adjetivo de estado: The museum wasn\'t open on Monday (no es pasiva).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The package was not deliver yesterday.', correct: '✅ The package was not delivered yesterday.', explanation: 'En la pasiva, después de "was" va el participio: delivered, no "deliver".' },
     { wrong: '❌ English is not spoke in that country.', correct: '✅ English is not spoken in that country.', explanation: 'El participio de "speak" es "spoken": is spoken, no "is spoke".' },
@@ -255,6 +285,7 @@ OJO:
       listening: {
         audioText:
           "At my university, several things are not allowed. Pets are not permitted in the dormitories. Alcoholic drinks aren\'t allowed in the student rooms. Mobile phones are not used during exams—we can\'t bring them to the exam hall. The library isn\'t open on Sundays, and books aren\'t lent for more than three weeks. Also, exams cannot be taken online; they must be done in person. These rules are not always popular, but they are enforced strictly.",
+        audioUrl: '/audio/tts/b1-m6-l1-ex13.mp3',
         questions: [
           {
             id: 'b1-m6-l1-ex13-q1',

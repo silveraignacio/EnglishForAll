@@ -114,6 +114,53 @@ TIEMPO VERBAL CLAVE:
 - Cláusula condicional: SIEMPRE presente simple (aunque hable del futuro).
 - Cláusula principal: futuro (will), imperativo (call me), u otro tiempo según el contexto.
 `,
+  formation: {
+    title: 'Cómo se forman las conjunciones condicionales',
+    intro: 'Estas conjunciones expresan condiciones específicas. Todas usan presente simple en la cláusula condicional (aunque se refieran al futuro), y pueden ir al inicio o al final de la oración.',
+    patterns: [
+      {
+        name: 'as long as / provided (that) — condición necesaria',
+        formula: '[Cláusula] as long as / provided (that) + [condición en presente simple]',
+        examples: [
+          { english: 'You can borrow my car as long as you return it by tomorrow.', spanish: 'Puedes usar mi auto siempre y cuando lo devuelvas mañana.' },
+          { english: 'The company will hire you provided (that) you pass the background check.', spanish: 'La empresa te contratará siempre que pases la verificación de antecedentes.' },
+        ],
+        note: '"Provided" es más formal y contractual que "as long as".',
+      },
+      {
+        name: 'unless — negación de la condición',
+        formula: '[Cláusula] unless + [condición en presente simple]',
+        examples: [
+          { english: 'You won\'t graduate unless you complete your thesis.', spanish: 'No te graduarás a menos que completes tu tesis.' },
+          { english: 'We can\'t proceed unless we have approval.', spanish: 'No podemos continuar a menos que tengamos aprobación.' },
+        ],
+        note: 'Equivale a "if not"; nunca se combina con don\'t/doesn\'t/won\'t.',
+      },
+      {
+        name: 'except (that) — excepción',
+        formula: '[Afirmación general], except (that) + [excepción]',
+        examples: [
+          { english: 'Everything was fine except (that) the train was late.', spanish: 'Todo estuvo bien excepto que el tren llegó tarde.' },
+          { english: 'The plan will work except that the budget is too small.', spanish: 'El plan funcionará excepto que el presupuesto es demasiado pequeño.' },
+        ],
+        note: 'Expresa una excepción, no una condición lógica pura.',
+      },
+      {
+        name: 'once — punto temporal exacto',
+        formula: 'Once + [condición en presente simple], + [consecuencia]',
+        examples: [
+          { english: 'Once you submit the application, you\'ll receive a confirmation email.', spanish: 'Una vez que envíes la solicitud, recibirás un correo de confirmación.' },
+          { english: 'Once you finish the book, let me know what you think.', spanish: 'Una vez que termines el libro, cuéntame qué te pareció.' },
+        ],
+        note: '"Once" marca un punto exacto (una sola vez), más definido que "when".',
+      },
+    ],
+    notes: [
+      'En la cláusula condicional siempre se usa presente simple, aunque hablemos del futuro: "Once you arrive, call me" (no "will arrive").',
+      'Estas conjunciones pueden ir al inicio o al final de la oración.',
+      '"Unless" ya incluye la negación: evita "unless you don\'t..."',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Unless you won\'t study, you\'ll fail.', correct: '✅ Unless you study, you\'ll fail.', explanation: '"Unless" ya es negativo. No dobles la negación con "won\'t" o "don\'t".' },
     { wrong: '❌ Once you will finish, tell me.', correct: '✅ Once you finish, tell me.', explanation: '"Once" introduce una cláusula de tiempo, así que usa presente simple, no futuro.' },
@@ -255,6 +302,7 @@ TIEMPO VERBAL CLAVE:
       listening: {
         audioText:
           "Maria is looking for a new apartment. The landlord says: You can rent this place as long as you pay the deposit upfront. Also, provided that you maintain it well, the rent will stay the same. However, unless you sign a two-year lease, I can\'t hold it for you. We have one rule: you can have guests, except that they can\'t stay more than two weeks. Once you move in, you\'ll need to set up your own utilities.",
+        audioUrl: '/audio/tts/b2-m6-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m6-l1-ex9-q1',

@@ -74,6 +74,53 @@ Reglas:
 3. Con perfect: "been" es constante; cambia el auxiliar have/has/had.
 4. Negación: "is not being done" / "has not been done" / "had not been sent".
 5. Preguntas: "Is it being repaired?" / "Has it been finished?" / "Had it been sent?"`,
+  formation: {
+    title: 'Cómo se forma la pasiva en tiempos compuestos',
+    intro: 'La pasiva compuesta combina el auxiliar be del tiempo continuo/perfecto con el participio pasado: continuous (is/was being) para procesos en curso y perfect (has/had been) para resultados ya terminados.',
+    patterns: [
+      {
+        name: 'Present continuous passive',
+        formula: 'am/is/are + being + participio pasado + complemento',
+        examples: [
+          { english: 'The house is being built at the moment.', spanish: 'La casa está siendo construida en este momento.' },
+          { english: 'Several reports are being prepared for the meeting.', spanish: 'Varios informes están siendo preparados para la reunión.' },
+        ],
+        note: 'Proceso en curso ahora mismo.',
+      },
+      {
+        name: 'Past continuous passive',
+        formula: 'was/were + being + participio pasado + complemento',
+        examples: [
+          { english: 'When I arrived, the car was being repaired.', spanish: 'Cuando llegué, el coche estaba siendo reparado.' },
+          { english: 'We were being watched.', spanish: 'Estábamos siendo observados.' },
+        ],
+        note: 'Proceso en curso en el pasado, frecuentemente interrumpido por otra acción.',
+      },
+      {
+        name: 'Present perfect passive',
+        formula: 'has/have + been + participio pasado + complemento',
+        examples: [
+          { english: 'The work has been finished, so we can leave.', spanish: 'El trabajo ha sido terminado, así que podemos irnos.' },
+          { english: 'The files have been sorted.', spanish: 'Los archivos han sido clasificados.' },
+        ],
+        note: 'Resultado actual con relevancia hasta el presente.',
+      },
+      {
+        name: 'Past perfect passive',
+        formula: 'had + been + participio pasado + complemento',
+        examples: [
+          { english: 'The letter had been sent before he got home.', spanish: 'La carta había sido enviada antes de que llegara a casa.' },
+          { english: 'By the time we arrived, everything had been arranged.', spanish: 'Cuando llegamos, todo había sido arreglado.' },
+        ],
+        note: 'Acción pasiva anterior a otra acción pasada.',
+      },
+    ],
+    notes: [
+      'El participio pasado SIEMPRE permanece igual; lo que cambia es el auxiliar be (is/are/was/were) o have (has/have/had).',
+      'Continuous = proceso en curso (is being built); Perfect = resultado (has been built).',
+      'Negación: is not being done / has not been done / had not been sent. Preguntas: se invierte el auxiliar (Is it being repaired?).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The house is being builded.', correct: '✅ The house is being built.', explanation: '"Being" + participio pasado (built), no "builded". Build → built.' },
     { wrong: '❌ They are being watch.', correct: '✅ They are being watched.', explanation: 'Participio pasado: watch → watched. No omitas la "d" ni uses "watch" sin flexión.' },
@@ -236,6 +283,7 @@ Reglas:
       listening: {
         audioText:
           'The annual conference is being organized this month. Several presentations are being prepared by different departments. Meanwhile, the venue has been selected, and the invitations have been sent. When I arrived at the office yesterday, the banners were being printed, and the program was being reviewed by the director. By the time we finished, everything had been arranged perfectly.',
+        audioUrl: '/audio/tts/b2-m2-l2-ex10.mp3',
         questions: [
           {
             id: 'b2-m2-l2-ex10-q1',

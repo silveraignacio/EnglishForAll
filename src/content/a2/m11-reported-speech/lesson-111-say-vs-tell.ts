@@ -38,6 +38,35 @@ Regla rápida:
 - tell + persona + that... → con persona: He told me that he was happy.
 
 "say" no admite objeto de persona directamente ("said me" es incorrecto). "tell" siempre necesita la persona a quien se le dice algo ("told that..." es incorrecto).`,
+  formation: {
+    title: 'Cómo se forman "say" y "tell"',
+    intro: 'En español todo es "decir", pero en inglés hay dos verbos: "say" para decir algo (sin persona) y "tell" para decirle algo a alguien (siempre con la persona).',
+    patterns: [
+      {
+        name: 'say + that (sin persona)',
+        formula: 'sujeto + say/said + that + frase',
+        examples: [
+          { english: 'She said that she was tired.', spanish: 'Ella dijo que estaba cansada.' },
+          { english: 'They said that the movie was good.', spanish: 'Dijeron que la película era buena.' },
+        ],
+        note: '"Say" no admite una persona como objeto: ❌ she said me → ✅ she said (that).',
+      },
+      {
+        name: 'tell + persona + that',
+        formula: 'sujeto + tell/told + persona + that + frase',
+        examples: [
+          { english: 'He told me that he was happy.', spanish: 'Él me dijo que estaba feliz.' },
+          { english: 'She told him a secret.', spanish: 'Ella le contó un secreto.' },
+        ],
+        note: '"Tell" SIEMPRE necesita la persona a quien se le dice: told me, told him, told us.',
+      },
+    ],
+    notes: [
+      'Regla rápida: say + that... (sin persona) | tell + persona + that... (con persona).',
+      '❌ He said me that... → ✅ He told me that...',
+      '❌ She told that... → ✅ She told me that... (o She said that...).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ He said me that he was tired.', correct: '✅ He told me that he was tired.', explanation: '"Say" no lleva objeto de persona. Para "decirme" usamos "tell me": He told me that...' },
     { wrong: '❌ She told that she was happy.', correct: '✅ She told me that she was happy.', explanation: '"Tell" siempre necesita la persona: told me, told him, told us... Sin persona, usamos "say": She said that...' },

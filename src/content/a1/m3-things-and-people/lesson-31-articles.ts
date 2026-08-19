@@ -57,6 +57,45 @@ Tampoco usamos a/an con sustantivos incontables como "water", "rice", "money": n
 - **an** + sonido VOCAL → an apple, an egg, an hour (h muda)
 
 Solo con sustantivos SINGULARES CONTABLES. No se combina con plurales (no "a books").`,
+  formation: {
+    title: 'Cómo se forman los artículos a / an',
+    intro: 'Solo hay dos artículos indeterminados en inglés: "a" y "an". Ambos significan "un/una" y la elección depende del SONIDO con el que empieza la siguiente palabra, no del género.',
+    patterns: [
+      {
+        name: 'Con sonido consonante',
+        formula: 'a + sustantivo singular contable',
+        examples: [
+          { english: 'I have a book.', spanish: 'Tengo un libro.' },
+          { english: 'He is a teacher.', spanish: 'Él es profesor.' },
+          { english: 'It is a university.', spanish: 'Es una universidad.' },
+        ],
+        note: 'La "u" de "university", "useful"... se pronuncia /ju/, sonido consonante, así que va con "a".',
+      },
+      {
+        name: 'Con sonido vocal',
+        formula: 'an + sustantivo singular contable',
+        examples: [
+          { english: 'It is an apple.', spanish: 'Es una manzana.' },
+          { english: 'She is an engineer.', spanish: 'Ella es ingeniera.' },
+          { english: 'Take an umbrella.', spanish: 'Coge un paraguas.' },
+        ],
+        note: 'La "h" de "hour", "honest"... es muda, se oye una vocal, así que va con "an".',
+      },
+      {
+        name: 'Cuándo NO se usa',
+        formula: 'sin a/an: plurales e incontables',
+        examples: [
+          { english: 'I have books.', spanish: 'Tengo libros.' },
+          { english: 'I drink water.', spanish: 'Bebo agua.' },
+        ],
+        note: 'No decimos "a books" ni "a water".',
+      },
+    ],
+    notes: [
+      'El artículo no cambia con el género: no existe masculino/femenino en inglés.',
+      'Lo que importa es el sonido de la primera letra, no cómo se escribe.',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ I am engineer.',

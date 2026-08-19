@@ -60,6 +60,45 @@ Para comparar usamos: sujeto + to be + comparativo + than + ...
 4. Fórmula: sujeto + to be + comparativo + than + ...
 5. Nunca uses "more" con adjetivos cortos: ❌ more bigger → ✅ bigger.
 6. Ortografía: easy → easier (la -y se convierte en -ier).`,
+  formation: {
+    title: 'Cómo se forman los comparativos',
+    intro: 'Para comparar dos cosas usamos -er con los adjetivos cortos y more con los largos. En los dos casos la frase termina con "than" (= que).',
+    patterns: [
+      {
+        name: 'Adjetivos cortos (-er)',
+        formula: 'sujeto + to be + adjetivo + -er + than + ...',
+        examples: [
+          { english: 'My house is bigger than yours.', spanish: 'Mi casa es más grande que la tuya.' },
+          { english: 'My car is faster than your bike.', spanish: 'Mi coche es más rápido que tu bicicleta.' },
+          { english: 'This exercise is easier than the last one.', spanish: 'Este ejercicio es más fácil que el anterior.' },
+        ],
+        note: 'Ortografía: big → bigger (duplica la -g), easy → easier (la -y cambia a -ier), large → larger (solo añade -r).',
+      },
+      {
+        name: 'Adjetivos largos (more)',
+        formula: 'sujeto + to be + more + adjetivo + than + ...',
+        examples: [
+          { english: 'This phone is more expensive than that one.', spanish: 'Este teléfono es más caro que ese.' },
+          { english: 'This book is more interesting than that one.', spanish: 'Este libro es más interesante que ese.' },
+        ],
+        note: 'Con adjetivos de dos o más sílabas usamos "more" delante, nunca -er.',
+      },
+      {
+        name: 'Irregulares',
+        formula: 'good → better / bad → worse / far → farther',
+        examples: [
+          { english: 'She is better at English than me.', spanish: 'Ella es mejor en inglés que yo.' },
+          { english: 'This film is worse than the other one.', spanish: 'Esta película es peor que la otra.' },
+        ],
+        note: 'Estos tres adjetivos no siguen ninguna regla: hay que memorizarlos.',
+      },
+    ],
+    notes: [
+      'Nunca combines "more" con -er: ❌ more bigger → ✅ bigger.',
+      '"Than" significa "que": bigger than = más grande que.',
+      'Con "much" o "a lot" intensificamos: much bigger = mucho más grande.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ My house is more bigger than yours.', correct: '✅ My house is bigger than yours.', explanation: 'Nunca doble comparativo: con adjetivos cortos usamos -er, no "more".' },
     { wrong: '❌ Her English is more better than mine.', correct: '✅ Her English is better than mine.', explanation: '"Better" ya es el comparativo de "good"; no le añadimos "more".' },

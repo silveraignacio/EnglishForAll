@@ -38,6 +38,35 @@ El resto de la pasiva no cambia: is/are (presente) o was/were (pasado) + partici
 - sujeto + (is/are | was/were) + participio + by + agente.
 - by = por (quién). for = para (destinatario).
 - El agente puede ser una persona o una cosa.`,
+  formation: {
+    title: 'Cómo se forma la pasiva con "by"',
+    intro: 'La voz pasiva pone el foco en la acción. Cuando también queremos decir quién la realiza, añadimos "by + agente" (= por).',
+    patterns: [
+      {
+        name: 'Pasiva en pasado (was/were + by)',
+        formula: 'sujeto + was/were + participio pasado + by + agente',
+        examples: [
+          { english: 'The cake was made by my grandmother.', spanish: 'El pastel fue hecho por mi abuela.' },
+          { english: 'The bridge was designed by an architect.', spanish: 'El puente fue diseñado por un arquitecto.' },
+        ],
+        note: 'was → he/she/it. were → you/we/they. El participio es la tercera columna de los verbos irregulares.',
+      },
+      {
+        name: 'Pasiva en presente (is/are + by)',
+        formula: 'sujeto + is/are + participio pasado + by + agente',
+        examples: [
+          { english: 'The book is read by students all over the world.', spanish: 'El libro es leído por estudiantes de todo el mundo.' },
+          { english: 'Dinner is cooked by my father every Sunday.', spanish: 'La cena la cocina mi padre todos los domingos.' },
+        ],
+        note: 'El agente puede ser una persona o una cosa: by the wind, by my father.',
+      },
+    ],
+    notes: [
+      'by = por (quién hace la acción). for = para (destinatario). No los confundas.',
+      'No uses "from" con el agente: ❌ written from a famous artist → ✅ written by a famous artist.',
+      'El resto de la pasiva no cambia: (is/are | was/were) + participio + by + agente.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The cake was made for my grandmother.', correct: '✅ The cake was made by my grandmother.', explanation: 'Para decir quién hace la acción usamos "by" (por), no "for" (para).' },
     { wrong: '❌ The song was written from a famous artist.', correct: '✅ The song was written by a famous artist.', explanation: 'Con el agente usamos "by", no "from".' },

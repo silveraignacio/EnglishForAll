@@ -109,6 +109,38 @@ export interface Example {
   note?: string
 }
 
+/** Un modo de la formación de un tiempo verbal (afirmativo, negativo, pregunta…). */
+export interface FormationPattern {
+  /** P. ej. 'Afirmativo' | 'Negativo' | 'Pregunta' | 'Respuesta corta'. */
+  name: string
+  /** Fórmula con la forma: 'Sujeto + verbo base (+ -s en he/she/it) + complemento'. */
+  formula: string
+  examples: FormationExample[]
+  /** Casuística particular de este modo (contracciones, excepciones…). */
+  note?: string
+}
+
+export interface FormationExample {
+  english: string
+  spanish: string
+}
+
+/**
+ * Sección "Cómo se forma" de un tiempo verbal o forma verbal: desglose de
+ * afirmativo / negativo / pregunta con fórmulas, ejemplos bilingües y los
+ * casos particulares (3ª persona -s, do/does, contracciones, irregulares…).
+ * Se renderiza destacada en la lección y alimenta el cheat sheet imprimible.
+ */
+export interface TenseFormation {
+  /** P. ej. 'Cómo se forma el Present Simple'. */
+  title: string
+  /** Párrafo corto opcional en español que anticipa la idea central. */
+  intro?: string
+  patterns: FormationPattern[]
+  /** Casuística general / casos particulares que atraviesan los modos. */
+  notes?: string[]
+}
+
 export interface CommonMistake {
   wrong: string
   correct: string
@@ -124,6 +156,8 @@ export interface Lesson {
   explanation_es: string
   examples: Example[]
   rule: string
+  /** Sección destacada "Cómo se forma" del tiempo/forma verbal de la lección. */
+  formation?: TenseFormation
   commonMistakes: CommonMistake[]
   vocabulary: VocabItem[]
   grammarPoints: GrammarPoint[]
@@ -163,6 +197,21 @@ export interface Level {
   modules: Module[]
 }
 
+export interface ExamSection {
+  name: string
+  weight: number
+  exercises: Exercise[]
+}
+
+export interface Exam {
+  id: string
+  levelId: string
+  title: string
+  description: string
+  sections: ExamSection[]
+}
+
 export interface CourseContent {
   levels: Level[]
+  exams?: Exam[]
 }

@@ -93,6 +93,53 @@ rather + a/an + adjective + noun
 2. "As if/as though" típicamente introduce hipótesis (pasado hipotetizado).
 3. "Enough" va DESPUÉS del adjetivo, no antes: "smart enough", no "enough smart".
 4. "Rather a" es formal; "rather [adj]" (sin artículo) es más informal.`,
+  formation: {
+    title: 'Cómo se forman las estructuras de comparación e intensidad',
+    intro: 'Cuatro patrones: "the same as" para identidad, "as if/as though" para apariencia o hipótesis, "adjetivo + enough + to" para suficiencia, y "rather a/an" para énfasis formal.',
+    patterns: [
+      {
+        name: 'The same (+ sustantivo) as — identidad',
+        formula: 'the same (+ sustantivo) + as + cláusula / sintagma',
+        examples: [
+          { english: 'This isn\'t the same as what I ordered.', spanish: 'Esto no es lo mismo que lo que pedí.' },
+          { english: 'They have the same interests as we do.', spanish: 'Tienen los mismos intereses que nosotros.' },
+        ],
+        note: 'Expresa identidad exacta, no similitud (eso sería "like").',
+      },
+      {
+        name: 'As if / as though — apariencia e hipótesis',
+        formula: 'Sujeto + verbo + as if/as though + sujeto + verbo (típicamente en pasado)',
+        examples: [
+          { english: 'She looked as if she had seen a ghost.', spanish: 'Parecía como si hubiera visto un fantasma.' },
+          { english: 'He talks as though he knows everything.', spanish: 'Habla como si lo supiera todo.' },
+        ],
+        note: '"As if" introduce una hipótesis; suele ir en pasado para marcar irrealidad.',
+      },
+      {
+        name: 'Enough + to-infinitivo — suficiencia',
+        formula: 'Adjetivo/adverbio + enough + to + infinitivo',
+        examples: [
+          { english: 'He\'s old enough to understand the situation.', spanish: 'Tiene suficiente edad para entender la situación.' },
+          { english: 'They arrived early enough to get good seats.', spanish: 'Llegaron lo suficientemente temprano para conseguir buenos asientos.' },
+        ],
+        note: '"Enough" va DESPUÉS del adjetivo/adverbio, no antes.',
+      },
+      {
+        name: 'Rather a/an + adjetivo + sustantivo — énfasis formal',
+        formula: 'rather + a/an + adjetivo + sustantivo',
+        examples: [
+          { english: 'It was rather an embarrassing moment.', spanish: 'Fue un momento bastante vergonzoso.' },
+          { english: 'It\'s rather a difficult situation.', spanish: 'Es una situación más bien difícil.' },
+        ],
+        note: 'Forma más formal, común en inglés británico; "a rather difficult" también es válido.',
+      },
+    ],
+    notes: [
+      '"The same as" es identidad; "like" es similitud.',
+      'Con "as if/as though", se usa típicamente el pasado, incluso si la oración principal es presente.',
+      '"Enough" va antes de sustantivos (enough time) pero después de adjetivos (old enough).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ He\'s enough old to drive.', correct: '✅ He\'s old enough to drive.', explanation: '"Enough" va DESPUÉS del adjetivo: old enough, not "enough old".' },
     { wrong: '❌ She looked as if she sees a ghost.', correct: '✅ She looked as if she had seen a ghost.', explanation: 'Después de "as if", típicamente usas pasado (had seen) para hipótesis, aunque hables del presente.' },
@@ -237,6 +284,7 @@ rather + a/an + adjective + noun
       listening: {
         audioText:
           'A: Our hometown looks different now. B: I know! The old shopping center is not the same as it used to be — it\'s been completely rebuilt. A: And it looks as if they\'re planning more changes. B: Yes, but I\'m not sure it\'s good enough to attract young people. The city council says they have enough money for the project. A: Do you think it\'s rather a positive change? B: It\'s rather a mixed situation, honestly. Some improvements are welcome, but losing the old shops makes me sad.',
+        audioUrl: '/audio/tts/b2-m8-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m8-l3-ex9-q1',

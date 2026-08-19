@@ -45,6 +45,52 @@ Las respuestas cortas son:
 - Respuestas cortas: Yes, I can. / No, I can't.
 
 **Recuerda:** la negativa es "can't", no "don't can".`,
+  formation: {
+    title: 'Cómo se forma "can / can\'t" — Habilidad',
+    intro: '"Can" expresa habilidad (saber o poder hacer algo). Es un verbo modal: no cambia con las personas y va seguido del verbo en infinitivo sin "to".',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + can + verbo en infinitivo (sin "to")',
+        examples: [
+          { english: 'I can swim.', spanish: 'Yo sé nadar.' },
+          { english: 'She can drive.', spanish: 'Ella sabe conducir.' },
+          { english: 'They can dance.', spanish: 'Ellos saben bailar.' },
+        ],
+        note: '"Can" es igual para todas las personas: nunca añade -s (she can, no "she cans").',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + can\'t (cannot) + verbo en infinitivo (sin "to")',
+        examples: [
+          { english: 'He can\'t speak Italian.', spanish: 'Él no sabe hablar italiano.' },
+          { english: 'I can\'t swim.', spanish: 'No sé nadar.' },
+        ],
+        note: 'La negativa es "can\'t" (= cannot). Nunca decimos "don\'t can".',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Can + sujeto + verbo en infinitivo (sin "to") + ...?',
+        examples: [
+          { english: 'Can you cook?', spanish: '¿Sabes cocinar?' },
+          { english: 'Can she drive?', spanish: '¿Ella sabe conducir?' },
+        ],
+        note: 'En la pregunta, "can" va antes del sujeto. No necesitamos "do/does".',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + can. / No, + sujeto + can\'t.',
+        examples: [
+          { english: 'Yes, I can.', spanish: 'Sí, sé.' },
+          { english: 'No, I can\'t.', spanish: 'No, no sé.' },
+        ],
+      },
+    ],
+    notes: [
+      'Después de "can/can\'t" el verbo va sin "to": I can swim (no "I can to swim").',
+      'No confundir con "to be": en las respuestas cortas usamos "can", no "am/do": Yes, I can (no "Yes, I do").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She cans swim.', correct: '✅ She can swim.', explanation: '"can" nunca añade -s, ni siquiera con he/she/it. El verbo que le sigue tampoco cambia: she can swim.' },
     { wrong: "❌ He don't can swim.", correct: '✅ He can\'t swim.', explanation: 'La negativa de "can" es "can\'t" (cannot). No usamos "don\'t" delante de "can".' },

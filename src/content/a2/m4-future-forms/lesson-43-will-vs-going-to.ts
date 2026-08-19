@@ -45,6 +45,35 @@ GOING TO → plan previo / intención / predicción con evidencia.
 - It's going to rain. (veo las nubes)
 
 Pregúntate: ¿la decisión existía antes de hablar? Si SÍ → going to. Si NO (la tomo ahora) → will.`,
+  formation: {
+    title: 'Cómo se forman "will" y "going to"',
+    intro: 'Los dos sirven para el futuro, pero cada uno se usa en una situación distinta: will para decisiones del momento y opiniones, going to para planes previos y predicciones con evidencia.',
+    patterns: [
+      {
+        name: 'will (decisión espontánea / opinión)',
+        formula: 'sujeto + will + verbo (forma base)',
+        examples: [
+          { english: 'I\'ll answer the phone!', spanish: '¡Lo contesto!' },
+          { english: 'I think it will rain.', spanish: 'Creo que lloverá.' },
+        ],
+        note: 'will + verbo en forma base, sin cambios. Contracción: I will → I\'ll.',
+      },
+      {
+        name: 'going to (plan previo / evidencia)',
+        formula: 'sujeto + to be + going to + verbo (forma base)',
+        examples: [
+          { english: 'I\'m going to study law.', spanish: 'Voy a estudiar Derecho.' },
+          { english: 'Look, it\'s going to rain.', spanish: 'Mira, va a llover.' },
+        ],
+        note: 'Necesita el verbo "to be" conjugado: I am going to, she is going to, they are going to.',
+      },
+    ],
+    notes: [
+      'Pregúntate: ¿la decisión existía antes de hablar? Si SÍ → going to. Si NO (la tomo ahora) → will.',
+      'Si "ves" la causa (nubes, tráfico...) → going to. Si es opinión, esperanza o suposición → will.',
+      'Nunca mezcles las dos formas: ❌ I will going to buy → ✅ I\'m going to buy.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ "I think I\'m going to help you" (acabas de decidirlo)', correct: '✅ "I think I\'ll help you"', explanation: 'Si la oferta se hace en el momento, usamos "will", no "going to".' },
     { wrong: '❌ "Tomorrow I will visit my mother" (plan ya fijado)', correct: '✅ "Tomorrow I\'m going to visit my mother"', explanation: 'Para un plan ya decidido usamos "going to".' },

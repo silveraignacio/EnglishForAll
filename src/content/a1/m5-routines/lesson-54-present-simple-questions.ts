@@ -89,6 +89,47 @@ NOTA: "What do you do?" / "What does he do?" son formas estándar para preguntar
 - Yes, he/she/it + does. / No, ... + doesn't.
 
 ⚠️ Después de **Does**, el verbo NO lleva -s. La -s ya está en "does".`,
+  formation: {
+    title: 'Cómo se forma el Present Simple — Preguntas',
+    intro: 'Para preguntar con verbos normales (que no son "to be") ponemos el auxiliar do o does al principio de la frase. Después del auxiliar, el verbo va en forma base, sin -s.',
+    patterns: [
+      {
+        name: 'Pregunta sí/no',
+        formula: 'Do / Does + sujeto + verbo en forma base + ...?',
+        examples: [
+          { english: 'Do you play football?', spanish: '¿Juegas al fútbol?' },
+          { english: 'Does he play guitar?', spanish: '¿Él toca la guitarra?' },
+          { english: 'Does she work in a bank?', spanish: '¿Ella trabaja en un banco?' },
+          { english: 'Do they live in Spain?', spanish: '¿Viven en España?' },
+        ],
+        note: 'Do + I/you/we/they · Does + he/she/it. El verbo va sin -s: Does he play (no "plays").',
+      },
+      {
+        name: 'Pregunta con WH- (información)',
+        formula: 'Palabra interrogativa (What/Where/How...) + Do/Does + sujeto + verbo en forma base + ...?',
+        examples: [
+          { english: 'Where do you work?', spanish: '¿Dónde trabajas?' },
+          { english: 'Where does she live?', spanish: '¿Dónde vive ella?' },
+          { english: 'How do you go to work?', spanish: '¿Cómo vas al trabajo?' },
+          { english: 'What does he do?', spanish: '¿A qué se dedica él? (profesión)' },
+        ],
+        note: '"What do you do?" y "What does he do?" son las formas estándar para preguntar por la profesión.',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + do/does. / No, + sujeto + don\'t/doesn\'t.',
+        examples: [
+          { english: 'Yes, I do. / No, I don\'t.', spanish: 'Sí. / No.' },
+          { english: 'Yes, she does. / No, she doesn\'t.', spanish: 'Sí. / No.' },
+        ],
+      },
+    ],
+    notes: [
+      'Después de Does, el verbo NUNCA lleva -s: Does he have a car? (no "has").',
+      'Las preguntas sí/no empiezan con el auxiliar; las de información, con la palabra interrogativa + auxiliar.',
+      'En las respuestas cortas NO repetimos el verbo: Yes, I do (no "Yes, I work").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Do she work?', correct: '✅ Does she work?', explanation: 'Con "she" usamos "does", no "do".' },
     { wrong: '❌ Does she works?', correct: '✅ Does she work?', explanation: 'Después de "does", el verbo NO lleva -s.' },

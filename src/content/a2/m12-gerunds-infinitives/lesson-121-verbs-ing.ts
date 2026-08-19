@@ -34,6 +34,36 @@ Regla: verbo + verbo(-ing):
 - Después de like, love, enjoy, hate, finish y mind usamos otro verbo en forma -ing.
 - Estructura: like/enjoy/hate/finish/mind + verbo(-ing).
 - Con he/she/it, el primer verbo lleva -s: She likes swimming. (¡el gerundio no lleva -s!)`,
+  formation: {
+    title: 'Cómo se forma el gerundio (-ing) tras ciertos verbos',
+    intro: 'Después de verbos como like, love, enjoy, hate, finish y mind usamos otro verbo en forma -ing. El gerundio equivale al infinitivo español: reading = leer.',
+    patterns: [
+      {
+        name: 'Verbo + -ing',
+        formula: 'sujeto + like/love/enjoy/hate/finish/mind + verbo(-ing)',
+        examples: [
+          { english: 'I enjoy reading.', spanish: 'Disfruto leyendo / Me gusta leer.' },
+          { english: 'She likes swimming.', spanish: 'A ella le gusta nadar.' },
+          { english: 'He finished working at 6.', spanish: 'Él terminó de trabajar a las 6.' },
+        ],
+        note: 'El gerundio se forma añadiendo -ing al verbo: read → reading, swim → swimming.',
+      },
+      {
+        name: 'Pregunta con mind',
+        formula: 'Do/Does + sujeto + mind + verbo(-ing)?',
+        examples: [
+          { english: 'Do you mind waiting?', spanish: '¿Te importa esperar?' },
+          { english: 'Does she mind working on Sunday?', spanish: '¿Le importa trabajar en domingo?' },
+        ],
+        note: '"Mind" aparece casi siempre en preguntas y negativas, y lleva el segundo verbo en -ing.',
+      },
+    ],
+    notes: [
+      'Nunca uses "to" + verbo después de estos verbos: ❌ I enjoy to read → ✅ I enjoy reading.',
+      'Con he/she/it, el PRIMER verbo lleva -s; el gerundio no: She likes swimming.',
+      'finish + -ing = "terminar de": finished working = terminó de trabajar.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I enjoy to read.', correct: '✅ I enjoy reading.', explanation: 'Después de "enjoy" usamos el gerundio (-ing), nunca el infinitivo con "to".' },
     { wrong: '❌ She like swim.', correct: '✅ She likes swimming.', explanation: 'Con "she" añadimos -s a "like" (likes) y el segundo verbo va en -ing (swimming).' },

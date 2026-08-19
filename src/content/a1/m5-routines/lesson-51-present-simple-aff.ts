@@ -91,6 +91,30 @@ NOTA: El Present Simple NO se usa para algo que está pasando ahora mismo (eso e
 4. Irregular: **have → has**
 
 **Usos:** hábitos, rutinas y hechos generales.`,
+  formation: {
+    title: 'Cómo se forma el Present Simple — Afirmativo',
+    intro: 'La única conjugación que cambia en inglés es la 3ª persona del singular (he, she, it), que añade -s. El resto usa el verbo tal cual, igual que el infinitivo.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + verbo base (+ -s en he/she/it) + complemento',
+        examples: [
+          { english: 'I play football.', spanish: 'Yo juego al fútbol.' },
+          { english: 'You work in a shop.', spanish: 'Tú trabajas en una tienda.' },
+          { english: 'He plays guitar.', spanish: 'Él toca la guitarra.' },
+          { english: 'She works in a bank.', spanish: 'Ella trabaja en un banco.' },
+          { english: 'We drink coffee every morning.', spanish: 'Bebemos café todas las mañanas.' },
+          { english: 'They live in London.', spanish: 'Ellos viven en Londres.' },
+        ],
+        note: 'Con he/she/it se añade -s. Reglas de escritura: -o, -s, -ss, -ch, -sh, -x, -z → -es (go→goes, watch→watches); consonante + y → -ies (study→studies).',
+      },
+    ],
+    notes: [
+      'Irregular: have → has (He has a car).',
+      'I/You/We/They NUNCA llevan -s: I play (no "I plays").',
+      'Con he/she/it, verbos con -s/-es/-ies suenan igual de importantes que la -s: no la olvides.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She work in Madrid.', correct: '✅ She works in Madrid.', explanation: 'Con "she" (3ª persona) añadimos -s al verbo: work → works.' },
     { wrong: '❌ He watch TV.', correct: '✅ He watches TV.', explanation: 'Verbo terminado en -ch: añadimos -es, no solo -s → watch → watches.' },

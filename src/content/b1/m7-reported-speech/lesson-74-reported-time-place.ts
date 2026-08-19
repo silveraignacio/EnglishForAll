@@ -46,6 +46,43 @@ say vs tell:
 - say + (that)... (sin persona): He said (that) he was tired.
 - tell + persona + (that)...: He told me (that) he was tired.
 - "said me" no existe: usamos "told me".`,
+  formation: {
+    title: 'Cómo cambian el tiempo y el lugar en el estilo indirecto',
+    intro: 'Al pasar una frase de estilo directo a indirecto, además del cambio de tiempo verbal (backshift), las palabras de tiempo y lugar se "alejan" del momento actual: here→there, now→then, today→that day, tomorrow→the next day, yesterday→the day before.',
+    patterns: [
+      {
+        name: 'Cambios de lugar',
+        formula: 'here → there | this → that',
+        examples: [
+          { english: 'Direct: "I\'m here now." → Reported: He said he was there then.', spanish: 'Directo: "Estoy aquí ahora." → Indirecto: Él dijo que estaba allí entonces.' },
+        ],
+        note: 'Al contar algo desde otro lugar, "here" se convierte en "there".',
+      },
+      {
+        name: 'Cambios de tiempo',
+        formula: 'now → then | today → that day | tomorrow → the next day | yesterday → the day before',
+        examples: [
+          { english: 'Direct: "I will see you tomorrow." → Reported: She said she would see me the next day.', spanish: 'Directo: "Te veré mañana." → Indirecto: Ella dijo que me vería al día siguiente.' },
+          { english: 'Direct: "I bought this yesterday." → Reported: She said she had bought it the day before.', spanish: 'Directo: "Compré esto ayer." → Indirecto: Ella dijo que lo había comprado el día anterior.' },
+        ],
+        note: 'Las expresiones de tiempo se desplazan hacia el pasado relativo al momento en que se habla.',
+      },
+      {
+        name: 'say vs tell',
+        formula: 'say + (that) + oración | tell + persona + (that) + oración',
+        examples: [
+          { english: 'He said that he was tired.', spanish: 'Él dijo que estaba cansado.' },
+          { english: 'He told me that he was tired.', spanish: 'Él me dijo que estaba cansado.' },
+        ],
+        note: '"Say" no lleva persona como objeto: "He said me" no existe; se dice "He told me".',
+      },
+    ],
+    notes: [
+      '"Tomorrow" cambia a "the next day" o "the following day".',
+      '"Yesterday" cambia a "the day before".',
+      'Si el momento aún es válido al reportar, a veces se puede conservar la expresión original, pero en B1 practicamos siempre el cambio.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She said she would see me tomorrow.', correct: '✅ She said she would see me the next day.', explanation: 'Al contar lo dicho después, "tomorrow" cambia a "the next day".' },
     { wrong: '❌ He said me that the shop was closed.', correct: '✅ He told me that the shop was closed.', explanation: '"Say" no lleva persona como objeto; con persona usamos "told me".' },
@@ -197,6 +234,7 @@ say vs tell:
       listening: {
         audioText:
           "I had an amazing trip last week. I was in Thailand and I felt wonderful. On Monday, I arrived in Bangkok and I was very excited. The hotel was there and I was comfortable. I said I would explore the city the next day. On Tuesday, I visited the temples. I said the architecture was beautiful. On Wednesday, I was thinking about going to the beach, but I changed my mind. Today I'm back here at home and I'm already missing Thailand.",
+        audioUrl: '/audio/tts/b1-m7-l4-ex11.mp3',
         questions: [
           {
             id: 'b1-m7-l4-ex11-q1',

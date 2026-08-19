@@ -45,6 +45,31 @@ Dos tipos de verbos:
 4. Verbos irregulares: tercera forma propia (been, seen, gone, eaten, done).
 5. Se usa para experiencias de vida sin tiempo concreto.
 6. Con tiempo concreto (last year, yesterday) usamos el PAST SIMPLE, no el Present Perfect.`,
+  formation: {
+    title: 'Cómo se forma el Present Perfect — Afirmativo',
+    intro: 'El Present Perfect se forma con have/has + participio pasado. Conecta el pasado con el presente: hablamos de experiencias sin decir cuándo ocurrieron.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + have / has + participio pasado + complemento',
+        examples: [
+          { english: 'I have been to London.', spanish: 'He estado en Londres.' },
+          { english: 'She has seen that film.', spanish: 'Ella ha visto esa película.' },
+          { english: 'We have visited Paris.', spanish: 'Hemos visitado París.' },
+          { english: 'He has eaten sushi.', spanish: 'Él ha comido sushi.' },
+          { english: 'They have lived here for 5 years.', spanish: 'Ellos han vivido aquí durante 5 años.' },
+          { english: 'You have done a great job.', spanish: 'Has hecho un gran trabajo.' },
+        ],
+        note: 'have → I/you/we/they. has → he/she/it. Después va SIEMPRE el participio pasado, nunca el infinitivo: I have gone (no "I have go").',
+      },
+    ],
+    notes: [
+      'Participios regulares: verbo + -ed (visit → visited, live → lived, work → worked).',
+      'Participios irregulares: forma propia que hay que memorizar (be → been, go → gone, see → seen, eat → eaten, do → done, have → had, meet → met).',
+      'Contracciones frecuentes: I\'ve, she\'s, we\'ve (I\'ve been, she\'s seen).',
+      'No se usa con tiempos concretos (last year, yesterday): con ellos usamos el pasado simple (I went to Paris last year).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I have go to London.', correct: '✅ I have gone to London.', explanation: 'Después de have/has el verbo va en participio pasado, no en infinitivo: gone, no go.' },
     { wrong: '❌ She have been to Mexico.', correct: '✅ She has been to Mexico.', explanation: 'Con she/he/it usamos "has", no "have".' },

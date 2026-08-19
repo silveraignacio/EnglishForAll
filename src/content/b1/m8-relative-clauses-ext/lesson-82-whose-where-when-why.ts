@@ -38,6 +38,49 @@ export const lesson82WhoseWhereWhenWhy: Lesson = {
 - why = razón (suele ir con "the reason"): the reason why he left.
 
 Con "where" no se añade preposición al final: ❌ "where I was born in" → ✅ "where I was born".`,
+  formation: {
+    title: 'Cómo se construyen las oraciones con whose, where, when y why',
+    intro: 'Estas cuatro palabras introducen oraciones de relativo: whose (posesión), where (lugar), when (tiempo) y why (razón).',
+    patterns: [
+      {
+        name: 'whose + objeto poseído (posesión)',
+        formula: 'Sustantivo + whose + objeto poseído + verbo + complemento',
+        examples: [
+          { english: 'The man whose car was stolen is angry.', spanish: 'El hombre cuyo coche fue robado está enfadado.' },
+          { english: 'She\'s the woman whose daughter teaches music.', spanish: 'Ella es la mujer cuya hija enseña música.' },
+        ],
+        note: '"Whose" va seguido directamente del objeto poseído, sin pronombre.',
+      },
+      {
+        name: 'where (lugar)',
+        formula: 'Sustantivo de lugar + where + oración',
+        examples: [
+          { english: 'That\'s the town where I grew up.', spanish: 'Esa es la ciudad donde crecí.' },
+        ],
+        note: 'Con "where" no añadimos preposición al final: where I was born, no "where I was born in".',
+      },
+      {
+        name: 'when (tiempo)',
+        formula: 'Sustantivo de tiempo + when + oración',
+        examples: [
+          { english: 'I remember the day when we met.', spanish: 'Recuerdo el día cuando nos conocimos.' },
+        ],
+      },
+      {
+        name: 'why (razón)',
+        formula: 'The reason + why + oración',
+        examples: [
+          { english: 'The reason why he left is unknown.', spanish: 'La razón por la que se fue es desconocida.' },
+        ],
+        note: 'Suele ir con "the reason": the reason why...',
+      },
+    ],
+    notes: [
+      '"Whose" traduce "cuyo/cuya/cuyos/cuyas" y concuerda con lo poseído, no con el poseedor.',
+      'No confundas "who" con "whose": who + verbo (persona) / whose + objeto poseído (posesión).',
+      '"Why" es la única de las cuatro que casi siempre aparece con "the reason".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The man who his car was stolen is angry.', correct: '✅ The man whose car was stolen is angry.', explanation: 'Para posesión usamos "whose" (cuyo), no "who his".' },
     { wrong: '❌ That\'s the town where I grew up in.', correct: '✅ That\'s the town where I grew up.', explanation: 'Con "where" no añadimos la preposición al final; "where" ya significa "en el que".' },
@@ -189,6 +232,7 @@ Con "where" no se añade preposición al final: ❌ "where I was born in" → �
       listening: {
         audioText:
           "My grandfather, whose house has a beautiful garden, is a fascinating man. He travelled the world when he was young, visiting many countries and learning new languages. My grandmother, whose passion is cooking, taught him how to prepare different dishes from around the world. The reason why they stayed in the countryside is because they love nature. Every summer, I visit the house where my parents grew up.",
+        audioUrl: '/audio/tts/b1-m8-l2-ex11.mp3',
         questions: [
           {
             id: 'b1-m8-l2-ex11-q1',

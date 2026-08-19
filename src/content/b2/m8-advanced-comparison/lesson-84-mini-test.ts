@@ -160,6 +160,7 @@ export const lesson84MiniTest: Lesson = {
       listening: {
         audioText:
           'A: How do you like your new city? B: It\'s much better than I expected! By far the best decision I\'ve made. The more time I spend here, the more I love it. A: What about the costs? B: The housing is considerably more expensive, unfortunately. But the neighborhoods are the same as I saw in photos — beautiful and safe. A: Would you recommend it? B: Absolutely! It looks as if the city is designed for young professionals. And you\'re young enough to start fresh. Rather a fantastic opportunity, I\'d say.',
+        audioUrl: '/audio/tts/b2-m8-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m8-l4-ex9-q1',

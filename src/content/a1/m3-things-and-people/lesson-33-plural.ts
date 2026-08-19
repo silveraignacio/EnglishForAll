@@ -60,6 +60,50 @@ Recuerda: con los plurales, usamos "are" (no "is") y "these/those" en plural, pe
 - **vocal + y → +s**: boy → boys, day → days
 - **-f / -fe → -ves**: knife → knives, leaf → leaves
 - **Irregulares**: man → men, woman → women, child → children, person → people, foot → feet, tooth → teeth, mouse → mice`,
+  formation: {
+    title: 'Cómo se forma el plural',
+    intro: 'La mayoría de los sustantivos forman el plural añadiendo -s, pero hay reglas especiales para terminaciones sibilantes, consonante + y, -f/-fe y algunos plurales irregulares.',
+    patterns: [
+      {
+        name: 'Regular: +s',
+        formula: 'sustantivo + s',
+        examples: [
+          { english: 'I have a book. She has three books.', spanish: 'Yo tengo un libro. Ella tiene tres libros.' },
+          { english: 'My friends are nice.', spanish: 'Mis amigos son simpáticos.' },
+        ],
+      },
+      {
+        name: 'Sibilantes: +es',
+        formula: 'sustantivo que termina en -s, -ss, -sh, -ch, -x, -z + es',
+        examples: [
+          { english: 'There are two boxes.', spanish: 'Hay dos cajas.' },
+          { english: 'Many buses stop here.', spanish: 'Muchos autobuses paran aquí.' },
+        ],
+      },
+      {
+        name: 'consonante + y → -ies',
+        formula: 'quitar la y y añadir -ies',
+        examples: [
+          { english: 'The cities are big.', spanish: 'Las ciudades son grandes.' },
+          { english: 'Many families live here.', spanish: 'Muchas familias viven aquí.' },
+        ],
+        note: 'Con vocal + y la "y" no cambia: boy → boys, day → days.',
+      },
+      {
+        name: 'Irregulares',
+        formula: 'se memorizan: man → men, woman → women, child → children, person → people, foot → feet, tooth → teeth, mouse → mice',
+        examples: [
+          { english: 'I have two children.', spanish: 'Tengo dos hijos.' },
+          { english: 'My teeth are white.', spanish: 'Mis dientes son blancos.' },
+        ],
+        note: '"people" ya es plural: no decimos "peoples" para varias personas.',
+      },
+    ],
+    notes: [
+      '-f / -fe → -ves: knife → knives, leaf → leaves (pero roofs, cliffs).',
+      'Con los plurales usamos "are", no "is": The cities are big.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I have three book.', correct: '✅ I have three books.', explanation: 'En plural necesitamos "-s"; la cantidad (three) no sustituye al plural. → I have three books.' },
     { wrong: '❌ boxs', correct: '✅ boxes', explanation: 'Después de "x" añadimos "-es", no solo "-s". → boxes.' },

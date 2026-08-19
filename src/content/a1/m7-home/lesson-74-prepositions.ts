@@ -54,6 +54,35 @@ Decimos **on the left** = a la izquierda (no "in the left"). Lo mismo: on the ri
 - The cat is under the table.
 
 **Recuerda:** on the left / on the right (NO "in the left").`,
+  formation: {
+    title: 'Cómo se forman las frases con preposiciones de lugar',
+    intro: 'Las preposiciones de lugar nos dicen dónde está algo. La estructura es: Sujeto + to be + preposición + lugar.',
+    patterns: [
+      {
+        name: 'Estructura básica',
+        formula: 'Sujeto + to be (is/are) + preposición + lugar',
+        examples: [
+          { english: 'The cat is under the table.', spanish: 'El gato está debajo de la mesa.' },
+          { english: 'The book is on the chair.', spanish: 'El libro está sobre la silla.' },
+          { english: 'The lamp is next to the bed.', spanish: 'La lámpara está al lado de la cama.' },
+        ],
+      },
+      {
+        name: 'Preposiciones y sus significados',
+        formula: 'in (dentro) | on (sobre, con contacto) | under (debajo) | next to (al lado) | behind (detrás) | in front of (delante) | between (entre) | above/below (sin contacto)',
+        examples: [
+          { english: 'The cat is in the box.', spanish: 'El gato está dentro de la caja.' },
+          { english: 'The garden is behind the house.', spanish: 'El jardín está detrás de la casa.' },
+          { english: 'The table is between the chairs.', spanish: 'La mesa está entre las sillas.' },
+        ],
+      },
+    ],
+    notes: [
+      '"on" = con contacto; "above" = sin contacto (en el aire): The book is on the table. / The bird is above the house.',
+      'Se dice "on the left" / "on the right", nunca "in the left".',
+      '"between" se usa con dos cosas: between the table and the lamp.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The book is above the table.', correct: '✅ The book is on the table.', explanation: '"On" = sobre, con contacto (el libro toca la mesa). "Above" es encima en el aire, sin contacto.' },
     { wrong: '❌ The picture is under the wall.', correct: '✅ The picture is on the wall.', explanation: 'Un cuadro colgado toca la pared, así que usamos "on" (the picture is on the wall).' },

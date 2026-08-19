@@ -180,6 +180,7 @@ Ahora vas a practicar estos conceptos en ejercicios variados. Después, en el mi
       listening: {
         audioText:
           "Walking through the market last Saturday, I observed many interesting things. The vendor selling fresh fruit was very friendly. Feeling hungry, I bought some mangoes. Then, I noticed a woman wearing a beautiful handmade dress standing near the textile stall. Watching her examine the fabrics, I realized she was an artist. Having spent an hour browsing, I decided to leave. Rather than go home directly, I stopped at a café. There, I heard someone playing the guitar nearby. The musician playing in the corner was remarkably talented.",
+        audioUrl: '/audio/tts/b2-m5-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m5-l4-ex9-q1',

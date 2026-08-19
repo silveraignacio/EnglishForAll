@@ -61,6 +61,51 @@ Reglas:
 3. Tiempos: el auxiliar de "have"/"get" cambia (have/has/had, get/gets/got), pero el participio/infinitivo no.
 4. Negación: "I didn't have it done" / "He couldn't get her to agree."
 5. Preguntas: "Did you have it fixed?" / "Can you get him to come?"`,
+  formation: {
+    title: 'Cómo se forma la causativa — have / get',
+    intro: 'Para decir que mandás, encargás o lográs que algo se haga, usamos dos estructuras: have + objeto + participio (encargué el servicio) y get + objeto + to-infinitivo (convencí/logré que alguien lo haga).',
+    patterns: [
+      {
+        name: 'Afirmativo — have + objeto + participio (encargar)',
+        formula: 'Sujeto + have/has/had + objeto + participio pasado + complemento',
+        examples: [
+          { english: 'I had my hair cut at the salon.', spanish: 'Me cortaron el pelo en la peluquería.' },
+          { english: 'We had the house painted last summer.', spanish: 'Mandamos pintar la casa el verano pasado.' },
+        ],
+        note: 'La acción la hace otra persona; vos solo encargás el servicio. El participio no cambia según el sujeto.',
+      },
+      {
+        name: 'Afirmativo — get + objeto + to-infinitivo (lograr)',
+        formula: 'Sujeto + get/gets/got + objeto (persona) + to-infinitivo + complemento',
+        examples: [
+          { english: 'I got him to admit the truth.', spanish: 'Logré que admitiera la verdad.' },
+          { english: 'I got my sister to lend me money.', spanish: 'Logré que mi hermana me prestara dinero.' },
+        ],
+        note: 'Implica esfuerzo, persuasión o negociación. El objeto es una persona específica.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + didn\'t + have + objeto + participio · Sujeto + couldn\'t + get + objeto + to-infinitivo',
+        examples: [
+          { english: 'I didn\'t have the car serviced last year.', spanish: 'No mandé a revisar el coche el año pasado.' },
+          { english: 'He couldn\'t get her to agree with him.', spanish: 'No logró que ella estuviera de acuerdo con él.' },
+        ],
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Did + sujeto + have + objeto + participio...? · Can/Could + sujeto + get + objeto + to-infinitivo...?',
+        examples: [
+          { english: 'Did you have it fixed?', spanish: '¿Mandaste que lo arreglaran?' },
+          { english: 'Can you get him to come?', spanish: '¿Podés lograr que venga?' },
+        ],
+      },
+    ],
+    notes: [
+      'Con "have something done", el objeto es una cosa (car, house, letter...); con "get someone to do X", el objeto es una persona.',
+      'El tiempo verbal lo marca el auxiliar (have/has/had, get/gets/got); el participio o el infinitivo no cambian.',
+      'No confundir "had cut" (past perfect: ella cortó) con "had her hair cut" (causativa: le cortaron el pelo).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I had my hair to cut.', correct: '✅ I had my hair cut.', explanation: 'Con "have something done" el verbo va en participio pasado (cut), no en to-infinitivo.' },
     { wrong: '❌ I got him fix the car.', correct: '✅ I got him to fix the car.', explanation: 'Con "get someone to do X" debe ir "to" antes del verbo. "Get him to fix", no "get him fix".' },
@@ -198,6 +243,7 @@ Reglas:
       listening: {
         audioText:
           "Lisa is renovating her house. Last month, she had the kitchen repainted. The walls were an ugly brown, so she had them changed to white. She also had new cabinets installed. After that, she had the floor polished. Next week, she will have the bathroom tiled. She got a contractor to design the whole project, and he has been very helpful.",
+        audioUrl: '/audio/tts/b2-m2-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m2-l1-ex9-q1',

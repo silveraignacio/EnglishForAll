@@ -45,6 +45,36 @@ Señales:
 - now / right now / at the moment / today → Present Continuous
 
 No mezcles: ❌ She is works. → ✅ She works. o ✅ She is working.`,
+  formation: {
+    title: 'Cómo se forman el Present Simple y el Present Continuous',
+    intro: 'El Present Simple describe hábitos, rutinas y hechos; el Present Continuous describe acciones que ocurren ahora. Cada uno tiene su propia estructura y sus señales de tiempo.',
+    patterns: [
+      {
+        name: 'Present Simple',
+        formula: 'Sujeto + verbo base (+ -s en he/she/it)',
+        examples: [
+          { english: 'I work every day.', spanish: 'Trabajo todos los días.' },
+          { english: 'She works in a bank.', spanish: 'Ella trabaja en un banco.' },
+          { english: 'They play tennis on Sundays.', spanish: 'Juegan tenis los domingos.' },
+        ],
+        note: 'Hábitos, rutinas y hechos. Señales: every day, always, usually, never, on Sundays.',
+      },
+      {
+        name: 'Present Continuous',
+        formula: 'Sujeto + am/is/are + verbo -ing',
+        examples: [
+          { english: 'I am working now.', spanish: 'Estoy trabajando ahora.' },
+          { english: 'She is working from home today.', spanish: 'Ella está trabajando desde casa hoy.' },
+          { english: 'They are playing tennis now.', spanish: 'Están jugando tenis ahora.' },
+        ],
+        note: 'Acciones que pasan ahora. Señales: now, right now, at the moment, today.',
+      },
+    ],
+    notes: [
+      'No mezcles las estructuras: "She is works" es incorrecto.',
+      'Rutina/hecho → Simple; ahora → Continuous.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I am work every day.', correct: '✅ I work every day.', explanation: 'Con "every day" (rutina) usamos Present Simple: I work. No "am work".' },
     { wrong: '❌ I work now.', correct: '✅ I am working now.', explanation: 'Con "now" (ahora) usamos Present Continuous: I am working.' },

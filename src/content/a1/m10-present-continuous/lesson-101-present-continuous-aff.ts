@@ -62,6 +62,28 @@ Ortografía del -ing:
 - Normal: work → working
 - -e muda: make → making (quitamos la -e)
 - CVC (consonante-vocal-consonante): run → running (doblamos la última consonante)`,
+  formation: {
+    title: 'Cómo se forma el Present Continuous — Afirmativo',
+    intro: 'El Present Continuous habla de lo que está pasando ahora. Se forma con el verbo "to be" (am/is/are) + el verbo principal en -ing.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + am/is/are + verbo -ing + complemento',
+        examples: [
+          { english: 'I am working.', spanish: 'Estoy trabajando.' },
+          { english: 'She is reading.', spanish: 'Ella está leyendo.' },
+          { english: 'They are watching TV.', spanish: 'Ellos están viendo la tele.' },
+          { english: 'He is cooking dinner.', spanish: 'Él está cocinando la cena.' },
+          { english: 'We are running in the park.', spanish: 'Estamos corriendo en el parque.' },
+        ],
+        note: 'I → am · He/She/It → is · You/We/They → are. Contracciones: I\'m, He\'s, She\'s, We\'re, They\'re.',
+      },
+    ],
+    notes: [
+      'Ortografía del -ing: normal (work → working); -e muda se quita (make → making); CVC de una sílaba duplica la consonante (run → running, swim → swimming).',
+      'Nunca olvides el "to be": "I working" es incorrecto → "I am working".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I working.', correct: '✅ I am working.', explanation: 'El Present Continuous necesita "to be" + verbo -ing. Faltaría el "am".' },
     { wrong: '❌ She is runing.', correct: '✅ She is running.', explanation: 'En "run" (CVC) doblamos la consonante: run → running.' },

@@ -133,6 +133,54 @@ REFLEXIVOS AVANZADOS:
   → The theories complement one another.
 
 REGLA CRÍTICA: Si usas "one", mantén consistencia — no cambies a "he/she/they" en la misma secuencia. Es rígido.`,
+  formation: {
+    title: 'Cómo se forman los pronombres genéricos y los reflexivos avanzados',
+    intro: 'Los pronombres genéricos ("one", "we", "they" singular) permiten hablar de algo general sin referirse a una persona específica. Los reflexivos avanzados (by itself, in itself, one another) añaden formalidad y precisión.',
+    patterns: [
+      {
+        name: 'One genérico — sujeto formal',
+        formula: 'One + verbo (+ reflexivo oneself)',
+        examples: [
+          { english: 'One must consider the ethical implications of this decision.', spanish: 'Uno debe considerar las implicaciones éticas de esta decisión.' },
+          { english: 'One should study hard if one wants to succeed.', spanish: 'Uno debe estudiar mucho si quiere tener éxito.' },
+        ],
+        note: 'Muy formal; si usas "one", mantené "one" en toda la secuencia.',
+      },
+      {
+        name: 'We inclusivo — habla por un grupo o la humanidad',
+        formula: 'We + verbo',
+        examples: [
+          { english: 'We are responsible for protecting future generations.', spanish: 'Somos responsables de proteger a las futuras generaciones.' },
+          { english: 'We must protect the environment.', spanish: 'Debemos proteger el medio ambiente.' },
+        ],
+        note: 'Más natural que "one"; implica un deber colectivo.',
+      },
+      {
+        name: 'They neutro de género — singular',
+        formula: '[Antecedente singular] + they / them / their',
+        examples: [
+          { english: 'If a student arrives late, they should notify their teacher.', spanish: 'Si un estudiante llega tarde, debe notificar a su profesor.' },
+          { english: 'If someone forgets their keys, they can contact us.', spanish: 'Si alguien olvida sus llaves, puede contactarnos.' },
+        ],
+        note: 'Estándar moderno e inclusivo para género desconocido.',
+      },
+      {
+        name: 'Reflexivos avanzados — by itself / in itself / one another',
+        formula: 'By itself (autonomía) / In itself (cualidad intrínseca) / One another (reciprocidad formal)',
+        examples: [
+          { english: 'The machine operates by itself without any human interference.', spanish: 'La máquina opera por sí sola sin interferencia humana.' },
+          { english: 'The fact that he succeeded is, in itself, remarkable.', spanish: 'El hecho de que haya tenido éxito es, en sí mismo, notable.' },
+          { english: 'The two theories contradict one another in fundamental ways.', spanish: 'Las dos teorías se contradicen mutuamente de formas fundamentales.' },
+        ],
+        note: '"One another" es más formal que "each other".',
+      },
+    ],
+    notes: [
+      '"One" es muy formal y puede sonar anticuado; "we" y "you" son más naturales en inglés moderno.',
+      '"They" singular es hoy estándar en guías de estilo modernas, incluso en académico.',
+      '"In itself" y "by itself" añaden formalidad y precisión a la escritura académica.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ One should study hard if you want to succeed.', correct: '✅ One should study hard if one wants to succeed.', explanation: 'Si empezás con "one", debés mantener "one" — no cambies a "you".' },
     { wrong: '❌ The doctor will see you; she will discuss your options.', correct: '✅ The doctor will see you; they will discuss your options.', explanation: 'Si no sabés el género de la persona, usá "they" en lugar de asumir "she".' },
@@ -294,6 +342,7 @@ REGLA CRÍTICA: Si usas "one", mantén consistencia — no cambies a "he/she/the
       listening: {
         audioText:
           'Today I want to discuss our collective responsibility. We, as a society, must address climate change. One cannot simply ignore the problem; one must take action. A scientist, regardless of their background, plays a role in this. If a researcher observes data that contradicts established theory, they should report their findings. The two disciplines complement one another in this effort. By itself, no single approach will solve everything. In itself, each perspective has value. We are interconnected. The challenges we face are global, and we must respond collectively.',
+        audioUrl: '/audio/tts/b2-m11-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m11-l4-ex9-q1',

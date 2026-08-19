@@ -95,6 +95,62 @@ Reglas clave:
 - Se puede usar con defining y non-defining relatives (con comas si es no-defining).
 - Los participios y adjetivos funcionan como postmodificadores del sustantivo.
 - "Those" + reduced relative es una forma elegante y común en textos formales.`,
+  formation: {
+    title: 'Cómo se forman las relativas reducidas',
+    intro: 'Reducir una relativa consiste en eliminar el pronombre relativo y el verbo "be", dejando solo un participio, un adjetivo o un sintagma preposicional. Esto hace el texto más conciso y formal.',
+    patterns: [
+      {
+        name: 'Relativa pasiva con participio pasado',
+        formula: 'Sustantivo + participio pasado + (complemento)',
+        examples: [
+          { english: 'The book written by the author became a bestseller.', spanish: 'El libro escrito por el autor se convirtió en un bestseller.' },
+          { english: 'The report submitted last week contained important data.', spanish: 'El informe presentado la semana pasada contenía datos importantes.' },
+        ],
+        note: 'Reduce "which was written" → "written".',
+      },
+      {
+        name: 'Relativa activa con participio presente',
+        formula: 'Sustantivo + participio presente (-ing) + (complemento)',
+        examples: [
+          { english: 'The students studying hard will pass the exam.', spanish: 'Los estudiantes que estudian mucho aprobarán el examen.' },
+          { english: 'Anyone wanting to participate should register online.', spanish: 'Cualquiera que quiera participar debe registrarse en línea.' },
+        ],
+        note: 'Reduce "who are studying" → "studying".',
+      },
+      {
+        name: 'Relativa con adjetivo',
+        formula: 'Sustantivo + adjetivo + (preposición + complemento)',
+        examples: [
+          { english: 'The students interested in science should attend the lecture.', spanish: 'Los estudiantes interesados en ciencia deben asistir a la conferencia.' },
+          { english: 'Anyone eligible for the scholarship must apply before May.', spanish: 'Cualquiera elegible para la beca debe postularse antes de mayo.' },
+        ],
+        note: 'Reduce "who are interested" → "interested".',
+      },
+      {
+        name: 'Sintagma preposicional como postmodificador',
+        formula: 'Sustantivo + sintagma preposicional',
+        examples: [
+          { english: 'The book on the shelf is mine.', spanish: 'El libro sobre el estante es mío.' },
+          { english: 'The person with the most experience should lead the team.', spanish: 'La persona con más experiencia debería liderar el equipo.' },
+        ],
+        note: 'Funciona cuando la relativa expresa ubicación o característica.',
+      },
+      {
+        name: 'Those + relativa reducida',
+        formula: 'Those + participio/adjetivo + (sintagma preposicional)',
+        examples: [
+          { english: 'Those interested in the project should apply.', spanish: 'Aquellos interesados en el proyecto deben postularse.' },
+          { english: 'Those concerned about the changes should speak up.', spanish: 'Quienes estén preocupados por los cambios deberían hablar.' },
+        ],
+        note: 'Forma elegante y común en textos formales para referirse a un grupo.',
+      },
+    ],
+    notes: [
+      'La reducción solo es posible cuando la relativa original contiene "who/which + be" (am, is, are, was, were).',
+      'Con no definidoras, la relativa reducida conserva las comas.',
+      'El participio pasado suele tener sentido pasivo; el participio presente, sentido activo.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The students studying hard are the success of the class.', correct: '✅ The students studying hard are the success of the class.', explanation: 'En realidad esta frase es CORRECTA. El participio "studying" reduce la relativa "who are studying".' },
     { wrong: '❌ The person interested in the job has called three times.', correct: '✅ The person interested in the job has called three times.', explanation: 'Esta frase también es CORRECTA. El adjetivo "interested" reduce "who is interested".' },
@@ -251,6 +307,7 @@ Reglas clave:
       listening: {
         audioText:
           "The project completed last month was very successful. The team working on it included specialists from different fields. Those selected for the leadership role performed exceptionally. The innovative solutions developed by the team have impressed everyone. Anyone interested in joining future projects should contact the office. The data collected from our research shows excellent results, which proves the effectiveness of our methods. Candidates eligible for promotion will be announced next week.",
+        audioUrl: '/audio/tts/b2-m4-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m4-l3-ex9-q1',

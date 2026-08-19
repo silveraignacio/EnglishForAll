@@ -57,6 +57,44 @@ Orden de los eventos:
 
 After + past perfect, past simple:
 - After we had eaten, we went for a walk.`,
+  formation: {
+    title: 'Cómo se forman los tiempos narrativos',
+    intro: 'Para narrar combinamos tres tiempos del pasado: past simple (acción principal), past continuous (fondo en progreso) y past perfect (acción anterior), unidos por conectores como when, before, after y by the time.',
+    patterns: [
+      {
+        name: 'Past simple (acción principal)',
+        formula: 'Sujeto + verbo en pasado + complemento',
+        examples: [
+          { english: 'We went for a walk.', spanish: 'Fuimos a caminar.' },
+          { english: 'She arrived.', spanish: 'Ella llegó.' },
+        ],
+        note: 'Cuenta los eventos principales de la historia, en orden.',
+      },
+      {
+        name: 'Past continuous (fondo en progreso)',
+        formula: 'Sujeto + was/were + verbo + -ing + complemento',
+        examples: [
+          { english: 'I was walking home.', spanish: 'Iba caminando a casa.' },
+          { english: 'They were having dinner.', spanish: 'Estaban cenando.' },
+        ],
+        note: 'Describe la acción de fondo que estaba en curso cuando ocurrió otra cosa.',
+      },
+      {
+        name: 'Past perfect (acción anterior)',
+        formula: 'Sujeto + had + participio + complemento',
+        examples: [
+          { english: 'After we had eaten, we went for a walk.', spanish: 'Después de que comimos, fuimos a caminar.' },
+          { english: 'By the time she arrived, the party had finished.', spanish: 'Para cuando ella llegó, la fiesta ya había terminado.' },
+        ],
+        note: 'Marca la acción MÁS ANTIGUA, la que ocurrió antes de otra acción pasada.',
+      },
+    ],
+    notes: [
+      'Regla de oro: la acción más antigua va con "had + participio"; la posterior va en past simple.',
+      'La combinación típica: I was walking (fondo) when I remembered (interrupción) that I had left my keys (anterior).',
+      'Con "when" la interrupción suele ir en past simple y la acción previa en past perfect.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ After we ate, we had gone for a walk.', correct: '✅ After we had eaten, we went for a walk.', explanation: 'Comer es lo anterior (had eaten) y salir a pasear lo posterior (went). El past perfect marca la acción más antigua.' },
     { wrong: '❌ When I arrived, the film started already.', correct: '✅ When I arrived, the film had already started.', explanation: 'La película empezó antes de mi llegada → past perfect (had started). Con "already" suele ir past perfect.' },
@@ -238,6 +276,7 @@ After + past perfect, past simple:
       listening: {
         audioText:
           "Last week I was walking through the park when I saw Tom sitting on a bench looking very upset. I asked him what was wrong. He told me that he had argued with his girlfriend that morning before she left for work. He said she hadn\'t listened to his explanation, and she had left without saying goodbye. When I arrived at the bench, he had been sitting there for two hours thinking about what had happened. He hadn\'t called her yet because he was too nervous. I told him to go home and talk to her face to face.",
+        audioUrl: '/audio/tts/b1-m2-l3-ex10.mp3',
         questions: [
           {
             id: 'b1-m2-l3-ex10-q1',

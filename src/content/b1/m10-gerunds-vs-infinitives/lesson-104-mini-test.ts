@@ -230,6 +230,7 @@ Errores típicos:
       listening: {
         audioText:
           "Hi, I'm David. I love painting, and I started taking art classes last year. I also prefer working with oils. My friends want me to exhibit my work, but I\'m not ready yet. Hi, I\'m Emma. I hate cleaning the house, so I tried hiring a cleaner. It helped! I also stopped smoking two years ago. My doctor advised me to exercise, so I began jogging every morning. Hi, I\'m James. I remember starting my business five years ago. Now my company needs employees to work harder. I tell them to take breaks. I also encourage my team to try new ideas. I love what I do.",
+        audioUrl: '/audio/tts/b1-m10-l4-ex11.mp3',
         questions: [
           {
             id: 'b1-m10-l4-ex11-q1',

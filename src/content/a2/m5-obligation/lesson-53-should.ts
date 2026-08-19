@@ -42,6 +42,42 @@ Pregunta: Should + sujeto + verbo?
 - Should I call her? = ¿Debería llamarla?
 
 should = recomendación (deberías) | must = obligación fuerte (tienes que)`,
+  formation: {
+    title: 'Cómo se forma should / shouldn\'t',
+    intro: 'should expresa consejo o recomendación (deberías). No cambia con la persona y va seguido del verbo en forma base, sin "to".',
+    patterns: [
+      {
+        name: 'Afirmativo (consejo)',
+        formula: 'Sujeto + should + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: 'You should eat more vegetables.', spanish: 'Deberías comer más verduras.' },
+          { english: 'You should see a doctor.', spanish: 'Deberías ir al médico.' },
+          { english: 'We should go to bed early tonight.', spanish: 'Deberíamos acostarnos temprano esta noche.' },
+        ],
+        note: 'should no añade -s con he/she/it (She should rest, no "she shoulds") y nunca lleva "to": should rest (no "should to rest").',
+      },
+      {
+        name: 'Negativo (consejo negativo)',
+        formula: 'Sujeto + shouldn\'t + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: "He shouldn't drink so much coffee.", spanish: 'Él no debería tomar tanto café.' },
+          { english: "You shouldn't worry about it.", spanish: 'No deberías preocuparte por eso.' },
+        ],
+        note: `shouldn't = should not. Nunca "no should": I shouldn't go (no "I no should go").`,
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Should + sujeto + verbo en forma base + ...?',
+        examples: [
+          { english: 'Should I call her?', spanish: '¿Debería llamarla?' },
+        ],
+      },
+    ],
+    notes: [
+      'should = recomendación suave (deberías) · must = obligación fuerte (tienes que).',
+      'Las preguntas con should se usan para pedir consejo: Should I...?',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ You should to rest.', correct: '✅ You should rest.', explanation: 'Después de "should" el verbo va sin "to": should rest.' },
     { wrong: '❌ He shoulds drink less coffee.', correct: '✅ He should drink less coffee.', explanation: '"Should" no añade -s en tercera persona.' },

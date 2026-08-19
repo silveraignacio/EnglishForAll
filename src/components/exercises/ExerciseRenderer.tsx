@@ -717,9 +717,50 @@ function SubQuestion({
 }) {
   const [selected, setSelected] = useState<string | null>(null)
   const [showResult, setShowResult] = useState(false)
+  const [text, setText] = useState('')
+  const isText = exercise.type === 'fill_blank'
+  const checkText = () => {
+    if (!text.trim() || locked || showResult) return
+    const normalized = text.trim().replace(/\s+/g, ' ')
+    const accepted = [exercise.correctAnswer, ...(exercise.acceptedAnswers || [])]
+      .map((a) => a.trim().replace(/\s+/g, ' ').toLowerCase())
+    const correct = accepted.includes(normalized.toLowerCase())
+    setSelected(normalized)
+    setShowResult(true)
+    onAnswered(correct)
+  }
   // true_false sub-questions carry no `options` — synthesize the two fixed choices.
   const options = exercise.type === 'true_false' ? ['true', 'false'] : exercise.options || []
   const optionLabel = (opt: string) => (exercise.type === 'true_false' ? (opt === 'true' ? 'Verdadero' : 'Falso') : opt)
+  if (isText) {
+    return (
+      <div className="p-3 rounded-xl bg-surface-muted border border-ink/5">
+        <p className="text-ink mb-2">{exercise.prompt}</p>
+        {exercise.promptTranslation && (
+          <p className="text-sm text-ink-light mb-2 italic">{exercise.promptTranslation}</p>
+        )}
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); checkText() } }}
+          disabled={locked || showResult}
+          placeholder="Escribí tu respuesta..."
+          className="input mb-2"
+        />
+        <div className="flex items-center gap-2">
+          <Button size="sm" variant="secondary" onClick={checkText} disabled={!text.trim() || locked || showResult}>
+            Comprobar
+          </Button>
+          {showResult && (
+            <p className={cn('text-sm', (selected || '') === exercise.correctAnswer ? 'text-success-600' : 'text-error-600')}>
+              {selected === exercise.correctAnswer ? 'Correcto.' : `Incorrecto. La respuesta correcta es: ${exercise.correctAnswer}`}
+            </p>
+          )}
+        </div>
+      </div>
+    )
+  }
   return (
     <div className="p-3 rounded-xl bg-surface-muted border border-ink/5">
       <p className="text-ink mb-2">{exercise.prompt}</p>
@@ -837,6 +878,9 @@ interface WritingFeedback {
   organisation: string
   language: string
   feedback_es: string
+  correctedText?: string
+  corrections?: Array<{ original: string; corrected: string; explanation_es: string }>
+  recommendations?: string[]
 }
 
 function Writing({
@@ -940,6 +984,42 @@ function Writing({
             <li><strong>Lenguaje:</strong> {result.language}</li>
           </ul>
           <p className="text-sm text-ink">{result.feedback_es}</p>
+          {result.recommendations && result.recommendations.length > 0 && (
+            <div className="mt-3 p-3 rounded-lg bg-brand-50 border border-brand-200">
+              <p className="text-xs font-bold text-brand-700 uppercase tracking-wide mb-2">📌 Recomendaciones de tu profesor</p>
+              <ul className="text-sm text-ink-soft space-y-1.5">
+                {result.recommendations.map((r, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-brand-600 shrink-0">•</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {result.correctedText && (
+            <div className="mt-3 p-3 rounded-lg bg-white border border-brand-100">
+              <p className="text-xs font-bold text-brand-700 uppercase tracking-wide mb-1">Tu texto corregido</p>
+              <p className="text-sm text-ink-soft">{result.correctedText}</p>
+            </div>
+          )}
+          {result.corrections && result.corrections.length > 0 && (
+            <div className="mt-3">
+              <p className="text-xs font-bold text-brand-700 uppercase tracking-wide mb-2">Errores corregidos ({result.corrections.length})</p>
+              <ul className="space-y-2">
+                {result.corrections.map((c, i) => (
+                  <li key={i} className="text-sm rounded-lg bg-white border border-brand-100 p-3">
+                    <p className="text-error-600">
+                      <s>{c.original}</s>
+                      <span className="mx-2 text-ink-faint">→</span>
+                      <span className="text-success-600 font-semibold">{c.corrected}</span>
+                    </p>
+                    {c.explanation_es && <p className="text-xs text-ink-faint mt-1">{c.explanation_es}</p>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
     </form>

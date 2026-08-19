@@ -51,6 +51,45 @@ Estos modificadores van delante del comparativo: much bigger, a lot more expensi
 3. SIEMPRE "as...as", NUNCA "as...than".
 4. Modificadores: much / a lot (mucho) y a little / a bit (un poco) delante del comparativo.
 5. Los modificadores también sirven con "more": a lot more expensive, much more interesting.`,
+  formation: {
+    title: 'Cómo se forma la igualdad (as...as) y los modificadores',
+    intro: 'Para decir que dos cosas son iguales usamos as + adjetivo + as (= tan... como). Para decir cuánto más, añadimos much, a lot o a little delante del comparativo.',
+    patterns: [
+      {
+        name: 'Igualdad (as + adjetivo + as)',
+        formula: 'sujeto + to be + as + adjetivo + as + ...',
+        examples: [
+          { english: 'My brother is as tall as me.', spanish: 'Mi hermano es tan alto como yo.' },
+          { english: 'She is as old as my sister.', spanish: 'Ella tiene la misma edad que mi hermana.' },
+        ],
+        note: 'Entre as...as va el adjetivo en su forma normal, sin -er ni more.',
+      },
+      {
+        name: 'Negativo (not as + adjetivo + as)',
+        formula: 'sujeto + to be + not + as + adjetivo + as + ...',
+        examples: [
+          { english: 'This phone is not as expensive as that one.', spanish: 'Este teléfono no es tan caro como ese.' },
+          { english: 'My house is not as big as yours.', spanish: 'Mi casa no es tan grande como la tuya.' },
+        ],
+        note: 'La negación solo añade "not" delante: is not as tall as.',
+      },
+      {
+        name: 'Modificadores del comparativo',
+        formula: 'much / a lot + comparativo | a little / a bit + comparativo',
+        examples: [
+          { english: 'Our house is much bigger.', spanish: 'Nuestra casa es mucho más grande.' },
+          { english: 'Madrid is a lot more expensive than my city.', spanish: 'Madrid es mucho más cara que mi ciudad.' },
+          { english: 'This bag is a little cheaper.', spanish: 'Este bolso es un poco más barato.' },
+        ],
+        note: 'Los modificadores van siempre delante del comparativo y también sirven con "more".',
+      },
+    ],
+    notes: [
+      'SIEMPRE "as...as", NUNCA "as...than". "Than" es solo para los comparativos con -er/more.',
+      '"Much" y "a lot" = mucho. "A little" y "a bit" = un poco.',
+      'No uses "more" para intensificar: ❌ more taller → ✅ much taller.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ My brother is as tall than me.', correct: '✅ My brother is as tall as me.', explanation: 'Con as...as usamos "as" al final, no "than". "Than" es solo para comparativos con -er/more.' },
     { wrong: '❌ He is more taller than me.', correct: '✅ He is much taller than me.', explanation: 'Nunca doble comparativo. Para intensificar usamos "much": much taller, no "more taller".' },

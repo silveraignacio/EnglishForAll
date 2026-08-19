@@ -46,6 +46,36 @@ Los adjetivos en inglés NO cambian con el género ni con el número:
 He is tall. / She is tall. / They are tall.
 
 Adjetivos útiles: tall (alto), short (bajo), old (mayor), young (joven), happy (feliz), sad (triste), nice (simpático), friendly (amable), beautiful (hermosa), handsome (guapo), married (casado), single (soltero), kind (amable/considerado), funny (divertido), smart (inteligente).`,
+  formation: {
+    title: 'Cómo se forman las descripciones con "to be"',
+    intro: 'Para describir a una persona combinamos el verbo "to be" con un adjetivo: Sujeto + to be + adjetivo. La clave es que el adjetivo en inglés NO cambia con el género ni con el número.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + to be (am/is/are) + adjetivo',
+        examples: [
+          { english: 'My brother is tall.', spanish: 'Mi hermano es alto.' },
+          { english: 'She is friendly.', spanish: 'Ella es amable.' },
+          { english: 'We are married.', spanish: 'Estamos casados.' },
+        ],
+      },
+      {
+        name: 'Adjetivo invariable',
+        formula: 'el adjetivo NO cambia con género ni número',
+        examples: [
+          { english: 'He is tall.', spanish: 'Él es alto.' },
+          { english: 'She is tall.', spanish: 'Ella es alta.' },
+          { english: 'They are tall.', spanish: 'Ellos son altos.' },
+        ],
+        note: 'En español "alto/alta/altos/altas"; en inglés siempre "tall".',
+      },
+    ],
+    notes: [
+      'Después de "to be" usamos el adjetivo, no el adverbio: She is happy (no "happily").',
+      'Usa la forma completa del adjetivo: My sister is beautiful (no "beauty").',
+      'Adjetivos útiles: tall, short, old, young, happy, sad, nice, friendly, married, single, funny, smart.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She is alto.', correct: '✅ She is tall.', explanation: 'Los adjetivos en inglés no cambian de género. "Alto" y "alta" son ambos "tall".' },
     { wrong: '❌ They are talla.', correct: '✅ They are tall.', explanation: 'El adjetivo tampoco cambia con el número: siempre "tall".' },

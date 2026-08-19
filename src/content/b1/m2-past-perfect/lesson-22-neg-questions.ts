@@ -54,6 +54,42 @@ Respuestas cortas:
 - Yes, I had. / No, I hadn\'t.
 
 Recuerda: no uses "did" con past perfect. Preguntas: Had you...? (no "Did you had...?").`,
+  formation: {
+    title: 'Cómo se forma el Past Perfect — Negativo y preguntas',
+    intro: 'Para negar y preguntar en past perfect, "had" hace todo el trabajo: hadn\'t + participio en negativo y Had delante del sujeto en las preguntas.',
+    patterns: [
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + hadn\'t (had not) + past participle + complemento',
+        examples: [
+          { english: 'I hadn\'t eaten anything that morning.', spanish: 'No había comido nada esa mañana.' },
+          { english: 'He hadn\'t finished when I called.', spanish: 'Él no había terminado cuando llamé.' },
+          { english: 'We hadn\'t met before the party.', spanish: 'No nos habíamos conocido antes de la fiesta.' },
+        ],
+        note: 'El participio NO cambia en negativo: hadn\'t eaten, hadn\'t finished.',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Had + sujeto + past participle + ...?',
+        examples: [
+          { english: 'Had you seen that film before?', spanish: '¿Habías visto esa película antes?' },
+          { english: 'Had she done the shopping?', spanish: '¿Había hecho ella la compra?' },
+        ],
+        note: 'En las preguntas, "had" va delante del sujeto.',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + had. / No, + sujeto + hadn\'t.',
+        examples: [
+          { english: 'Yes, I had. / No, I hadn\'t.', spanish: 'Sí. / No.' },
+        ],
+      },
+    ],
+    notes: [
+      'Nunca combines "did" con "had": las preguntas son "Had you...?" (no "Did you had...?").',
+      'Después de "had" o "hadn\'t" siempre va el participio pasado, nunca el pasado simple: Had you seen? (no "saw").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Did you had seen that film before?', correct: '✅ Had you seen that film before?', explanation: 'El past perfect en pregunta usa "Had" delante del sujeto. Nunca combines "did" con "had".' },
     { wrong: '❌ I didn\'t had eaten anything.', correct: '✅ I hadn\'t eaten anything.', explanation: 'El negativo del past perfect es "hadn\'t + participle", no "didn\'t + had".' },
@@ -199,6 +235,7 @@ Recuerda: no uses "did" con past perfect. Preguntas: Had you...? (no "Did you ha
       listening: {
         audioText:
           "Interviewer: 'Had you worked in sales before this position?' Candidate: 'No, I hadn\'t worked in sales, but I had worked in customer service for three years. I hadn\'t managed a large team before, but I had supervised some junior staff. The company had asked me to learn new software, and I hadn\'t used that system before, but I had quickly adapted to it. I hadn\'t traveled abroad for business, but I was ready for that challenge.'",
+        audioUrl: '/audio/tts/b1-m2-l2-ex10.mp3',
         questions: [
           {
             id: 'b1-m2-l2-ex10-q1',

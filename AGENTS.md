@@ -97,3 +97,25 @@ english-course/
 5. **Adding a lesson:** Create a TS file in `src/content/a1/` matching the lesson content type. Update the module's index.
 6. **Adding a module:** Create directory in `src/content/a1/`. Add to `src/content/a1/index.ts`.
 7. **Adding A2:** Create `src/content/a2/` following the same structure. Update `src/content/index.ts`.
+
+### Deployment to Production
+
+**When the user says "deploy" / "desplegar", deploy to the production server — NOT GitHub Pages.**
+
+- **Production server:** `94.143.142.136`, user `isilvera` (has `sudo`). Site: `englishforall.silversolutions.dpdns.org`.
+- **Frontend (static build):** `/var/www/englishforall/` served by nginx.
+- **PocketBase:** systemd service `englishforall-pocketbase.service`, runs on `127.0.0.1:8092`, working dir `/opt/englishforall/pocketbase` (hooks in `pb_hooks/`, API key in `.env`).
+
+**Official deploy flow (rsync local → server). Do NOT expect a git repo on the server — `.git` is not kept there.**
+
+```bash
+npm run typecheck && npm run test:content && npm run build
+npm run cheatsheet:pdf   # genera dist/cheatsheet/english-tenses-cheatsheet.pdf
+ssh isilvera@94.143.142.136 "sudo cp -r /var/www/englishforall /var/www/englishforall.bak-\$(date +%Y%m%d-%H%M%S)"
+rsync -avz --delete -e ssh ./dist/ isilvera@94.143.142.136:/var/www/englishforall/
+```
+
+- If `pb/pb_hooks/*.pb.js` changed, copy it to `/opt/englishforall/pocketbase/pb_hooks/` and `sudo systemctl restart englishforall-pocketbase.service`.
+- **Always** validate (typecheck + test:content + build) and **always** make a server backup before deploying.
+- Never commit or upload secrets (the PocketBase `.env` stays on the server only).
+- Full instructions: see README.md → "Despliegue en producción".

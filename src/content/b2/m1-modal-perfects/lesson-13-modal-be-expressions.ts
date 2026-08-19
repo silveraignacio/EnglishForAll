@@ -57,6 +57,62 @@ Reglas:
 3. "Be due to" se usa para calendarios y eventos programados.
 4. "Be to" es formal; se usa en instrucciones y narrativa.
 5. El verbo después del infinitivo cambia según el sujeto en formas continuas/perfectas, pero el infinitivo base siempre va sin "to" después de "be" + modal pattern.`,
+  formation: {
+    title: 'Cómo se forman be supposed to / be bound to / be likely to / be due to',
+    intro: 'Estas expresiones combinan el verbo be conjugado + una partícula + infinitivo para hablar del presente y del futuro: expectativa (supposed to), certeza (bound to), probabilidad (likely to) y eventos programados (due to).',
+    patterns: [
+      {
+        name: 'Expectativa — be supposed to + infinitivo',
+        formula: 'Sujeto + be + supposed to + infinitivo + complemento',
+        examples: [
+          { english: 'You\'re supposed to call your mother.', spanish: 'Se espera que llames a tu madre.' },
+          { english: 'We\'re supposed to arrive at 9 am.', spanish: 'Se espera que lleguemos a las 9.' },
+        ],
+        note: 'También se usa para rumores (hearsay): She\'s supposed to be very talented = Se dice que es muy talentosa.',
+      },
+      {
+        name: 'Certeza — be bound to + infinitivo',
+        formula: 'Sujeto + be + bound to + infinitivo + complemento',
+        examples: [
+          { english: 'If you keep studying, you\'re bound to pass.', spanish: 'Si seguís estudiando, seguro que aprobás.' },
+          { english: 'It\'s bound to rain this afternoon.', spanish: 'Seguro que llueve esta tarde.' },
+        ],
+        note: 'Es más fuerte que "will probably": indica que algo es prácticamente inevitable.',
+      },
+      {
+        name: 'Probabilidad — be (un)likely to + infinitivo',
+        formula: 'Sujeto + be + (very/much/less) likely / unlikely + to + infinitivo + complemento',
+        examples: [
+          { english: 'It\'s very likely to rain tomorrow.', spanish: 'Es muy probable que llueva mañana.' },
+          { english: 'She\'s unlikely to accept the job offer.', spanish: 'Es improbable que acepte la oferta de trabajo.' },
+        ],
+        note: 'Admite intensificadores: very, much, less (It\'s less likely to happen).',
+      },
+      {
+        name: 'Evento programado — be due to + infinitivo',
+        formula: 'Sujeto + be + due to + infinitivo + complemento (o be due + fecha)',
+        examples: [
+          { english: 'The flight is due to depart at 10 am.', spanish: 'El vuelo está previsto para despegar a las 10.' },
+          { english: 'The exam is due on Friday.', spanish: 'El examen está previsto para el viernes.' },
+        ],
+        note: 'Se usa para fechas y calendarios. Como preposición de causa se usa "due to": Due to the weather, we postponed the event.',
+      },
+      {
+        name: 'Instrucción formal — be to + infinitivo',
+        formula: 'Sujeto + be + to + infinitivo + complemento',
+        examples: [
+          { english: 'You are to complete this form before 5 pm.', spanish: 'Debés completar este formulario antes de las 5.' },
+          { english: 'He was to discover the truth later.', spanish: 'Había de descubrir la verdad más tarde.' },
+        ],
+        note: 'Uso formal: instrucciones y planes precisos, también en narrativa.',
+      },
+    ],
+    notes: [
+      'Negación: se niega con be not: You\'re not supposed to be here / It\'s not likely to happen.',
+      'Preguntas: se invierte be: Are you supposed to attend? / Is it due on Friday?',
+      'Supuesto es distinto de la obligación de have to/must: se espera que lo hagas ≠ tienes que hacerlo.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She\'s supposed to be here in 5 minutes.', correct: '✅ She\'s supposed to arrive in 5 minutes.', explanation: 'Usa un verbo con "be supposed to" (arrive), no "be" + lugar. Se espera una ACCIÓN.' },
     { wrong: '❌ It\'s bound happens tomorrow.', correct: '✅ It\'s bound to happen tomorrow.', explanation: '"Bound to" + infinitivo. Necesita "to" + verbo base (happen).' },
@@ -215,6 +271,7 @@ Reglas:
       listening: {
         audioText:
           "Good morning, everyone. First, you are to submit your reports by Friday. They\'re due at 5 pm sharp. Second, if you work well on this project, you\'re bound to get a promotion. There\'s a high chance. Third, it\'s very likely to rain this week, so the outdoor event is due to be postponed. Finally, you\'re all supposed to attend the training next Monday. Questions?",
+        audioUrl: '/audio/tts/b2-m1-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m1-l3-ex9-q1',

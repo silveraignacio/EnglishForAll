@@ -70,6 +70,29 @@ En inglés NO decimos "I no work". Necesitamos el verbo auxiliar "do/does" para 
 - ✅ He doesn't watch TV.  🔴 He doesn't watches TV.
 - ✅ He doesn't have a car. 🔴 He doesn't has a car.` +
     ``,
+  formation: {
+    title: 'Cómo se forma el Present Simple — Negativo',
+    intro: 'Para negar usamos el auxiliar don\'t (I/you/we/they) o doesn\'t (he/she/it) + el verbo en forma base. El verbo principal vuelve al infinitivo: la -s ya la lleva "does".',
+    patterns: [
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + don\'t / doesn\'t + verbo en forma base + complemento',
+        examples: [
+          { english: 'I don\'t play football.', spanish: 'No juego al fútbol.' },
+          { english: 'He doesn\'t play guitar.', spanish: 'Él no toca la guitarra.' },
+          { english: 'She doesn\'t work on Sundays.', spanish: 'Ella no trabaja los domingos.' },
+          { english: 'We don\'t speak Italian.', spanish: 'No hablamos italiano.' },
+          { english: 'They don\'t live in Spain.', spanish: 'Ellos no viven en España.' },
+        ],
+        note: '¿Don\'t o doesn\'t? I/You/We/They → don\'t. He/She/It → doesn\'t. Después de ambos, el verbo va SIN -s.',
+      },
+    ],
+    notes: [
+      'Nunca se usa "no" delante del verbo: "I no work" es incorrecto → "I don\'t work".',
+      'Con doesn\'t, incluso el irregular have vuelve a la forma base: "He doesn\'t have a car" (no "has").',
+      'Formas completas: don\'t = do not · doesn\'t = does not.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She don\'t work.', correct: '✅ She doesn\'t work.', explanation: 'Con "she" usamos "doesn\'t", no "don\'t".' },
     { wrong: '❌ He doesn\'t works.', correct: '✅ He doesn\'t work.', explanation: 'Después de "doesn\'t", el verbo NO lleva -s. La -s ya está en "does".' },

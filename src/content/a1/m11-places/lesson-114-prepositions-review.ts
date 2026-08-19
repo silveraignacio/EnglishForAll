@@ -53,6 +53,48 @@ Ejemplos:
 Estructura para decir dónde está algo:
 - The + lugar + is + preposición + the + lugar.
 - The park is behind the museum. = El parque está detrás del museo.`,
+  formation: {
+    title: 'Cómo se preguntan los lugares: Is there a...? / Are there any...?',
+    intro: 'Para preguntar si existe un lugar usamos "Is there a...?" con singular y "Are there any...?" con plural. Las preposiciones de lugar indican dónde está cada cosa.',
+    patterns: [
+      {
+        name: 'Preposiciones de lugar',
+        formula: 'The + lugar + is + preposición + the + lugar',
+        examples: [
+          { english: 'The park is behind the museum.', spanish: 'El parque está detrás del museo.' },
+          { english: 'The bank is next to the supermarket.', spanish: 'El banco está al lado del supermercado.' },
+          { english: 'The shop is in front of the hotel.', spanish: 'La tienda está delante del hotel.' },
+        ],
+      },
+      {
+        name: 'Preguntar (singular)',
+        formula: 'Is there a + sustantivo singular + near here?',
+        examples: [
+          { english: 'Is there a bank near here?', spanish: '¿Hay un banco cerca de aquí?' },
+        ],
+      },
+      {
+        name: 'Preguntar (plural)',
+        formula: 'Are there any + sustantivos en plural + around?',
+        examples: [
+          { english: 'Are there any restaurants around?', spanish: '¿Hay restaurantes por aquí?' },
+        ],
+      },
+      {
+        name: 'Respuestas cortas',
+        formula: "Yes, there is. / No, there isn't. | Yes, there are. / No, there aren't.",
+        examples: [
+          { english: 'Yes, there is.', spanish: 'Sí, hay.' },
+          { english: "No, there aren't.", spanish: 'No, no hay.' },
+        ],
+      },
+    ],
+    notes: [
+      'Con singular usamos "a": Is there a bank near here?',
+      'Con plural usamos "any": Are there any restaurants around?',
+      'Preposiciones: in, on, under, next to, behind, in front of, between.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Is there bank near here?', correct: '✅ Is there a bank near here?', explanation: 'Con singular necesitamos "a": Is there a bank near here?' },
     { wrong: '❌ Are there a restaurants around?', correct: '✅ Are there any restaurants around?', explanation: 'Con plural usamos "any": Are there any restaurants around?' },

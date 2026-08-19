@@ -40,6 +40,48 @@ Recuerda del módulo anterior: "any" también se usa en preguntas y negativos co
 **Preguntar cantidades:**
 - **How much** + incontable: How much water do you have?
 - **How many** + plural contable: How many apples do you have?`,
+  formation: {
+    title: 'Cómo se usan some, any y how much/how many',
+    intro: 'Para hablar de cantidades usamos "some" en afirmativas y "any" en preguntas y negativas, con plurales e incontables. Para preguntar por cantidades: "how much" + incontable y "how many" + contable en plural.',
+    patterns: [
+      {
+        name: 'Afirmativo: some',
+        formula: 'some + sustantivo (plural o incontable)',
+        examples: [
+          { english: 'There are some apples.', spanish: 'Hay algunas manzanas.' },
+          { english: 'I have some water.', spanish: 'Tengo un poco de agua.' },
+        ],
+      },
+      {
+        name: 'Preguntas y negativas: any',
+        formula: 'any + sustantivo (plural o incontable) en preguntas y frases negativas',
+        examples: [
+          { english: 'Do you have any milk?', spanish: '¿Tienes leche?' },
+          { english: "There aren't any eggs.", spanish: 'No hay huevos.' },
+        ],
+      },
+      {
+        name: 'How much',
+        formula: 'How much + sustantivo incontable + do/does + sujeto + verbo?',
+        examples: [
+          { english: 'How much water do you have?', spanish: '¿Cuánta agua tienes?' },
+        ],
+        note: 'Incontables: water, milk, bread, rice.',
+      },
+      {
+        name: 'How many',
+        formula: 'How many + sustantivo contable en plural + do/does + sujeto + verbo?',
+        examples: [
+          { english: 'How many apples do you have?', spanish: '¿Cuántas manzanas tienes?' },
+        ],
+        note: 'Contables: one apple, two apples... (se pueden contar).',
+      },
+    ],
+    notes: [
+      '"some" solo en afirmativas; "any" en preguntas y negativas.',
+      '"any" también se usa con "there is/are": There aren\'t any eggs.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Do you have some milk?', correct: '✅ Do you have any milk?', explanation: 'En preguntas usamos "any", no "some". "Some" es solo para frases afirmativas.' },
     { wrong: '❌ There are any apples.', correct: '✅ There are some apples.', explanation: 'En frases afirmativas usamos "some", no "any". "Any" es para preguntas y negativos.' },

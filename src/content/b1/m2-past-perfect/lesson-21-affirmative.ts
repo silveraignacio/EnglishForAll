@@ -56,6 +56,28 @@ Regla de uso: cuando hay DOS acciones en el pasado, la que ocurrió PRIMERO va e
 Marcadores típicos: before, after, when, already, by the time.
 
 Recuerda: para verbos irregulares, el past participle es la 3ª forma: go→gone, see→seen, eat→eaten, take→taken.`,
+  formation: {
+    title: 'Cómo se forma el Past Perfect — Afirmativo',
+    intro: 'El past perfect es el "pasado del pasado": expresa la acción más antigua de dos en el pasado, y se forma con had + past participle, igual para todas las personas.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + had + past participle + complemento',
+        examples: [
+          { english: 'When I arrived, the film had already started.', spanish: 'Cuando llegué, la película ya había empezado.' },
+          { english: 'She had finished her homework before dinner.', spanish: 'Ella había terminado sus deberes antes de la cena.' },
+          { english: 'They had left before we got there.', spanish: 'Ellos habían salido antes de que llegáramos.' },
+          { english: 'By the time I arrived, they had eaten.', spanish: 'Para cuando llegué, ellos ya habían comido.' },
+        ],
+        note: 'had no cambia con la persona: I had, she had, they had.',
+      },
+    ],
+    notes: [
+      'El participio de los verbos regulares termina en -ed (finished); los irregulares usan su 3ª forma: go→gone, see→seen, eat→eaten, take→taken.',
+      'Marcadores típicos: before, after, when, already, by the time.',
+      'Contracción: had → \'d (I\'d finished).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I had went to the shop.', correct: '✅ I had gone to the shop.', explanation: 'El past participle de "go" es "gone", no "went". Con had usamos la 3ª forma.' },
     { wrong: '❌ She had eat before dinner.', correct: '✅ She had eaten before dinner.', explanation: 'El participle de "eat" es "eaten". Después de had usamos siempre el participle.' },
@@ -205,6 +227,7 @@ Recuerda: para verbos irregulares, el past participle es la 3ª forma: go→gone
       listening: {
         audioText:
           "I visited the museum last Saturday. When I arrived at ten o'clock, the exhibition had already started. Actually, the museum had opened at nine in the morning, so it had been operating for an hour. I walked around and saw many paintings. Some of them I had never seen before. The artist had painted these works over ten years ago, and many people had visited the museum to see them.",
+        audioUrl: '/audio/tts/b1-m2-l1-ex10.mp3',
         questions: [
           {
             id: 'b1-m2-l1-ex10-q1',

@@ -42,6 +42,49 @@ Regla práctica: con estos 4 verbos, -ing mira hacia el PASADO (lo que ya pasó 
 - forget + -ing = olvidar algo ya hecho; forget + to = olvidar hacer algo.
 - try + -ing = probar algo; try + to = intentar hacer algo difícil.
 Regla general: -ing mira al pasado, "to" mira al futuro.`,
+  formation: {
+    title: 'Cómo cambia el significado con -ing o "to" (stop, remember, forget, try)',
+    intro: 'Con stop, remember, forget y try la elección entre -ing y "to" cambia el significado: -ing mira al pasado (algo ya hecho o una costumbre) y "to" mira al futuro (algo que vamos a hacer).',
+    patterns: [
+      {
+        name: 'stop + -ing (dejar de hacer algo) / stop + to (detenerse para hacer algo)',
+        formula: 'stop + verbo + -ing | stop + to + verbo base',
+        examples: [
+          { english: 'I stopped smoking.', spanish: 'Dejé de fumar.' },
+          { english: 'I stopped to smoke.', spanish: 'Me detuve para fumar.' },
+        ],
+      },
+      {
+        name: 'remember / forget + -ing (algo ya hecho)',
+        formula: 'remember/forget + verbo + -ing',
+        examples: [
+          { english: 'I remember locking the door.', spanish: 'Recuerdo haber cerrado la puerta.' },
+          { english: 'I\'ll never forget meeting her.', spanish: 'Nunca olvidaré haberla conocido.' },
+        ],
+      },
+      {
+        name: 'remember / forget + to (algo pendiente)',
+        formula: 'remember/forget + to + verbo base',
+        examples: [
+          { english: 'Remember to lock the door.', spanish: 'No olvides cerrar la puerta.' },
+          { english: 'I forgot to call him.', spanish: 'Olvidé llamarlo.' },
+        ],
+      },
+      {
+        name: 'try + -ing (probar) / try + to (intentar algo difícil)',
+        formula: 'try + verbo + -ing | try + to + verbo base',
+        examples: [
+          { english: 'Try drinking tea.', spanish: 'Prueba a beber té.' },
+          { english: 'Try to open the window.', spanish: 'Intenta abrir la ventana.' },
+        ],
+      },
+    ],
+    notes: [
+      'Regla práctica: con estos 4 verbos, -ing mira al pasado y "to" al futuro.',
+      'stop + -ing significa "dejar de hacer algo"; stop + to significa "detenerse PARA hacer algo".',
+      'Nunca combines las dos formas: "try to drinking" no existe.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I stopped to smoke = dejé de fumar.', correct: '✅ I stopped smoking = dejé de fumar.', explanation: 'Dejar de hacer algo se dice con stop + -ing. "Stop to smoke" significa "me detuve para fumar".' },
     { wrong: '❌ Remember locking the door! = no olvides cerrar la puerta.', correct: '✅ Remember to lock the door! = no olvides cerrar la puerta.', explanation: 'Un recordatorio (hacer algo todavía) usa remember + to.' },
@@ -195,6 +238,7 @@ Regla general: -ing mira al pasado, "to" mira al futuro.`,
       listening: {
         audioText:
           "Good morning! My name is Sarah. I want to tell you about my morning routine. Three months ago, I stopped eating junk food for breakfast. Now I try eating healthy cereal and fruit instead. Before I leave home, I remember to check if all windows are closed. Sometimes I forget to bring my lunch. I also remember running into my neighbor last week. She stopped smoking six months ago and looks much happier! I encouraged her to keep going. Every morning I try to remember to drink water before coffee.",
+        audioUrl: '/audio/tts/b1-m10-l2-ex11.mp3',
         questions: [
           {
             id: 'b1-m10-l2-ex11-q1',

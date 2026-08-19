@@ -73,6 +73,44 @@ Perception verb + object + -ing = acción EN PROGRESO (moment in action)
 Perception verb + object + infinitive without "to" = acción COMPLETA (full action)
 
 Ambas son correctas, pero -ing es más común en B2 para enfatizar que estabas viendo/oyendo algo en curso.`,
+  formation: {
+    title: 'Cómo se forma el verbo de percepción + objeto + -ing / verbo base',
+    intro: 'Los verbos de percepción (see, watch, hear, notice, observe, find, catch) van seguidos de objeto + -ing para una acción en progreso, u objeto + verbo base para una acción completa.',
+    patterns: [
+      {
+        name: 'Acción en progreso — objeto + -ing',
+        formula: 'Verbo de percepción + objeto + verbo en -ing',
+        examples: [
+          { english: 'I saw him crossing the street.', spanish: 'Lo vi cruzando la calle.' },
+          { english: 'We watched the sun setting over the ocean.', spanish: 'Observamos la puesta de sol sobre el océano.' },
+        ],
+        note: 'El -ing enfatiza que la acción estaba en curso cuando la viste u oíste.',
+      },
+      {
+        name: 'Acción completa — objeto + verbo base (sin to)',
+        formula: 'Verbo de percepción + objeto + verbo base',
+        examples: [
+          { english: 'I saw him cross the street and enter the building.', spanish: 'Lo vi cruzar la calle y entrar al edificio.' },
+          { english: 'She heard the door close behind her.', spanish: 'Oyó la puerta cerrarse detrás de ella.' },
+        ],
+        note: 'El verbo base expresa la acción vista de principio a fin.',
+      },
+      {
+        name: 'Catch / find + objeto + -ing',
+        formula: 'Catch / find + objeto + verbo en -ing',
+        examples: [
+          { english: 'I caught him stealing money from the drawer.', spanish: 'Lo atrapé robando dinero del cajón.' },
+          { english: 'We found them playing video games in the basement.', spanish: 'Los encontramos jugando videojuegos en el sótano.' },
+        ],
+        note: '"Catch" en el sentido de sorprender siempre va con -ing.',
+      },
+    ],
+    notes: [
+      'Nunca se usa infinitivo con "to" después de percepción + objeto ("I saw him to cross" es incorrecto).',
+      'Con "hear" y "listen to", el -ing describe sonidos en curso: "I heard him singing".',
+      'La diferencia -ing vs. verbo base es sutil pero real: -ing = en progreso, verbo base = completa.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I saw him to cross the street.', correct: '✅ I saw him cross the street. / I saw him crossing the street.', explanation: 'No usamos infinitivo CON "to" después de percepción + objeto. Es "see + object + infinitivo sin to" o "see + object + -ing".' },
     { wrong: '❌ She heard the door to close.', correct: '✅ She heard the door close. / She heard the door closing.', explanation: 'Mismo error: "heard + object + infinitivo sin to" o "heard + object + -ing".' },
@@ -209,6 +247,7 @@ Ambas son correctas, pero -ing es más común en B2 para enfatizar que estabas v
       listening: {
         audioText:
           "Today was interesting. In the morning, I saw the mailman delivering letters to the houses on my street. At the park, I noticed some teenagers playing basketball. Then I heard someone calling my name from across the road. I turned and saw my friend Sarah running towards me. Later, I observed some construction workers building a new fence. Finally, I caught my cat stealing food from the dog's bowl and chased her away laughing.",
+        audioUrl: '/audio/tts/b2-m5-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m5-l3-ex9-q1',

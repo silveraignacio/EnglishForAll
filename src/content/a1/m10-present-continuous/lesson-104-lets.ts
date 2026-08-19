@@ -45,6 +45,28 @@ Esta lección también repasa las acciones del módulo: work, read, watch, cook,
 
 Uso: sugerir una acción en común (vamos a... / -emos).
 No confundas con Present Simple: "We go" = nosotros vamos (hecho), no una sugerencia.`,
+  formation: {
+    title: "Cómo se forman las sugerencias con Let's",
+    intro: '"Let\'s" (let us) se usa para proponer hacer algo juntos. Equivale a "Vamos a..." o a las formas "-emos/-amos" del español: Let\'s go! = ¡Vamos!',
+    patterns: [
+      {
+        name: 'Sugerencia',
+        formula: "Let's + verbo base (sin 'to' y sin -s)",
+        examples: [
+          { english: "Let's go to the park.", spanish: 'Vamos al parque.' },
+          { english: "Let's have lunch.", spanish: 'Almorcemos.' },
+          { english: "Let's watch a movie tonight.", spanish: 'Veamos una película esta noche.' },
+          { english: "Let's study together.", spanish: 'Estudiemos juntos.' },
+        ],
+        note: 'El verbo va en base: nunca "Let\'s to go" ni "Let\'s goes".',
+      },
+    ],
+    notes: [
+      '"Let\'s" es una sugerencia, no una orden.',
+      'No confundas con Present Simple: "We go" cuenta un hecho; "Let\'s go" propone.',
+      '"Let\'s" = let us: se dirige a un grupo que incluye al hablante.',
+    ],
+  },
   commonMistakes: [
     { wrong: "❌ Let's to go.", correct: "✅ Let's go.", explanation: 'Después de "Let\'s" el verbo va en base, sin "to".' },
     { wrong: "❌ Let's to eat.", correct: "✅ Let's eat.", explanation: 'Sin "to": Let\'s eat. = Comamos.' },

@@ -69,6 +69,42 @@ Y NO se puede usar **'s** con un adjetivo posesivo. "his" ya indica posesión; n
 **Importante:** No combines 's con un adjetivo posesivo (my, your, his...).
 - ❌ my's car / ❌ his's brother
 - ✅ my car / ✅ his brother / ✅ John's car`,
+  formation: {
+    title: "Cómo se forma el genitivo sajón ('s)",
+    intro: "Para indicar posesión en inglés añadimos 's al dueño y ponemos la cosa poseída después: Dueño + 's + cosa. En español esto equivale a \"de\": John's car = el coche de John.",
+    patterns: [
+      {
+        name: 'Dueño singular',
+        formula: "Dueño + 's + cosa poseída",
+        examples: [
+          { english: "John's wife is a doctor.", spanish: 'La esposa de John es médica.' },
+          { english: "María's book is on the table.", spanish: 'El libro de María está en la mesa.' },
+        ],
+      },
+      {
+        name: 'Dueño plural terminado en -s',
+        formula: "Dueño plural en -s + ' + cosa poseída",
+        examples: [
+          { english: "My parents' house is big.", spanish: 'La casa de mis padres es grande.' },
+          { english: "The students' books are on the desk.", spanish: 'Los libros de los estudiantes están en el escritorio.' },
+        ],
+        note: "Si el dueño ya termina en -s, solo añadimos el apóstrofo sin la \"s\".",
+      },
+      {
+        name: 'Dueño plural irregular',
+        formula: "Dueño plural irregular (sin -s) + 's + cosa poseída",
+        examples: [
+          { english: "The children's toys are in the garden.", spanish: 'Los juguetes de los niños están en el jardín.' },
+          { english: "Men's clothes are in this shop.", spanish: 'La ropa de los hombres está en esta tienda.' },
+        ],
+        note: "Plurales como \"children\", \"men\", \"women\" no terminan en -s, así que usan 's.",
+      },
+    ],
+    notes: [
+      "No se mezcla 's con adjetivos posesivos: my car (no my's car), his brother (no his's brother).",
+      "El orden es siempre Dueño + 's + cosa; no se interpone artículo: John's car, no \"John's the car\".",
+    ],
+  },
   commonMistakes: [
     { wrong: "❌ The car of John.", correct: "✅ John's car.", explanation: 'Aunque "the car of John" es gramaticalmente posible, la forma natural y mucho más común en inglés es el genitivo sajón: "John\'s car".' },
     { wrong: '❌ my\'s car', correct: '✅ my car', explanation: 'No se usa \'s con adjetivos posesivos. "my" ya indica posesión; mi coche = my car.' },

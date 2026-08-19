@@ -53,6 +53,42 @@ IMPORTANTE: "any" se usa en preguntas y negativos. En frases afirmativas usamos 
 - Yes, there are. / No, there aren't.
 
 **some vs any:** some en afirmativo, any en preguntas y negativos.`,
+  formation: {
+    title: 'Cómo se forma "There is / There are" — Negativo y preguntas',
+    intro: 'Para negar usamos "there isn\'t" (singular) o "there aren\'t" (plural). Para preguntar invertimos el orden: "Is there...?" / "Are there any...?".',
+    patterns: [
+      {
+        name: 'Negativo',
+        formula: 'There isn\'t / There aren\'t + sustantivo (+ any en plural) + lugar',
+        examples: [
+          { english: 'There isn\'t a book on the table.', spanish: 'No hay un libro en la mesa.' },
+          { english: 'There aren\'t any chairs.', spanish: 'No hay sillas.' },
+        ],
+        note: 'Contracciones: there is not = there isn\'t · there are not = there aren\'t. Con plurales y negativos usamos "any".',
+      },
+      {
+        name: 'Pregunta sí/no',
+        formula: 'Is there + a/an + sustantivo singular...? / Are there any + sustantivo plural...?',
+        examples: [
+          { english: 'Is there a bank near here?', spanish: '¿Hay un banco cerca de aquí?' },
+          { english: 'Are there any restaurants around?', spanish: '¿Hay restaurantes por aquí?' },
+        ],
+        note: 'Singular → Is there...? · Plural → Are there any...?.',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, there is/are. / No, there isn\'t/aren\'t.',
+        examples: [
+          { english: 'Yes, there is.', spanish: 'Sí, hay.' },
+          { english: 'No, there aren\'t.', spanish: 'No, no hay.' },
+        ],
+      },
+    ],
+    notes: [
+      '"Any" se usa en preguntas y negativos; en afirmativo usamos "some": There are some chairs (no "any").',
+      'El verbo depende del sustantivo: singular → is/isn\'t, plural → are/aren\'t.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ There aren\'t a chair.', correct: '✅ There isn\'t a chair.', explanation: '"A chair" es singular → usamos "there isn\'t", no "there aren\'t".' },
     { wrong: '❌ Is there two chairs?', correct: '✅ Are there two chairs?', explanation: '"Two chairs" es plural → usamos "are there", no "is there".' },

@@ -35,6 +35,35 @@ En el pasado, "make" → "made" y "let" se mantiene igual: "She let me..." (let 
 - let + persona + verbo(base) sin "to" → She let me use her car.
 - Pasado: make → made; let no cambia (let).
 - ❌ make me to study → ✅ make me study.`,
+  formation: {
+    title: 'Cómo se forman "make" y "let" con persona + verbo',
+    intro: '"Make" (hacer que alguien haga algo) y "let" (permitir que alguien haga algo) tienen una estructura especial: persona + verbo en forma base, SIN "to".',
+    patterns: [
+      {
+        name: 'make + persona + verbo (sin to)',
+        formula: 'make/made + persona + verbo (forma base)',
+        examples: [
+          { english: 'My parents make me study.', spanish: 'Mis padres me hacen estudiar.' },
+          { english: 'The teacher made us repeat the sentence.', spanish: 'El profesor nos hizo repetir la frase.' },
+        ],
+        note: 'En pasado make → made. El verbo después de la persona sigue sin "to": made us repeat.',
+      },
+      {
+        name: 'let + persona + verbo (sin to)',
+        formula: 'let + persona + verbo (forma base)',
+        examples: [
+          { english: 'She let me use her car.', spanish: 'Ella me dejó usar su coche.' },
+          { english: 'My boss lets me leave early.', spanish: 'Mi jefe me deja salir temprano.' },
+        ],
+        note: '"Let" no cambia en pasado: She let me use her car (let = pasado). Con he/she/it: lets.',
+      },
+    ],
+    notes: [
+      'Después de make y let el verbo va SIN "to": ❌ make me to study → ✅ make me study.',
+      'make = obligar / hacer que. let = permitir / dejar.',
+      'Con he/she/it añadimos -s a make y let: makes me study, lets me leave.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ My parents make me to study.', correct: '✅ My parents make me study.', explanation: 'Después de "make" el verbo va sin "to": make me study.' },
     { wrong: '❌ She let me to use her car.', correct: '✅ She let me use her car.', explanation: 'Después de "let" el verbo va sin "to": let me use.' },

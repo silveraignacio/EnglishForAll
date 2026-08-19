@@ -42,6 +42,35 @@ Verbos comunes: want, need, tell, ask, advise, encourage, invite, expect.
 - She asked him to leave. = Ella le pidió que se fuera.
 
 NO uses "that" como en español: ❌ I want that you help me → ✅ I want you to help me.`,
+  formation: {
+    title: 'Cómo se forma "verbo + objeto + to + infinitivo"',
+    intro: 'Para decir que queremos, necesitamos o pedimos que ALGUIEN haga algo, usamos verbo + persona (objeto) + to + verbo, con verbos como want, need, tell, ask, advise, encourage, invite y expect.',
+    patterns: [
+      {
+        name: 'Verbo + persona + to + infinitivo',
+        formula: 'Sujeto + verbo + persona (objeto) + to + verbo base + complemento',
+        examples: [
+          { english: 'I want you to help me.', spanish: 'Quiero que me ayudes.' },
+          { english: 'He told me to wait.', spanish: 'Él me dijo que esperara.' },
+          { english: 'She advised him to rest.', spanish: 'Ella le aconsejó que descansara.' },
+        ],
+        note: 'La persona va siempre entre el verbo y "to": want you to help.',
+      },
+      {
+        name: 'tell vs ask',
+        formula: 'tell + persona + to + verbo (orden) | ask + persona + to + verbo (petición)',
+        examples: [
+          { english: 'She told me to leave.', spanish: 'Ella me dijo que me fuera.' },
+          { english: 'They asked us to arrive early.', spanish: 'Ellos nos pidieron que llegáramos temprano.' },
+        ],
+      },
+    ],
+    notes: [
+      'NO uses "that" como en español: I want you to help me (no "I want that you help me").',
+      'Después de "told" la persona va directa: told me to wait (no "told to me").',
+      'Nunca omitas "to" entre la persona y el verbo: I want you to help me (no "I want you help me").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I want that you help me.', correct: '✅ I want you to help me.', explanation: 'En inglés esta estructura no usa "that". La persona va directamente después del verbo, seguida de "to + verbo".' },
     { wrong: '❌ She told to me wait.', correct: '✅ She told me to wait.', explanation: 'Después de "told" la persona va directa: told me + to wait. No necesitamos "to" antes de la persona.' },
@@ -195,6 +224,7 @@ NO uses "that" como en español: ❌ I want that you help me → ✅ I want you 
       listening: {
         audioText:
           "Good morning, everyone! First, I want to tell you about the homework. I need you to complete these exercises for tomorrow. I also want you to work in pairs. Next, I advise you to read chapter five before the next class. Regarding the exam, I encourage all of you to start studying now. I tell my students every year: don\'t wait until the last minute. The principal expects us to get good results, so I expect each one of you to do your best. Please ask me if you have questions. I\'m here to help you succeed.",
+        audioUrl: '/audio/tts/b1-m10-l3-ex11.mp3',
         questions: [
           {
             id: 'b1-m10-l3-ex11-q1',

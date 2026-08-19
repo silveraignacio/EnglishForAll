@@ -132,6 +132,44 @@ Con PRONOMBRE (me, him, her, it, us, them):
 - El pronombre siempre va entre verbo y partícula
 
 Regla: Los pronombres EXIGEN que la partícula vaya al final.`,
+  formation: {
+    title: 'Cómo se forman los phrasal verbs separables e inseparables',
+    intro: 'En los inseparables, el objeto va siempre después de la partícula. En los separables, el objeto puede ir entre el verbo y la partícula o después, pero con pronombres la partícula siempre va al final.',
+    patterns: [
+      {
+        name: 'Inseparables — objeto después de la partícula',
+        formula: 'Verbo + partícula + objeto',
+        examples: [
+          { english: 'I look after my younger brother.', spanish: 'Cuido a mi hermano menor.' },
+          { english: 'I came across an old photo yesterday.', spanish: 'Encontré una foto vieja ayer.' },
+        ],
+        note: 'No se puede separar: "I look my brother after" es incorrecto.',
+      },
+      {
+        name: 'Separables con sustantivo — dos posiciones',
+        formula: 'Verbo + partícula + objeto  /  Verbo + objeto + partícula',
+        examples: [
+          { english: 'Can you turn on the TV? / Can you turn the TV on?', spanish: '¿Podés encender la tele?' },
+          { english: 'Put away your toys / Put your toys away before dinner.', spanish: 'Guardá tus juguetes antes de cenar.' },
+        ],
+        note: 'Con sustantivo, ambas posiciones son correctas.',
+      },
+      {
+        name: 'Separables con pronombre — partícula al final',
+        formula: 'Verbo + pronombre + partícula',
+        examples: [
+          { english: 'Can you pick them up at 3 PM?', spanish: '¿Podés recogerlos a las 3 PM?' },
+          { english: 'I\'ll turn them on right now.', spanish: 'Los encenderé ahora mismo.' },
+        ],
+        note: 'Con pronombre (it, them...), la partícula SIEMPRE va al final.',
+      },
+    ],
+    notes: [
+      'Los pronombres exigen la partícula al final: "Pick them up", nunca "Pick up them".',
+      'Inseparables comunes: look after, come across, run into, get over, call off.',
+      'En habla natural, cuando el objeto es largo se suele dejar la partícula después del verbo.',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ "I look my brother after."',
@@ -358,6 +396,7 @@ Regla: Los pronombres EXIGEN que la partícula vaya al final.`,
       listening: {
         audioText:
           'Mom: Can you turn off the kitchen light before bed? Also, put away your books and turn off your laptop. Son: Sure, I\'ll turn them off right now. And I can pick up my clothes from the floor. Mom: Great! I also want to call off the dinner party tomorrow because I\'m too tired. Son: Should I help you put things away? Mom: That would be lovely. Thank you.',
+        audioUrl: '/audio/tts/b2-m9-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m9-l2-ex9-q1',

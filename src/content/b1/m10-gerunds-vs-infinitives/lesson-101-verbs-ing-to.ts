@@ -30,6 +30,35 @@ Solo cambia el estilo, NO el significado. No es un error usar cualquiera de las 
 - verbo + -ing: I like reading.
 - verbo + to + infinitivo: I like to read.
 Ambas formas son correctas y significan lo mismo. Con los verbos de gusto (love/like/hate/prefer) la forma -ing suele sonar más natural; con begin/start las dos se usan por igual.`,
+  formation: {
+    title: 'Cómo se combinan los verbos con -ing o "to"',
+    intro: 'love, like, hate, prefer, begin y start aceptan dos formas: verbo + -ing o verbo + to + infinitivo. Con estos verbos ambas son correctas y significan lo mismo.',
+    patterns: [
+      {
+        name: 'Verbo + -ing',
+        formula: 'love/like/hate/prefer/begin/start + verbo + -ing + complemento',
+        examples: [
+          { english: 'I love reading.', spanish: 'Me encanta leer.' },
+          { english: 'She started working.', spanish: 'Ella empezó a trabajar.' },
+        ],
+        note: 'Con los verbos de gusto (love/like/hate/prefer), la forma -ing suele sonar más natural en conversación.',
+      },
+      {
+        name: 'Verbo + to + infinitivo',
+        formula: 'love/like/hate/prefer/begin/start + to + verbo base + complemento',
+        examples: [
+          { english: 'I love to read.', spanish: 'Me encanta leer.' },
+          { english: 'She started to work in June.', spanish: 'Ella empezó a trabajar en junio.' },
+        ],
+        note: 'Con begin y start, las dos formas se usan por igual.',
+      },
+    ],
+    notes: [
+      'Solo cambia el estilo, NO el significado: I like swimming = I like to swim.',
+      'Esto NO funciona con todos los verbos: "enjoy", "finish" y "mind" solo aceptan -ing; "want", "decide" y "hope" solo aceptan "to".',
+      'Nunca mezcles las dos formas: "to reading" no existe.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I enjoy to read.', correct: '✅ I enjoy reading.', explanation: '"enjoy" solo acepta -ing. El truco de esta lección (las dos formas) aplica solo a love/like/hate/prefer/begin/start, no a todos los verbos.' },
     { wrong: '❌ I want reading a book.', correct: '✅ I want to read a book.', explanation: '"want" solo acepta "to + verbo". No todos los verbos admiten las dos formas.' },
@@ -171,6 +200,7 @@ Ambas formas son correctas y significan lo mismo. Con los verbos de gusto (love/
       listening: {
         audioText:
           "Hi, I'm Tom. I absolutely love playing tennis. I started playing when I was young, and I've never stopped. I prefer playing outdoors because I like breathing fresh air. What about you? Hi, I'm Sarah. I hate waiting in queues at the supermarket. It's so boring. I also hate being stuck in traffic. My friends like shopping on weekends, but I prefer ordering online from home. Hi, I'm Mark. I love photography. I started learning photography two years ago, and now I begin my day by taking photos. I hate taking bad photos, though.",
+        audioUrl: '/audio/tts/b1-m10-l1-ex10.mp3',
         questions: [
           {
             id: 'b1-m10-l1-ex10-q1',

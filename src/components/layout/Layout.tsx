@@ -10,7 +10,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </main>
       <footer className="border-t border-ink/5 py-6">
         <div className="max-w-4xl mx-auto px-4 text-center text-sm text-ink-faint">
-          English On Course · Curso interactivo de inglés A1 · Hecho para hispanohablantes
+          English4All · Curso interactivo de inglés · Hecho para hispanohablantes
         </div>
       </footer>
     </div>

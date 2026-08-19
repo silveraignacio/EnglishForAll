@@ -52,6 +52,36 @@ Pregunta: Will + sujeto + verbo?
 
 Contracciones: I'll, you'll, he'll, she'll, it'll, we'll, they'll.
 won't = will not (nunca "willn't").`,
+  formation: {
+    title: 'Cómo se forma el futuro con will — Afirmativo y Negativo',
+    intro: 'will no cambia con la persona (I will, she will) y va seguido del verbo en forma base, sin "to". En el habla casi siempre usamos contracciones.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + will + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: 'I will help you.', spanish: 'Te ayudaré.' },
+          { english: 'It will rain tomorrow.', spanish: 'Lloverá mañana.' },
+          { english: "We'll travel to London next year.", spanish: 'Viajaremos a Londres el próximo año.' },
+          { english: 'She will call me.', spanish: 'Ella me llamará.' },
+        ],
+        note: 'Nunca "will to" + verbo ni "will" con -s: She will come (no "she wills come").',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + won\'t + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: "She won't come to the party.", spanish: 'Ella no vendrá a la fiesta.' },
+          { english: "I won't eat that.", spanish: 'No me comeré eso.' },
+        ],
+        note: "won't = will not. Nunca \"no will\" ni \"willn't\".",
+      },
+    ],
+    notes: [
+      'Contracciones: I\'ll, you\'ll, he\'ll, she\'ll, it\'ll, we\'ll, they\'ll (I\'ll answer it).',
+      'Se usa para decisiones espontáneas, predicciones, promesas y ofertas.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I will to go.', correct: '✅ I will go.', explanation: 'Después de "will" usamos el verbo sin "to": will + verbo.' },
     { wrong: '❌ She wills come.', correct: '✅ She will come.', explanation: '"will" no añade -s en tercera persona: she will, he will.' },

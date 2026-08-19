@@ -53,6 +53,29 @@ Recuerda las contracciones del verbo "to be": I am → I'm, She is → She's, Th
 - You / We / They → **are**
 
 Contracciones frecuentes: I'm, You're, He's, She's, We're, They're.`,
+  formation: {
+    title: 'Cómo se forma "Going to" — Afirmativo',
+    intro: '"Going to" expresa planes e intenciones futuras (equivalente a "ir a + verbo"). Se forma con el verbo "to be" + going to + verbo en infinitivo.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + am/is/are + going to + verbo en infinitivo (sin "to") + complemento',
+        examples: [
+          { english: 'I am going to study English.', spanish: 'Voy a estudiar inglés.' },
+          { english: 'She is going to visit London.', spanish: 'Ella va a visitar Londres.' },
+          { english: 'We are going to buy a house.', spanish: 'Vamos a comprar una casa.' },
+          { english: 'I\'m going to travel next month.', spanish: 'Voy a viajar el próximo mes.' },
+          { english: 'He\'s going to start a new job.', spanish: 'Él va a empezar un trabajo nuevo.' },
+        ],
+        note: 'I → am · He/She/It → is · You/We/They → are. El verbo "to be" es obligatorio: nunca "I going to study".',
+      },
+    ],
+    notes: [
+      'Contracciones: I am → I\'m, She is → She\'s, We are → We\'re, etc.',
+      'Después de "going to" usamos el verbo en infinitivo sin "to": going to study (no "going to to study").',
+      'En A1 no usamos "will" para planes: I am going to travel (no "I will travel").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I going to study.', correct: '✅ I am going to study.', explanation: 'Necesitamos el verbo "to be" (am) antes de "going to".' },
     { wrong: '❌ She are going to visit.', correct: '✅ She is going to visit.', explanation: 'Con "she" usamos "is", no "are".' },

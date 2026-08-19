@@ -41,6 +41,41 @@ Diferencia de intensidad:
 - though = informal, a menudo al final: It was worth it, though.
 - NO combines "although" con "but" en la misma frase.
 - "Even although" NO existe: usa "even though".`,
+  formation: {
+    title: 'Cómo se construyen las frases con although, even though y though',
+    intro: 'Las tres palabras significan "aunque" y expresan contraste: although y even though introducen la oración concesiva al principio o en medio; though es más informal y suele ir al final.',
+    patterns: [
+      {
+        name: 'although / even though + oración',
+        formula: 'Although/Even though + oración, + oración',
+        examples: [
+          { english: 'Although it was raining, we went out.', spanish: 'Aunque estaba lloviendo, salimos.' },
+          { english: 'Even though he was tired, he finished.', spanish: 'Aunque estaba cansado, terminó.' },
+        ],
+        note: 'even though es más enfático que although: enfatiza que la segunda idea sorprende.',
+      },
+      {
+        name: 'Posición en medio de la frase',
+        formula: 'Oración + although/even though + oración',
+        examples: [
+          { english: 'We went out although it was raining.', spanish: 'Salimos aunque estaba lloviendo.' },
+        ],
+      },
+      {
+        name: 'though al final (informal)',
+        formula: 'Oración + , + though',
+        examples: [
+          { english: 'It was a small hotel. It was very comfortable, though.', spanish: 'Era un hotel pequeño. Aun así, era muy cómodo.' },
+        ],
+        note: '"Though" al final de la frase se traduce como "aun así".',
+      },
+    ],
+    notes: [
+      'NO combines "although" con "but" en la misma frase: una sola palabra de contraste.',
+      '"Even although" NO existe: se dice "even though" o "although".',
+      '"Although" introduce una ORACIÓN (sujeto + verbo), no solo un sustantivo: Although it was expensive (no "Although the price").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Although it was raining, but we went out.', correct: '✅ Although it was raining, we went out.', explanation: '"although" ya expresa contraste; añadir "but" es redundante y incorrecto. Solo una palabra de contraste por frase.' },
     { wrong: '❌ Even although he was tired, he finished.', correct: '✅ Even though he was tired, he finished.', explanation: '"Even although" no existe en inglés. Se dice "even though" o "although".' },
@@ -192,6 +227,7 @@ Diferencia de intensidad:
       listening: {
         audioText:
           "My job is interesting. Although the pay is very low, I like my team a lot. The work environment is friendly, though the hours are quite long. Even though I have considered leaving, I think I\'ll stay for now because the company is growing and I see opportunities for advancement.",
+        audioUrl: '/audio/tts/b1-m11-l1-ex11.mp3',
         questions: [
           {
             id: 'b1-m11-l1-ex11-q1',

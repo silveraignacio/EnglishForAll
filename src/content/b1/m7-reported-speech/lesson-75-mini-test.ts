@@ -232,6 +232,7 @@ export const lesson75MiniTest: Lesson = {
       listening: {
         audioText:
           "Last Monday, I had a meeting with my boss. He told me that the project was very important and that he would need my help. He asked me if I had finished the previous project. I said yes, I had completed it the day before. He told me to start the new project immediately. He asked where I would work, and I told him I would work in the office. He also told me not to discuss the project with anyone. He said I would receive the details the next day. Finally, he asked me if I had any questions. I told him everything was clear.",
+        audioUrl: '/audio/tts/b1-m7-l5-ex11.mp3',
         questions: [
           {
             id: 'b1-m7-l5-ex11-q1',

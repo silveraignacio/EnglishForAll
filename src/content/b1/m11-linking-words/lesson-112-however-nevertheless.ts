@@ -37,6 +37,43 @@ Posición: "however" puede ir al principio, en medio o al final: It's nice, howe
 - Van entre DOS frases separadas. Después de la coma al inicio: However, ... / Nevertheless, ... / On the other hand, ...
 - No se combinan con "but": ❌ However but ... → ✅ However, ...
 - "however" puede ir al final: It's nice, however.`,
+  formation: {
+    title: 'Cómo se usan however, nevertheless y on the other hand',
+    intro: 'Estos conectores contrastan DOS frases separadas (con punto o punto y coma), no una sola oración. Al inicio de la segunda frase llevan una coma después.',
+    patterns: [
+      {
+        name: 'however + coma (sin embargo)',
+        formula: 'Frase 1. However, + frase 2.',
+        examples: [
+          { english: 'It\'s a nice car. However, it\'s very expensive.', spanish: 'Es un buen coche. Sin embargo, es muy caro.' },
+          { english: 'I love my job. It is stressful, however.', spanish: 'Me encanta mi trabajo. Es estresante, sin embargo.' },
+        ],
+        note: '"However" puede ir al principio, en medio o al final: It\'s nice, however.',
+      },
+      {
+        name: 'nevertheless + coma (no obstante, formal)',
+        formula: 'Frase 1. Nevertheless, + frase 2.',
+        examples: [
+          { english: 'The hotel was small. Nevertheless, it was comfortable.', spanish: 'El hotel era pequeño. No obstante, era cómodo.' },
+          { english: 'The weather was bad. Nevertheless, the festival was a success.', spanish: 'El tiempo era malo. No obstante, el festival fue un éxito.' },
+        ],
+        note: 'Más formal que however; enfatiza que la segunda idea sorprende tras la primera.',
+      },
+      {
+        name: 'on the other hand + coma (por otro lado)',
+        formula: 'On the other hand, + frase 2.',
+        examples: [
+          { english: 'On the other hand, living in the city has advantages.', spanish: 'Por otro lado, vivir en la ciudad tiene ventajas.' },
+        ],
+        note: 'Contrasta dos puntos de vista o dos caras de una misma cuestión.',
+      },
+    ],
+    notes: [
+      'Van entre DOS frases separadas: no sustituyen a "although" dentro de una sola oración.',
+      'No se combinan con "but": However, ... (no "However but ...").',
+      'La coma tras el conector al inicio es obligatoria: However, ... / Nevertheless, ... / On the other hand, ...',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ It was raining. However we went out.', correct: '✅ It was raining. However, we went out.', explanation: 'Después de "however" al inicio de frase se escribe coma: However, ...' },
     { wrong: '❌ It\'s cheap. However but it\'s small.', correct: '✅ It\'s cheap. However, it\'s small.', explanation: '"However" y "but" no se usan juntos; expresan lo mismo y sobra uno.' },
@@ -186,6 +223,7 @@ Posición: "however" puede ir al principio, en medio o al final: It's nice, howe
       listening: {
         audioText:
           "Living abroad has been an amazing experience. I have made friends from all over the world and learned about different cultures. However, I miss my family very much. Nevertheless, I think it was the right decision because I have grown as a person. On the other hand, living so far away can be lonely sometimes. I would recommend it to anyone who wants to challenge themselves.",
+        audioUrl: '/audio/tts/b1-m11-l2-ex11.mp3',
         questions: [
           {
             id: 'b1-m11-l2-ex11-q1',

@@ -188,6 +188,7 @@ Clave para diferenciar:
       listening: {
         audioText:
           "By the time I retire, I will have been working here for 30 years. Will you still be working then? I was about to leave three years ago, but they offered me a better position. By next month, I will have been in this role for 5 years. Will you be staying with the company? I was on the point of moving to another country, but life had other plans.",
+        audioUrl: '/audio/tts/b2-m10-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m10-l4-ex9-q1',

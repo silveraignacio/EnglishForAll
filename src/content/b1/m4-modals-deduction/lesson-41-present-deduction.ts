@@ -43,6 +43,36 @@ Usos:
 - CAN'T + be → deducción negativa segura ("no puede ser").
 - Tras must/can't, el verbo va en infinitivo sin "to": must be, can't be.
 - El modal no cambia con la persona: he must, she must (nunca "he musts").`,
+  formation: {
+    title: 'Cómo se forma la deducción en presente — must be / can\'t be',
+    intro: 'Para deducir con seguridad sobre el presente usamos must be (seguro que sí) o can\'t be (seguro que no) + complemento.',
+    patterns: [
+      {
+        name: 'Deducción positiva',
+        formula: 'Sujeto + must + be + (complemento)',
+        examples: [
+          { english: 'He must be tired after the long trip.', spanish: 'Debe de estar cansado después del largo viaje.' },
+          { english: 'You must be hungry.', spanish: 'Debes de tener hambre.' },
+          { english: 'They must be rich — they live in a huge house.', spanish: 'Deben de ser ricos — viven en una casa enorme.' },
+        ],
+        note: 'must = deducción positiva segura: "debe de ser".',
+      },
+      {
+        name: 'Deducción negativa',
+        formula: 'Sujeto + can\'t + be + (complemento)',
+        examples: [
+          { english: 'She can\'t be at home — her car isn\'t there.', spanish: 'No puede estar en casa — su coche no está allí.' },
+          { english: 'It can\'t be Monday already!', spanish: '¡No puede ser ya lunes!' },
+        ],
+        note: 'can\'t = deducción negativa segura: "no puede ser". can\'t = cannot.',
+      },
+    ],
+    notes: [
+      'Después de un modal (must, can\'t) el verbo va en infinitivo SIN "to" y sin conjugar: must be, can\'t be (no "must to be" ni "can\'t is").',
+      'El modal no cambia con la persona: he must, she must (nunca "he musts").',
+      'En español: must be = debe de ser / tiene que; can\'t be = no puede ser / seguro que no.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ He must to be tired.', correct: '✅ He must be tired.', explanation: 'Después de "must" el verbo va sin "to": must be, no "must to be".' },
     { wrong: '❌ He can\'t is at home.', correct: '✅ He can\'t be at home.', explanation: 'Tras "can\'t" el verbo no se conjuga: can\'t be, no "can\'t is".' },
@@ -218,6 +248,7 @@ Usos:
       listening: {
         audioText:
           "Hi James! I haven\'t seen you in a long time. You look terrible — you must be exhausted! Have you been working too hard? I know you must be busy because you haven\'t called in weeks. But you look healthy, so you must be eating well. I\'m glad about that. Anyway, come in and sit down. You can\'t be fine if you look that tired.",
+        audioUrl: '/audio/tts/b1-m4-l1-ex12.mp3',
         questions: [
           {
             id: 'b1-m4-l1-ex12-q1',

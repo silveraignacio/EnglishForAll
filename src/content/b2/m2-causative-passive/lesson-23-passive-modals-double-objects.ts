@@ -86,6 +86,62 @@ Reglas:
 2. Double objects: ambas formas son correctas; la indirect object es más común.
 3. Impersonal infinitives: la forma "It is said that" es más formal; la forma "He is thought to be" es más compacta.
 4. Preguntas: "Should this be done?" / "Might she have been told?" / "Is he believed to be..."`,
+  formation: {
+    title: 'Cómo se forma la pasiva con modales, verbos de doble objeto e infinitivos impersonales',
+    intro: 'La pasiva con modales agrega be (o have been para pasado) después del modal + participio. Los verbos de doble objeto admiten dos sujetos pasivos, y los infinitivos impersonales reportan lo que se dice o se cree sin comprometerse.',
+    patterns: [
+      {
+        name: 'Pasiva con modal (presente/futuro)',
+        formula: 'modal (must/can/should/might) + be + participio pasado + complemento',
+        examples: [
+          { english: 'This problem must be solved today.', spanish: 'Este problema debe ser resuelto hoy.' },
+          { english: 'Mistakes can be prevented if you are careful.', spanish: 'Los errores pueden prevenirse si sos cuidadoso.' },
+        ],
+        note: 'Después del modal va be directamente, nunca "to be": must be, no must to be.',
+      },
+      {
+        name: 'Pasiva con modal perfect (pasado)',
+        formula: 'modal + have been + participio pasado + complemento',
+        examples: [
+          { english: 'The problem must have been solved by now.', spanish: 'El problema debe de haber sido resuelto ya.' },
+          { english: 'The money can\'t have been stolen, it\'s still here.', spanish: 'El dinero no puede haber sido robado, sigue aquí.' },
+        ],
+        note: 'Expresa deducción sobre el pasado en pasiva. El orden es fijo: modal + have been + participio.',
+      },
+      {
+        name: 'Doble objeto — sujeto pasivo = objeto indirecto',
+        formula: 'objeto indirecto + be + participio pasado + objeto directo',
+        examples: [
+          { english: 'She was given a prize for her work.', spanish: 'Se le otorgó un premio por su trabajo.' },
+          { english: 'He was sent a letter.', spanish: 'Le fue enviada una carta.' },
+        ],
+        note: 'Es la forma más común y natural para verbos como give, send, tell, teach, show.',
+      },
+      {
+        name: 'Doble objeto — sujeto pasivo = objeto directo',
+        formula: 'objeto directo + be + participio pasado + to + objeto indirecto',
+        examples: [
+          { english: 'A prize was given to her for her work.', spanish: 'Un premio fue otorgado a ella por su trabajo.' },
+          { english: 'A letter was sent to him.', spanish: 'Una carta fue enviada a él.' },
+        ],
+        note: 'También correcta, pero menos natural que la del objeto indirecto.',
+      },
+      {
+        name: 'Infinitivo pasivo impersonal',
+        formula: 'It + is/was + verbo (said/thought/believed) + that + cláusula · Sujeto + is/was + verbo + to be/to have been + complemento',
+        examples: [
+          { english: 'It is said that he left the country secretly.', spanish: 'Se dice que se fue del país en secreto.' },
+          { english: 'He is thought to be the best candidate.', spanish: 'Se cree que es el mejor candidato.' },
+        ],
+        note: 'Reporta lo que se cree o se dice. "To be" es obligatorio: is thought to be (no "is thought").',
+      },
+    ],
+    notes: [
+      'El participio pasado no cambia con modales: it must be done / they must be done.',
+      'Verbos de doble objeto típicos: give, send, tell, teach, show, ask, bring, award.',
+      'Usos frecuentes en registro formal y de noticias: It is alleged that..., She is believed to have been responsible.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The problem must to be solved.', correct: '✅ The problem must be solved.', explanation: 'Después de modal va "be" directamente, no "to be". Modal + be + participio.' },
     { wrong: '❌ The award was given a prize to her.', correct: '✅ She was given a prize. / A prize was given to her.', explanation: 'Con double objects, el indirecto (She) o el directo (A prize) puede ser sujeto pasivo, pero no ambos en la misma oración.' },
@@ -253,6 +309,7 @@ Reglas:
       listening: {
         audioText:
           'The Science Award is one of the most prestigious prizes in the country. This year, Dr. Sarah Johnson was awarded the medal for her groundbreaking research. It is believed that her work will revolutionize the field. The award must be officially presented next month at the ceremony. Several international researchers are said to have supported her nomination. She should be given full credit for her discoveries.',
+        audioUrl: '/audio/tts/b2-m2-l3-ex10.mp3',
         questions: [
           {
             id: 'b2-m2-l3-ex10-q1',

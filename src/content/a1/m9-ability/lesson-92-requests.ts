@@ -34,6 +34,35 @@ Añadir "please" al final hace la petición más educada.`,
 - Can I have a coffee, please?
 
 **Recuerda:** el verbo es obligatorio (Can I have...? — nunca "Can I a coffee?").`,
+  formation: {
+    title: 'Cómo se forman permiso y peticiones con "can"',
+    intro: 'Usamos "can" para pedir permiso (Can I...?) y para pedir a otra persona que haga algo (Can you...?). Es una forma educada y muy común.',
+    patterns: [
+      {
+        name: 'Pedir permiso',
+        formula: 'Can I + verbo en infinitivo (sin "to") + ...?',
+        examples: [
+          { english: 'Can I go to the bathroom?', spanish: '¿Puedo ir al baño?' },
+          { english: 'Can I open the window?', spanish: '¿Puedo abrir la ventana?' },
+          { english: 'Can I have a coffee, please?', spanish: '¿Puedo tomar un café, por favor?' },
+        ],
+        note: 'Para pedir cosas usamos el verbo "have": Can I have a coffee? (nunca "Can I a coffee?").',
+      },
+      {
+        name: 'Petición a otra persona',
+        formula: 'Can you + verbo en infinitivo (sin "to") + ...?',
+        examples: [
+          { english: 'Can you help me, please?', spanish: '¿Puedes ayudarme, por favor?' },
+          { english: 'Can you close the door?', spanish: '¿Puedes cerrar la puerta?' },
+        ],
+        note: '"Can you...?" pide a otra persona que haga algo por nosotros.',
+      },
+    ],
+    notes: [
+      'Después de "can" el verbo va sin "to": Can you help me? (no "Can you to help me?").',
+      'Añadir "please" (al final o al principio) hace la petición más educada: Can I have a coffee, please?',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Can you to help me?', correct: '✅ Can you help me?', explanation: 'Después de "can" usamos el verbo sin "to": Can you help me? = ¿Puedes ayudarme?' },
     { wrong: '❌ Can I a coffee?', correct: '✅ Can I have a coffee?', explanation: 'La estructura necesita el verbo "have": Can I have + cosa? No podemos omitir el verbo.' },

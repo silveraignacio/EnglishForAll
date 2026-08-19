@@ -159,6 +159,7 @@ Objetivo: alcanzar 80% para pasar (8 de 10 ejercicios correctos en el test princ
       listening: {
         audioText:
           "Our institution, whose mission is to provide excellent education, has made significant changes this year. The new facilities, which are state-of-the-art, have improved our capabilities dramatically. Our former principal, whose dedication was inspiring, led us through a transformation that no one expected, which changed everything. We now have programs designed for those interested in technology and science. The innovative solutions developed by our team are being recognized globally. Candidates eligible for leadership roles should contact the administration. The technologies adopted by us, which represent the future of education, are already showing impressive results.",
+        audioUrl: '/audio/tts/b2-m4-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m4-l4-ex9-q1',

@@ -58,6 +58,44 @@ Preguntas: Have/Has + subject + been + -ing?
 
 Negativo: haven\'t/hasn\'t been + -ing.
 - I haven\'t been sleeping well.`,
+  formation: {
+    title: 'Cómo se forma el Present Perfect Continuous',
+    intro: 'El present perfect continuous combina have/has + been + verbo en -ing para hablar de acciones que empezaron en el pasado y continúan o cuyo efecto reciente se ve ahora.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + have/has + been + verbo en -ing + complemento',
+        examples: [
+          { english: 'I have been studying all day.', spanish: 'He estado estudiando todo el día.' },
+          { english: 'She has been working here for 5 years.', spanish: 'Ella lleva 5 años trabajando aquí.' },
+          { english: 'It has been raining since morning.', spanish: 'Ha estado lloviendo desde la mañana.' },
+        ],
+        note: 'has con he/she/it; have con I/you/we/they.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + haven\'t/hasn\'t + been + verbo en -ing + complemento',
+        examples: [
+          { english: 'I haven\'t been sleeping well.', spanish: 'No he estado durmiendo bien.' },
+        ],
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Have/Has + sujeto + been + verbo en -ing + ...?',
+        examples: [
+          { english: 'Have you been working a lot?', spanish: '¿Has estado trabajando mucho?' },
+          { english: 'You look tired. Have you been working?', spanish: 'Pareces cansado. ¿Has estado trabajando?' },
+        ],
+        note: 'Have/Has va delante del sujeto.',
+      },
+    ],
+    notes: [
+      'Siempre "been" + verbo con -ing: been working, nunca "been work" ni "being working".',
+      'Contracciones: I\'ve been, She\'s been, They\'ve been.',
+      'for + periodo (for 5 years) / since + punto de inicio (since morning).',
+      'Reglas del -ing: work→working, study→studying, run→running (doble consonante), make→making (se pierde la e).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I have been work all day.', correct: '✅ I have been working all day.', explanation: 'Después de "been" el verbo lleva -ing: been working, nunca "been work".' },
     { wrong: '❌ I have being working.', correct: '✅ I have been working.', explanation: 'La estructura es "have + been + -ing". "Being" es incorrecto aquí: se dice "have been working".' },
@@ -213,6 +251,7 @@ Negativo: haven\'t/hasn\'t been + -ing.
       listening: {
         audioText:
           "Hi, I'm Sarah. I've been learning French for six months now. It's been quite challenging, but I really enjoy it. For the last two months, I've been reading French books to improve my vocabulary. I've also been practicing pronunciation with a tutor since three weeks ago, and I can already see some progress.",
+        audioUrl: '/audio/tts/b1-m3-l1-ex10.mp3',
         questions: [
           {
             id: 'b1-m3-l1-ex10-q1',

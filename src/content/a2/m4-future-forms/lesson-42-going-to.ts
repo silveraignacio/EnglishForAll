@@ -46,6 +46,37 @@ Usos:
 
 Cuidado: nunca omitas "to be":
 ✅ I am going to...  ❌ I going to...`,
+  formation: {
+    title: 'Cómo se forma "going to"',
+    intro: 'going to necesita SIEMPRE el verbo "to be" (am/is/are) delante: sujeto + to be + going to + verbo en forma base. Se usa para planes e intenciones y predicciones con evidencia.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + to be (am/is/are) + going to + verbo en forma base + complemento',
+        examples: [
+          { english: 'I am going to study medicine.', spanish: 'Voy a estudiar medicina.' },
+          { english: 'She is going to start a new job.', spanish: 'Ella va a empezar un trabajo nuevo.' },
+          { english: 'It is going to rain.', spanish: 'Va a llover.' },
+          { english: 'They are going to move next month.', spanish: 'Ellos se van a mudar el próximo mes.' },
+        ],
+        note: 'I → am. He/She/It → is. You/We/They → are. Nunca omitas el verbo "to be": I am going to (no "I going to").',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + to be (am/is/are) + not + going to + verbo en forma base + complemento',
+        examples: [
+          { english: "I'm not going to go out tonight.", spanish: 'No voy a salir esta noche.' },
+          { english: "She isn't going to come.", spanish: 'Ella no va a venir.' },
+        ],
+        note: 'not va después de am/is/are: I am not going to / I\'m not going to.',
+      },
+    ],
+    notes: [
+      'Contracciones: I\'m, He\'s, She\'s, We\'re, They\'re + going to.',
+      'En el habla rápida "going to" suena como "gonna", pero en escritura formal siempre se escribe "going to".',
+      'Con el verbo "go" usamos "going to go": I\'m going to go to the gym (voy a ir).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I going to study.', correct: '✅ I am going to study.', explanation: 'Siempre necesitamos "to be" antes de "going to": I am going to.' },
     { wrong: "❌ I'm go to the gym.", correct: "✅ I'm going to go to the gym.", explanation: 'Cuando el verbo es "go", usamos "going to go": voy a ir.' },

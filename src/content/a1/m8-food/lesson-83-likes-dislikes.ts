@@ -36,6 +36,37 @@ Fíjate en la 3ª persona: con he, she, it, el verbo lleva -s (like → likes, l
 **Regla clave:**
 - "like" es un verbo: NO se usa con "to be" (nunca "I am like").
 - Después de like / love / hate: sustantivo (like coffee) o verbo en -ing (like reading).`,
+  formation: {
+    title: 'Cómo se forman los gustos y preferencias',
+    intro: 'Para hablar de gustos usamos like, love y hate seguidos de un sustantivo o de un verbo en -ing. "Like" es un verbo: no se usa con "to be".',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + like / love / hate + sustantivo o verbo -ing',
+        examples: [
+          { english: 'I like coffee.', spanish: 'Me gusta el café.' },
+          { english: 'I love pizza.', spanish: 'Me encanta la pizza.' },
+          { english: 'He hates vegetables.', spanish: 'Él odia las verduras.' },
+          { english: 'She likes swimming.', spanish: 'A ella le gusta nadar.' },
+          { english: 'I like reading.', spanish: 'Me gusta leer.' },
+        ],
+        note: 'Con he/she/it el verbo lleva -s: like → likes, love → loves, hate → hates.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + don\'t / doesn\'t + like/love/hate + sustantivo o verbo -ing',
+        examples: [
+          { english: 'I don\'t like fish.', spanish: 'No me gusta el pescado.' },
+          { english: 'She doesn\'t like fish.', spanish: 'A ella no le gusta el pescado.' },
+        ],
+        note: 'I/You/We/They → don\'t · He/She/It → doesn\'t. Después de doesn\'t, el verbo no lleva -s: doesn\'t like (no "doesn\'t likes").',
+      },
+    ],
+    notes: [
+      '"Like" es un verbo, no un adjetivo: nunca "I am like coffee" → "I like coffee".',
+      'Después de like/love/hate puede ir un sustantivo (like coffee) o un verbo en -ing (like reading).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I am like coffee.', correct: '✅ I like coffee.', explanation: '"like" es un verbo en inglés, no un adjetivo. No usamos "to be" delante: decimos "I like coffee".' },
     { wrong: "❌ She don't like fish.", correct: "✅ She doesn't like fish.", explanation: 'Con "she" (3ª persona) usamos "doesn\'t", no "don\'t".' },

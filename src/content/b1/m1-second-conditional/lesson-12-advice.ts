@@ -51,6 +51,42 @@ Reglas:
 4. Orden invertido (sin coma): I'd tell her the truth if I were you.
 
 Contracción común: I would → I'd.`,
+  formation: {
+    title: 'Cómo se forma "If I were you" para dar consejos',
+    intro: 'Para dar consejo sobre una situación hipotética usamos la forma fija "If I were you" seguida de would/wouldn\'t + verbo en forma base.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'If I were you, + sujeto + would + verbo base + complemento',
+        examples: [
+          { english: 'If I were you, I would see a doctor.', spanish: 'Si yo fuera tú, vería a un médico.' },
+          { english: 'If I were you, I\'d tell her the truth.', spanish: 'Si yo fuera tú, le diría la verdad.' },
+        ],
+        note: 'I would se contrae a I\'d: If I were you, I\'d tell her the truth.',
+      },
+      {
+        name: 'Negativo (desaconsejar)',
+        formula: 'If I were you, + sujeto + wouldn\'t + verbo base + complemento',
+        examples: [
+          { english: 'If I were you, I wouldn\'t buy that car.', spanish: 'Si yo fuera tú, no compraría ese coche.' },
+          { english: 'If I were you, I wouldn\'t worry about it.', spanish: 'Si yo fuera tú, no me preocuparía por eso.' },
+        ],
+      },
+      {
+        name: 'Orden invertido (sin coma)',
+        formula: 'Sujeto + would/wouldn\'t + verbo base + complemento + if I were you',
+        examples: [
+          { english: 'I\'d ask for more money if I were you.', spanish: 'Yo pediría más dinero si fuera tú.' },
+        ],
+        note: 'El consejo puede ir primero y la condición después, sin coma.',
+      },
+    ],
+    notes: [
+      '"If I were you" es una forma fija: siempre "were", nunca "was" en inglés formal.',
+      'En el consejo nunca usamos "will": la hipótesis es irreal, por eso "would".',
+      'Después de "would" el verbo va en infinitivo SIN "to": I\'d tell, no I\'d to tell.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ If I was you, I would see a doctor.', correct: '✅ If I were you, I would see a doctor.', explanation: 'En la expresión fija "If I were you" siempre usamos "were", aunque en conversación informal se oiga "was".' },
     { wrong: '❌ If I were you, I will see a doctor.', correct: '✅ If I were you, I would see a doctor.', explanation: 'Con una condición hipotética (if + past), el resultado lleva "would", nunca "will".' },
@@ -195,6 +231,7 @@ Contracción común: I would → I'd.`,
       listening: {
         audioText:
           'Sarah, I heard you had an argument with your boyfriend. Listen, if I were you, I would talk to him honestly about how you feel. Do not wait, tell him now. If I were you, I wouldn\'t ignore the problem. And if the situation gets worse, I would suggest you take some time apart to think about it. You know, sometimes distance helps people understand each other better.',
+        audioUrl: '/audio/tts/b1-m1-l2-ex9.mp3',
         questions: [
           {
             id: 'b1-m1-l2-ex9-q1',

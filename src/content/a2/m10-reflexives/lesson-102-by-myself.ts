@@ -33,6 +33,36 @@ OJO: "by myself" es una sola expresión; no la separes. No digas "by my self" (e
 - El reflexivo también enfatiza "yo mismo / tú mismo": I did it myself.
 
 Recuerda: "by myself" se escribe en dos palabras juntas separadas por espacio, pero "my self" (separado como dos palabras independientes) es incorrecto. Y nunca digas "I live myself"; debe ser "I live by myself".`,
+  formation: {
+    title: 'Cómo se forma "by" + reflexivo',
+    intro: '"By" + pronombre reflexivo significa "solo/a" o "sin ayuda". El reflexivo solo (sin "by") sirve para enfatizar "yo mismo / tú mismo".',
+    patterns: [
+      {
+        name: 'by + reflexivo (solo/a, sin ayuda)',
+        formula: 'by myself / by yourself / by himself / by herself / by ourselves / by themselves',
+        examples: [
+          { english: 'I live by myself.', spanish: 'Vivo solo.' },
+          { english: 'She did it by herself.', spanish: 'Ella lo hizo sola.' },
+          { english: 'We cleaned the house by ourselves.', spanish: 'Limpiamos la casa solos.' },
+        ],
+        note: 'Cada persona tiene su forma: I→myself, you→yourself, he→himself, she→herself, we→ourselves, they→themselves.',
+      },
+      {
+        name: 'Reflexivo sin "by" (énfasis)',
+        formula: 'sujeto + verbo + reflexivo (yo mismo / tú mismo)',
+        examples: [
+          { english: 'You can make it yourself.', spanish: 'Puedes hacerlo tú mismo.' },
+          { english: 'I made this cake myself.', spanish: 'Hice este pastel yo mismo.' },
+        ],
+        note: 'El reflexivo sin "by" no significa "solo"; solo enfatiza quién hizo la acción.',
+      },
+    ],
+    notes: [
+      '"Myself" es una sola palabra: ❌ by my self → ✅ by myself.',
+      'No digas "I live myself": para "vivo solo" necesitas el "by": I live by myself.',
+      'El reflexivo nunca lleva -s: by herself, no "by herselfs".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I live myself.', correct: '✅ I live by myself.', explanation: 'Para decir "vivo solo" necesitas "by" antes del reflexivo: I live by myself.' },
     { wrong: '❌ I did my homework by my self.', correct: '✅ I did my homework by myself.', explanation: '"Myself" es una sola palabra. "My self" en dos palabras no existe.' },

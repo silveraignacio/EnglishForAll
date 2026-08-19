@@ -77,6 +77,44 @@ the + comparativo + sujeto + verbo, the + comparativo + sujeto + verbo
 2. En "the more...the more", ambas partes son comparativos, no superlativos.
 3. La elipsis del sustantivo solo funciona si el referente está claro.
 4. "The more...the more" es una relación causal/proporcional, no una simple comparación.`,
+  formation: {
+    title: 'Cómo se forman los superlativos avanzados',
+    intro: 'Tres usos avanzados: "by far" para enfatizar un superlativo, "one of the" con elipsis del sustantivo, y la estructura proporcional "the more...the more/less".',
+    patterns: [
+      {
+        name: 'By far + superlativo — énfasis extremo',
+        formula: 'by far + the + superlativo (+ sustantivo)',
+        examples: [
+          { english: 'This is by far the best restaurant in the city.', spanish: 'Este es con mucho el mejor restaurante de la ciudad.' },
+          { english: 'She\'s by far the most talented student in the class.', spanish: 'Es con mucho la estudiante más talentosa de la clase.' },
+        ],
+        note: '"By far" acompaña solo a superlativos, nunca a comparativos.',
+      },
+      {
+        name: 'One of the + superlativo — con elipsis del sustantivo',
+        formula: 'one of the + superlativo (+ sustantivo opcional)',
+        examples: [
+          { english: 'It\'s one of the oldest buildings in Europe.', spanish: 'Es uno de los edificios más antiguos de Europa.' },
+          { english: 'Which pizza was best? The vegetarian one was one of the best.', spanish: '¿Cuál pizza fue la mejor? La vegetariana fue una de las mejores.' },
+        ],
+        note: 'El sustantivo se omite cuando está claro por el contexto.',
+      },
+      {
+        name: 'The more...the more/less — relación proporcional',
+        formula: 'the + comparativo + sujeto + verbo, the + comparativo + sujeto + verbo',
+        examples: [
+          { english: 'The more you practice, the better you get.', spanish: 'Cuanto más practicas, mejor te vuelves.' },
+          { english: 'The older I get, the faster time seems to pass.', spanish: 'Cuanto mayor me hago, más rápido parece pasar el tiempo.' },
+        ],
+        note: 'Ambas partes son comparativos, nunca superlativos.',
+      },
+    ],
+    notes: [
+      'En "the more...the more", ambas cláusulas usan comparativo (-er o more), no superlativo (most).',
+      'La elipsis del sustantivo solo funciona si el referente está claro del contexto.',
+      'Puedes combinar estructuras: "by far one of the best".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ This is the best by far, but far more interesting than that.', correct: '✅ This is by far the best. / This is far more interesting than that.', explanation: '"By far" solo acompaña superlativos, no comparativos. "Far more interesting" es un comparativo modificado; no son intercambiables.' },
     { wrong: '❌ The more you practice, the most you improve.', correct: '✅ The more you practice, the more you improve.', explanation: 'Ambas partes de "the more...the more" llevan comparativos (-er, more), no superlativos (most).' },
@@ -219,6 +257,7 @@ the + comparativo + sujeto + verbo, the + comparativo + sujeto + verbo
       listening: {
         audioText:
           'A: Have you traveled much? B: Yes, quite a bit. By far the best experience was my trip to Japan. It was by far the most memorable adventure. A: What made it so special? B: The more I explored, the more I fell in love with the culture. The food was one of the best aspects — simple but incredible. A: Would you go back? B: Absolutely! The older I get, the more I appreciate travel.',
+        audioUrl: '/audio/tts/b2-m8-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m8-l2-ex9-q1',

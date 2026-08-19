@@ -72,6 +72,44 @@ is/are + [a lot / much / slightly / far / considerably] + comparativo
 - far (intensidad alta)
 - considerably (intensidad media, formal)
 - slightly, rather (intensidad baja)`,
+  formation: {
+    title: 'Cómo se gradúan los comparativos',
+    intro: 'Para modular la intensidad de un comparativo, agregamos modificadores (a lot, much, slightly, far, considerably). La colocación cambia según el contexto sea predicativo (después de be) o atributivo (antes del sustantivo).',
+    patterns: [
+      {
+        name: 'Predicativo — be + modificador + comparativo',
+        formula: 'Sujeto + be + [a lot / much / slightly / far / considerably] + comparativo',
+        examples: [
+          { english: 'This job is a lot more interesting than my previous one.', spanish: 'Este trabajo es mucho más interesante que el anterior.' },
+          { english: 'The weather is slightly better today.', spanish: 'El clima está un poco mejor hoy.' },
+        ],
+        note: 'El modificador va entre "be" y el comparativo.',
+      },
+      {
+        name: 'Atributivo — modificador + more/less + sustantivo',
+        formula: '[much / far / considerably / slightly] + more/less + sustantivo',
+        examples: [
+          { english: 'She has much more experience than he does.', spanish: 'Ella tiene mucha más experiencia que él.' },
+          { english: 'Far fewer people attended this year.', spanish: 'Muchas menos personas asistieron este año.' },
+        ],
+        note: 'En atributivos se usa "much", no "a lot" ("much more time", no "a lot more time" en formal).',
+      },
+      {
+        name: 'Con comparativo de un sílabo (-er)',
+        formula: 'Modificador + comparativo en -er',
+        examples: [
+          { english: 'The new building is far taller than the old one.', spanish: 'El nuevo edificio es mucho más alto que el antiguo.' },
+          { english: 'This coffee is much hotter than yesterday\'s.', spanish: 'Este café está mucho más caliente que el de ayer.' },
+        ],
+        note: 'Con -er, el modificador va directo antes del comparativo.',
+      },
+    ],
+    notes: [
+      '"Much" y "a lot" son casi intercambiables en predicativos, pero "a lot" es más informal.',
+      '"Far" expresa una diferencia muy grande; "slightly", una pequeña.',
+      'Estos modificadores gradúan comparativos, no adjetivos positivos ("very hot", pero "much hotter").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ This coffee is much hot.', correct: '✅ This coffee is much hotter.', explanation: 'Necesitas el comparativo (hotter), no el adjetivo positivo (hot).' },
     { wrong: '❌ She has much time more than he does.', correct: '✅ She has much more time than he does.', explanation: 'En atributivos (before noun), el orden es: much + more + sustantivo. No: much + sustantivo + more.' },
@@ -214,6 +252,7 @@ is/are + [a lot / much / slightly / far / considerably] + comparativo
       listening: {
         audioText:
           'A: How does your new job compare to your old one? B: Well, the salary is much higher, which is great. But the hours are considerably longer, so I\'m quite tired. The work itself is slightly more interesting, though the team is far friendlier than my previous colleagues. Overall, I think it\'s a bit better, but not by much.',
+        audioUrl: '/audio/tts/b2-m8-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m8-l1-ex9-q1',

@@ -53,6 +53,41 @@ Contracciones: I'll be, She'll be, We'll be.
 OJO:
 - Tras "will be" el verbo lleva SIEMPRE -ing: will be flying, nunca "will be fly".
 - Negativo: will not (won't) be + -ing: I won't be working.`,
+  formation: {
+    title: 'Cómo se forma el Future Continuous',
+    intro: 'El future continuous describe una acción que estará en progreso en un momento futuro. Se forma con will be + verbo en -ing.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + will + be + verbo en -ing + complemento',
+        examples: [
+          { english: 'This time tomorrow, I will be flying to Madrid.', spanish: 'Mañana a esta hora, estaré volando a Madrid.' },
+          { english: 'She will be working at 9.', spanish: 'Ella estará trabajando a las 9.' },
+          { english: 'We\'ll be having dinner around 8.', spanish: 'Estaremos cenando alrededor de las 8.' },
+        ],
+        note: 'Contracción: I\'ll be, She\'ll be, We\'ll be.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + won\'t + be + verbo en -ing + complemento',
+        examples: [
+          { english: 'I won\'t be working tomorrow.', spanish: 'Mañana no estaré trabajando.' },
+        ],
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Will + sujeto + be + verbo en -ing + ...?',
+        examples: [
+          { english: 'Will you be driving at 10?', spanish: '¿Estarás conduciendo a las 10?' },
+        ],
+      },
+    ],
+    notes: [
+      'Después de "will be" el verbo SIEMPRE lleva -ing: will be flying (no "will be fly").',
+      'Expresiones típicas: this time tomorrow, at 9, around 8, at this time next week.',
+      'Negativo: will not (won\'t) be + -ing.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I will be fly to Madrid tomorrow.', correct: '✅ I will be flying to Madrid tomorrow.', explanation: 'Después de "will be" el verbo lleva -ing: flying, no "fly".' },
     { wrong: '❌ She will be work at 9.', correct: '✅ She will be working at 9.', explanation: 'Tras "will be" el verbo lleva -ing: working, no "work".' },
@@ -226,6 +261,7 @@ OJO:
       listening: {
         audioText:
           "Hi! Let me tell you about my schedule tomorrow. I\'ll be flying to Paris in the morning — the flight leaves at 8 a.m. Then, at 2 o\'clock in the afternoon, I\'ll be attending important meetings with clients. Around 7 p.m., after the meetings, I\'ll be having dinner with some friends at a French restaurant. It will be a busy but exciting day!",
+        audioUrl: '/audio/tts/b1-m5-l1-ex12.mp3',
         questions: [
           {
             id: 'b1-m5-l1-ex12-q1',

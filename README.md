@@ -33,6 +33,57 @@ La app funciona 100% sin backend (progreso en `localStorage`). Para crear cuenta
 | `npm run test:content` | Valida todo el contenido del curso |
 | `npm run lint` | ESLint |
 
+## 🚀 Despliegue en producción
+
+> **Producción = servidor `94.143.142.136`, usuario `isilvera` (tiene `sudo`).** NO se despliega a GitHub Pages (el workflow `.github/workflows/deploy.yml` solo existe como respaldo; no es el destino real).
+
+La app desplegada es `englishforall.silversolutions.dpdns.org`, servida así:
+
+| Componente | Ubicación en el servidor | Detalle |
+|---|---|---|
+| Frontend estático (build) | `/var/www/englishforall/` | Servido por **nginx** (`try_files $uri /index.html`) |
+| API + admin PocketBase | Proxy nginx → `http://127.0.0.1:8092` | `/api/` y `/_/` |
+| Servicio PocketBase | `englishforall-pocketbase.service` (systemd) | `WorkingDirectory=/opt/englishforall/pocketbase`, hooks en `pb_hooks/` |
+
+### Desplegar (frontend)
+
+> **Flujo oficial (rsync local → servidor).** El `.git` no se mantiene en el servidor; el deploy se hace desde tu máquina local.
+
+```bash
+# 1) Validar y buildear (siempre desde la raíz del repo local)
+npm run typecheck && npm run test:content && npm run build
+
+# 2) Generar el PDF descargable del cheat sheet (se guarda en dist/cheatsheet/)
+npm run cheatsheet:pdf
+
+# 3) Backup del estado actual en el servidor
+ssh isilvera@94.143.142.136 "sudo cp -r /var/www/englishforall /var/www/englishforall.bak-\$(date +%Y%m%d-%H%M%S)"
+
+# 4) Subir el build (reemplaza por completo; borra assets/audio obsoletos)
+rsync -avz --delete -e ssh ./dist/ isilvera@94.143.142.136:/var/www/englishforall/
+```
+
+Verificación: `curl -s -o /dev/null -w "%{http_code}" http://94.143.142.136/ -H "Host: englishforall.silversolutions.dpdns.org"` → `200`.
+
+> **Nota (flujo histórico):** en versiones anteriores se hacía `git push` desde local y luego `git pull` + `npm ci && npm run build` **dentro del servidor**. Hoy el servidor no conserva `.git` en `/opt/englishforall`, así que ese flujo quedó reemplazado por el rsync de arriba.
+
+### Actualizar hooks de PocketBase (si cambian `pb/pb_hooks/*.pb.js`)
+
+Los hooks del servidor viven en `/opt/englishforall/pocketbase/pb_hooks/` (NO en `pb/` del repo local; ese es solo la fuente de desarrollo).
+
+```bash
+# Copiar el hook y reiniciar el servicio
+scp pb/pb_hooks/evaluate_writing.pb.js isilvera@94.143.142.136:/tmp/
+ssh isilvera@94.143.142.136 "sudo cp /tmp/evaluate_writing.pb.js /opt/englishforall/pocketbase/pb_hooks/evaluate_writing.pb.js && sudo systemctl restart englishforall-pocketbase.service && sudo systemctl status englishforall-pocketbase.service --no-pager"
+```
+
+### Reglas
+
+1. **Siempre** backup antes de sobrescribir el frontend.
+2. **Siempre** validar con `typecheck` + `test:content` + `build` antes de subir.
+3. El hook de evaluación de writing usa la API de DeepSeek con la key del `.env` del servidor (`/opt/englishforall/pocketbase/.env`); **nunca** commitear keys ni subirlas con `rsync`.
+4. Si algo falla tras el deploy: restaurar el backup (`/var/www/englishforall.bak-*`) y reiniciar nginx si hace falta (`sudo systemctl reload nginx`).
+
 ## 📚 Estructura del curso
 
 ```

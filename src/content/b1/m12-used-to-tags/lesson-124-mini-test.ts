@@ -231,6 +231,7 @@ Errores típicos:
       listening: {
         audioText:
           "Hello, this is My Story podcast. Today I\'m talking to Lisa about her journey. So Lisa, you grew up in the countryside, didn\'t you? Yes, when I was young, I used to wake up very early and I would help my parents on the farm. My siblings and I would run around the fields all day. We didn\'t use to have much money, but we were happy. Now you live in the city, don\'t you? That\'s right. I moved here five years ago. I work in a big office, and I haven\'t looked back since. You miss the countryside sometimes, don\'t you? Of course I do! But life moves on, doesn\'t it?",
+        audioUrl: '/audio/tts/b1-m12-l4-ex11.mp3',
         questions: [
           {
             id: 'b1-m12-l4-ex11-q1',

@@ -146,6 +146,43 @@ REGLAS CRÍTICAS:
 2. El backshift se aplica tanto a tiempos verbales como a expresiones de tiempo/lugar.
 3. En reportes en pasado (told, asked), el backshift es obligatorio.
 4. En reportes en presente (tells, asks), el backshift es opcional si la situación sigue siendo relevante.`,
+  formation: {
+    title: 'Cómo se forman las órdenes negativas reportadas con backshift',
+    intro: 'Para reportar una orden o petición negativa usamos tell/ask/warn + objeto + not to + infinitivo. Si el reporte es en pasado, además aplicamos backshift: los tiempos verbales retroceden y las expresiones de tiempo y lugar cambian (tomorrow → the next day, here → there).',
+    patterns: [
+      {
+        name: 'Orden negativa reportada',
+        formula: 'tell / ask / warn + objeto + not to + infinitivo',
+        examples: [
+          { english: 'He told me not to worry.', spanish: 'Me dijo que no me preocupara.' },
+          { english: 'She asked them not to be late.', spanish: 'Les pidió que no llegaran tarde.' },
+        ],
+        note: 'El objeto va SIEMPRE entre el verbo de reporte y "not to".',
+      },
+      {
+        name: 'Backshift — tiempos verbales',
+        formula: 'Present Simple → Past Simple · will → would · can → could · may → might · Past Simple/Present Perfect → Past Perfect',
+        examples: [
+          { english: '"I can do it today" → He said he could do it that day.', spanish: '"Puedo hacerlo hoy" → Dijo que podía hacerlo ese día.' },
+          { english: '"I have finished" → She said she had finished.', spanish: '"He terminado" → Dijo que había terminado.' },
+        ],
+      },
+      {
+        name: 'Backshift — tiempo y lugar',
+        formula: 'today → that day · tomorrow → the next day · yesterday → the day before · here → there · this week → that week',
+        examples: [
+          { english: '"Don\'t come here tomorrow!" → She told him not to come there the next day.', spanish: '"¡No vengas aquí mañana!" → Le dijo que no fuera allí al día siguiente.' },
+          { english: '"Don\'t worry about this today." → She asked him not to worry about it that day.', spanish: '"No te preocupes por esto hoy." → Le pidió que no se preocupara por eso ese día.' },
+        ],
+        note: 'El backshift de tiempo/lugar se aplica a TODA la cláusula reportada, no solo al verbo.',
+      },
+    ],
+    notes: [
+      'Si el verbo de reporte está en pasado (told, asked), el backshift de tiempo y lugar es obligatorio; en presente (tells, asks) es opcional si la situación sigue vigente.',
+      'El sujeto de la orden original se reporta como objeto: me, you, him, her, us, them.',
+      '"Tell" es más directo; "ask" es más cortés. Ambos siguen el mismo patrón.',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ He told not to worry me.',
@@ -374,6 +411,7 @@ REGLAS CRÍTICAS:
       listening: {
         audioText:
           "During the meeting, the manager said: \"Don't send emails after 6 PM today. Don't bring personal devices to the conference tomorrow. Don't discuss this project with anyone outside the team. And please, don't leave until we finish reviewing the quarterly report.\" Later, Anna reported to her friend what the manager said.",
+        audioUrl: '/audio/tts/b2-m3-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m3-l2-ex9-q1',

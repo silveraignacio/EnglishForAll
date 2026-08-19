@@ -73,6 +73,45 @@ Reglas de inversión:
 2. El auxiliar debe ser conjugado según el tiempo: have (present perfect), had (past perfect), did (pasado simple), would (condicional).
 3. "Never", "no sooner", "hardly", "scarcely" siempre disparan inversión si están al INICIO.
 4. Es registro FORMAL, no cotidiano.`,
+  formation: {
+    title: 'Cómo se forma la inversión negativa',
+    intro: 'Cuando una expresión negativa fuerte (never, no sooner, hardly, scarcely) abre la oración, el auxiliar se adelanta al sujeto: auxiliar + sujeto + verbo. Es un recurso formal y dramático, propio de la narrativa y el registro escrito.',
+    patterns: [
+      {
+        name: 'Never (before) + auxiliar + sujeto',
+        formula: 'Never (before) + auxiliar (have/had/did/would) + sujeto + verbo principal + complemento',
+        examples: [
+          { english: 'Never have I seen such a mess.', spanish: 'Nunca he visto un desorden así.' },
+          { english: 'Never before have I felt so nervous.', spanish: 'Nunca antes me había sentido tan nervioso.' },
+          { english: 'Never would I have imagined such an ending.', spanish: 'Nunca hubiera imaginado tal desenlace.' },
+        ],
+        note: 'El auxiliar se elige según el tiempo: have (present perfect), had (past perfect), did (past simple), would (condicional).',
+      },
+      {
+        name: 'No sooner + auxiliar + sujeto + than',
+        formula: 'No sooner + auxiliar (had/did) + sujeto + verbo + than + cláusula',
+        examples: [
+          { english: 'No sooner had she arrived than it started to rain.', spanish: 'Apenas había llegado que empezó a llover.' },
+          { english: 'No sooner had we finished our meal than the waiter brought the bill.', spanish: 'Apenas habíamos terminado de comer que el mozo trajo la cuenta.' },
+        ],
+        note: 'El conector es SIEMPRE than (no "when" ni "and"). La segunda parte de la oración va en orden normal.',
+      },
+      {
+        name: 'Hardly / Scarcely + auxiliar + sujeto + when/before',
+        formula: 'Hardly / Scarcely + auxiliar (had/did) + sujeto + verbo + when/before + cláusula',
+        examples: [
+          { english: 'Hardly had we arrived when the power went out.', spanish: 'Apenas habíamos llegado cuando se fue la luz.' },
+          { english: 'Hardly had the concert started when the fire alarm went off.', spanish: 'Apenas había empezado el concierto que sonó la alarma de incendio.' },
+        ],
+        note: 'Variante con hardly/scarcely: expresa que dos acciones pasaron casi al mismo tiempo.',
+      },
+    ],
+    notes: [
+      'Sin inversión en medio de la oración: I have never seen this (orden normal) vs. Never have I seen this (formal y dramático).',
+      'La inversión solo se dispara cuando la palabra negativa está al INICIO de la oración.',
+      'Es registro formal: no se usa en habla cotidiana informal.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Never I have seen such a thing.', correct: '✅ Never have I seen such a thing.', explanation: 'Con inversión negativa, el auxiliar (have) va ANTES que el sujeto (I), no después.' },
     { wrong: '❌ No sooner had she arrived, it started raining.', correct: '✅ No sooner had she arrived than it started to rain.', explanation: '"No sooner...than" es el patrón correcto, no "no sooner...and" ni coma. Debe llevar "than".' },
@@ -208,6 +247,7 @@ Reglas de inversión:
       listening: {
         audioText:
           'Last summer, I went on a hiking trip with my friends. Never before had I seen such beautiful mountains. We started early in the morning, and no sooner had we reached the summit than a terrible storm appeared. Hardly had we made it back to camp when we realized we had lost all our food supplies. Never will I forget that adventure.',
+        audioUrl: '/audio/tts/b2-m7-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m7-l1-ex9-q1',

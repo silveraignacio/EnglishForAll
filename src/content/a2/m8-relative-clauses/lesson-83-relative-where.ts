@@ -41,6 +41,27 @@ Para lugares usamos "where", no "which":
 - Estructura: lugar + where + sujeto + verbo.
 - NO añadir preposición extra: ❌ where I was born in → ✅ where I was born.
 - Para lugares usamos where, no which/who.`,
+  formation: {
+    title: 'Cómo se forman las relativas de lugar con where',
+    intro: 'Para definir lugares usamos la palabra relativa "where" (= donde). "Where" ya incluye la preposición de lugar, así que no añadimos "in" ni "at" al final.',
+    patterns: [
+      {
+        name: 'Lugar (where)',
+        formula: 'lugar + where + sujeto + verbo',
+        examples: [
+          { english: 'This is the city where I was born.', spanish: 'Esta es la ciudad donde nací.' },
+          { english: 'The restaurant where we ate is famous.', spanish: 'El restaurante donde comimos es famoso.' },
+          { english: 'That\'s the park where I play football.', spanish: 'Ese es el parque donde juego al fútbol.' },
+        ],
+        note: 'where + sujeto + verbo: the city where I was born, the park where I play.',
+      },
+    ],
+    notes: [
+      'No añadas una preposición extra: ❌ where I was born in → ✅ where I was born.',
+      'Para lugares usamos "where", no "which": ❌ the restaurant which we ate (queriendo decir "donde").',
+      'Otra forma más formal es "in which", pero "where" es la forma natural y más común.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ This is the city where I was born in.', correct: '✅ This is the city where I was born.', explanation: '"Where" ya significa "en donde". No añadimos "in" al final.' },
     { wrong: "❌ That's the park where I play football in.", correct: "✅ That's the park where I play football.", explanation: 'No añadimos "in" después del verbo. "Where" ya lo incluye.' },

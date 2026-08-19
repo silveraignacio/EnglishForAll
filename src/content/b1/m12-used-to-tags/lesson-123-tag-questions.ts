@@ -46,6 +46,36 @@ La tag usa el MISMO auxiliar o modal y el pronombre correcto:
 - present simple: don't/doesn't + sujeto.
 - present perfect: haven't/hasn't + sujeto.
 - can: can't/can + sujeto.`,
+  formation: {
+    title: 'Cómo se forman las tag questions',
+    intro: 'Las tag questions son preguntas cortas al final de la frase para confirmar información ("¿verdad?", "¿no es cierto?"). La regla de oro: la oración y la tag llevan SIEMPRE signos contrarios.',
+    patterns: [
+      {
+        name: 'Oración afirmativa + tag negativa',
+        formula: 'Oración afirmativa, + auxiliar/modal en negativo + pronombre?',
+        examples: [
+          { english: 'You are Spanish, aren\'t you?', spanish: 'Tú eres español, ¿verdad?' },
+          { english: 'She lives in Madrid, doesn\'t she?', spanish: 'Ella vive en Madrid, ¿no es cierto?' },
+          { english: 'They have finished, haven\'t they?', spanish: 'Han terminado, ¿verdad?' },
+          { english: 'You can swim, can\'t you?', spanish: 'Sabes nadar, ¿no?' },
+        ],
+        note: 'La tag repite el MISMO auxiliar o modal de la oración.',
+      },
+      {
+        name: 'Oración negativa + tag afirmativa',
+        formula: 'Oración negativa, + auxiliar/modal en afirmativo + pronombre?',
+        examples: [
+          { english: 'It isn\'t cold, is it?', spanish: 'No hace frío, ¿verdad?' },
+          { english: 'You don\'t like it, do you?', spanish: 'No te gusta, ¿verdad?' },
+        ],
+      },
+    ],
+    notes: [
+      'La tag usa el auxiliar de la oración: to be (aren\'t you?, isn\'t it?), present simple (don\'t/doesn\'t), present perfect (haven\'t/hasn\'t), modales (can\'t you?).',
+      'La tag repite el pronombre del sujeto: She lives... → doesn\'t SHE?; He lives... → doesn\'t HE?',
+      'Se responde como a cualquier pregunta sí/no: Yes, I am. / No, he doesn\'t. / Yes, I can.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ You don\'t like it, don\'t you?', correct: '✅ You don\'t like it, do you?', explanation: 'Regla de oro: si la oración es negativa, la tag es AFIRMATIVA. → do you?' },
     { wrong: '❌ She lives in Madrid, doesn\'t he?', correct: '✅ She lives in Madrid, doesn\'t she?', explanation: 'La tag repite el pronombre correcto del sujeto: she → doesn\'t she?' },
@@ -198,6 +228,7 @@ La tag usa el MISMO auxiliar o modal y el pronombre correcto:
       listening: {
         audioText:
           "Emma: You work in finance, don't you? Tom: Yes, I do. I've been there for five years. Emma: And you went to university in London, didn't you? Tom: That's right! Actually, you studied medicine, haven't you? Emma: Yes, I graduated last year. I haven't started working yet, have I? Tom: No, you haven't. But you'll find a job soon, won't you? Emma: I hope so! We're both excited about the future, aren't we?",
+        audioUrl: '/audio/tts/b1-m12-l3-ex11.mp3',
         questions: [
           {
             id: 'b1-m12-l3-ex11-q1',

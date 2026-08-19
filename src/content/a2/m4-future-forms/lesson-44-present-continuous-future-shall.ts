@@ -42,6 +42,37 @@ Sugerencias y ofertas → shall + I / we
 - Shall we go to the cinema? (sugiero ir nosotros)
 
 "Shall" solo con I/we. Nunca "Shall you...?"`,
+  formation: {
+    title: 'Cómo se forma el presente para planes (present continuous) y shall',
+    intro: 'Los planes ya fijados (agenda, citas, vuelos) se expresan con el present continuous: sujeto + am/is/are + verbo -ing. Para sugerir u ofrecer usamos shall solo con I/we.',
+    patterns: [
+      {
+        name: 'Plan fijado (present continuous)',
+        formula: 'Sujeto + am/is/are + verbo + -ing + (marcador de tiempo)',
+        examples: [
+          { english: "I'm meeting my friends tomorrow at 7.", spanish: 'Quedo con mis amigos mañana a las 7.' },
+          { english: "We're flying to London on Friday.", spanish: 'Volamos a Londres el viernes.' },
+          { english: "She's having dinner with her parents tonight.", spanish: 'Ella cena con sus padres esta noche.' },
+          { english: 'They are arriving at 6 p.m.', spanish: 'Ellos llegan a las 6 de la tarde.' },
+        ],
+        note: 'Se usa con marcadores de tiempo: tomorrow, on Friday, at 7, next week, this weekend. I → am, he/she/it → is, you/we/they → are.',
+      },
+      {
+        name: 'Sugerencia / oferta con shall',
+        formula: 'Shall + I / we + verbo en forma base + ...?',
+        examples: [
+          { english: 'Shall I open the window?', spanish: '¿Abro la ventana?' },
+          { english: 'Shall we go to the cinema?', spanish: '¿Vamos al cine?' },
+          { english: 'Shall we have a coffee?', spanish: '¿Vamos a tomar un café?' },
+        ],
+        note: 'Shall I...? ofrece hacer algo; Shall we...? sugiere hacer algo juntos. Solo con I y we, nunca "Shall you...?".',
+      },
+    ],
+    notes: [
+      'El verbo de la agenda siempre lleva -ing: I am meeting (no "I am meet").',
+      'Shall es parecido a should en la escritura, pero el significado es diferente: shall = sugerencia/oferta, should = consejo.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I am meet my friends tomorrow.', correct: '✅ I am meeting my friends tomorrow.', explanation: 'Para un plan fijado usamos to be + verbo + -ing: I am meeting.' },
     { wrong: '❌ Shall you help me?', correct: '✅ Can you help me? / Will you help me?', explanation: '"Shall" solo se usa con I/we. Para preguntar a otra persona usamos can/will.' },

@@ -47,6 +47,42 @@ Preguntas sí/no: To be + sujeto + going to + verbo?
 
 WH-question: Palabra interrogativa + to be + sujeto + going to + verbo?
 - What are you going to do?`,
+  formation: {
+    title: 'Cómo se forma "Going to" — Negativo y preguntas',
+    intro: 'Para negar planes ponemos "not" después de "to be". Para preguntar, invertimos el orden: to be + sujeto + going to + verbo.',
+    patterns: [
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + am/is/are + not + going to + verbo en infinitivo + complemento',
+        examples: [
+          { english: 'I\'m not going to go out tonight.', spanish: 'No voy a salir esta noche.' },
+          { english: 'She isn\'t going to work tomorrow.', spanish: 'Ella no va a trabajar mañana.' },
+        ],
+        note: 'Contracciones: is not = isn\'t · are not = aren\'t. Con "I" usamos "I\'m not".',
+      },
+      {
+        name: 'Pregunta sí/no',
+        formula: 'Am / Is / Are + sujeto + going to + verbo en infinitivo + ...?',
+        examples: [
+          { english: 'Are you going to study English?', spanish: '¿Vas a estudiar inglés?' },
+          { english: 'Is he going to travel?', spanish: '¿Él va a viajar?' },
+        ],
+        note: 'Respuestas cortas: Yes, I am. / No, I\'m not. · Yes, she is. / No, she isn\'t.',
+      },
+      {
+        name: 'Pregunta WH-',
+        formula: 'Palabra interrogativa (What/Where...) + am/is/are + sujeto + going to + verbo en infinitivo + ...?',
+        examples: [
+          { english: 'What are you going to do tomorrow?', spanish: '¿Qué vas a hacer mañana?' },
+        ],
+        note: 'En las WH-questions, "to be" va antes del sujeto: What are you going to do? (no "What you are going to do?").',
+      },
+    ],
+    notes: [
+      'Después de "going to" el verbo siempre va en infinitivo: going to study, going to travel (sin "to" extra).',
+      'Nunca omitimos el "to be": "I not going to go out" es incorrecto → "I am not going to go out".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I not going to go out.', correct: '✅ I\'m not going to go out.', explanation: 'Necesitamos "to be" + "not": I am not going to... (También: I\'m not going to...).' },
     { wrong: '❌ Is you going to study?', correct: '✅ Are you going to study?', explanation: 'Con "you" usamos "are": Are you going to study?' },

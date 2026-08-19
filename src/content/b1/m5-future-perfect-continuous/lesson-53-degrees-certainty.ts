@@ -59,6 +59,43 @@ Reglas:
 - "probably" y "definitely" van DESPUÉS de "will": ✅ will probably, ❌ probably will.
 - "likely" siempre con "to": be likely to + verbo.
 - "may" y "might" van seguidos del verbo en infinitivo.`,
+  formation: {
+    title: 'Cómo se expresan los grados de certeza sobre el futuro',
+    intro: 'Para decir cuán probable es algo en el futuro usamos will + definitely/probably, be likely to o may/might, ordenados de más a menos seguro.',
+    patterns: [
+      {
+        name: 'Casi seguro: will + definitely',
+        formula: 'Sujeto + will + definitely + verbo base + complemento',
+        examples: [
+          { english: 'It will definitely rain.', spanish: 'Seguro que lloverá.' },
+        ],
+        note: 'Expresa casi certeza (~100%).',
+      },
+      {
+        name: 'Probable: will + probably / be likely to',
+        formula: 'Sujeto + will + probably + verbo base + complemento | Sujeto + be + likely + to + verbo base + complemento',
+        examples: [
+          { english: 'She will probably come.', spanish: 'Probablemente vendrá.' },
+          { english: 'They are likely to win.', spanish: 'Es probable que ganen.' },
+        ],
+        note: '"Probably" y "definitely" van DESPUÉS de "will": will probably, no "probably will".',
+      },
+      {
+        name: 'Posible o poco probable: may / might',
+        formula: 'Sujeto + may/might + verbo base + complemento',
+        examples: [
+          { english: 'He may arrive late.', spanish: 'Puede que llegue tarde.' },
+          { english: 'He might arrive late.', spanish: 'Quizá llegue tarde.' },
+        ],
+        note: 'may = probabilidad media (~50%); might = baja probabilidad.',
+      },
+    ],
+    notes: [
+      'Orden de certeza, de más a menos: will definitely > will probably / be likely to > may > might.',
+      '"Likely" siempre con "to" antes del verbo: likely to win, no "likely win".',
+      'Tras will, may y might el verbo va en forma base SIN "to": may arrive, no "may to arrive".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ It probably will rain tomorrow.', correct: '✅ It will probably rain tomorrow.', explanation: '"Probably" va DESPUÉS de "will": will probably rain.' },
     { wrong: '❌ They are likely win the match.', correct: '✅ They are likely to win the match.', explanation: '"Likely" necesita "to" antes del verbo: likely to win.' },
@@ -249,6 +286,7 @@ Reglas:
       listening: {
         audioText:
           "Let me tell you about my future plans with different levels of certainty. I will definitely go to university — my family expects it and it\'s my dream. I will probably travel abroad after graduation, maybe to Asia or Europe. That\'s likely because I love traveling. I may work for a large international company — that would be exciting. But I might get married soon too — who knows! Life is full of surprises.",
+        audioUrl: '/audio/tts/b1-m5-l3-ex13.mp3',
         questions: [
           {
             id: 'b1-m5-l3-ex13-q1',

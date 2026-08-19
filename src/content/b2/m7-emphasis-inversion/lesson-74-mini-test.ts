@@ -187,6 +187,7 @@ Todo funciona en registro FORMAL y escrito. En habla cotidiana se usan formas m√
       listening: {
         audioText:
           'Good evening, colleagues. I must address the recent challenges our organization faces. The problem is that we have not reached consensus on the budget allocation. Never before have we faced such a critical decision. Not only must we cut costs, but we must also maintain quality. Neither the board nor the management team can proceed without proper consultation. The fact is that we will not move forward until every voice has been heard. The point is that both innovation and fiscal responsibility matter equally.',
+        audioUrl: '/audio/tts/b2-m7-l4-ex9.mp3',
         questions: [
           {
             id: 'b2-m7-l4-ex9-q1',

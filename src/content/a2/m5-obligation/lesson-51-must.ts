@@ -44,6 +44,42 @@ Pregunta: Must + sujeto + verbo?
 - Must I pay now? = ¿Debo pagar ahora?
 
 must = obligación | mustn't = prohibición`,
+  formation: {
+    title: 'Cómo se forma must / mustn\'t',
+    intro: 'must expresa obligación fuerte y mustn\'t (must not) expresa prohibición. Ambos van seguidos del verbo en forma base, sin "to".',
+    patterns: [
+      {
+        name: 'Afirmativo (obligación)',
+        formula: 'Sujeto + must + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: 'You must wear a seatbelt.', spanish: 'Tienes que llevar el cinturón de seguridad.' },
+          { english: 'I must study for the exam.', spanish: 'Tengo que estudiar para el examen.' },
+          { english: 'She must finish the report today.', spanish: 'Ella tiene que terminar el informe hoy.' },
+        ],
+        note: 'must no cambia con la persona (I must, she must) y nunca lleva "to": must study (no "must to study").',
+      },
+      {
+        name: 'Negativo (prohibición)',
+        formula: 'Sujeto + mustn\'t + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: "You mustn't smoke here.", spanish: 'Está prohibido fumar aquí.' },
+          { english: "You mustn't tell anyone.", spanish: 'No debes contárselo a nadie.' },
+        ],
+        note: `mustn't = must not y significa PROHIBICIÓN, no "ausencia de obligación". Nunca "don't must".`,
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Must + sujeto + verbo en forma base + ...?',
+        examples: [
+          { english: 'Must I pay now?', spanish: '¿Debo pagar ahora?' },
+        ],
+      },
+    ],
+    notes: [
+      'must = obligación (hay que hacerlo) · mustn\'t = prohibición (está prohibido hacerlo).',
+      'No confundir con don\'t have to (no es obligatorio): eso lo verás en la próxima lección.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ You must to wear a seatbelt.', correct: '✅ You must wear a seatbelt.', explanation: 'Después de "must" el verbo va sin "to": must wear.' },
     { wrong: "❌ You don't must smoke here.", correct: "✅ You mustn't smoke here.", explanation: 'La negativa de "must" es "mustn\'t", no "don\'t must".' },

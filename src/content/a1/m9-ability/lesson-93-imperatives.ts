@@ -35,6 +35,37 @@ En el aula (classroom language), el profesor usa imperativos todo el tiempo: Lis
 - **Educado:** añade "please" → Open the door, please. / Please sit down.
 
 **Importante:** usamos "don't", NUNCA "no": Don't open the door. (NO: No open the door.)`,
+  formation: {
+    title: 'Cómo se forman los imperativos',
+    intro: 'El imperativo se usa para dar órdenes e instrucciones. En afirmativo usamos el verbo sin sujeto; en negativo, "don\'t" + verbo.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Verbo en infinitivo (sin "to" y sin sujeto) + complemento',
+        examples: [
+          { english: 'Open the door.', spanish: 'Abre la puerta.' },
+          { english: 'Sit down.', spanish: 'Siéntate.' },
+          { english: 'Listen to me.', spanish: 'Escúchame.' },
+        ],
+        note: 'No usamos el sujeto "you". Para ser más educado, añadimos "please": Open the door, please.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Don\'t + verbo en infinitivo (sin "to" y sin sujeto) + complemento',
+        examples: [
+          { english: 'Don\'t open the door.', spanish: 'No abras la puerta.' },
+          { english: 'Don\'t worry.', spanish: 'No te preocupes.' },
+          { english: 'Don\'t touch!', spanish: '¡No toques!' },
+          { english: 'Don\'t be late for class.', spanish: 'No llegues tarde a clase.' },
+        ],
+        note: 'La negativa se forma siempre con "don\'t", nunca con "no". Con el verbo "be": Don\'t be late.',
+      },
+    ],
+    notes: [
+      'El imperativo se usa mucho en clase: Listen, Repeat, Read, Write, Look, Answer, Ask.',
+      '"Please" puede ir al final (Open the door, please) o al principio (Please sit down).',
+    ],
+  },
   commonMistakes: [
     { wrong: "❌ You don't open the door. (como orden)", correct: '✅ Don\'t open the door.', explanation: 'En los imperativos omitimos el sujeto "you". Basta con "Don\'t + verbo".' },
     { wrong: '❌ No open the door.', correct: '✅ Don\'t open the door.', explanation: 'En inglés la negativa del imperativo se forma con "don\'t", nunca con "no".' },

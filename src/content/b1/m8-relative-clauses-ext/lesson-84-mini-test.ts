@@ -228,6 +228,7 @@ export const lesson84MiniTest: Lesson = {
       listening: {
         audioText:
           "Barcelona is a city where I spent an unforgettable summer. It\'s a place where history meets modern art. The architect whose designs changed the city forever is Antoni Gaudí. His most famous work, which attracts millions of visitors every year, is the Sagrada Familia. The reason why I fell in love with Barcelona is the combination of culture, food, and friendly people. I remember the day when I first visited the Gothic Quarter. The local guide, to whom I asked many questions about the city, was incredibly knowledgeable.",
+        audioUrl: '/audio/tts/b1-m8-l4-ex11.mp3',
         questions: [
           {
             id: 'b1-m8-l4-ex11-q1',

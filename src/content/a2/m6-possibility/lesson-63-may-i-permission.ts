@@ -45,6 +45,36 @@ Dar permiso (formal) → You may + verbo.
 
 Nunca "May you...?" para pedir permiso propio.
 Escala de cortesía: Can I? (informal) < Could I? < May I? (formal)`,
+  formation: {
+    title: 'Cómo se forma May I...? / Can I...? (permiso)',
+    intro: 'Para pedir permiso usamos Can I...? (informal) o May I...? (formal). Para dar permiso formal, respondemos con You may...',
+    patterns: [
+      {
+        name: 'Pregunta (pedir permiso)',
+        formula: 'May / Can + I + verbo en forma base + ...?',
+        examples: [
+          { english: 'May I come in?', spanish: '¿Puedo pasar? (formal)' },
+          { english: 'May I ask a question?', spanish: '¿Puedo hacer una pregunta?' },
+          { english: 'Can I use your phone?', spanish: '¿Puedo usar tu teléfono? (informal)' },
+          { english: 'May I open the window?', spanish: '¿Podría abrir la ventana? (formal)' },
+        ],
+        note: 'May I...? pide permiso para uno mismo (I). No se usa "May you...?" para pedir permiso propio.',
+      },
+      {
+        name: 'Respuesta (dar permiso)',
+        formula: 'You may + verbo en forma base. / Yes, you may. / No, you may not.',
+        examples: [
+          { english: 'You may leave now.', spanish: 'Puede retirarse ahora (formal).' },
+          { english: 'Yes, you may.', spanish: 'Sí, puede.' },
+        ],
+        note: 'Forma formal. En contextos informales se responde con Can/Could o Of course!',
+      },
+    ],
+    notes: [
+      'Escala de cortesía: Can I...? (informal) < Could I...? (un poco más educado) < May I...? (formal).',
+      'Después de may/can, el verbo va en forma base, sin "to": May I come in? (no "May I to come in").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ May you open the window? (para pedir permiso para ti)', correct: '✅ May I open the window?', explanation: '"May I...?" pide permiso para uno mismo. "May you...?" no se usa así.' },
     { wrong: '❌ May I to come in?', correct: '✅ May I come in?', explanation: 'Después de "may" el verbo va sin "to".' },

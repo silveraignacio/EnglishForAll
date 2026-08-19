@@ -37,6 +37,42 @@ En inglés informal (hablado) es más natural poner la preposición al final y u
 - "whom" es la forma de objeto; con "who" no decimos "to who" en formal.
 
 Estructura formal: Persona/objeto + preposición + whom + sujeto + verbo.`,
+  formation: {
+    title: 'Cómo se construye "preposición + whom" (formal)',
+    intro: 'En inglés formal la preposición puede ir antes del relativo; entonces usamos "whom" (forma de objeto de "who"). En informal se prefiere "who" con la preposición al final.',
+    patterns: [
+      {
+        name: 'Formal: preposición + whom',
+        formula: 'Persona + preposición + whom + oración',
+        examples: [
+          { english: 'The woman to whom I spoke was kind.', spanish: 'La mujer con la que hablé fue amable.' },
+          { english: 'The people with whom we travelled were nice.', spanish: 'La gente con la que viajamos era simpática.' },
+        ],
+        note: 'Usos típicos: to whom, with whom, for whom, from whom.',
+      },
+      {
+        name: 'Informal: who + preposición al final',
+        formula: 'Persona + who + oración + preposición',
+        examples: [
+          { english: 'The woman who I spoke to was kind.', spanish: 'La mujer con la que hablé fue amable.' },
+          { english: 'The people who we travelled with were nice.', spanish: 'La gente con la que viajamos era simpática.' },
+        ],
+      },
+      {
+        name: 'whom como objeto directo',
+        formula: 'Persona + whom + sujeto + verbo',
+        examples: [
+          { english: 'The colleague whom I admire is leaving.', spanish: 'El compañero al que admiro se va.' },
+        ],
+        note: '"Whom" ya es el objeto: no añadimos "him/her" después del verbo.',
+      },
+    ],
+    notes: [
+      'Nunca "to who" en formal: tras una preposición usamos "whom".',
+      'No repitas el pronombre: "the people with whom we travelled" (no "... travelled with them").',
+      'En conversación informal, "who + preposición al final" es la opción natural.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The woman to who I spoke was kind.', correct: '✅ The woman to whom I spoke was kind.', explanation: 'Tras una preposición, en formal usamos "whom", no "who".' },
     { wrong: '❌ The people who we travelled with them were nice.', correct: '✅ The people with whom we travelled were nice.', explanation: 'No repetimos el pronombre ("them"): la preposición sube al principio con "whom".' },
@@ -188,6 +224,7 @@ Estructura formal: Persona/objeto + preposición + whom + sujeto + verbo.`,
       listening: {
         audioText:
           "In a formal business meeting, I met the professor to whom I had written an email about my project. He was very professional and kind. I also saw the colleague with whom I had worked on the research last year. We discussed the article to which she had contributed. The person for whom I had bought the gift was grateful and appreciated my thoughtfulness.",
+        audioUrl: '/audio/tts/b1-m8-l3-ex11.mp3',
         questions: [
           {
             id: 'b1-m8-l3-ex11-q1',

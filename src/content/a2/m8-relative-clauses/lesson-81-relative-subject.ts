@@ -37,6 +37,35 @@ Y para cosas usamos which o that, NUNCA who:
 - that → personas y cosas.
 - Persona/cosa + who/which/that + verbo (sin pronombre extra).
 - Para cosas usamos which o that, nunca who.`,
+  formation: {
+    title: 'Cómo se forman las relativas de sujeto',
+    intro: 'Las oraciones relativas dan más información sobre una persona o una cosa. Cuando la palabra relativa (who/which/that) es el sujeto del verbo, va seguida directamente del verbo, sin pronombre extra.',
+    patterns: [
+      {
+        name: 'Personas (who / that)',
+        formula: 'persona + who/that + verbo + ...',
+        examples: [
+          { english: 'The man who lives next door is a doctor.', spanish: 'El hombre que vive al lado es médico.' },
+          { english: 'The woman who works with me is very kind.', spanish: 'La mujer que trabaja conmigo es muy amable.' },
+        ],
+        note: 'Después de who/that va el verbo directamente. No repitas el pronombre: ❌ who he lives → ✅ who lives.',
+      },
+      {
+        name: 'Cosas (which / that)',
+        formula: 'cosa + which/that + verbo + ...',
+        examples: [
+          { english: 'The book that is on the table is mine.', spanish: 'El libro que está en la mesa es mío.' },
+          { english: 'I like films which make me laugh.', spanish: 'Me gustan las películas que me hacen reír.' },
+        ],
+        note: 'Para cosas usamos which o that. NUNCA "who": ❌ the book who → ✅ the book that/which.',
+      },
+    ],
+    notes: [
+      'who → personas. which → cosas. that → personas Y cosas.',
+      'La palabra relativa es el sujeto del verbo: who lives, that is, which make.',
+      'En español a veces repetimos el sujeto ("el hombre que él vive"); en inglés, no.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The man who he lives next door is a doctor.', correct: '✅ The man who lives next door is a doctor.', explanation: 'No se repite el pronombre "he" después de "who". "Who" ya es el sujeto.' },
     { wrong: '❌ The book who is on the table is mine.', correct: '✅ The book that is on the table is mine.', explanation: 'Para cosas usamos which o that, no who. "Who" es solo para personas.' },

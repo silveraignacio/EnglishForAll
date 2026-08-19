@@ -40,6 +40,47 @@ Preguntas:
 - Respuestas cortas: Yes, I would have. / No, I wouldn't have.
 
 Recuerda: en la parte de "if" usamos past perfect (had/hadn't + participio), nunca "would".`,
+  formation: {
+    title: 'Cómo se forma el Third Conditional — Negativo y preguntas',
+    intro: 'El tercer condicional se puede negar en la condición (hadn\'t + participio) o en el resultado (wouldn\'t have + participio), y se pregunta con Would delante del sujeto.',
+    patterns: [
+      {
+        name: 'Negativo en la condición',
+        formula: 'If + sujeto + hadn\'t + past participle, + sujeto + would (not) have + past participle',
+        examples: [
+          { english: 'If you hadn\'t helped me, I wouldn\'t have finished.', spanish: 'Si no me hubieras ayudado, no habría terminado.' },
+          { english: 'If we hadn\'t missed the bus, we would have arrived on time.', spanish: 'Si no hubiéramos perdido el autobús, habríamos llegado a tiempo.' },
+        ],
+      },
+      {
+        name: 'Negativo en el resultado',
+        formula: 'Sujeto + wouldn\'t have + past participle + if + had + past participle',
+        examples: [
+          { english: 'I wouldn\'t have bought it if it had been more expensive.', spanish: 'No lo habría comprado si hubiera sido más caro.' },
+        ],
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Would + sujeto + have + past participle + ...?',
+        examples: [
+          { english: 'Would you have done the same?', spanish: '¿Habrías hecho lo mismo?' },
+          { english: 'Would they have come if we had invited them?', spanish: '¿Habrían venido si los hubiéramos invitado?' },
+        ],
+        note: 'La pregunta también puede ir seguida de la condición: Would they have come if we had invited them?',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + would have. / No, + sujeto + wouldn\'t have.',
+        examples: [
+          { english: 'Yes, I would have. / No, I wouldn\'t have.', spanish: 'Sí, lo habría hecho. / No, no lo habría hecho.' },
+        ],
+      },
+    ],
+    notes: [
+      'En la parte de "if" se usa past perfect (had/hadn\'t + participio), nunca "would": If you hadn\'t helped (no "If you didn\'t had helped").',
+      'La parte de "if" con "be" usa "had been": if it had been more expensive (no "if it was").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Would you had done the same?', correct: '✅ Would you have done the same?', explanation: 'En las preguntas del tercer condicional usamos "Would + have + participio", no "had done".' },
     { wrong: '❌ If you didn\'t had helped me, I wouldn\'t have finished.', correct: '✅ If you hadn\'t helped me, I wouldn\'t have finished.', explanation: 'La negativa en la parte de "if" es "hadn\'t + participio".' },
@@ -191,6 +232,7 @@ Recuerda: en la parte de "if" usamos past perfect (had/hadn't + participio), nun
       listening: {
         audioText:
           "Tom interviews people about their past. Tom asks: Would you have gone to university if your parents hadn't insisted? Person A answers: No, I wouldn\'t have. Tom asks: Would you have bought the car if the price had been lower? Person B answers: Yes, I would have. Tom asks: Would they have arrived on time if they hadn\'t missed the train? Person C answers: Yes, they would have.",
+        audioUrl: '/audio/tts/b1-m9-l2-ex11.mp3',
         questions: [
           {
             id: 'b1-m9-l2-ex11-q1',

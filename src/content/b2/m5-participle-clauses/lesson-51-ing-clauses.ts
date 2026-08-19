@@ -54,6 +54,53 @@ Reglas:
 3. "After having + participle" para acciones completas en el pasado.
 4. "Being + participle" para estados/condiciones pasadas.
 5. Negar con "not + -ing".`,
+  formation: {
+    title: 'Cómo se forman las cláusulas de -ing',
+    intro: 'Una cláusula de -ing al inicio (con coma) expresa razón, circunstancia o acción simultánea de forma más elegante que una oración subordinada completa. El sujeto de la cláusula es el mismo que el de la oración principal.',
+    patterns: [
+      {
+        name: '-ing simple — razón o circunstancia',
+        formula: '-ing clause + coma + oración principal',
+        examples: [
+          { english: 'Feeling tired, she left early.', spanish: 'Sintiendo cansancio, se fue temprano.' },
+          { english: 'Seeing the broken window, he called the police.', spanish: 'Viendo la ventana rota, llamó a la policía.' },
+        ],
+        note: 'El sujeto de la cláusula y de la oración principal debe ser el mismo.',
+      },
+      {
+        name: 'Negativa — not + -ing',
+        formula: 'Not + -ing + coma + oración principal',
+        examples: [
+          { english: 'Not knowing his address, I couldn\'t visit him.', spanish: 'No sabiendo su dirección, no pude visitarlo.' },
+          { english: 'Not feeling well, he stayed home.', spanish: 'No sintiéndose bien, se quedó en casa.' },
+        ],
+        note: 'Siempre usamos -ing después de not en estas cláusulas.',
+      },
+      {
+        name: 'Pasada — after having + participio pasado',
+        formula: 'After having + participio pasado + coma + oración principal',
+        examples: [
+          { english: 'After having finished his homework, he watched TV.', spanish: 'Después de haber terminado su tarea, miró televisión.' },
+          { english: 'After having eaten, we went for a walk.', spanish: 'Después de haber comido, salimos a caminar.' },
+        ],
+        note: 'Expresa una acción completada antes de la acción principal.',
+      },
+      {
+        name: 'Estado pasado — being + participio pasado',
+        formula: 'Being + participio pasado + coma + oración principal',
+        examples: [
+          { english: 'Being exhausted by the journey, she slept for two days.', spanish: 'Estando agotada por el viaje, durmió dos días.' },
+          { english: 'Being confused by the instructions, he asked for help.', spanish: 'Estando confundido por las instrucciones, pidió ayuda.' },
+        ],
+        note: 'Describe una condición o estado pasado que motiva la acción principal.',
+      },
+    ],
+    notes: [
+      'La -ing clause suele ir al inicio, separada por coma, pero también puede ir después de la oración principal.',
+      'Esta estructura es más literaria y moderna que la traducción literal con gerundio.',
+      'No se usa cuando los sujetos de ambas partes son distintos ("Feeling tired, the movie..." es incorrecto).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Feeling tired, the movie was long.', correct: '✅ Feeling tired, I found the movie long.', explanation: 'El sujeto de la -ing clause debe ser el mismo que el de la oración principal. "Feeling tired" se refiere a una persona, no a una película.' },
     { wrong: '❌ Having finished the homework, we went to play.', correct: '✅ Having finished the homework, we went to play.', explanation: 'Este es correcto en realidad. Pero si traduces literalmente "Habiendo terminado..." es mejor usar "After having finished..."' },
@@ -190,6 +237,7 @@ Reglas:
       listening: {
         audioText:
           "Sarah was running late for her train. Seeing the station entrance ahead, she hurried forward. But then, noticing a small child sitting alone on a bench, she stopped. After having made sure the child was safe and finding his mother, she rushed to the platform. Her train was still there, and boarding quickly, she finally made it.",
+        audioUrl: '/audio/tts/b2-m5-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m5-l1-ex9-q1',

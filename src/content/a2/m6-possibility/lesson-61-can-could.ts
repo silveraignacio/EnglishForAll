@@ -45,6 +45,37 @@ Petición educada → could + verbo
 Nunca "to" después de can/could, y nunca -s:
 ✅ She can swim.  ❌ She cans swim.
 ✅ He could help. ❌ He could to help.`,
+  formation: {
+    title: 'Cómo se forma can / could',
+    intro: 'can expresa habilidad, permiso y peticiones; could es la versión más educada para peticiones y también expresa posibilidad. Ambos van seguidos del verbo en forma base, sin "to".',
+    patterns: [
+      {
+        name: 'Afirmativo (habilidad / posibilidad)',
+        formula: 'Sujeto + can / could + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: 'I can swim.', spanish: 'Sé nadar.' },
+          { english: 'She can speak two languages.', spanish: 'Ella sabe hablar dos idiomas.' },
+          { english: 'She could call the office.', spanish: 'Ella podría llamar a la oficina.' },
+        ],
+        note: 'can/could no cambian con la persona (she can, no "she cans") y nunca llevan "to": can help (no "can to help").',
+      },
+      {
+        name: 'Pregunta (petición / permiso)',
+        formula: 'Can / Could + I / you + verbo en forma base + ...?',
+        examples: [
+          { english: 'Can I use your phone?', spanish: '¿Puedo usar tu teléfono?' },
+          { english: 'Can you help me?', spanish: '¿Puedes ayudarme?' },
+          { english: 'Could I open the window, please?', spanish: '¿Podría abrir la ventana, por favor?' },
+          { english: 'Could you help me?', spanish: '¿Podrías ayudarme?' },
+        ],
+        note: 'Can I...?/Can you...? = directo e informal. Could I...?/Could you...? = más educado y respetuoso.',
+      },
+    ],
+    notes: [
+      'La diferencia entre Can you...? y Could you...? es de cortesía: could suena más formal.',
+      'Para responder a una petición: Yes, I can. / Sure. / Of course. (en negativo: Sorry, I can\'t).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Could you to help me?', correct: '✅ Could you help me?', explanation: 'Después de "could" el verbo va sin "to": could help.' },
     { wrong: '❌ She cans swim.', correct: '✅ She can swim.', explanation: '"Can" no añade -s en tercera persona.' },

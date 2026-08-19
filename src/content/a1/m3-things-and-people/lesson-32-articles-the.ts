@@ -56,6 +56,42 @@ Otros ejemplos comunes con lugares de la casa:
 - Preguntar dónde:
   - Singular → "Where IS the [noun]?"
   - Plural → "Where ARE the [nouns]?"`,
+  formation: {
+    title: 'Cómo se forma el artículo definido "the"',
+    intro: '"the" es el único artículo definido en inglés: sirve para masculino, femenino, singular y plural. Se usa cuando el hablante y el oyente ya saben de qué hablamos.',
+    patterns: [
+      {
+        name: 'Con sustantivo específico',
+        formula: 'the + sustantivo (singular o plural)',
+        examples: [
+          { english: 'The apple is red.', spanish: 'La manzana es roja.' },
+          { english: 'The doors are open.', spanish: 'Las puertas están abiertas.' },
+          { english: 'The car is in the garage.', spanish: 'El coche está en el garaje.' },
+        ],
+        note: '"the" no cambia con género ni número: the book, the books, the apple, the apples.',
+      },
+      {
+        name: 'Preguntar dónde (singular)',
+        formula: 'Where is the + sustantivo singular?',
+        examples: [
+          { english: 'Where is the cat?', spanish: '¿Dónde está el gato?' },
+          { english: 'Where is the book?', spanish: '¿Dónde está el libro?' },
+        ],
+      },
+      {
+        name: 'Preguntar dónde (plural)',
+        formula: 'Where are the + sustantivos en plural?',
+        examples: [
+          { english: 'Where are the keys?', spanish: '¿Dónde están las llaves?' },
+          { english: 'Where are the books?', spanish: '¿Dónde están los libros?' },
+        ],
+      },
+    ],
+    notes: [
+      'Para presentar algo nuevo usamos "a/an"; "the" solo cuando ya se sabe a qué nos referimos.',
+      'Singular → "is"; plural → "are".',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ I am the teacher. (presentándose)',

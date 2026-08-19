@@ -48,6 +48,45 @@ Para decir "todavía no lo he hecho" en A2 usamos el Present Perfect: "I haven\'
 2. already = ya. Posición: have/has + already + participio (afirmativo) → "She has already eaten."
 3. yet = todavía / todavía no. Posición: AL FINAL, en preguntas y negativas → "Have you finished yet?" / "I haven't done it yet."
 4. "Todavía no lo he hecho" en A2: I haven't done it yet (Present Perfect).`,
+  formation: {
+    title: 'Cómo se forma el Present Perfect con just / already / yet',
+    intro: 'just (acabo de), already (ya) y yet (todavía) se suman al Present Perfect para precisar cuándo ha pasado algo. La posición de cada adverbio es clave.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + have/has + just / already + participio pasado + complemento',
+        examples: [
+          { english: 'I have just finished my homework.', spanish: 'Acabo de terminar mis deberes.' },
+          { english: 'She has already eaten.', spanish: 'Ella ya ha comido.' },
+          { english: 'We have already seen that film.', spanish: 'Ya hemos visto esa película.' },
+        ],
+        note: 'just y already van entre have/has y el participio. already solo se usa en afirmativas.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + haven\'t / hasn\'t + participio pasado + ... yet',
+        examples: [
+          { english: 'I haven\'t done it yet.', spanish: 'Todavía no lo he hecho.' },
+          { english: 'She hasn\'t finished her homework yet.', spanish: 'Ella todavía no ha terminado sus deberes.' },
+        ],
+        note: 'yet va AL FINAL de la negativa. En A2 usamos el Present Perfect con yet: I haven\'t done it yet (no "I didn\'t do it yet").',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Have / Has + sujeto + participio pasado + ... yet?',
+        examples: [
+          { english: 'Have you finished yet?', spanish: '¿Ya has terminado?' },
+          { english: 'Has the bus arrived yet?', spanish: '¿Ya ha llegado el autobús?' },
+        ],
+        note: 'en las preguntas, yet también va al final: Have you finished yet?',
+      },
+    ],
+    notes: [
+      'just = acabo de (acción reciente): I have just arrived.',
+      'already = ya (acción hecha), en afirmativas: She has already eaten.',
+      'yet = todavía / todavía no, en negativas y preguntas, al final: I haven\'t done it yet. / Have you finished yet?',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I didn\'t do it yet.', correct: '✅ I haven\'t done it yet.', explanation: 'Con "yet" usamos el Present Perfect: haven\'t + participio. En A2 no usamos "didn\'t...yet".' },
     { wrong: '❌ I have done just my homework.', correct: '✅ I have just done my homework.', explanation: '"Just" va entre have/has y el participio: have just done.' },

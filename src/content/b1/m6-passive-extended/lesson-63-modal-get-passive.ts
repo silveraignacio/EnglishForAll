@@ -62,6 +62,38 @@ Usos de get + participio:
 OJO:
 - Tras modal + be va el PARTICIPIO: must be finished, can be cleaned.
 - Tras get va el PARTICIPIO: got fired, got married.`,
+  formation: {
+    title: 'Cómo se forma la pasiva con modales y la pasiva con get',
+    intro: 'La pasiva con modales se forma con modal + be + participio. La pasiva con get (informal) usa get + participio para resultados, a menudo inesperados o negativos.',
+    patterns: [
+      {
+        name: 'Pasiva con modales',
+        formula: 'Sujeto + modal (can/must/should) + be + past participle + complemento',
+        examples: [
+          { english: 'This must be finished today.', spanish: 'Esto debe terminarse hoy.' },
+          { english: 'The room can be cleaned later.', spanish: 'La habitación puede limpiarse más tarde.' },
+          { english: 'The letters should be sent now.', spanish: 'Las cartas deberían enviarse ahora.' },
+        ],
+        note: 'El modal no se conjuga: this must be, they must be.',
+      },
+      {
+        name: 'Pasiva con get (informal)',
+        formula: 'Sujeto + get (got) + past participle + complemento',
+        examples: [
+          { english: 'I got fired last week.', spanish: 'Me despidieron la semana pasada.' },
+          { english: 'She got married in June.', spanish: 'Se casó en junio.' },
+          { english: 'He got hurt playing football.', spanish: 'Se hizo daño jugando al fútbol.' },
+          { english: 'They got lost in the city.', spanish: 'Se perdieron en la ciudad.' },
+        ],
+        note: 'Equivale a "be + participio" con el matiz de "llegar a estar / resultar".',
+      },
+    ],
+    notes: [
+      'Tras modal + be y tras get va SIEMPRE el participio pasado: must be finished, got fired (no "must be finish").',
+      'get + participio se usa sobre todo en contextos informales y para cambios de vida: get married, get divorced, get lost.',
+      'En español: must be finished = debe terminarse; get fired = ser despedido; get married = casarse.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ This must be finish today.', correct: '✅ This must be finished today.', explanation: 'Después de "must be" va el participio: finished, no "finish".' },
     { wrong: '❌ The room can be clean later.', correct: '✅ The room can be cleaned later.', explanation: 'Después de "can be" va el participio: cleaned, no "clean".' },
@@ -258,6 +290,7 @@ OJO:
       listening: {
         audioText:
           "Hi everyone! I\'ve had quite a dramatic week. Last month I got married—it was the happiest day of my life! But then, while traveling in Europe for our honeymoon, I got lost in Paris. We also got our luggage delayed for three days, which was frustrating. Worst of all, my passport got stolen from our hotel room. Now the passport must be replaced urgently, and all the paperwork must be done within two weeks. My wife says our documents should be organized better before we travel again. But don\'t worry, everything can be resolved.",
+        audioUrl: '/audio/tts/b1-m6-l3-ex14.mp3',
         questions: [
           {
             id: 'b1-m6-l3-ex14-q1',

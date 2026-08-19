@@ -48,6 +48,29 @@ Mismas reglas que el Present Continuous (ya lo conoces de A1):
 3. -ing: watch → watching, make → making (quita -e), run → running (duplica consonante).
 4. Se usa para: acciones en progreso en un momento del pasado, y para describir la escena de fondo.
 5. ¡No confundas con el pasado simple! El pasado simple es una acción terminada; el Past Continuous es una acción en curso.`,
+  formation: {
+    title: 'Cómo se forma el Past Continuous — Afirmativo',
+    intro: 'El Past Continuous describe una acción en progreso en el pasado: was/were + verbo con -ing. En español equivale a "estaba + gerundio".',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + was / were + verbo + -ing + complemento',
+        examples: [
+          { english: 'I was watching TV at 8 p.m.', spanish: 'Estaba viendo la tele a las 8 de la tarde.' },
+          { english: 'She was reading when I arrived.', spanish: 'Ella estaba leyendo cuando llegué.' },
+          { english: 'He was cooking dinner.', spanish: 'Él estaba cocinando la cena.' },
+          { english: 'They were playing football.', spanish: 'Ellos estaban jugando al fútbol.' },
+          { english: 'We were having dinner at 9.', spanish: 'Estábamos cenando a las 9.' },
+          { english: 'It was raining all day.', spanish: 'Estaba lloviendo todo el día.' },
+        ],
+        note: 'was → I/he/she/it. were → you/we/they. Después de was/were el verbo SIEMPRE lleva -ing.',
+      },
+    ],
+    notes: [
+      'Reglas del -ing: añade -ing (watch → watching); si termina en -e, quítala (make → making); si termina en consonante + vocal + consonante, duplica la consonante (run → running).',
+      'En afirmativo no hay contracción habitual para was/were: se escribe siempre I was, they were.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I was watch TV at 8 p.m.', correct: '✅ I was watching TV at 8 p.m.', explanation: 'Después de was/were el verbo SIEMPRE lleva -ing: watching, no watch.' },
     { wrong: '❌ I were watching TV.', correct: '✅ I was watching TV.', explanation: 'Con "I" usamos "was", no "were".' },

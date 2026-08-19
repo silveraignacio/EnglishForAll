@@ -187,6 +187,7 @@ Estructura: Sujeto, + who/which + verbo + , + verbo principal.`,
       listening: {
         audioText:
           'My best friends are amazing people. Emma, who lives in Barcelona, is a journalist. She writes for a newspaper and loves her job. James, which is my oldest friend, is an engineer who travels all over the world for work. And Sophie, who is incredibly funny, teaches yoga classes on weekends.',
+        audioUrl: '/audio/tts/b1-m8-l1-ex11.mp3',
         questions: [
           {
             id: 'b1-m8-l1-ex11-q1',

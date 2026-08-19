@@ -40,6 +40,36 @@ La expresión de tiempo normalmente va al final de la frase:
 - in + mes/año → I'm going to travel in July / in 2025.
 
 Posición: normalmente al final de la frase.`,
+  formation: {
+    title: 'Cómo se usan las expresiones de tiempo futuro',
+    intro: 'Las expresiones de tiempo futuro (tomorrow, next week, on Monday...) nos dicen CUÁNDO ocurrirá algo y normalmente van al final de la frase, con "going to".',
+    patterns: [
+      {
+        name: 'Expresiones de tiempo futuro',
+        formula: 'tomorrow | tonight | soon | next + semana/mes/año | on + día | in + mes/año',
+        examples: [
+          { english: "I'm going to call her tomorrow.", spanish: 'Voy a llamarla mañana.' },
+          { english: 'They are going to move next year.', spanish: 'Van a mudarse el próximo año.' },
+          { english: "We're going to have a meeting on Monday.", spanish: 'Vamos a tener una reunión el lunes.' },
+          { english: "She's going to arrive soon.", spanish: 'Ella va a llegar pronto.' },
+        ],
+        note: 'on + días (on Monday); in + meses y años (in July, in 2025).',
+      },
+      {
+        name: 'Posición en la frase',
+        formula: 'Sujeto + am/is/are + going to + verbo + expresión de tiempo',
+        examples: [
+          { english: 'I am going to study tomorrow.', spanish: 'Voy a estudiar mañana.' },
+          { english: 'They are going to travel to Italy in 2025.', spanish: 'Van a viajar a Italia en 2025.' },
+        ],
+        note: 'La expresión de tiempo normalmente va al final de la frase.',
+      },
+    ],
+    notes: [
+      'Con "next" no se usa preposición: next year, no "in next year".',
+      'Recuerda el verbo "to be": I am going to... (no "I going to...").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I going to call her tomorrow.', correct: '✅ I\'m going to call her tomorrow.', explanation: 'Recuerda el verbo "to be": I am going to... (repaso del afirmativo).' },
     { wrong: '❌ We are going to have a meeting in Monday.', correct: '✅ We are going to have a meeting on Monday.', explanation: 'Con días usamos "on", no "in": on Monday.' },

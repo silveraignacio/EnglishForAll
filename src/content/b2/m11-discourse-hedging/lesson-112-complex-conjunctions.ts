@@ -102,6 +102,71 @@ DUE TO THE FACT THAT: Due to the fact that [causa], [efecto].
 AS IF / AS THOUGH: [Sujeto] [verbo] as if / as though [past tense (irrealidad)].
 - Función: comparación contrafáctica.
 - CRÍTICO: "were" (no "was") después de "as if/though".`,
+  formation: {
+    title: 'Cómo se forman las conjunciones complejas',
+    intro: 'Los subordinantes complejos crean relaciones sofisticadas entre cláusulas en registro formal: contraste (whereas), punto temporal (once), obstáculo (despite the fact that), causa (due to the fact that), propósito (in order that) y comparación contrafáctica (as if).',
+    patterns: [
+      {
+        name: 'whereas — contraste formal',
+        formula: '[Situación A], whereas [situación B contrastante]',
+        examples: [
+          { english: 'The government promised lower taxes, whereas the opposite occurred.', spanish: 'El gobierno prometió impuestos bajos, mientras que sucedió lo opuesto.' },
+          { english: 'The first theory is outdated, whereas the second is more recent.', spanish: 'La primera teoría está anticuada, mientras que la segunda es más reciente.' },
+        ],
+        note: 'Más formal que "but" o "although"; típico de documentos legales y análisis.',
+      },
+      {
+        name: 'once — punto temporal exacto',
+        formula: 'Once + [condición en presente simple], + [resultado]',
+        examples: [
+          { english: 'Once the document is signed, the agreement becomes binding.', spanish: 'Una vez que se firme el documento, el acuerdo se vuelve vinculante.' },
+          { english: 'Once you submit the application, you cannot modify it.', spanish: 'Una vez que envíes la solicitud, no puedes modificarla.' },
+        ],
+        note: '"Once" marca un punto exacto que sucede una sola vez.',
+      },
+      {
+        name: 'despite/in spite of the fact that — obstáculo',
+        formula: 'Despite the fact that + [obstáculo], + [resultado]',
+        examples: [
+          { english: 'Despite the fact that funding was limited, the project succeeded.', spanish: 'A pesar de que la financiación era limitada, el proyecto tuvo éxito.' },
+          { english: 'Despite the fact that unemployment rose, consumer spending increased.', spanish: 'A pesar de que el desempleo subió, el gasto del consumidor aumentó.' },
+        ],
+        note: 'Más formal y explícito que "although"; la variante corta es "despite + sustantivo".',
+      },
+      {
+        name: 'due to the fact that — causa formal',
+        formula: 'Due to the fact that + [causa], + [efecto]',
+        examples: [
+          { english: 'Due to the fact that regulations changed, many businesses had to adapt.', spanish: 'Debido a que cambió la regulación, muchas empresas tuvieron que adaptarse.' },
+          { english: 'Due to the fact that the budget was reduced, we postponed the launch.', spanish: 'Debido a que se redujo el presupuesto, pospusimos el lanzamiento.' },
+        ],
+        note: 'Más formal que "because"; la variante corta es "due to + sustantivo".',
+      },
+      {
+        name: 'in order that / so that — propósito',
+        formula: '[Acción], in order that / so that + [sujeto + modal + verbo]',
+        examples: [
+          { english: 'We implemented these changes in order that our efficiency might improve.', spanish: 'Implementamos estos cambios para que nuestra eficiencia mejorara.' },
+          { english: 'The government introduced the policy so that citizens could access better care.', spanish: 'El gobierno introdujo la política para que los ciudadanos tuvieran mejor atención.' },
+        ],
+        note: 'Después de "in order that" / "so that" se usa un modal (might, could, would).',
+      },
+      {
+        name: 'as if / as though — comparación contrafáctica',
+        formula: '[Sujeto] [verbo] as if/as though + [sujeto + verbo en pasado]',
+        examples: [
+          { english: 'He acts as if he were a millionaire.', spanish: 'Actúa como si fuera millonario.' },
+          { english: 'She spoke as though the project had already failed.', spanish: 'Habló como si el proyecto ya hubiera fracasado.' },
+        ],
+        note: 'Tras "as if/though" se usa el pasado, y con sujeto singular, "were" (no "was").',
+      },
+    ],
+    notes: [
+      'Estos subordinantes son comunes en escritura formal; en conversación casual se prefiere although/because.',
+      'Muchos tienen variantes más cortas: "despite the fact that" → "although"; "due to the fact that" → "because".',
+      '"As if" y "as though" son intercambiables; "as though" es ligeramente más literario.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ As if I was a king, I entered the room.', correct: '✅ As if I were a king, I entered the room.', explanation: 'Después de "as if" siempre usamos "were" (subjuntivo irrealis), no "was", incluso si el sujeto es "I".' },
     { wrong: '❌ Once the meeting would finish, we can leave.', correct: '✅ Once the meeting finishes, we can leave.', explanation: '"Once" introduce una condición / tiempo futuro pero usa present simple, no "would".' },
@@ -251,6 +316,7 @@ AS IF / AS THOUGH: [Sujeto] [verbo] as if / as though [past tense (irrealidad)].
       listening: {
         audioText:
           'When writing formal essays, you should use complex conjunctions to show sophisticated relationships between ideas. For instance, whereas informal writing uses "but," academic writing prefers "whereas" or "nevertheless." Consider this example: the first theory is outdated, whereas the second is more recent. Similarly, instead of saying "because," you might say "due to the fact that." Once you master these conjunctions, your writing will sound more professional. Additionally, phrases like "despite the fact that" sound more formal than "although." Finally, remember that "as if" requires the past tense, even when the main clause is present. As if it were easy, right? With practice, these structures become natural.',
+        audioUrl: '/audio/tts/b2-m11-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m11-l2-ex9-q1',

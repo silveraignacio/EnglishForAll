@@ -46,6 +46,43 @@ Recuerda la estructura de la pregunta: Have + sujeto + ever + participio. Nunca 
 3. Afirmativo con never = nunca: "I have never tried sushi." (sin "not").
 4. Respuestas cortas: Yes, I have. / No, I haven't. (con has: Yes, she has. / No, she hasn't.)
 5. Nunca "Do you ever been...?": la estructura es Have + sujeto + participio.`,
+  formation: {
+    title: 'Cómo se forma el Present Perfect con ever / never',
+    intro: 'Para preguntar por experiencias de vida usamos Have/Has + ever; para decir "nunca" usamos el afirmativo con never, sin "not".',
+    patterns: [
+      {
+        name: 'Pregunta',
+        formula: 'Have / Has + sujeto + ever + participio pasado + ...?',
+        examples: [
+          { english: 'Have you ever been to Mexico?', spanish: '¿Has estado alguna vez en México?' },
+          { english: 'Has she ever seen a volcano?', spanish: '¿Ha visto ella alguna vez un volcán?' },
+          { english: 'Have you ever ridden a horse?', spanish: '¿Has montado a caballo alguna vez?' },
+        ],
+        note: 'ever = alguna vez y va después del sujeto, antes del participio. Con he/she/it usamos Has.',
+      },
+      {
+        name: 'Afirmativo con never',
+        formula: 'Sujeto + have / has + never + participio pasado + complemento',
+        examples: [
+          { english: 'I have never tried sushi.', spanish: 'Nunca he probado el sushi.' },
+          { english: 'She has never been abroad.', spanish: 'Ella nunca ha estado en el extranjero.' },
+        ],
+        note: 'never ya significa "nunca", así que NO hace falta "not": I have never tried (no "I haven\'t never tried").',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + have/has. / No, + sujeto + haven\'t/hasn\'t.',
+        examples: [
+          { english: 'Yes, I have. / No, I haven\'t.', spanish: 'Sí. / No.' },
+          { english: 'Yes, she has. / No, she hasn\'t.', spanish: 'Sí. / No.' },
+        ],
+      },
+    ],
+    notes: [
+      'La pregunta de experiencia NO se forma con "do": nunca "Do you ever been...?" → "Have you ever been...?"',
+      'Después de have/has el verbo va en participio: Have you ever ridden a horse? (ride → ridden).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Do you ever been to London?', correct: '✅ Have you ever been to London?', explanation: 'La pregunta de experiencia se forma con "Have" + sujeto + participio, no con "Do...been".' },
     { wrong: '❌ I have never saw that film.', correct: '✅ I have never seen that film.', explanation: 'Después de have/has usamos el participio: seen, no saw (pasado simple).' },

@@ -40,6 +40,42 @@ Tres formas clave:
 - Negativo: sujeto + didn't use to + verbo: We didn't use to have internet.
 - Pregunta: Did + sujeto + use to + verbo? : Did you use to smoke?
 - "Used to" describe hábitos y estados del pasado que ya no son ciertos. NO se usa para acciones puntuales.`,
+  formation: {
+    title: 'Cómo se forma used to',
+    intro: 'used to expresa hábitos y estados del pasado que ya no son ciertos. En afirmativo es used to + verbo; en negativo y preguntas el verbo vuelve a "use" tras did/didn\'t.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + used to + verbo en forma base + complemento',
+        examples: [
+          { english: 'I used to play football when I was a kid.', spanish: 'Solía jugar al fútbol cuando era niño.' },
+          { english: 'She used to live in Barcelona.', spanish: 'Ella vivía en Barcelona.' },
+          { english: 'He used to be very shy.', spanish: 'Él solía ser muy tímido.' },
+        ],
+        note: 'used to sirve para hábitos y para estados.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + didn\'t + use to + verbo en forma base + complemento',
+        examples: [
+          { english: 'We didn\'t use to have internet.', spanish: 'No solíamos tener internet.' },
+        ],
+        note: 'Tras "didn\'t" la forma es "use to", sin -d.',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Did + sujeto + use to + verbo en forma base + ...?',
+        examples: [
+          { english: 'Did you use to smoke?', spanish: '¿Solías fumar?' },
+        ],
+      },
+    ],
+    notes: [
+      'En afirmativo siempre "used to" (con -d): I used to play (no "I use to play").',
+      'En negativo y pregunta la -d desaparece: didn\'t use to, Did you use to.',
+      'NO se usa para acciones puntuales: I called you yesterday (no "I used to call you yesterday").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I use to play football.', correct: '✅ I used to play football.', explanation: 'En afirmativo la forma correcta es "used to", con -d: I used to play.' },
     { wrong: '❌ I didn\'t used to smoke.', correct: '✅ I didn\'t use to smoke.', explanation: 'Después de "didn\'t" el verbo vuelve a la forma base "use to": didn\'t use to.' },
@@ -191,6 +227,7 @@ Tres formas clave:
       listening: {
         audioText:
           "When I was a kid, I used to play football every day with my friends. We used to live in a small town, and everyone knew each other. I didn't use to have a computer or internet back then, so we would spend hours outdoors. My parents used to be very strict about bedtime — I had to go to bed at nine o'clock. Now I live in a big city, and my life is completely different. I work long hours and I barely have time for sports.",
+        audioUrl: '/audio/tts/b1-m12-l1-ex11.mp3',
         questions: [
           {
             id: 'b1-m12-l1-ex11-q1',

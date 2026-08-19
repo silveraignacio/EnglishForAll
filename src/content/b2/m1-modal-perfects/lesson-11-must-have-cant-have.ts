@@ -46,6 +46,44 @@ Reglas:
 2. No confundir con obligación pasada: "had to" (obligación) ≠ "must have" (deducción).
 3. La negación de una deducción NO es "mustn't have" — es "can't have"/"couldn't have".
 4. Se usa cuando tenés pruebas o lógica fuerte, no cuando es solo una posibilidad (para eso: may have / might have / could have).`,
+  formation: {
+    title: 'Cómo se forma must have / can\'t have — Deducción sobre el pasado',
+    intro: 'Para deducir con certeza sobre algo que ya pasó usamos el auxiliar have + participio pasado: must have (estoy seguro de que pasó) y can\'t have / couldn\'t have (estoy seguro de que no pasó).',
+    patterns: [
+      {
+        name: 'Afirmativo — certeza de que pasó',
+        formula: 'Sujeto + must + have + participio pasado + complemento',
+        examples: [
+          { english: 'The ground is wet. It must have rained last night.', spanish: 'El suelo está mojado. Debe de haber llovido anoche.' },
+          { english: 'You must have made a mistake, this total looks wrong.', spanish: 'Debés de haberte equivocado, este total se ve mal.' },
+          { english: 'They must have left early to avoid the traffic.', spanish: 'Deben de haber salido temprano para evitar el tráfico.' },
+        ],
+        note: 'El participio pasado no cambia según el sujeto: he must have gone, they must have gone.',
+      },
+      {
+        name: 'Negativo — certeza de que NO pasó',
+        formula: 'Sujeto + can\'t have / couldn\'t have + participio pasado + complemento',
+        examples: [
+          { english: 'He can\'t have seen us, he didn\'t say hello.', spanish: 'No puede habernos visto, no saludó.' },
+          { english: 'She can\'t have paid for it, she never has any money.', spanish: 'No puede haberlo pagado, nunca tiene dinero.' },
+        ],
+        note: 'Para negar una deducción segura NUNCA se usa "mustn\'t have": se usa can\'t have o couldn\'t have.',
+      },
+      {
+        name: 'Pregunta — deducción pasada',
+        formula: 'Could + sujeto + have + participio pasado...? (o: Do you think + sujeto + verbo pasado...?)',
+        examples: [
+          { english: 'Could she have forgotten about the meeting?', spanish: '¿Podría haberse olvidado de la reunión?' },
+        ],
+        note: 'No hay forma de pregunta directa con must have; se reformula con "Could have...?" o "Do you think...?"',
+      },
+    ],
+    notes: [
+      'El have es lo que mueve la deducción al pasado: He must be at home (ahora) vs. He must have been at home (anoche).',
+      'No confundir con obligación pasada: had to (obligación) ≠ must have (deducción).',
+      'En habla rápida, "must have" y "can\'t have" se reducen (suenan como "musta" / "cant\'ve").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ He mustn\'t have arrived yet.', correct: '✅ He can\'t have arrived yet.', explanation: 'Para negar una deducción segura sobre el pasado usamos "can\'t have", nunca "mustn\'t have".' },
     { wrong: '❌ She must have go to the party.', correct: '✅ She must have gone to the party.', explanation: 'Después de "have" siempre va el participio pasado (gone), nunca el infinitivo (go).' },
@@ -174,6 +212,7 @@ Reglas:
       listening: {
         audioText:
           "When Sarah got home, the front door was open. She must have forgotten to lock it that morning, she thought. But then she saw that some books had fallen off the shelf, and a window was broken. Someone must have broken in. She couldn't have left the window like that herself, she was sure of it. She immediately called the police.",
+        audioUrl: '/audio/tts/b2-m1-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m1-l1-ex9-q1',

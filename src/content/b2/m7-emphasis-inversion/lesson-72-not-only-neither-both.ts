@@ -74,6 +74,44 @@ Reglas de inversión y concordancia:
 3. Con "neither...nor", la concordancia depende del sujeto más cercano (en inglés moderno) o del sentido general (ambos singulares = verbo singular).
 4. "Both...and" generalmente NO requiere inversión.
 5. Es registro FORMAL, propio de escritura académica y narrativa dramática.`,
+  formation: {
+    title: 'Cómo se forman las estructuras de correlación con énfasis',
+    intro: 'Estas estructuras enfatizan dos ideas a la vez. "Not only" al inicio exige inversión; "neither...nor" puede llevar inversión en ambas cláusulas; "both...and" usa orden normal.',
+    patterns: [
+      {
+        name: 'Not only...but also — primera cláusula con inversión',
+        formula: 'Not only + auxiliar + sujeto + verbo, but (also) + sujeto + verbo',
+        examples: [
+          { english: 'Not only did she win the race, but she also broke the record.', spanish: 'No solo ganó la carrera, sino que también rompió el récord.' },
+          { english: 'Not only was the food delicious, but the service was also impeccable.', spanish: 'No solo la comida era deliciosa, sino que el servicio también era impecable.' },
+        ],
+        note: 'La primera cláusula lleva inversión; la segunda va en orden normal.',
+      },
+      {
+        name: 'Neither...nor — dos negaciones enfatizadas',
+        formula: 'Neither + sujeto + verbo... nor + sujeto + verbo (o con inversión)',
+        examples: [
+          { english: 'Neither John nor Mary has finished their project.', spanish: 'Ni John ni Mary han terminado su proyecto.' },
+          { english: 'Neither did I agree with him, nor did I understand his point.', spanish: 'Ni estuve de acuerdo con él, ni entendí su punto.' },
+        ],
+        note: 'La concordancia depende del sujeto más cercano al verbo.',
+      },
+      {
+        name: 'Both...and — dos cosas simultáneas',
+        formula: 'Both + sujeto + verbo + and + sujeto + verbo',
+        examples: [
+          { english: 'Both the book and the movie are excellent examples of science fiction.', spanish: 'Tanto el libro como la película son excelentes ejemplos de ciencia ficción.' },
+          { english: 'Both the players and the coach were frustrated with the decision.', spanish: 'Tanto los jugadores como el entrenador estaban frustrados con la decisión.' },
+        ],
+        note: '"Both...and" generalmente no requiere inversión.',
+      },
+    ],
+    notes: [
+      'Estas estructuras son propias del registro formal: escritura académica y narrativa dramática.',
+      'Con "neither...nor", dos sujetos singulares llevan verbo singular ("has finished").',
+      'En la segunda cláusula de "not only...but also", no se repite la inversión.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ Not only she won the race, but she also broke the record.', correct: '✅ Not only did she win the race, but she also broke the record.', explanation: '"Not only" al inicio requiere inversión: "did" + sujeto + verbo, no sujeto + verbo.' },
     { wrong: '❌ Not only did she win, but also she broke the record.', correct: '✅ Not only did she win, but she also broke the record.', explanation: 'La segunda cláusula NO lleva inversión. Es "but (also) she/she also", no inversión.' },
@@ -229,6 +267,7 @@ Reglas de inversión y concordancia:
       listening: {
         audioText:
           'This film is truly exceptional. Not only is the cinematography stunning, but the dialogue is also incredibly witty. Both the lead actor and the supporting cast deliver outstanding performances. However, the ending disappointed me. Neither the plot twist nor the final scene felt satisfying. Still, both the director and the screenwriter created something memorable.',
+        audioUrl: '/audio/tts/b2-m7-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m7-l2-ex9-q1',

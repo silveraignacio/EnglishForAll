@@ -60,6 +60,43 @@ Respuestas cortas:
 
 **Respuestas cortas:**
 - Yes, I did. / No, I didn't.`,
+  formation: {
+    title: 'Cómo se forma el Past Simple — Negativo y preguntas (did / didn\'t)',
+    intro: 'Para negar y preguntar en pasado usamos el auxiliar "did" / "didn\'t" + el verbo en infinitivo. El tiempo ya lo indica "did": el verbo no cambia.',
+    patterns: [
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + didn\'t + verbo en infinitivo (sin -ed) + complemento',
+        examples: [
+          { english: 'I didn\'t work yesterday.', spanish: 'No trabajé ayer.' },
+          { english: 'She didn\'t live in Paris.', spanish: 'Ella no vivió en París.' },
+        ],
+        note: 'didn\'t = did not. Después de "didn\'t" el verbo va en infinitivo: no "didn\'t worked".',
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Did + sujeto + verbo en infinitivo (sin -ed) + ...?',
+        examples: [
+          { english: 'Did you work yesterday?', spanish: '¿Trabajaste ayer?' },
+          { english: 'Did he watch TV?', spanish: '¿Vio él la tele?' },
+        ],
+        note: 'En preguntas WH-: palabra interrogativa + did + sujeto + verbo: Where did you go?',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + did. / No, + sujeto + didn\'t.',
+        examples: [
+          { english: 'Yes, I did.', spanish: 'Sí.' },
+          { english: 'No, I didn\'t.', spanish: 'No.' },
+        ],
+        note: 'No repetimos el verbo: Yes, I did (no "Yes, I worked").',
+      },
+    ],
+    notes: [
+      'La regla de oro: después de "did"/"didn\'t" el verbo siempre va en infinitivo, sin -ed. El pasado ya está en "did".',
+      'didn\'t = did not (forma completa).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I didn\'t worked yesterday.', correct: '✅ I didn\'t work yesterday.', explanation: 'Después de "didn\'t" el verbo vuelve al infinitivo, sin -ed: work, no worked.' },
     { wrong: '❌ Did she worked?', correct: '✅ Did she work?', explanation: 'En la pregunta, después de "did" usamos el verbo en infinitivo: work, no worked.' },

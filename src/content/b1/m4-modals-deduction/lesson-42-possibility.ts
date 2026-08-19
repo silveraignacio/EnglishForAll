@@ -55,6 +55,35 @@ Reglas:
 - Tras el modal, el verbo va sin "to": might be, may be, could be.
 - El modal no se conjuga: he may, she may.
 - Negativo posible: might not / may not (no muy frecuente: "couldn't").`,
+  formation: {
+    title: 'Cómo se forma la posibilidad — might / may / could',
+    intro: 'Cuando algo solo es posible (no seguro), usamos might, may o could + verbo en forma base. La diferencia entre ellos está en el grado de certeza.',
+    patterns: [
+      {
+        name: 'Posibilidad',
+        formula: 'Sujeto + might / may / could + verbo en forma base + complemento',
+        examples: [
+          { english: 'It might rain later.', spanish: 'Puede que llueva más tarde.' },
+          { english: 'She may be in a meeting.', spanish: 'Puede estar en una reunión.' },
+          { english: 'He could be the new manager.', spanish: 'Podría ser el nuevo gerente.' },
+          { english: 'They could be lost.', spanish: 'Podrían estar perdidos.' },
+        ],
+        note: 'Tras el modal el verbo va sin "to" y sin conjugar: might be, may be, could be.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + might not / may not + verbo en forma base + complemento',
+        examples: [
+          { english: 'I might not have time today.', spanish: 'Quizá no tenga tiempo hoy.' },
+        ],
+      },
+    ],
+    notes: [
+      'Grado de certeza (de más a menos seguro): must be → may/could → might → can\'t be.',
+      'El modal no se conjuga: he may, she may (no "he mays").',
+      'Might ya expresa futuro/posibilidad; no necesita "will": It might rain (no "might will rain").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She might to be in a meeting.', correct: '✅ She might be in a meeting.', explanation: 'Tras "might" el verbo va sin "to": might be, no "might to be".' },
     { wrong: '❌ He may is the new manager.', correct: '✅ He may be the new manager.', explanation: 'Tras "may" el verbo no se conjuga: may be, no "may is".' },
@@ -231,6 +260,7 @@ Reglas:
       listening: {
         audioText:
           "I wonder what my friends are doing this weekend. They may go to the cinema — I heard them talking about a new movie. But they might go to the beach instead, especially if it\'s sunny. They could also decide to stay home and play video games. One thing I\'m sure about: they may visit the new Italian restaurant. It\'s supposed to be very good. Maybe they\'ll do all of these things!",
+        audioUrl: '/audio/tts/b1-m4-l2-ex12.mp3',
         questions: [
           {
             id: 'b1-m4-l2-ex12-q1',

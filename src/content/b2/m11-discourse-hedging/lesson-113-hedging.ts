@@ -106,6 +106,44 @@ Adjetivos comunes de hedging:
 - Énfasis: notable, striking, interesting, remarkable
 
 REGLA CRÍTICA: El hedging SUAVIZA — no afirma rotundamente. Si lo usas demasiado, pierdes autoridad. Si lo usas poco en académico, suenas muy directo.`,
+  formation: {
+    title: 'Cómo se forma el hedging',
+    intro: 'El hedging suaviza afirmaciones directas usando "It + verbo copulativo + adjetivo + (that) + cláusula". Sirve para sonar menos seguro, más cortés y más académicamente apropiado.',
+    patterns: [
+      {
+        name: 'Estructura básica — It + copula + adjetivo + (that) + cláusula',
+        formula: 'It + [is / seems / appears] + [adjetivo de hedging] + (that) + cláusula',
+        examples: [
+          { english: 'It is possible that the data has been misinterpreted.', spanish: 'Es posible que los datos hayan sido mal interpretados.' },
+          { english: 'It seems likely that climate change accelerates natural disasters.', spanish: 'Parece probable que el cambio climático acelere los desastres naturales.' },
+        ],
+        note: 'Adjetivos típicos: possible, likely, apparent, clear, arguable, notable.',
+      },
+      {
+        name: 'Con modal — doble suavización',
+        formula: 'It + [copula] + [adjetivo] + that + sujeto + [might / could / may] + verbo',
+        examples: [
+          { english: 'It is possible that she might have forgotten the meeting.', spanish: 'Es posible que ella haya olvidado la reunión.' },
+          { english: 'It seems likely that the study could suggest a correlation.', spanish: 'Parece probable que el estudio pueda sugerir una correlación.' },
+        ],
+        note: 'El modal añade máxima incertidumbre, pero no apiles varios modales.',
+      },
+      {
+        name: 'Pasiva — It could be argued that',
+        formula: 'It + [could / may] + be + argued/believed + that + cláusula',
+        examples: [
+          { english: 'It could be argued that the traditional method is outdated.', spanish: 'Se podría argumentar que el método tradicional está anticuado.' },
+          { english: 'It may be argued that both approaches have merit.', spanish: 'Se podría argumentar que ambos enfoques tienen mérito.' },
+        ],
+        note: 'La pasiva refuerza la distancia y la cautela académica.',
+      },
+    ],
+    notes: [
+      'En investigación y ensayos académicos, el hedging es esperado para reconocer que las conclusiones no son absolutas.',
+      'En conversación casual, demasiado hedging suena insincero o débil.',
+      'El adjetivo elige el grado de confianza: "possible" (mínima), "likely" (moderada), "clear" (alta).',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ It is possible that she might have could forgot.', correct: '✅ It is possible that she might have forgotten.', explanation: 'No apiles múltiples modales. "Might" es suficiente para suavizar después de "possible". Tampoco "could forgot" — es "could have forgotten".' },
     { wrong: '❌ It is that the data suggests something.', correct: '✅ It is likely that the data suggests something.', explanation: 'Necesitas un adjetivo de hedging entre "is" y "that" — no solo "It is that...".' },
@@ -262,6 +300,7 @@ REGLA CRÍTICA: El hedging SUAVIZA — no afirma rotundamente. Si lo usas demasi
       listening: {
         audioText:
           'Our findings suggest that climate patterns are changing. It is possible that human activities contribute to this change, although we cannot yet claim absolute certainty. It appears that temperature increases in certain regions correlate with industrial activity. However, it seems likely that multiple factors are involved. It is arguable whether current policies are sufficient to address the problem. Our research indicates that further investigation is needed. It could be argued that preventive measures should be implemented immediately, yet it remains to be seen whether these measures will be effective.',
+        audioUrl: '/audio/tts/b2-m11-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m11-l3-ex9-q1',

@@ -66,6 +66,42 @@ Aquí "my brother" o "her friend" funciona como el "dueño", y la 's marca la po
 - **Combinación válida:** adjetivo posesivo + sustantivo (dueño) + 's + cosa:
   - my brother's car (el coche de mi hermano)
   - their daughter's name (el nombre de su hija)`,
+  formation: {
+    title: 'Posesivos vs. genitivo sajón',
+    intro: "Hay dos formas de expresar posesión: los adjetivos posesivos (my, your, his...) indican que algo es nuestro sin nombrar al dueño, y el genitivo sajón ('s) dice quién es el dueño. No se mezclan, pero sí se pueden combinar.",
+    patterns: [
+      {
+        name: 'Adjetivo posesivo',
+        formula: 'my | your | his | her | our | their + sustantivo',
+        examples: [
+          { english: 'This is my car.', spanish: 'Este es mi coche.' },
+          { english: 'Her name is María.', spanish: 'Su nombre (de ella) es María.' },
+          { english: 'His brother is tall.', spanish: 'Su hermano (de él) es alto.' },
+        ],
+      },
+      {
+        name: 'Genitivo sajón',
+        formula: "Dueño + 's + cosa poseída",
+        examples: [
+          { english: "This is John's car.", spanish: 'Este es el coche de John.' },
+          { english: "María's husband is a doctor.", spanish: 'El esposo de María es médico.' },
+        ],
+        note: 'El genitivo sajón nombra al dueño; el adjetivo posesivo no.',
+      },
+      {
+        name: 'Combinado',
+        formula: "adjetivo posesivo + sustantivo (dueño) + 's + cosa poseída",
+        examples: [
+          { english: "This is my brother's car.", spanish: 'Este es el coche de mi hermano.' },
+          { english: "Their daughter's name is Ana.", spanish: 'El nombre de su hija (de ellos) es Ana.' },
+        ],
+      },
+    ],
+    notes: [
+      "No se combinan: my's ✗, his's ✗, her's ✗.",
+      'Para decir "tengo el coche de John" usamos "have": I have John\'s car.',
+    ],
+  },
   commonMistakes: [
     { wrong: "❌ I'm John's car ( queriendo decir \"Tengo el coche de John\")", correct: "✅ I have John's car OR My car is John's.", explanation: 'Para decir "tengo el coche de John", usa "have": I have John\'s car. "I am John\'s car" significaría "Yo soy el coche de John" (sin sentido).' },
     { wrong: "❌ His's brother", correct: "✅ His brother", explanation: 'No se usa \'s con un adjetivo posesivo. "his" ya indica posesión. → His brother.' },

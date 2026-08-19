@@ -43,6 +43,28 @@ OJO con el orden: la pasiva es is/are + participio. No digas "is spoke"; di "is 
 - is → singular. are → plural.
 - Participio: -ed (regulares) o forma irregular (speak → spoken, make → made, write → written).
 - Se usa cuando el foco está en la acción, no en quién la hace.`,
+  formation: {
+    title: 'Cómo se forma la voz pasiva en presente',
+    intro: 'La pasiva pone el foco en la acción o en el objeto, no en quién la hace. Se forma con is/are + participio pasado.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + is / are + participio pasado + complemento',
+        examples: [
+          { english: 'English is spoken in many countries.', spanish: 'El inglés se habla en muchos países.' },
+          { english: 'These cars are made in Germany.', spanish: 'Estos coches se fabrican en Alemania.' },
+          { english: 'The book is written in Spanish.', spanish: 'El libro está escrito en español.' },
+          { english: 'Coffee is grown in Colombia.', spanish: 'El café se cultiva en Colombia.' },
+        ],
+        note: 'is → sujeto singular. are → sujeto plural. El orden es is/are + participio: is spoken (no "is spoke" ni "spoken is").',
+      },
+    ],
+    notes: [
+      'Participio de verbos regulares: verbo + -ed (cooked, painted, designed).',
+      'Participios irregulares: forma propia (speak → spoken, write → written, make → made, take → taken, grow → grown).',
+      'En español muchas veces equivale a "se" + verbo: se habla, se fabrica, se escribe.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ English is spoke in many countries.', correct: '✅ English is spoken in many countries.', explanation: 'En la pasiva usamos el participio "spoken", no el pasado simple "spoke".' },
     { wrong: '❌ English are spoken in many countries.', correct: '✅ English is spoken in many countries.', explanation: '"English" es singular → usamos "is", no "are".' },

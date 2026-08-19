@@ -46,6 +46,36 @@ Para hablar de algo que empezó en el pasado y sigue siendo verdad ahora: "He vi
 2. since + PUNTO de partida → since 2019, since Monday, since 8 o'clock.
 3. Regla rápida: si puedes medirlo (años, horas) → for. Si es una fecha o momento concreto → since.
 4. Fórmula: have/has + participio + for/since + ...`,
+  formation: {
+    title: 'Cómo se forma la duración con for y since',
+    intro: 'Con el Present Perfect (have/has + participio) usamos "for" para decir cuánto dura algo (periodo) y "since" para indicar desde cuándo (punto de partida).',
+    patterns: [
+      {
+        name: 'for + periodo de tiempo',
+        formula: 'have/has + participio pasado + for + periodo (5 years, two hours, a long time)',
+        examples: [
+          { english: 'I have lived here for 10 years.', spanish: 'He vivido aquí durante 10 años.' },
+          { english: 'We have known each other for a long time.', spanish: 'Nos conocemos desde hace mucho tiempo.' },
+        ],
+        note: '"For" responde a la pregunta "¿durante cuánto tiempo?" y va con cantidades medibles.',
+      },
+      {
+        name: 'since + punto de partida',
+        formula: 'have/has + participio pasado + since + punto de partida (2020, Monday, 8 o\'clock)',
+        examples: [
+          { english: 'She has worked here since 2020.', spanish: 'Ella ha trabajado aquí desde 2020.' },
+          { english: 'They have been married since 2015.', spanish: 'Llevan casados desde 2015.' },
+        ],
+        note: '"Since" responde a la pregunta "¿desde cuándo?" y va con fechas, días o momentos concretos.',
+      },
+    ],
+    notes: [
+      'Regla rápida: si puedes medirlo (años, horas, meses) → for. Si es una fecha o un momento concreto → since.',
+      '❌ since 5 years → ✅ for 5 years. ❌ for 2020 → ✅ since 2020.',
+      'No combines "since" con "ago": ❌ since 5 years ago → ✅ for 5 years.',
+      'El verbo va en participio pasado con have/has: I have lived, she has worked.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I have lived here since 5 years.', correct: '✅ I have lived here for 5 years.', explanation: '"5 years" es un periodo de tiempo, así que usamos "for", no "since".' },
     { wrong: '❌ She has worked here for 2020.', correct: '✅ She has worked here since 2020.', explanation: '"2020" es un punto de partida (un año), así que usamos "since".' },

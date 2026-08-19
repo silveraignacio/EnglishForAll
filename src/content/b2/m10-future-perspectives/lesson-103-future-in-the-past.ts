@@ -63,6 +63,53 @@ Reglas:
 - "About to" y "just about to" usan infinitivo (sin "to" adicional después).
 - "On the point of" usa gerundio (-ing).
 - Solo usá presente continuo para futuro desde el pasado si hay un contexto claro de plan o acuerdo.`,
+  formation: {
+    title: 'Cómo se forma el futuro en el pasado',
+    intro: 'Para hablar del futuro desde la perspectiva de un momento pasado usamos was/were about to (estaba a punto de), was/were on the point of (en el punto de), y el pasado continuo con sentido de plan (He said he was coming tomorrow).',
+    patterns: [
+      {
+        name: 'Inminente — was/were about to + infinitivo',
+        formula: 'Sujeto + was/were + about to + infinitivo + complemento',
+        examples: [
+          { english: 'I was about to leave when you called.', spanish: 'Estaba a punto de irme cuando llamaste.' },
+          { english: 'They were about to sign the contract when they discovered an error.', spanish: 'Estaban a punto de firmar el contrato cuando descubrieron un error.' },
+        ],
+        note: 'Expresa que algo estaba por ocurrir pero fue interrumpido o no sucedió. Es la forma más común.',
+      },
+      {
+        name: 'Literario — was/were on the point of + -ing',
+        formula: 'Sujeto + was/were + on the point of + verbo en -ing + complemento',
+        examples: [
+          { english: 'She was on the point of quitting her job.', spanish: 'Estaba en el punto de renunciar a su trabajo.' },
+          { english: 'She was on the point of crying when we tried to cheer her up.', spanish: 'Estaba en el punto de llorar cuando intentamos animarla.' },
+        ],
+        note: 'Más formal o literario que about to. Usa gerundio (-ing), no to-infinitivo.',
+      },
+      {
+        name: 'Más urgencia — was/were just about to + infinitivo',
+        formula: 'Sujeto + was/were + just + about to + infinitivo + complemento',
+        examples: [
+          { english: 'We were just about to start the meeting when he arrived.', spanish: 'Estábamos justo a punto de empezar la reunión cuando llegó.' },
+          { english: 'She was just about to say something when we interrupted.', spanish: 'Estaba justo a punto de decir algo cuando interrumpimos.' },
+        ],
+        note: 'Añade inmediatez: todavía más inminente que about to.',
+      },
+      {
+        name: 'Plan visto desde el pasado — pasado continuo con rango futuro',
+        formula: 'Sujeto + was/were + verbo en -ing + contexto temporal futuro (visto desde el pasado)',
+        examples: [
+          { english: 'He said he was coming home that evening.', spanish: 'Dijo que venía a casa esa noche.' },
+          { english: 'She was leaving tomorrow (from yesterday\'s view).', spanish: 'Tenía planeado irse mañana (visto desde ayer).' },
+        ],
+        note: 'Solo funciona si el contexto indica un acuerdo o plan claro; sin contexto es solo pasado continuo.',
+      },
+    ],
+    notes: [
+      'About to y just about to usan infinitivo (about to call, no "about calling").',
+      'On the point of usa gerundio (on the point of leaving, no "on the point to leave").',
+      'Se usa mucho en narrativa, reportes y anécdotas para cambiar de perspectiva temporal.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I was about leaving when you called.', correct: '✅ I was about to leave when you called.', explanation: 'Es "about to + infinitivo", no "about + -ing".' },
     { wrong: '❌ She was on the point to leave.', correct: '✅ She was on the point of leaving.', explanation: '"On the point of" siempre va con gerundio (-ing), no "to + infinitivo".' },
@@ -197,6 +244,7 @@ Reglas:
       listening: {
         audioText:
           "I was about to accept the job offer when I realized something important. I was on the point of signing the contract when my old boss called. She was about to offer me a better position, but I had just made my decision. I was about to say no, but she explained the benefits. I was glad I waited because everything worked out perfectly.",
+        audioUrl: '/audio/tts/b2-m10-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m10-l3-ex9-q1',

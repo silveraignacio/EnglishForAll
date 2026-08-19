@@ -41,6 +41,44 @@ La estructura es la misma que el first conditional: when/if/unless + presente si
 - when + presente simple = cuando (estamos seguros).
 - if + presente simple = si (posibilidad).
 - La estructura es la misma que el first conditional: (when/if/unless) + presente simple, will/won't + verbo.`,
+  formation: {
+    title: 'Cómo se forman unless, when e if',
+    intro: 'Las tres unen una condición con un resultado futuro. La estructura es la misma: unless/when/if + presente simple, y en la otra parte will/won\'t + verbo.',
+    patterns: [
+      {
+        name: 'unless (a menos que / si no)',
+        formula: 'unless + presente simple, will/won\'t + verbo',
+        examples: [
+          { english: 'Unless you study, you won\'t pass.', spanish: 'A menos que estudies, no aprobarás.' },
+          { english: 'You won\'t succeed unless you try.', spanish: 'No tendrás éxito a menos que lo intentes.' },
+        ],
+        note: '"Unless" ya es negativo (= if not): no añadas "don\'t". También puede ir al final de la frase.',
+      },
+      {
+        name: 'when (cuando, casi seguro)',
+        formula: 'when + presente simple, will + verbo',
+        examples: [
+          { english: 'When I get home, I\'ll eat.', spanish: 'Cuando llegue a casa, comeré.' },
+          { english: 'When it stops raining, we\'ll go out.', spanish: 'Cuando deje de llover, saldremos.' },
+        ],
+        note: '"When" se usa cuando estamos seguros de que la situación pasará.',
+      },
+      {
+        name: 'if (si, posibilidad)',
+        formula: 'if + presente simple, will + verbo',
+        examples: [
+          { english: 'If I get home early, I\'ll eat.', spanish: 'Si llego a casa temprano, comeré.' },
+          { english: 'If you visit Madrid, I\'ll show you the city.', spanish: 'Si visitas Madrid, te enseñaré la ciudad.' },
+        ],
+        note: '"If" expresa una posibilidad, no una certeza.',
+      },
+    ],
+    notes: [
+      'Después de unless, when e if usamos presente simple, nunca "will".',
+      'when = casi seguro de que pasará. if = solo una posibilidad.',
+      'unless + verbo en positivo ya significa "si no...": unless you study = si no estudias.',
+    ],
+  },
   commonMistakes: [
     { wrong: "❌ Unless you don't study, you won't pass.", correct: "✅ Unless you study, you won't pass.", explanation: '"Unless" ya significa "si no"; no añadimos "don\'t".' },
     { wrong: '❌ Unless you will study, you won\'t pass.', correct: "✅ Unless you study, you won't pass.", explanation: 'Tras "unless" usamos presente simple, no "will".' },

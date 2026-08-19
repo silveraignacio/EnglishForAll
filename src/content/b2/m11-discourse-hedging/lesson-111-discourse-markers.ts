@@ -89,6 +89,53 @@ Reglas:
 2. No usar dos marcadores de la misma categoría consecutivamente.
 3. El marcador estructural, pero NO reemplaza la gramática — la oración después debe ser completa.
 4. En escritura formal (ensayos, reportes, emails profesionales) se espera usar estos marcadores. En conversación casual, no.`,
+  formation: {
+    title: 'Cómo se estructuran los marcadores del discurso',
+    intro: 'Los marcadores del discurso van típicamente al inicio del enunciado seguidos de coma, y estructuran el texto señalando apertura, cierre, resumen o comparación.',
+    patterns: [
+      {
+        name: 'Apertura — introducir el primer argumento',
+        formula: '[To begin with / First of all / Initially], + oración completa',
+        examples: [
+          { english: 'To begin with, we need to consider the cost of the project.', spanish: 'Para empezar, necesitamos considerar el costo del proyecto.' },
+          { english: 'First of all, it\'s important to note that this is a new phenomenon.', spanish: 'Antes que nada, es importante notar que este es un fenómeno nuevo.' },
+        ],
+        note: 'Introduce la primera idea o argumento de un párrafo o texto.',
+      },
+      {
+        name: 'Cierre — introducir la conclusión',
+        formula: '[In conclusion / To conclude / Finally], + oración completa',
+        examples: [
+          { english: 'In conclusion, we recommend implementing these reforms immediately.', spanish: 'En conclusión, recomendamos implementar estas reformas inmediatamente.' },
+          { english: 'To sum up, the evidence suggests a clear correlation.', spanish: 'En pocas palabras, la evidencia sugiere una correlación clara.' },
+        ],
+        note: 'Marca que estamos terminando el argumento.',
+      },
+      {
+        name: 'Resumen — sintetizar lo dicho',
+        formula: '[In short / Briefly / In a nutshell], + oración completa',
+        examples: [
+          { english: 'In short, the data shows a clear trend.', spanish: 'En pocas palabras, los datos muestran una tendencia clara.' },
+          { english: 'To put it another way, the results speak for themselves.', spanish: 'Dicho de otra manera, los resultados hablan por sí mismos.' },
+        ],
+        note: 'Resume lo presentado en pocas palabras.',
+      },
+      {
+        name: 'Comparación — contrastar o comparar ideas',
+        formula: '[Similarly / In contrast / By contrast / On the other hand], + oración completa',
+        examples: [
+          { english: 'Japan had similar economic challenges. By contrast, South Korea took a different approach.', spanish: 'Japón enfrentó desafíos económicos similares. Por el contrario, Corea del Sur adoptó un enfoque diferente.' },
+          { english: 'Similarly, the United Kingdom faced comparable challenges in the 1970s.', spanish: 'De manera similar, el Reino Unido enfrentó desafíos comparables en los años 70.' },
+        ],
+        note: 'Compara o contrasta dos ideas consecutivas.',
+      },
+    ],
+    notes: [
+      'Siempre va una coma después del marcador.',
+      'No uses dos marcadores de la misma categoría juntos ("To begin with, first of all..." es incorrecto).',
+      'En escritura formal estos marcadores son esperados; en conversación casual no se usan tanto.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ To begin with, first of all, we need to...', correct: '✅ To begin with, we need to...', explanation: 'No se usan DOS marcadores de apertura juntos. Cada uno inicia su propio párrafo o punto.' },
     { wrong: '❌ In conclusion the government should act.', correct: '✅ In conclusion, the government should act.', explanation: 'Siempre se pone coma después del marcador.' },
@@ -237,6 +284,7 @@ Reglas:
       listening: {
         audioText:
           'Today we\'re going to discuss the impact of technology on education. To begin with, let\'s consider the advantages. Technology provides access to unlimited resources, and students can learn at their own pace. Similarly, teachers can use digital tools to create more interactive lessons. However, there are also disadvantages. By contrast, some argue that technology reduces face-to-face interaction. In conclusion, we must balance both perspectives to create an effective learning environment.',
+        audioUrl: '/audio/tts/b2-m11-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m11-l1-ex9-q1',

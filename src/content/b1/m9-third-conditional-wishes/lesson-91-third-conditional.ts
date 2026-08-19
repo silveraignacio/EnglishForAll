@@ -36,6 +36,28 @@ Reglas clave:
 - En la parte de "if" NO se usa "would": ✅ if I had studied, ❌ if I would have studied.
 - Después de "would have" va el participio pasado: ✅ would have gone, ❌ would have went.
 - El orden puede invertirse: I would have passed if I had studied more.`,
+  formation: {
+    title: 'Cómo se forma el Third Conditional',
+    intro: 'El tercer condicional expresa hipótesis no cumplidas en el pasado: if + had + participio en la condición y would have + participio en el resultado.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'If + sujeto + had + past participle, + sujeto + would have + past participle',
+        examples: [
+          { english: 'If I had studied more, I would have passed.', spanish: 'Si hubiera estudiado más, habría aprobado.' },
+          { english: 'If she had known, she would have come.', spanish: 'Si ella hubiera sabido, habría venido.' },
+          { english: 'If they had left earlier, they would have arrived on time.', spanish: 'Ellos habrían llegado a tiempo si hubieran salido antes.' },
+        ],
+        note: 'Orden invertido (sin coma): I would have passed if I had studied more.',
+      },
+    ],
+    notes: [
+      'En la parte de "if" NUNCA se usa "would": If I had studied (no "If I would have studied").',
+      'Después de "would have" va el participio pasado: would have gone (no "would have went").',
+      'Con "have" en la condición se forma "had had": If he had had your number.',
+      'Contracción: would have → would\'ve / \'d have.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ If I would have studied more, I would have passed.', correct: '✅ If I had studied more, I would have passed.', explanation: 'En la parte de "if" usamos "had + participio", nunca "would have".' },
     { wrong: '❌ I would have went to the party.', correct: '✅ I would have gone to the party.', explanation: 'Después de "would have" va el participio: "go" → "gone".' },
@@ -187,6 +209,7 @@ Reglas clave:
       listening: {
         audioText:
           "If I had saved more money when I was younger, I would have travelled more. But instead, I spent it all on things I don't remember now. And if I hadn't injured my knee, I would have become a professional dancer. I had to give up that dream. However, if I had finished university, I wouldn't have started my own business, which turned out to be the best thing for me.",
+        audioUrl: '/audio/tts/b1-m9-l1-ex11.mp3',
         questions: [
           {
             id: 'b1-m9-l1-ex11-q1',

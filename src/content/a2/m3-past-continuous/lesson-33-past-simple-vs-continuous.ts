@@ -47,6 +47,44 @@ Unidas por "when":
 3. when + Past Simple (la interrupción): "I was cooking when the phone rang."
 4. while + Past Continuous (la acción larga): "While she was driving, she saw an accident."
 5. Nunca olvides el -ing en el Past Continuous: ❌ I was cook → ✅ I was cooking.`,
+  formation: {
+    title: 'Cómo se forman el Past Simple y el Past Continuous (contraste)',
+    intro: 'Para narrar una historia usamos las dos formas juntas: la acción larga de fondo va en Past Continuous (was/were + -ing) y la interrupción corta en Past Simple.',
+    patterns: [
+      {
+        name: 'Acción larga de fondo (Past Continuous)',
+        formula: 'sujeto + was/were + verbo en -ing',
+        examples: [
+          { english: 'I was cooking.', spanish: 'Estaba cocinando.' },
+          { english: 'They were having dinner.', spanish: 'Estaban cenando.' },
+        ],
+        note: 'was → I/he/she/it. were → you/we/they. El verbo SIEMPRE lleva -ing.',
+      },
+      {
+        name: 'Interrupción corta (Past Simple)',
+        formula: 'sujeto + verbo en pasado simple',
+        examples: [
+          { english: 'The phone rang.', spanish: 'Sonó el teléfono.' },
+          { english: 'I arrived.', spanish: 'Llegué.' },
+        ],
+        note: 'El Past Simple usa la forma de pasado del verbo: ring → rang, arrive → arrived.',
+      },
+      {
+        name: 'Unión con when / while',
+        formula: 'Past Continuous + when + Past Simple | While + Past Continuous + , + Past Simple',
+        examples: [
+          { english: 'I was cooking when the phone rang.', spanish: 'Estaba cocinando cuando sonó el teléfono.' },
+          { english: 'While she was driving, she saw an accident.', spanish: 'Mientras conducía, vio un accidente.' },
+        ],
+        note: 'when + la interrupción (Past Simple). while + la acción larga (Past Continuous).',
+      },
+    ],
+    notes: [
+      'La interrupción siempre va en Past Simple; la acción de fondo, en Past Continuous.',
+      'No olvides el -ing: ❌ I was cook → ✅ I was cooking.',
+      'Si la acción dura todo el rato (no se interrumpe), no mezclas los tiempos.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I was cook when the phone rang.', correct: '✅ I was cooking when the phone rang.', explanation: 'El Past Continuous SIEMPRE lleva el verbo en -ing: was cooking, no was cook.' },
     { wrong: '❌ When she was driving, she saw an accident.', correct: '✅ While she was driving, she saw an accident.', explanation: '"While" se usa con la acción larga (Past Continuous). "When" va con la interrupción (Past Simple).' },

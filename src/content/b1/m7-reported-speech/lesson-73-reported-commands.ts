@@ -37,6 +37,35 @@ En español hacemos algo parecido: "Siéntate" → "Me dijo que me sentara". Per
 - Orden/petición negativa: tell/ask + persona + not to + verbo: She told me not to worry.
 - tell = orden (más directo); ask = petición educada (suele ir con "please").
 - En el negativo, el "don't" del estilo directo se convierte en "not to".`,
+  formation: {
+    title: 'Cómo se forma el estilo indirecto — órdenes y peticiones',
+    intro: 'Las órdenes y peticiones se convierten con tell/ask + persona + to + infinitivo. En negativa se usa not to + infinitivo.',
+    patterns: [
+      {
+        name: 'Orden/petición afirmativa',
+        formula: 'Sujeto + tell/ask + persona + to + verbo + complemento',
+        examples: [
+          { english: 'Direct: "Sit down!" → He told me to sit down.', spanish: 'Directo: "¡Siéntate!" → Él me dijo que me sentara.' },
+          { english: 'Direct: "Please help me." → He asked me to help him.', spanish: 'Directo: "Por favor, ayúdame." → Él me pidió que le ayudara.' },
+          { english: 'Direct: "Open the window." → She asked me to open the window.', spanish: 'Directo: "Abre la ventana." → Ella me pidió que abriera la ventana.' },
+        ],
+        note: 'tell = orden directa; ask = petición educada (suele ir con "please").',
+      },
+      {
+        name: 'Orden/petición negativa',
+        formula: 'Sujeto + tell/ask + persona + not to + verbo + complemento',
+        examples: [
+          { english: 'Direct: "Don\'t worry." → She told me not to worry.', spanish: 'Directo: "No te preocupes." → Ella me dijo que no me preocupara.' },
+          { english: 'Direct: "Don\'t be late!" → He told us not to be late.', spanish: 'Directo: "¡No lleguéis tarde!" → Él nos dijo que no llegáramos tarde.' },
+        ],
+        note: 'El "don\'t" del estilo directo se convierte en "not to + verbo".',
+      },
+    ],
+    notes: [
+      'Otros verbos que funcionan igual: order (ordenar), warn (advertir), remind (recordar), request (solicitar): She warned me not to walk alone at night.',
+      'No se usa "que + subjuntivo" como en español: en inglés es to + infinitivo.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ He told me sit down.', correct: '✅ He told me to sit down.', explanation: 'Tras "told me" hace falta "to" + verbo: to sit down.' },
     { wrong: '❌ She told me don\'t worry.', correct: '✅ She told me not to worry.', explanation: 'La negativa en indirecto es "not to + verbo", no "don\'t".' },
@@ -188,6 +217,7 @@ En español hacemos algo parecido: "Siéntate" → "Me dijo que me sentara". Per
       listening: {
         audioText:
           "Listen carefully. First, I want you to eat your breakfast before you leave. Second, don't forget your backpack. Third, please put on your shoes. Don't run in the hallway at school. And remember to listen to your teacher. Most importantly, don't talk to strangers. Call me when you arrive at school. Have a great day!",
+        audioUrl: '/audio/tts/b1-m7-l3-ex11.mp3',
         questions: [
           {
             id: 'b1-m7-l3-ex11-q1',

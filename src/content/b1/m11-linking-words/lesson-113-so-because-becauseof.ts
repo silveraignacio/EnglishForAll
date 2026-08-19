@@ -41,6 +41,50 @@ Comparación:
 - because of + sustantivo: The match was cancelled because of the rain.
 - so that + oración (finalidad): I study every day so that I can pass the exam.
 - NO se usa "to" después de "so that".`,
+  formation: {
+    title: 'Cómo se expresan causa, consecuencia y finalidad',
+    intro: 'Para conectar ideas usamos so (consecuencia), because (causa + oración), because of (causa + sustantivo) y so that (finalidad + oración).',
+    patterns: [
+      {
+        name: 'so + resultado (consecuencia)',
+        formula: 'Oración, + so + oración',
+        examples: [
+          { english: 'It was raining, so we stayed home.', spanish: 'Estaba lloviendo, así que nos quedamos en casa.' },
+          { english: 'She missed the bus, so she took a taxi.', spanish: 'Perdió el autobús, así que cogió un taxi.' },
+        ],
+        note: '"So" introduce la consecuencia o el resultado, precedido de coma.',
+      },
+      {
+        name: 'because + oración (causa)',
+        formula: 'Oración + because + oración',
+        examples: [
+          { english: 'I was late because the traffic was bad.', spanish: 'Llegué tarde porque el tráfico estaba mal.' },
+        ],
+        note: '"Because" va seguido de una oración completa (sujeto + verbo).',
+      },
+      {
+        name: 'because of + sustantivo (causa)',
+        formula: 'Oración + because of + sustantivo',
+        examples: [
+          { english: 'The match was cancelled because of the rain.', spanish: 'El partido se canceló por la lluvia.' },
+        ],
+        note: '"Because of" va seguido de un sustantivo o frase nominal, no de una oración.',
+      },
+      {
+        name: 'so that + oración (finalidad)',
+        formula: 'Oración + so that + oración',
+        examples: [
+          { english: 'I study every day so that I can pass the exam.', spanish: 'Estudio todos los días para poder aprobar el examen.' },
+        ],
+        note: '"So that" introduce el propósito; suele ir seguido de can/could/will/would.',
+      },
+    ],
+    notes: [
+      'La misma idea con dos construcciones: I stayed home because it was raining (causa) / It was raining, so I stayed home (consecuencia).',
+      'because + oración (the traffic was bad) vs because of + sustantivo (the bad traffic).',
+      'NO se usa "to" después de "so that": so that I can pass (no "so that to pass").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The match was cancelled because of it was raining.', correct: '✅ The match was cancelled because it was raining. / ... because of the rain.', explanation: '"because of" va seguido de un sustantivo (the rain), no de una oración. Con oración usamos "because".' },
     { wrong: '❌ I study every day so that to pass the exam.', correct: '✅ I study every day so that I can pass the exam.', explanation: '"so that" ya introduce la oración de finalidad; no añadimos "to" delante. Si usamos "to", quitamos "so that": ... every day to pass the exam.' },
@@ -192,6 +236,7 @@ Comparación:
       listening: {
         audioText:
           "I couldn\'t go to university today because of a car accident on the road. So I stayed at home. I was also sick, because the weather was very cold yesterday. I need to study hard so that I can keep up with my classes. My teacher sent me the notes because she understood the situation. I feel better now, so I\'ll be back tomorrow.",
+        audioUrl: '/audio/tts/b1-m11-l3-ex11.mp3',
         questions: [
           {
             id: 'b1-m11-l3-ex11-q1',

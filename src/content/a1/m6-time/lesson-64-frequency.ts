@@ -63,6 +63,49 @@ Recuerda: los adverbios de frecuencia se usan con el Present Simple (rutinas y h
 - DESPUÉS del verbo "to be" (am/is/are): She is always tired. / I am never late.
 - En preguntas (do/does): entre sujeto y verbo: Do you often go to the gym?
 - "sometimes" también puede ir al principio: Sometimes I eat pizza.`,
+  formation: {
+    title: 'Cómo se colocan los adverbios de frecuencia',
+    intro: 'Los adverbios de frecuencia (always, usually, often, sometimes, rarely, never) nos dicen con qué frecuencia hacemos algo. Su posición depende del verbo: antes del verbo principal y después del verbo "to be".',
+    patterns: [
+      {
+        name: 'Antes del verbo principal',
+        formula: 'Sujeto + adverbio de frecuencia + verbo principal',
+        examples: [
+          { english: 'I always get up at 7.', spanish: 'Siempre me levanto a las 7.' },
+          { english: 'We never eat meat.', spanish: 'Nunca comemos carne.' },
+          { english: 'I usually drink coffee.', spanish: 'Normalmente bebo café.' },
+        ],
+      },
+      {
+        name: 'Después del verbo "to be"',
+        formula: 'Sujeto + to be (am/is/are) + adverbio de frecuencia',
+        examples: [
+          { english: 'She is always tired.', spanish: 'Ella siempre está cansada.' },
+          { english: 'I am never late.', spanish: 'Nunca llego tarde.' },
+        ],
+        note: 'Con "to be" el adverbio va justo detrás del verbo: is always, am never.',
+      },
+      {
+        name: 'En preguntas',
+        formula: 'Do/Does + sujeto + adverbio + verbo?',
+        examples: [
+          { english: 'Do you often go to the gym?', spanish: '¿Vas a menudo al gimnasio?' },
+          { english: 'Does she sometimes cook?', spanish: '¿Ella cocina a veces?' },
+        ],
+      },
+      {
+        name: '"Sometimes" al principio',
+        formula: 'Sometimes + frase completa',
+        examples: [
+          { english: 'Sometimes I eat pizza.', spanish: 'A veces como pizza.' },
+        ],
+      },
+    ],
+    notes: [
+      'La lista: always (100%) → usually → often → sometimes → rarely → never (0%).',
+      'Con "never" no se usa otra negación: I never drink coffee (no "I never don\'t drink coffee").',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I get up always at 7.', correct: '✅ I always get up at 7.', explanation: 'El adverbio va ANTES del verbo principal: always get up. (En español va después; en inglés no.)' },
     { wrong: '❌ She always is tired.', correct: '✅ She is always tired.', explanation: 'Con el verbo "to be", el adverbio va DESPUÉS: is always.' },

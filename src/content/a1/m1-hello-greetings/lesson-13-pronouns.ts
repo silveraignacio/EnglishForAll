@@ -51,6 +51,37 @@ En inglés hay **7 pronombres personales sujeto**. Vamos a verlos uno por uno:
 - **They** (ellos/ellas) — personas o cosas plurales
 
 En inglés casi siempre DEBES indicar el sujeto. No lo omitas.`,
+  formation: {
+    title: 'Cómo se forman los pronombres personales sujeto',
+    intro: 'Los pronombres sujeto sustituyen al nombre y van siempre antes del verbo. En inglés casi nunca se omiten: no decimos "am happy" sino "I am happy".',
+    patterns: [
+      {
+        name: 'Singular',
+        formula: 'I | you | he | she | it',
+        examples: [
+          { english: 'I am a teacher.', spanish: 'Yo soy profesor.' },
+          { english: 'You are my friend.', spanish: 'Tú eres mi amigo.' },
+          { english: 'He is John.', spanish: 'Él es John.' },
+          { english: 'It is a cat.', spanish: 'Es un gato.' },
+        ],
+        note: '"he" es para hombres, "she" para mujeres e "it" para cosas, animales e ideas. "you" sirve para singular y plural, formal e informal.',
+      },
+      {
+        name: 'Plural',
+        formula: 'we | you | they',
+        examples: [
+          { english: 'We are Spanish.', spanish: 'Nosotros somos españoles.' },
+          { english: 'They are my parents.', spanish: 'Ellos son mis padres.' },
+        ],
+        note: '"they" sirve para masculino, femenino y cosas en plural.',
+      },
+    ],
+    notes: [
+      '"I" (yo) SIEMPRE va en mayúscula, incluso en medio de la frase.',
+      'El sujeto es casi siempre obligatorio: "Am María" es incorrecto; decimos "I am María".',
+      '"you" cubre todas las formas del español: tú, usted, vosotros y ustedes.',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ am a student',

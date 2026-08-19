@@ -122,6 +122,53 @@ GO ON:
 MEAN:
 - mean + -ing = significar (implicación)
 - mean + to-infinitive = tener la intención de`,
+  formation: {
+    title: 'Cómo se forman los verbos con cambio de significado',
+    intro: 'Un grupo de verbos cambia de significado según vayan seguidos de gerundio (-ing) o de infinitivo con to. La forma elegida refleja el sentido real de la frase.',
+    patterns: [
+      {
+        name: 'remember — recuerdo vs. obligación',
+        formula: 'remember + -ing (pasado, recuerdo) / remember + to + verbo (futuro, obligación)',
+        examples: [
+          { english: 'I remember eating ice cream at that beach.', spanish: 'Recuerdo que comimos helado en esa playa.' },
+          { english: 'Remember to buy milk on your way home.', spanish: 'Acordate de comprar leche de camino a casa.' },
+        ],
+        note: '-ing = recuerdo del pasado; to = acordarse de una obligación futura.',
+      },
+      {
+        name: 'stop — abandonar vs. parar para',
+        formula: 'stop + -ing (dejar de) / stop + to + verbo (parar para hacer algo)',
+        examples: [
+          { english: 'She stopped smoking three years ago.', spanish: 'Dejó de fumar hace tres años.' },
+          { english: 'I stopped to pick up some groceries.', spanish: 'Me detuve para recoger algunas compras.' },
+        ],
+        note: '-ing = abandonar un hábito; to = propósito de detenerse.',
+      },
+      {
+        name: 'try — experimentar vs. intentar',
+        formula: 'try + -ing (probar/experimentar) / try + to + verbo (intentar con esfuerzo)',
+        examples: [
+          { english: 'Try adding honey to your tea.', spanish: 'Probá agregando miel a tu té.' },
+          { english: 'He tried to open the door, but it was locked.', spanish: 'Intentó abrir la puerta, pero estaba cerrada.' },
+        ],
+        note: '-ing = consejo experimental; to = esfuerzo que quizá no logró.',
+      },
+      {
+        name: 'mean — implicar vs. tener la intención',
+        formula: 'mean + -ing (significar/implicar) / mean + to + verbo (tener la intención de)',
+        examples: [
+          { english: 'Being late means missing the start of the film.', spanish: 'Llegar tarde significa perder el inicio de la película.' },
+          { english: 'I meant to call you yesterday.', spanish: 'Pretendía llamarte ayer.' },
+        ],
+        note: '-ing = consecuencia; to = intención, a menudo no realizada.',
+      },
+    ],
+    notes: [
+      'El cambio de forma es el indicador del cambio de significado: "remember to" (futuro) vs. "remember -ing" (pasado).',
+      'Con "go on", -ing significa continuar y to + verbo significa pasar a la siguiente acción.',
+      '"I meant to..." expresa una intención no realizada o retrasada, muy común en habla.',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ I remember to eat pizza there.',
@@ -377,6 +424,7 @@ MEAN:
       listening: {
         audioText:
           "Sarah: Hey, do you remember visiting that beach in Portugal? Mike: Of course! I remember spending the whole day there. But I\'ve changed since then. Sarah: What do you mean? Mike: Well, I stopped smoking three years ago, and I meant to tell you earlier. Sarah: That\'s great! How did you manage? Mike: I tried quitting cold turkey first, but that didn\'t work. Then I tried using nicotine patches. Sarah: And it worked? Mike: Eventually. Now I sometimes stop to breathe fresh air instead.",
+        audioUrl: '/audio/tts/b2-m9-l1-ex9.mp3',
         questions: [
           {
             id: 'b2-m9-l1-ex9-q1',

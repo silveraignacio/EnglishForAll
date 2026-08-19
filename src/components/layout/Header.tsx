@@ -12,14 +12,15 @@ export function Header() {
     { to: '/', label: 'Inicio', icon: '🏠' },
     { to: '/level/a1', label: 'Curso', icon: '📚' },
     { to: '/review', label: 'Repaso', icon: '🔄' },
+    { to: '/cheatsheet', label: 'Cheat sheet', icon: '📋' },
     { to: '/achievements', label: 'Logros', icon: '🏆' },
   ]
   return (
     <header className="sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-ink/5">
       <div className="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-bold text-ink hover:opacity-80 transition-opacity">
-          <span className="w-9 h-9 rounded-lg bg-brand-600 text-white flex items-center justify-center font-extrabold">Ec</span>
-          <span className="hidden sm:inline">English On Course</span>
+          <span className="w-9 h-9 rounded-lg bg-brand-600 text-white flex items-center justify-center font-extrabold">E4A</span>
+          <span className="hidden sm:inline">English4All</span>
         </Link>
         <nav className="flex items-center gap-1">
           {navItems.map((item) => (

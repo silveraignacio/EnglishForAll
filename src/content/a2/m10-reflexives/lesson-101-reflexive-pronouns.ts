@@ -39,6 +39,36 @@ La clave: si el sujeto y el objeto son la misma persona o cosa, usamos el reflex
 - They → themselves
 
 Usamos el reflexivo cuando el sujeto y el objeto son la misma persona o cosa. Nunca digas "themself"; la forma correcta es "themselves".`,
+  formation: {
+    title: 'Cómo se forman los pronombres reflexivos',
+    intro: 'Los reflexivos se usan cuando la persona que hace la acción y la que la recibe son la misma. Se forman a partir de los pronombres personales con -self (singular) y -selves (plural).',
+    patterns: [
+      {
+        name: 'La tabla completa',
+        formula: 'I → myself | you → yourself | he → himself | she → herself | it → itself | we → ourselves | they → themselves',
+        examples: [
+          { english: 'I hurt myself.', spanish: 'Me hice daño.' },
+          { english: 'She introduced herself at the meeting.', spanish: 'Ella se presentó en la reunión.' },
+          { english: 'We enjoyed ourselves at the party.', spanish: 'Nos divertimos en la fiesta.' },
+        ],
+        note: '-self es singular (myself, yourself); -selves es plural (ourselves, themselves).',
+      },
+      {
+        name: 'Uso (sujeto = objeto)',
+        formula: 'sujeto + verbo + pronombre reflexivo',
+        examples: [
+          { english: 'The cat washed itself.', spanish: 'El gato se lavó.' },
+          { english: 'They built the house themselves.', spanish: 'Ellos construyeron la casa ellos mismos.' },
+        ],
+        note: 'Usamos el reflexivo solo cuando la acción vuelve a la misma persona o cosa.',
+      },
+    ],
+    notes: [
+      'No existe "themself". La forma correcta con "they" es "themselves".',
+      'No confundas reflexivo con objeto: "She introduced herself" (a sí misma) ≠ "She introduced her" (a otra persona).',
+      'Con "enjoy" en el sentido de divertirse siempre usamos reflexivo: enjoy yourself, enjoy ourselves.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I enjoyed me at the party.', correct: '✅ I enjoyed myself at the party.', explanation: 'Con "enjoy" en el sentido de divertirse usamos el reflexivo: "enjoy yourself", "enjoy ourselves". No decimos "enjoy me".' },
     { wrong: '❌ They organized themself.', correct: '✅ They organized themselves.', explanation: 'No existe "themself". Con "they" (plural) la forma es "themselves".' },

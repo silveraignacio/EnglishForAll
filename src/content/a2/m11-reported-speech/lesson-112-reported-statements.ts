@@ -44,6 +44,28 @@ En español hacemos lo mismo: "Estoy cansada" → "Dijo que estaba cansada". El 
 Los pronombres también cambian según quién habla: "I" → she/he; "you" → me/him/us...
 
 Frase: Sujeto + said (that) + frase con el tiempo en pasado.`,
+  formation: {
+    title: 'Cómo se forma el estilo indirecto — oraciones afirmativas',
+    intro: 'Al contar lo que alguien dijo, el tiempo verbal "retrocede" un paso (backshift) y los pronombres cambian según quién habla.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + said + (that) + frase con el tiempo en pasado',
+        examples: [
+          { english: 'Direct: "I am tired." → She said that she was tired.', spanish: 'Directo: "Estoy cansada." → Ella dijo que estaba cansada.' },
+          { english: 'Direct: "I work in Madrid." → He said that he worked in Madrid.', spanish: 'Directo: "Trabajo en Madrid." → Él dijo que trabajaba en Madrid.' },
+          { english: 'Direct: "I will call you." → She said she would call me.', spanish: 'Directo: "Te llamaré." → Ella dijo que me llamaría.' },
+          { english: 'Direct: "I have a car." → She said that she had a car.', spanish: 'Directo: "Tengo un coche." → Ella dijo que tenía un coche.' },
+        ],
+        note: 'that es opcional: She said she was tired = She said that she was tired.',
+      },
+    ],
+    notes: [
+      'Cambio de tiempo (backshift): am/is → was · do/does → did · will → would · have/has → had · presente simple → pasado simple (work → worked).',
+      'Los pronombres cambian según quién habló: "I" → she/he; "you" → me, him, us... según el contexto.',
+      'En español ocurre lo mismo: "Estoy cansada" → "Dijo que estaba cansada".',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She said she is tired.', correct: '✅ She said she was tired.', explanation: 'Si lo dicho fue "I am tired", al pasar a indirecto el presente cambia a pasado: was tired.' },
     { wrong: '❌ He said that I worked in Madrid (cuando él hablaba de sí mismo).', correct: '✅ He said that he worked in Madrid.', explanation: 'Los pronombres cambian: el "I" de quien habló se convierte en "he".' },

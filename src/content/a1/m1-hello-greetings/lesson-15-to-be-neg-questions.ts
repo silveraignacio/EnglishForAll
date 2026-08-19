@@ -74,6 +74,57 @@ Estructura: WH-word + to be + sujeto?
 - Negativo: Sujeto + to be + not + ... → I am not, You aren't, He isn't, etc.
 - Pregunta Sí/No: To be + sujeto + ...? → Are you?, Is he?, etc.
 - Pregunta WH: WH-word + to be + sujeto + ...? → What is your name?, Where are you from?`,
+  formation: {
+    title: 'Cómo se forma el verbo "to be" — Negativo y preguntas',
+    intro: 'Para negar con "to be" ponemos "not" después del verbo. Para preguntar, invertimos el orden: verbo + sujeto.',
+    patterns: [
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + am/is/are + not + complemento',
+        examples: [
+          { english: 'I am not from London.', spanish: 'No soy de Londres.' },
+          { english: 'She isn\'t my sister.', spanish: 'Ella no es mi hermana.' },
+          { english: 'They aren\'t friends.', spanish: 'Ellos no son amigos.' },
+          { english: 'It isn\'t cold today.', spanish: 'Hoy no hace frío.' },
+        ],
+        note: 'Contracciones: is + not = isn\'t · are + not = aren\'t. "Am" no se contrae con "not": solo "I\'m not" (nunca "I amn\'t").',
+      },
+      {
+        name: 'Pregunta sí/no',
+        formula: 'Am / Is / Are + sujeto + ...?',
+        examples: [
+          { english: 'Are you María?', spanish: '¿Eres María?' },
+          { english: 'Is he from Spain?', spanish: '¿Es él de España?' },
+          { english: 'Are they your parents?', spanish: '¿Son ellos tus padres?' },
+        ],
+        note: 'En la pregunta el verbo va antes del sujeto: Are you...? / Is he...?',
+      },
+      {
+        name: 'Respuesta corta',
+        formula: 'Yes, + sujeto + am/is/are. / No, + sujeto + \'m not / isn\'t / aren\'t.',
+        examples: [
+          { english: 'Yes, I am.', spanish: 'Sí, lo soy.' },
+          { english: 'No, she isn\'t.', spanish: 'No, no lo es.' },
+        ],
+        note: 'No repetimos toda la frase, solo el verbo "to be".',
+      },
+      {
+        name: 'Pregunta WH- (información)',
+        formula: 'Palabra interrogativa (What/Where/How/Who...) + am/is/are + sujeto + ...?',
+        examples: [
+          { english: 'What is your name?', spanish: '¿Cuál es tu nombre?' },
+          { english: 'Where are you from?', spanish: '¿De dónde eres?' },
+          { english: 'How are you?', spanish: '¿Cómo estás?' },
+          { english: 'How old are you?', spanish: '¿Cuántos años tienes?' },
+        ],
+        note: 'Para preguntar la edad usamos "How old", no "How many years".',
+      },
+    ],
+    notes: [
+      'La negativa se forma con "not" después del verbo, nunca con "no" antes: I am not (no "I no am").',
+      'En las WH-questions el verbo "to be" va antes del sujeto: Where are you from? (no "Where you are from?").',
+    ],
+  },
   commonMistakes: [
     {
       wrong: '❌ I no am from Spain.',

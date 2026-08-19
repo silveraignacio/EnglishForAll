@@ -44,6 +44,35 @@ Negativa: may not / might not
 
 Nunca "to": ✅ may rain  ❌ may to rain
 No cambian con la persona: ✅ she may  ❌ she mays`,
+  formation: {
+    title: 'Cómo se forma may / might',
+    intro: 'may y might expresan posibilidad (quizás, puede que). may sugiere un poco más de probabilidad y es más formal; might es más incierto.',
+    patterns: [
+      {
+        name: 'Afirmativo (posibilidad)',
+        formula: 'Sujeto + may / might + verbo en forma base (sin "to") + complemento',
+        examples: [
+          { english: 'It may rain later.', spanish: 'Puede que llueva más tarde.' },
+          { english: 'She might be at home.', spanish: 'Puede que ella esté en casa.' },
+          { english: 'We might go to the beach this weekend.', spanish: 'A lo mejor vamos a la playa este fin de semana.' },
+          { english: 'He may arrive late.', spanish: 'Puede que él llegue tarde.' },
+        ],
+        note: 'may/might no cambian con la persona (she may, no "she mays") y nunca llevan "to": may rain (no "may to rain").',
+      },
+      {
+        name: 'Negativo (posibilidad negativa)',
+        formula: 'Sujeto + may not / might not + verbo en forma base + complemento',
+        examples: [
+          { english: 'They might not come.', spanish: 'A lo mejor no vienen.' },
+        ],
+        note: 'la negativa se forma con may not / might not, sin contracción habitual.',
+      },
+    ],
+    notes: [
+      'may = más probable / más formal · might = menos probable / más incierto.',
+      'Cuando no sepas cuál elegir para expresar duda, might es la opción más segura.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ It may to rain later.', correct: '✅ It may rain later.', explanation: 'Después de "may" el verbo va sin "to": may rain.' },
     { wrong: '❌ She might to be at home.', correct: '✅ She might be at home.', explanation: 'Después de "might" el verbo va sin "to": might be.' },

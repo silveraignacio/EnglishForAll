@@ -50,6 +50,30 @@ Atención a "it": lo usamos para cosas, animales, ideas y situaciones impersonal
 - He / She / It + **is**
 
 En inglés, SIEMPRE necesitamos un sujeto. No podemos decir solo "am Ignacio" — hay que decir "I am Ignacio".`,
+  formation: {
+    title: 'Cómo se forma el verbo "to be" — Afirmativo',
+    intro: 'El verbo "to be" (ser o estar) tiene tres formas en presente: am, is y are. La forma corta (I\'m, You\'re, He\'s...) es la más usada en conversación.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + am / is / are + complemento',
+        examples: [
+          { english: 'I am Ignacio.', spanish: 'Yo soy Ignacio.' },
+          { english: 'You are María.', spanish: 'Tú eres María.' },
+          { english: 'He is John.', spanish: 'Él es John.' },
+          { english: 'She is a teacher.', spanish: 'Ella es profesora.' },
+          { english: 'We are friends.', spanish: 'Nosotros somos amigos.' },
+          { english: 'They are from Spain.', spanish: 'Ellos son de España.' },
+        ],
+        note: 'I → am · You/We/They → are · He/She/It → is. Con "you" siempre usamos "are", sea singular o plural.',
+      },
+    ],
+    notes: [
+      'Contracciones: I am → I\'m, You are → You\'re, He/She/It is → He\'s/She\'s/It\'s, We are → We\'re, They are → They\'re.',
+      'En inglés el sujeto es obligatorio: no decimos "am Ignacio", sino "I am Ignacio".',
+      '"It" se usa para cosas, animales e ideas: It is a book.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I no am from Spain.', correct: '✅ I am not from Spain.', explanation: 'La negativa de "to be" se forma con "not", no con "no" antes del verbo.' },
     { wrong: '❌ She no is happy.', correct: '✅ She is not happy.', explanation: 'Para negar, usamos "not" después del verbo, no "no" antes.' },

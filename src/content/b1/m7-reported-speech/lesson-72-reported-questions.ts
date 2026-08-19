@@ -34,6 +34,36 @@ Recuerda también el cambio de tiempo (backshift): are→was, do→did, did→ha
 - Preguntas abiertas → ask + wh- (where/what/when/how...) + sujeto + verbo: She asked me where I lived.
 - NUNCA hay inversión en la parte indirecta: ❌ "where did I live" → ✅ "where I lived".
 - Aplica también el backshift: are→was, do→did, did→had + participio, will→would.`,
+  formation: {
+    title: 'Cómo se forma el estilo indirecto — preguntas',
+    intro: 'Para contar una pregunta usamos "ask": con if/whether para las de sí/no y con la palabra interrogativa (wh-) para las abiertas. En la parte indirecta NO hay inversión.',
+    patterns: [
+      {
+        name: 'Pregunta de sí/no',
+        formula: 'Sujeto + asked (+ persona) + if/whether + sujeto + verbo con backshift',
+        examples: [
+          { english: 'Direct: "Are you tired?" → He asked me if I was tired.', spanish: 'Directo: "¿Estás cansado?" → Él me preguntó si estaba cansado.' },
+          { english: 'Direct: "Did you see the film?" → They asked me if I had seen the film.', spanish: 'Directo: "¿Viste la película?" → Ellos me preguntaron si había visto la película.' },
+          { english: 'Direct: "Will you come?" → She asked me if I would come.', spanish: 'Directo: "¿Vendrás?" → Ella me preguntó si vendría.' },
+        ],
+        note: 'if y whether son intercambiables en estas preguntas.',
+      },
+      {
+        name: 'Pregunta abierta (wh-)',
+        formula: 'Sujeto + asked (+ persona) + palabra interrogativa (where/what/when/how...) + sujeto + verbo con backshift',
+        examples: [
+          { english: 'Direct: "Where do you live?" → She asked me where I lived.', spanish: 'Directo: "¿Dónde vives?" → Ella me preguntó dónde vivía.' },
+          { english: 'Direct: "What time is the meeting?" → He asked what time the meeting was.', spanish: 'Directo: "¿A qué hora es la reunión?" → Él preguntó a qué hora era la reunión.' },
+        ],
+        note: 'Orden normal de frase, SIN inversión: where I lived (no "where did I live").',
+      },
+    ],
+    notes: [
+      'Nunca se usa "did" como auxiliar de pregunta en la parte indirecta: He asked if I liked coffee (no "if did I like").',
+      'Se aplica el mismo backshift: are→was, do→did, did→had + participio, will→would.',
+      'Las preguntas indirectas no llevan signo de interrogación: She asked me where I lived.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ She asked me where did I live.', correct: '✅ She asked me where I lived.', explanation: 'En las preguntas indirectas no hay inversión: where I lived, no "where did I live".' },
     { wrong: '❌ He asked if did I like coffee.', correct: '✅ He asked if I liked coffee.', explanation: 'Tras "if" no usamos "did" como auxiliar de pregunta: if I liked coffee.' },
@@ -185,6 +215,7 @@ Recuerda también el cambio de tiempo (backshift): are→was, do→did, did→ha
       listening: {
         audioText:
           "Good morning. I'm the interviewer. Let me ask you some questions. First, where did you study? Second, how many years of experience do you have? Do you speak any other languages? When can you start working? And finally, what are your salary expectations? Thank you for your time.",
+        audioUrl: '/audio/tts/b1-m7-l2-ex11.mp3',
         questions: [
           {
             id: 'b1-m7-l2-ex11-q1',

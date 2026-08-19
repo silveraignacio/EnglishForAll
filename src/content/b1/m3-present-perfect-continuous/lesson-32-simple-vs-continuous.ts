@@ -57,6 +57,35 @@ Con for + tiempo:
 
 Verbos de estado (know, like, want) → solo simple:
 - I have known him for years.`,
+  formation: {
+    title: 'Cómo se forman el Present Perfect Simple y el Continuous',
+    intro: 'Ambos tiempos conectan el pasado con el presente. El simple (have/has + participio) enfatiza el resultado o la cantidad total; el continuous (have/has + been + -ing) enfatiza la actividad en curso o su efecto visible.',
+    patterns: [
+      {
+        name: 'Present perfect simple (resultado)',
+        formula: 'Sujeto + have/has + participio + complemento',
+        examples: [
+          { english: 'I have written three emails.', spanish: 'He escrito tres correos.' },
+          { english: 'She has lived here for 5 years.', spanish: 'Ha vivido aquí durante 5 años.' },
+        ],
+        note: 'Foco en el resultado, la cantidad total o el hecho general.',
+      },
+      {
+        name: 'Present perfect continuous (actividad en curso)',
+        formula: 'Sujeto + have/has + been + verbo + -ing + complemento',
+        examples: [
+          { english: 'I have been writing emails all morning.', spanish: 'He estado escribiendo correos toda la mañana.' },
+          { english: 'My hands are dirty because I have been painting the wall.', spanish: 'Tengo las manos sucias porque he estado pintando la pared.' },
+        ],
+        note: 'Foco en la actividad en progreso o en su efecto visible.',
+      },
+    ],
+    notes: [
+      'Con "for + tiempo" y acciones que duran, ambas formas son válidas: She has lived here for 5 years (hecho) / She has been living here for 5 years (énfasis en la acción en curso).',
+      'Los verbos de estado (know, like, want, believe, be) solo se usan en simple: I have known him for years (no "I have been knowing").',
+      'La forma continua lleva "been", nunca "being": have been writing.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I have written emails all morning. (cuando quieres enfatizar la actividad)', correct: '✅ I have been writing emails all morning.', explanation: 'Cuando el foco es la actividad en progreso y no el resultado, usamos el continuous (have been + -ing).' },
     { wrong: '❌ I have been knowing him for years.', correct: '✅ I have known him for years.', explanation: 'Los verbos de estado como "know" no se usan en continuo. Con ellos usamos siempre el present perfect simple.' },
@@ -218,6 +247,7 @@ Verbos de estado (know, like, want) → solo simple:
       listening: {
         audioText:
           "I'm Emma, and I work as a project manager. I have worked at this company for three years now. However, I have been working on a special project for the last two months that has been very challenging. I have completed five important projects in total, but the current one is the most demanding. I have been staying late at the office since the project started, and I've been feeling quite tired lately.",
+        audioUrl: '/audio/tts/b1-m3-l2-ex11.mp3',
         questions: [
           {
             id: 'b1-m3-l2-ex11-q1',

@@ -48,6 +48,29 @@ Reglas:
 4. Orden invertido (sin coma): I would travel if I had money.
 
 Contracción: would se contrae a 'd. If I were you, I'd study more.`,
+  formation: {
+    title: 'Cómo se forma el Second Conditional',
+    intro: 'El segundo condicional une una condición irreal en el presente (if + past simple) con un resultado imaginario (would/could + verbo en forma base).',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'If + sujeto + past simple, + sujeto + would/could + verbo base + complemento',
+        examples: [
+          { english: 'If I had more money, I would travel.', spanish: 'Si tuviera más dinero, viajaría.' },
+          { english: 'If she spoke English, she could get the job.', spanish: 'Si ella hablara inglés, podría conseguir el trabajo.' },
+          { english: 'If I were you, I would study more.', spanish: 'Si yo fuera tú, estudiaría más.' },
+          { english: 'If we lived near the beach, we would swim every day.', spanish: 'Si viviéramos cerca de la playa, nadaríamos todos los días.' },
+        ],
+        note: 'Con I/he/she/it, la forma correcta de "be" en la condición es "were": If I were you (aunque en conversación informal se oye "was").',
+      },
+    ],
+    notes: [
+      'En la parte con "if" NUNCA se usa "would": If I had money (no "If I would have").',
+      'would se contrae a \'d: If I were you, I\'d study more.',
+      'Orden invertido, sin coma: I would travel if I had more money.',
+      'could sustituye a would para expresar posibilidad o capacidad en la hipótesis.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ If I would have more money, I would travel.', correct: '✅ If I had more money, I would travel.', explanation: 'Después de "if" usamos past simple, nunca "would". Solo hay un "would", en la parte principal.' },
     { wrong: '❌ If I was you, I would call her.', correct: '✅ If I were you, I would call her.', explanation: 'La forma correcta y formal es "were" con I. En la frase hecha "If I were you" siempre usamos were.' },
@@ -193,6 +216,7 @@ Contracción: would se contrae a 'd. If I were you, I'd study more.`,
       listening: {
         audioText:
           "People often ask me what I would do if I won the lottery. Well, first, I would quit my job immediately — I don't really enjoy it. Then I would travel around the world for a year, maybe two. I would also buy a house for my family, a big one with a garden. But I wouldn't move to another country. I love my city, and my friends are here.",
+        audioUrl: '/audio/tts/b1-m1-l1-ex9.mp3',
         questions: [
           {
             id: 'b1-m1-l1-ex9-q1',

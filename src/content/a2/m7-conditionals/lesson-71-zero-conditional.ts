@@ -39,6 +39,36 @@ Puntos importantes:
 - Se usa para hechos generales y verdades científicas (siempre ocurren).
 - NO se usa "will" en ninguna de las dos partes.
 - Orden flexible: "If you heat water, it boils." o "Water boils if you heat it."`,
+  formation: {
+    title: 'Cómo se forma el zero conditional',
+    intro: 'El zero conditional expresa hechos generales y verdades científicas: if + presente simple, presente simple. Las dos partes van en presente simple.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'If + sujeto + presente simple, sujeto + presente simple',
+        examples: [
+          { english: 'If you heat water, it boils.', spanish: 'Si calientas agua, hierve.' },
+          { english: 'If it rains, the streets get wet.', spanish: 'Si llueve, las calles se mojan.' },
+          { english: 'If she studies, she remembers the words.', spanish: 'Si ella estudia, recuerda las palabras.' },
+        ],
+        note: 'En la parte con "if" (la condición) y en el resultado usamos presente simple. Con he/she/it añadimos -s: If she studies.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'If + sujeto + don\'t / doesn\'t + verbo, sujeto + presente simple',
+        examples: [
+          { english: "If you don't sleep, you feel tired.", spanish: 'Si no duermes, te sientes cansado.' },
+          { english: "If I drink coffee at night, I don't sleep well.", spanish: 'Si bebo café por la noche, no duermo bien.' },
+        ],
+        note: 'La negativa se forma con don\'t (I/you/we/they) o doesn\'t (he/she/it): If she doesn\'t eat, she gets hungry.',
+      },
+    ],
+    notes: [
+      'NUNCA se usa "will" en ninguna de las dos partes: If you heat water, it boils (no "if you will heat").',
+      'El orden puede invertirse sin coma: Water boils if you heat it. (= El agua hierve si la calientas.)',
+      'Cuando la condición va primero, se escribe coma: If it rains, the streets get wet.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ If you will heat water, it boils.', correct: '✅ If you heat water, it boils.', explanation: 'En el zero conditional, la parte con "if" usa presente simple, nunca "will".' },
     { wrong: '❌ If I no sleep, I feel tired.', correct: '✅ If I don\'t sleep, I feel tired.', explanation: 'La negativa en presente simple se forma con "don\'t", no con "no" antes del verbo.' },

@@ -59,6 +59,44 @@ Usamos: the + superlativo + in + lugar o grupo. La preposición correcta es "in"
 4. Fórmula: the + superlativo + in + lugar/grupo → "the tallest building in the city".
 5. more (2 cosas) vs the most (3+ cosas): ¡no los confundas!
 6. Nunca doble superlativo: ❌ the most biggest → ✅ the biggest.`,
+  formation: {
+    title: 'Cómo se forman los superlativos',
+    intro: 'El superlativo expresa el grado máximo dentro de un grupo de tres o más. Siempre lleva "the" delante y, después, la preposición "in" con el lugar o el grupo.',
+    patterns: [
+      {
+        name: 'Adjetivos cortos (the + -est)',
+        formula: 'the + adjetivo + -est + in + lugar/grupo',
+        examples: [
+          { english: 'This is the tallest building in the city.', spanish: 'Este es el edificio más alto de la ciudad.' },
+          { english: 'This is the easiest exercise of the lesson.', spanish: 'Este es el ejercicio más fácil de la lección.' },
+        ],
+        note: 'Las mismas reglas de ortografía que en los comparativos: big → the biggest, easy → the easiest.',
+      },
+      {
+        name: 'Adjetivos largos (the most)',
+        formula: 'the + most + adjetivo + in + lugar/grupo',
+        examples: [
+          { english: 'It is the most expensive restaurant in town.', spanish: 'Es el restaurante más caro de la ciudad.' },
+          { english: 'This is the most interesting book I have read.', spanish: 'Este es el libro más interesante que he leído.' },
+        ],
+        note: 'Con adjetivos largos usamos "the most", nunca "the mostest".',
+      },
+      {
+        name: 'Irregulares',
+        formula: 'good → the best / bad → the worst',
+        examples: [
+          { english: 'She is the best student in the class.', spanish: 'Ella es la mejor estudiante de la clase.' },
+          { english: 'That was the worst film I have ever seen.', spanish: 'Esa fue la peor película que he visto.' },
+        ],
+        note: 'Como en los comparativos, good y bad tienen superlativos irregulares.',
+      },
+    ],
+    notes: [
+      'Después del superlativo usamos "in" (lugar o grupo), no "of": the tallest building in the city.',
+      'Comparativo (2 cosas) = more / -er. Superlativo (3+ cosas) = the most / -est. No los mezcles.',
+      'Nunca doble superlativo: ❌ the most biggest → ✅ the biggest.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ This is the most biggest building in the city.', correct: '✅ This is the biggest building in the city.', explanation: 'Nunca doble superlativo: con adjetivos cortos usamos -est, no "the most".' },
     { wrong: '❌ She is more beautiful girl in the class.', correct: '✅ She is the most beautiful girl in the class.', explanation: 'Con tres o más personas usamos "the most", no "more". Además el superlativo lleva "the".' },

@@ -70,6 +70,53 @@ Ejemplos de reduced clauses:
 Ejemplos de rather than / comparative:
 - Rather than complain, I stayed quiet.
 - It's better to wait than rush.`,
+  formation: {
+    title: 'Cómo se forman las cláusulas reducidas y las estructuras no finitas',
+    intro: 'Dos patrones: reducir relativas dejando solo el participio (-ing para acción activa, -ed para pasiva o estado), y usar estructuras no finitas con "rather than" y comparativos.',
+    patterns: [
+      {
+        name: 'Relativa reducida con -ing (acción activa)',
+        formula: 'Sustantivo + -ing + (complemento)',
+        examples: [
+          { english: 'The woman talking to him is his boss.', spanish: 'La mujer que habla con él es su jefa.' },
+          { english: 'The children playing in the park seemed happy.', spanish: 'Los niños que jugaban en el parque parecían felices.' },
+        ],
+        note: 'Reduce "who is talking" → "talking".',
+      },
+      {
+        name: 'Relativa reducida con -ed (acción pasiva o estado)',
+        formula: 'Sustantivo + -ed + (complemento)',
+        examples: [
+          { english: 'The letter written yesterday arrived today.', spanish: 'La carta escrita ayer llegó hoy.' },
+          { english: 'The man injured in the accident needed help.', spanish: 'El hombre herido en el accidente necesitaba ayuda.' },
+        ],
+        note: 'Reduce "which was written" → "written".',
+      },
+      {
+        name: 'Rather than + verbo (infinitivo sin to o -ing)',
+        formula: 'Rather than + verbo base / -ing + coma + oración principal',
+        examples: [
+          { english: 'Rather than complain, she left quietly.', spanish: 'En lugar de quejarse, se fue calladamente.' },
+          { english: 'Rather than go by train, we drove.', spanish: 'En lugar de ir en tren, manejamos.' },
+        ],
+        note: '"Rather than" es más formal que "instead of" (que sí exige -ing).',
+      },
+      {
+        name: 'Comparativo + than + infinitivo sin to',
+        formula: 'Comparativo + than + verbo base',
+        examples: [
+          { english: 'It\'s better to walk than drive in traffic.', spanish: 'Es mejor caminar que manejar en tráfico.' },
+          { english: 'She prefers to read rather than watch TV.', spanish: 'Prefiere leer en lugar de mirar televisión.' },
+        ],
+        note: 'Ambas partes mantienen una forma verbal paralela.',
+      },
+    ],
+    notes: [
+      'La reducción solo funciona si la relativa original tenía "who/which + is/was" — "who likes" no se reduce.',
+      'Después de "rather than" se usa infinitivo sin "to" o -ing, nunca "to + verbo".',
+      'En comparativas usamos "than", no "rather than", para introducir la segunda opción.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The man who likes pizza is here.', correct: '✅ The man who likes pizza is here. (no se puede reducir)', explanation: 'Solo se reduce si la original es "who/which + is/was". "Who likes" no se reduce.' },
     { wrong: '❌ The letter writing yesterday arrived late.', correct: '✅ The letter written yesterday arrived late.', explanation: 'Cuando la relativa es pasiva (was written), usamos -ed, no -ing.' },
@@ -211,6 +258,7 @@ Ejemplos de rather than / comparative:
       listening: {
         audioText:
           "In the room, there were several interesting items. The painting hanging on the wall was a rare Picasso. Next to it, the statue carved from marble was over two hundred years old. On the desk, the papers scattered everywhere were important documents. The man sitting by the window was the owner of the collection. He was talking to a woman standing beside him, who was an art historian. The books lying on the floor were about famous artists.",
+        audioUrl: '/audio/tts/b2-m5-l2-ex9.mp3',
         questions: [
           {
             id: 'b2-m5-l2-ex9-q1',

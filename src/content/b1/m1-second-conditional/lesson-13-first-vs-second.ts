@@ -55,6 +55,35 @@ Regla clave: NO mezcles los tiempos.
 - ✅ If I win..., I will... (primero)
 - ✅ If I won..., I would... (segundo)
 - ❌ If I win..., I would... (mezcla incorrecta)`,
+  formation: {
+    title: 'Cómo se forman el primer y el segundo condicional',
+    intro: 'El primer condicional expresa situaciones reales o posibles (if + present simple + will); el segundo, situaciones imaginarias o irreales (if + past simple + would/could).',
+    patterns: [
+      {
+        name: 'Primer condicional (real/posible)',
+        formula: 'If + sujeto + present simple, + sujeto + will + verbo base + complemento',
+        examples: [
+          { english: 'If it rains, I will stay home.', spanish: 'Si llueve, me quedaré en casa.' },
+          { english: 'If you study, you will pass the exam.', spanish: 'Si estudias, aprobarás el examen.' },
+        ],
+        note: 'Se usa cuando la condición es posible o probable en el futuro.',
+      },
+      {
+        name: 'Segundo condicional (imaginario/irreal)',
+        formula: 'If + sujeto + past simple, + sujeto + would/could + verbo base + complemento',
+        examples: [
+          { english: 'If I won the lottery, I would buy a house.', spanish: 'Si ganara la lotería, compraría una casa.' },
+          { english: 'If I had a private jet, I could fly anywhere.', spanish: 'Si tuviera un avión privado, podría volar a cualquier sitio.' },
+        ],
+        note: 'Se usa cuando la condición es improbable o imposible ahora. Con I/he/she/it, "be" se vuelve "were".',
+      },
+    ],
+    notes: [
+      'NO mezcles los tiempos: if + present va con will (primero) y if + past va con would (segundo).',
+      'Después de "if" NUNCA se usa "would": If I won the lottery (no "If I would win").',
+      'would se contrae a \'d: I\'d buy a house.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ If I win the lottery, I would buy a house.', correct: '✅ If I won the lottery, I would buy a house. (segundo) o If I win the lottery, I will buy a house. (primero)', explanation: 'No mezcles: si la condición va en presente (win), el resultado va con will; si va en pasado (won), el resultado va con would.' },
     { wrong: '❌ If I would have more money, I will travel.', correct: '✅ If I had more money, I would travel.', explanation: 'Después de "if" nunca usamos "would". Solo la parte principal lleva would.' },
@@ -234,6 +263,7 @@ Regla clave: NO mezcles los tiempos.
       listening: {
         audioText:
           'Hi, I\'m Laura, and I want to tell you about my future. If I pass my exams, I will work for a big company in finance. That\'s realistic. But if I won the lottery, I would quit my job and travel around the world for a year. That\'s just a dream. If I could speak five languages, I could work anywhere. But honestly, if I study hard, I will achieve my real goal: getting a good job in finance.',
+        audioUrl: '/audio/tts/b1-m1-l3-ex10.mp3',
         questions: [
           {
             id: 'b1-m1-l3-ex10-q1',

@@ -55,6 +55,41 @@ OJO:
 - Tras "will have" va el PARTICIPIO pasado: finished, arrived, built, gone.
 - ❌ will have finish → ✅ will have finished.
 - ❌ will have went → ✅ will have gone.`,
+  formation: {
+    title: 'Cómo se forma el Future Perfect',
+    intro: 'El future perfect expresa una acción que estará completada antes de un momento futuro. Se forma con will have + participio pasado.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + will + have + past participle + complemento',
+        examples: [
+          { english: 'By 2030, I will have finished my degree.', spanish: 'Para 2030, habré terminado mi carrera.' },
+          { english: 'She will have arrived by 8 p.m.', spanish: 'Habrá llegado a las 8 de la tarde.' },
+          { english: 'We will have built the house by next year.', spanish: 'Habremos construido la casa para el próximo año.' },
+        ],
+        note: 'Contracción: I\'ll have, She\'ll have, We\'ll have.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + won\'t + have + past participle + complemento',
+        examples: [
+          { english: 'They won\'t have sold all the tickets by Friday.', spanish: 'No habrán vendido todas las entradas para el viernes.' },
+        ],
+      },
+      {
+        name: 'Pregunta',
+        formula: 'Will + sujeto + have + past participle + ...?',
+        examples: [
+          { english: 'Will you have finished by 5 o\'clock?', spanish: '¿Habrás terminado para las 5?' },
+        ],
+      },
+    ],
+    notes: [
+      'Después de "will have" va SIEMPRE el participio pasado: finished, built, gone (no "will have finish" ni "will have went").',
+      'Tras "will" siempre "have", nunca "has": will have arrived (no "will has").',
+      'Se usa con "by" + momento futuro: by 2030, by 8 p.m., by next year, by Friday.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I will have finish my degree by 2030.', correct: '✅ I will have finished my degree by 2030.', explanation: 'Después de "will have" va el participio: finished, no "finish".' },
     { wrong: '❌ She will has arrived by 8 p.m.', correct: '✅ She will have arrived by 8 p.m.', explanation: 'Tras "will" siempre "have", nunca "has": will have arrived.' },
@@ -252,6 +287,7 @@ OJO:
       listening: {
         audioText:
           "Hello, I\'d like to share my future goals with you. By next year, I will have learned three new languages — English, French, and German. That\'s a big goal, but I\'m motivated. By 2030, I will have traveled to at least ten countries. I love exploring different cultures. And before the end of this year, I will have completed my teaching certificate. That\'s very important for my career. These goals will definitely change my life!",
+        audioUrl: '/audio/tts/b1-m5-l2-ex13.mp3',
         questions: [
           {
             id: 'b1-m5-l2-ex13-q1',

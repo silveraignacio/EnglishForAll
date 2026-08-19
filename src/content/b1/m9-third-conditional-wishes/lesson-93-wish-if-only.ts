@@ -39,6 +39,49 @@ Nota sobre el pasado simple con "wish": para "I wish I was/were taller" se usa n
 - wish + would: para deseos sobre el comportamiento de otros: I wish you would stop.
 
 ¡El verbo nunca va en presente después de "wish" para deseos irreales!`,
+  formation: {
+    title: 'Cómo se forma wish / if only',
+    intro: 'wish + pasado simple expresa un deseo presente (algo que ahora no es así); wish + past perfect expresa un arrepentimiento pasado. if only añade énfasis con la misma estructura.',
+    patterns: [
+      {
+        name: 'Deseo presente',
+        formula: 'Sujeto + wish/wishes + sujeto + pasado simple',
+        examples: [
+          { english: 'I wish I had more time.', spanish: 'Ojalá tuviera más tiempo.' },
+          { english: 'She wishes she lived near the beach.', spanish: 'A ella le gustaría vivir cerca de la playa.' },
+        ],
+        note: 'Tras "wish" el verbo va en pasado simple, no en presente.',
+      },
+      {
+        name: 'Arrepentimiento pasado',
+        formula: 'Sujeto + wish/wishes + sujeto + had (not) + past participle',
+        examples: [
+          { english: 'I wish I hadn\'t said that.', spanish: 'Ojalá no hubiera dicho eso.' },
+          { english: 'He wishes he had bought the house.', spanish: 'Desearía haber comprado la casa.' },
+        ],
+      },
+      {
+        name: 'Enfático (if only)',
+        formula: 'If only + sujeto + pasado simple / past perfect / could + verbo',
+        examples: [
+          { english: 'If only I could speak English fluently.', spanish: 'Ojalá pudiera hablar inglés con fluidez.' },
+          { english: 'If only I had studied more.', spanish: 'Ojalá hubiera estudiado más.' },
+        ],
+      },
+      {
+        name: 'Deseo sobre el comportamiento de otro',
+        formula: 'Sujeto + wish + sujeto + would + verbo en forma base',
+        examples: [
+          { english: 'I wish you would stop talking.', spanish: 'Me gustaría que dejaras de hablar.' },
+        ],
+      },
+    ],
+    notes: [
+      'Para "be" en el deseo presente se usa "were" en el inglés formal con todos los sujetos: I wish I were taller (informal: was).',
+      'El verbo nunca va en presente después de "wish" para deseos irreales: I wish I had more time (no "I wish I have").',
+      'El arrepentimiento pasado usa hadn\'t + participio, no "didn\'t + participio": I wish I hadn\'t said that.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ I wish I have more time.', correct: '✅ I wish I had more time.', explanation: 'Para un deseo presente (irreal) usamos el pasado simple después de "wish": I had.' },
     { wrong: '❌ I wish I didn\'t said that.', correct: '✅ I wish I hadn\'t said that.', explanation: 'Para un arrepentimiento pasado usamos el past perfect: hadn\'t said.' },
@@ -190,6 +233,7 @@ Nota sobre el pasado simple con "wish": para "I wish I was/were taller" se usa n
       listening: {
         audioText:
           "Person A says: I wish I could speak more languages. English is okay, but if only I had studied French when I was young. Now it\'s too late. Person B says: I wish I had travelled more when I was younger. If only I had saved more money! I had the time, but I didn\'t have the budget. Now I\'m busy with work and family.",
+        audioUrl: '/audio/tts/b1-m9-l3-ex11.mp3',
         questions: [
           {
             id: 'b1-m9-l3-ex11-q1',

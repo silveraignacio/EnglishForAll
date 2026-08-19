@@ -82,6 +82,44 @@ Reglas:
 3. La negación formal (sin contraer) suena seria, enfática, académica, a veces desaprobadora.
 4. Es registro FORMAL Y ESCRITO. En habla cotidiana se usan contracciones.
 5. Funciona para introducir problemas, razones, hechos o puntos clave en argumentos.`,
+  formation: {
+    title: 'Cómo se forman las estructuras de foco y la negación formal',
+    intro: 'Para dar énfasis sin inversión, introducimos la idea con "The [noun] is (that)...". En registro formal, además, escribimos las negaciones sin contraer (do not, will not).',
+    patterns: [
+      {
+        name: 'Estructura de foco — The [noun] is (that) + idea',
+        formula: 'The + thing/fact/problem/point/reason + is (that) + afirmación importante',
+        examples: [
+          { english: 'The problem is (that) nobody listened to the warning.', spanish: 'El problema es que nadie escuchó la advertencia.' },
+          { english: 'The point is (that) we must act now, not later.', spanish: 'El punto es que debemos actuar ahora, no después.' },
+        ],
+        note: 'El "that" es opcional pero recomendado para claridad.',
+      },
+      {
+        name: 'Negación formal — sin contracciones',
+        formula: 'Auxiliar + not (forma plena)',
+        examples: [
+          { english: 'I do not agree with the proposal.', spanish: 'No estoy de acuerdo con la propuesta.' },
+          { english: 'She will not attend the meeting.', spanish: 'Ella no asistirá a la reunión.' },
+        ],
+        note: 'Evitamos contracciones (don\'t, won\'t, haven\'t) en registro formal y académico.',
+      },
+      {
+        name: 'Combinación — focus structure + negación formal',
+        formula: 'The [noun] is that + sujeto + auxiliar + not + verbo',
+        examples: [
+          { english: 'The fact is that he will not cooperate.', spanish: 'La realidad es que no cooperará.' },
+          { english: 'The issue is that we have not received the documents yet.', spanish: 'El asunto es que no hemos recibido los documentos todavía.' },
+        ],
+        note: 'El énfasis dirige la atención; la negación plena refuerza el tono formal.',
+      },
+    ],
+    notes: [
+      'Los focus nouns son variados: thing, fact, problem, point, reason, issue, reality, truth, matter.',
+      'En habla cotidiana sí se usan contracciones; el "not" pleno es exclusivo del registro formal/escrito.',
+      '"The thing is" es la menos formal; "the fact is" es más formal.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The fact is that we don\'t have time.', correct: '✅ The fact is that we do not have time.', explanation: 'En registro formal, evitamos contracciones. Escribimos "do not", no "don\'t".' },
     { wrong: '❌ The problem is we need more money.', correct: '✅ The problem is (that) we need more money.', explanation: 'Recomendado agregar "that" para claridad, aunque técnicamente es opcional.' },
@@ -234,6 +272,7 @@ Reglas:
       listening: {
         audioText:
           'Good morning, students. Let me address the issue of your final project. The problem is that many of you have not submitted your proposals on time. The fact is that we cannot extend the deadline further. The point is that you must show commitment to your studies. I do not agree with excuses, nor will I accept late submissions without proper documentation. The reason we enforce these rules is that academic discipline matters.',
+        audioUrl: '/audio/tts/b2-m7-l3-ex9.mp3',
         questions: [
           {
             id: 'b2-m7-l3-ex9-q1',

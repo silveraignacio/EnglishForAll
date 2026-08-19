@@ -53,6 +53,34 @@ Diferencia:
 
 Negativo: won't be + participio.
 - The results won't be announced today.`,
+  formation: {
+    title: 'Cómo se forma la pasiva en futuro',
+    intro: 'La pasiva futura se forma con will be + participio pasado para acciones futuras en las que importa la acción, no quién la hace.',
+    patterns: [
+      {
+        name: 'Afirmativo',
+        formula: 'Sujeto + will + be + past participle + complemento',
+        examples: [
+          { english: 'The new museum will be opened next month.', spanish: 'El nuevo museo se abrirá el próximo mes.' },
+          { english: 'The exam will be held on Friday.', spanish: 'El examen se realizará el viernes.' },
+          { english: 'The results will be announced soon.', spanish: 'Los resultados se anunciarán pronto.' },
+        ],
+        note: 'Agente opcional con "by": The museum will be opened by the mayor.',
+      },
+      {
+        name: 'Negativo',
+        formula: 'Sujeto + won\'t + be + past participle + complemento',
+        examples: [
+          { english: 'The results won\'t be announced today.', spanish: 'Los resultados no se anunciarán hoy.' },
+        ],
+      },
+    ],
+    notes: [
+      'Diferencia: will be OPENED (pasiva, verbo) vs will be OPEN (adjetivo de estado: estará abierto).',
+      'Después de "will be" va el participio pasado: held, announced (no "will be hold").',
+      'En español: will be opened = se abrirá / será abierto.',
+    ],
+  },
   commonMistakes: [
     { wrong: '❌ The exam will be hold on Friday.', correct: '✅ The exam will be held on Friday.', explanation: 'Después de "will be" va el participio: held, no "hold".' },
     { wrong: '❌ The museum will be open by the mayor.', correct: '✅ The museum will be opened by the mayor.', explanation: 'Con agente (by the mayor) usamos la pasiva con verbo: opened. "Open" sin -ed es el adjetivo de estado.' },
@@ -246,6 +274,7 @@ Negativo: won't be + participio.
       listening: {
         audioText:
           "Good morning. I\'m excited to announce plans for the new sports stadium. The stadium will be opened next spring. Tickets will be sold online from next Monday. The roads around the area will be improved to handle more traffic. Free transport will be provided on opening day, and buses will be sent every fifteen minutes. A special opening ceremony will be held, and famous athletes will be invited. Food and beverages will be served throughout the day. We expect the stadium will be used by thousands of people every week.",
+        audioUrl: '/audio/tts/b1-m6-l2-ex13.mp3',
         questions: [
           {
             id: 'b1-m6-l2-ex13-q1',
