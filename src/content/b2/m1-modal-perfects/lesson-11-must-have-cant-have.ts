@@ -313,5 +313,8 @@ Reglas:
     },
   ],
   reviewItems: ['b1-m4-l1', 'b1-m4-l3'],
+  workbookRefs: [
+    { levelId: 'b2', page: 1, exercises: [1, 3, 4], note: 'Práctica de deducciones con must have / can\'t have' },
+  ],
   prerequisites: ['b1-m4-l3'],
 }

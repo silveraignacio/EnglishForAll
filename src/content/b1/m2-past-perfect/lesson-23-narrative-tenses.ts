@@ -387,4 +387,7 @@ After + past perfect, past simple:
   ],
   reviewItems: ['b1-m2-l2'],
   prerequisites: ['b1-m2-l2'],
+  workbookRefs: [
+    { levelId: 'b1', page: 2, exercises: [1, 3, 4], note: 'Práctica del past perfect y su uso en narraciones' },
+  ],
 }

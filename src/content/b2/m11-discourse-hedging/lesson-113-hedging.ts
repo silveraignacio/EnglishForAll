@@ -410,5 +410,8 @@ REGLA CRÍTICA: El hedging SUAVIZA — no afirma rotundamente. Si lo usas demasi
     },
   ],
   reviewItems: ['b2-m11-l1', 'b2-m11-l2'],
+  workbookRefs: [
+    { levelId: 'b2', page: 11, exercises: [2, 6], note: 'Práctica de hedging y marcadores del discurso' },
+  ],
   prerequisites: ['b2-m11-l1', 'b2-m11-l2'],
 }

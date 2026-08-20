@@ -16,6 +16,7 @@ const LoginPage = lazy(() => import('@/pages/LoginPage').then((m) => ({ default:
 const RegisterPage = lazy(() => import('@/pages/RegisterPage').then((m) => ({ default: m.RegisterPage })))
 const PlacementPage = lazy(() => import('@/pages/PlacementPage').then((m) => ({ default: m.PlacementPage })))
 const CheatSheet = lazy(() => import('@/pages/CheatSheet').then((m) => ({ default: m.CheatSheet })))
+const WorkbookPage = lazy(() => import('@/pages/WorkbookPage').then((m) => ({ default: m.WorkbookPage })))
 
 // Keyed wrappers force a full remount when the URL param changes, so the
 // component resets its internal state (phase, score, idx) instead of
@@ -60,6 +61,8 @@ export default function App() {
           <Route path="/placement" element={<PlacementPage />} />
           <Route path="/cheatsheet" element={<CheatSheet />} />
           <Route path="/cheatsheet/:levelId" element={<CheatSheet />} />
+          <Route path="/workbook/:levelId" element={<WorkbookPage />} />
+          <Route path="/workbook/:levelId/page/:page" element={<WorkbookPage />} />
         </Routes>
       </Suspense>
     </Layout>

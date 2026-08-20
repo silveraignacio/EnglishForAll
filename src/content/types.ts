@@ -147,6 +147,18 @@ export interface CommonMistake {
   explanation: string
 }
 
+/**
+ * Referencia a una página del workbook: apunta a los ejercicios 1-based de
+ * una página concreta para que la lección invite a practicarlos.
+ */
+export interface WorkbookRef {
+  levelId: string
+  page: number
+  /** Números de ejercicio (1-based) dentro de esa página. */
+  exercises: number[]
+  note?: string
+}
+
 export interface Lesson {
   id: string
   moduleId: string
@@ -164,6 +176,8 @@ export interface Lesson {
   exercises: Exercise[]
   miniTest: Exercise[]
   reviewItems: string[]
+  /** Referencias al workbook: página(s) y ejercicios que refuerzan esta lección. */
+  workbookRefs?: WorkbookRef[]
   prerequisites: string[]
 }
 

@@ -10,7 +10,8 @@
     "test:content": "node scripts/validate-content.mjs && node scripts/validate-content-semantic.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit",
-    "cheatsheet:pdf": "node scripts/generate-cheatsheet-pdf.mjs"
+    "cheatsheet:pdf": "node scripts/generate-cheatsheet-pdf.mjs",
+    "workbook:pdf": "node scripts/generate-workbook-pdf.mjs"
   },
   "dependencies": {
     "pocketbase": "^0.27.3",

@@ -259,5 +259,8 @@ Para hablar de algo que empezó en el pasado y sigue siendo verdad ahora: "He vi
     },
   ],
   reviewItems: ['a2-m2-l3'],
+  workbookRefs: [
+    { levelId: 'a2', page: 2, exercises: [1, 2, 3, 5, 6], note: 'Práctica de present perfect con for/since, ever/never y just/already/yet' },
+  ],
   prerequisites: ['a2-m2-l3'],
 }

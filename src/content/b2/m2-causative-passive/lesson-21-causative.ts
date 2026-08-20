@@ -343,5 +343,8 @@ Reglas:
     },
   ],
   reviewItems: ['b1-m3-l2', 'b2-m1-l2'],
+  workbookRefs: [
+    { levelId: 'b2', page: 2, exercises: [1, 2, 6], note: 'Práctica de have/get something done' },
+  ],
   prerequisites: ['b2-m1-l1'],
 }

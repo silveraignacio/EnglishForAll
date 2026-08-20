@@ -269,5 +269,8 @@ must = obligación | mustn't = prohibición`,
     },
   ],
   reviewItems: ['a2-m4-l5'],
+  workbookRefs: [
+    { levelId: 'a2', page: 5, exercises: [1, 2, 3, 5], note: 'Práctica de must, have to y don\'t have to' },
+  ],
   prerequisites: ['a2-m4-l5'],
 }

@@ -323,4 +323,7 @@ NOTA: El Present Simple NO se usa para algo que está pasando ahora mismo (eso e
   ],
   reviewItems: ['a1-m4-l5'],
   prerequisites: ['a1-m4-l5'],
+  workbookRefs: [
+    { levelId: 'a1', page: 5, exercises: [1, 4, 5, 6], note: 'Práctica del Present Simple afirmativo y negativo' },
+  ],
 }

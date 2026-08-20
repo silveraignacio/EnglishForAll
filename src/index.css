@@ -100,6 +100,18 @@
     break-inside: avoid;
     page-break-inside: avoid;
   }
+  .workbook-page {
+    break-before: page;
+    page-break-before: always;
+  }
+  .workbook-page:first-of-type {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+  .workbook-exercise {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
   a {
     text-decoration: none;
     color: inherit;

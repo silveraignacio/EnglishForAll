@@ -413,5 +413,8 @@ REGLAS CLAVE:
     },
   ],
   reviewItems: ['b1-m9-l1', 'b1-m9-l3', 'b2-m1-l1'],
+  workbookRefs: [
+    { levelId: 'b2', page: 6, exercises: [2, 6], note: 'Práctica de condicionales mixtas' },
+  ],
   prerequisites: ['b2-m6-l1'],
 }

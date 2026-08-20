@@ -26,9 +26,15 @@ export interface ExerciseRendererProps {
    * and only a "Siguiente" button appears. The result is computed at the end.
    */
   silentMode?: boolean
+  /**
+   * When false, the "Siguiente" button is hidden after feedback. Used by the
+   * workbook, where each exercise is checked independently on the same page
+   * (no advance between exercises).
+   */
+  showNext?: boolean
 }
 
-export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMode, silentMode }: ExerciseRendererProps) {
+export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMode, silentMode, showNext = true }: ExerciseRendererProps) {
   const [feedback, setFeedback] = useState<Feedback | null>(null)
   const [attempts, setAttempts] = useState(0)
   const [locked, setLocked] = useState(false)
@@ -81,7 +87,7 @@ export function ExerciseRenderer({ exercise, onAnswer, onNext, isLast, strictMod
           </Button>
         </div>
       )}
-      {!silentMode && feedback && (!strictMode || feedback.correct) && (
+      {!silentMode && feedback && (!strictMode || feedback.correct) && showNext && (
         <div className="mt-4 flex justify-end">
           <Button onClick={handleNext} variant={feedback.correct ? 'primary' : 'secondary'}>
             {isLast ? 'Ver resultados' : 'Siguiente'}

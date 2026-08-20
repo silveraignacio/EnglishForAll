@@ -290,4 +290,7 @@ Recuerda: "was" va con I, he, she, it. "Were" va con you, we, they. Nunca digas 
   ],
   reviewItems: ['a1-m11-l5'],
   prerequisites: ['a1-m11-l5'],
+  workbookRefs: [
+    { levelId: 'a1', page: 11, exercises: [1, 2, 6], note: 'Práctica de was / were' },
+  ],
 }

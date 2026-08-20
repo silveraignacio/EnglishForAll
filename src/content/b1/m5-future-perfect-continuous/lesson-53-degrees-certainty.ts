@@ -407,4 +407,7 @@ Reglas:
   ],
   reviewItems: ['b1-m5-l2'],
   prerequisites: ['b1-m5-l2'],
+  workbookRefs: [
+    { levelId: 'b1', page: 5, exercises: [1, 4, 5], note: 'Práctica del future perfect y los grados de certeza' },
+  ],
 }

@@ -349,4 +349,7 @@ Contracción común: I would → I'd.`,
   ],
   reviewItems: ['b1-m1-l1'],
   prerequisites: ['b1-m1-l1'],
+  workbookRefs: [
+    { levelId: 'b1', page: 1, exercises: [1, 2, 5], note: 'Práctica del second conditional y "If I were you" para dar consejos' },
+  ],
 }

@@ -234,4 +234,7 @@ Contracciones frecuentes: I'm, You're, He's, She's, We're, They're.`,
   ],
   reviewItems: [],
   prerequisites: ['a1-m12-l5'],
+  workbookRefs: [
+    { levelId: 'a1', page: 13, exercises: [1, 2, 3], note: 'Práctica del futuro con going to' },
+  ],
 }

@@ -405,4 +405,7 @@ Reglas:
   ],
   reviewItems: ['b1-m4-l2'],
   prerequisites: ['b1-m4-l2'],
+  workbookRefs: [
+    { levelId: 'b1', page: 4, exercises: [4, 5, 6], note: 'Práctica de deducciones sobre el pasado (must have / can\'t have)' },
+  ],
 }

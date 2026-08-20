@@ -248,5 +248,8 @@ Pregúntate: ¿la decisión existía antes de hablar? Si SÍ → going to. Si NO
     },
   ],
   reviewItems: ['a2-m4-l2'],
+  workbookRefs: [
+    { levelId: 'a2', page: 4, exercises: [1, 2, 5], note: 'Práctica de will vs going to y futuro' },
+  ],
   prerequisites: ['a2-m4-l2'],
 }

@@ -280,4 +280,7 @@ Ortografía del -ing:
   ],
   reviewItems: [],
   prerequisites: ['a1-m9-l4'],
+  workbookRefs: [
+    { levelId: 'a1', page: 10, exercises: [1, 2, 3, 4, 6], note: 'Práctica del Present Continuous en afirmativo' },
+  ],
 }

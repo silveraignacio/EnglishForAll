@@ -266,5 +266,8 @@ Fíjate en el número: con sujeto plural usamos "were":
     },
   ],
   reviewItems: ['a2-m9-l1'],
+  workbookRefs: [
+    { levelId: 'a2', page: 9, exercises: [1, 2, 4, 5, 6], note: 'Práctica de la voz pasiva en presente y pasado' },
+  ],
   prerequisites: ['a2-m9-l1'],
 }

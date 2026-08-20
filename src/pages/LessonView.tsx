@@ -11,6 +11,7 @@ import { ExerciseRenderer } from '@/components/exercises/ExerciseRenderer'
 import { Markdown } from '@/components/ui/Markdown'
 import { SpeakButton } from '@/components/ui/SpeakButton'
 import type { ExerciseRecord } from '@/types/progress'
+import type { Lesson } from '@/content/types'
 import { cn } from '@/lib/utils'
 import { isLevelUnlocked } from '@/lib/access'
 
@@ -196,6 +197,9 @@ export function LessonView() {
             </Button>
           )}
         </div>
+        {lesson.workbookRefs && lesson.workbookRefs.length > 0 && (
+          <WorkbookCallout refs={lesson.workbookRefs} />
+        )}
         {!passed && (
           <p className="text-sm text-ink-light pt-2">
             Necesitas al menos {settings.passingThreshold}% para completar la lección.
@@ -403,6 +407,29 @@ function LessonExplanation({ lesson }: { lesson: import('@/content/types').Lesso
         </Card>
       )}
     </article>
+  )
+}
+
+function WorkbookCallout({ refs }: { refs: NonNullable<Lesson['workbookRefs']> }) {
+  return (
+    <div className="rounded-2xl border border-brand-200 bg-brand-50/50 p-4 text-left">
+      <p className="font-bold text-ink mb-2">📘 Seguí practicando en el workbook</p>
+      <ul className="space-y-2">
+        {refs.map((ref, i) => (
+          <li key={i} className="text-sm text-ink-soft">
+            {ref.note && <span className="block">{ref.note}</span>}
+            <Link
+              to={`/workbook/${ref.levelId}/page/${ref.page}`}
+              className="text-brand-700 font-semibold hover:underline"
+            >
+              Página {ref.page}
+              {ref.exercises.length > 0 && <> · ejercicios {ref.exercises.join(', ')}</>}
+              {' '}→
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 

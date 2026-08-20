@@ -573,5 +573,8 @@ Reglas críticas:
     },
   ],
   reviewItems: ['b1-m7-l1', 'b1-m7-l2', 'b1-m7-l3'],
+  workbookRefs: [
+    { levelId: 'b2', page: 3, exercises: [1, 2, 4], note: 'Práctica de reporting verbs y sus patrones' },
+  ],
   prerequisites: ['b1-m7-l3'],
 }

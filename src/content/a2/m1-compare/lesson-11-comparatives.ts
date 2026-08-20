@@ -308,5 +308,8 @@ Para comparar usamos: sujeto + to be + comparativo + than + ...
     },
   ],
   reviewItems: [],
+  workbookRefs: [
+    { levelId: 'a2', page: 1, exercises: [1, 2, 3, 4, 6], note: 'Práctica de comparativos, superlativos y as...as' },
+  ],
   prerequisites: ['a1-m15-l4'],
 }

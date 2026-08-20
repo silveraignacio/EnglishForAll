@@ -260,4 +260,7 @@ En inglés, SIEMPRE necesitamos un sujeto. No podemos decir solo "am Ignacio" �
   ],
   reviewItems: [],
   prerequisites: ['a1-m1-l3'],
+  workbookRefs: [
+    { levelId: 'a1', page: 1, exercises: [2, 3, 4, 5], note: 'Práctica del verbo to be en afirmativo' },
+  ],
 }

@@ -366,4 +366,7 @@ Negativo: haven\'t/hasn\'t been + -ing.
   ],
   reviewItems: ['b1-m2-l4'],
   prerequisites: ['b1-m2-l4'],
+  workbookRefs: [
+    { levelId: 'b1', page: 3, exercises: [1, 4, 5], note: 'Práctica del present perfect continuous con for/since' },
+  ],
 }

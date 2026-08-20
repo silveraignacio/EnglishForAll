@@ -280,4 +280,7 @@ No existe contracción común para "there are".`,
   ],
   reviewItems: ['a1-m7-l1'],
   prerequisites: ['a1-m7-l1'],
+  workbookRefs: [
+    { levelId: 'a1', page: 7, exercises: [1, 2, 4, 6], note: 'Práctica de there is / there are y la casa' },
+  ],
 }

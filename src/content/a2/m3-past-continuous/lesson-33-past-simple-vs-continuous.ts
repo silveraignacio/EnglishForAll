@@ -258,5 +258,8 @@ Unidas por "when":
     },
   ],
   reviewItems: ['a2-m3-l2'],
+  workbookRefs: [
+    { levelId: 'a2', page: 3, exercises: [3, 4, 5, 6], note: 'Práctica de past continuous y su contraste con past simple' },
+  ],
   prerequisites: ['a2-m3-l2'],
 }

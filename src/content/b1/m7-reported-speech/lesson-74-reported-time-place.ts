@@ -360,4 +360,7 @@ say vs tell:
   ],
   reviewItems: ['b1-m7-l3'],
   prerequisites: ['b1-m7-l3'],
+  workbookRefs: [
+    { levelId: 'b1', page: 7, exercises: [1, 4, 6], note: 'Práctica del estilo indirecto con cambios de tiempo y pronombres' },
+  ],
 }

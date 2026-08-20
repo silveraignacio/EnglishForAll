@@ -354,5 +354,8 @@ Reglas de inversión:
     },
   ],
   reviewItems: ['b1-m4-l1', 'b1-m8-l1'],
+  workbookRefs: [
+    { levelId: 'b2', page: 7, exercises: [1, 2, 3], note: 'Práctica de inversión negativa' },
+  ],
   prerequisites: ['b1-m4-l3'],
 }
