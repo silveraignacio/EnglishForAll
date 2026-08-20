@@ -149,6 +149,9 @@ export function LessonView() {
       <div className="space-y-6 animate-fade-in max-w-3xl mx-auto">
         <LessonBreadcrumb module={mod} lesson={lesson} moduleIndex={moduleIndex} lessonIndex={lessonIndex} />
         <LessonExplanation lesson={lesson} />
+        {lesson.workbookRefs && lesson.workbookRefs.length > 0 && (
+          <WorkbookCallout refs={lesson.workbookRefs} />
+        )}
         <div className="flex items-center justify-between pt-4 border-t border-ink/5">
           <Link to={`/level/${mod.levelId}`}>
             <Button variant="ghost">← Módulos</Button>
@@ -419,7 +422,7 @@ function WorkbookCallout({ refs }: { refs: NonNullable<Lesson['workbookRefs']> }
           <li key={i} className="text-sm text-ink-soft">
             {ref.note && <span className="block">{ref.note}</span>}
             <Link
-              to={`/workbook/${ref.levelId}/page/${ref.page}`}
+              to={`/workbook/${ref.levelId}/page/${ref.page}?ex=${ref.exercises.join(',')}`}
               className="text-brand-700 font-semibold hover:underline"
             >
               Página {ref.page}

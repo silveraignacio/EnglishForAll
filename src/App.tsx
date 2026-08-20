@@ -61,6 +61,7 @@ export default function App() {
           <Route path="/placement" element={<PlacementPage />} />
           <Route path="/cheatsheet" element={<CheatSheet />} />
           <Route path="/cheatsheet/:levelId" element={<CheatSheet />} />
+          <Route path="/workbook" element={<WorkbookPage />} />
           <Route path="/workbook/:levelId" element={<WorkbookPage />} />
           <Route path="/workbook/:levelId/page/:page" element={<WorkbookPage />} />
         </Routes>

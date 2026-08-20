@@ -1,5 +1,6 @@
-import { Link, useParams } from 'react-router-dom'
-import { getLevel, getWorkbook, getWorkbookPage } from '@/content'
+import { useEffect } from 'react'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { getCourse, getLevel, getWorkbook, getWorkbookPage } from '@/content'
 import { ExerciseRenderer } from '@/components/exercises/ExerciseRenderer'
 import { Button } from '@/components/ui/Button'
 import type { WorkbookPage as WPage } from '@/content/workbook'
@@ -11,12 +12,20 @@ import type { WorkbookPage as WPage } from '@/content/workbook'
  * resolverlos en pantalla con feedback, y es imprimible / exportable a PDF.
  *
  * Rutas:
- *   /workbook/:levelId            → libro completo del nivel (índice + todas
- *                                   las páginas; es lo que se imprime / PDF).
- *   /workbook/:levelId/page/:page → una página concreta.
+ *   /workbook                        → selector de nivel (A1–B2).
+ *   /workbook/:levelId               → libro completo del nivel (índice + todas
+ *                                      las páginas; se imprime / PDF).
+ *   /workbook/:levelId/page/:page    → una página concreta. Acepta ?ex=2,3
+ *                                      para resaltar y hacer scroll a esos
+ *                                      ejercicios (lo usan las lecciones).
  */
 export function WorkbookPage() {
   const { levelId = '', page: pageParam } = useParams()
+  const [searchParams] = useSearchParams()
+
+  // Si no hay nivel → selector de nivel
+  if (!levelId) return <LevelChooser />
+
   const level = getLevel(levelId)
   const pages = getWorkbook(levelId).sort((a, b) => a.page - b.page)
   const pageNum = pageParam ? Number(pageParam) : undefined
@@ -26,12 +35,12 @@ export function WorkbookPage() {
     return (
       <div className="max-w-3xl mx-auto py-12 text-center text-ink-soft">
         <p className="mb-4">No encontramos el nivel «{levelId}».</p>
-        <Link to="/" className="text-brand-600 font-semibold underline">Volver al inicio</Link>
+        <Link to="/workbook" className="text-brand-600 font-semibold underline">Elegir otro nivel</Link>
       </div>
     )
   }
 
-  // Página concreta
+  // Página concreta (con deep-link opcional a ejercicios)
   if (pageNum !== undefined) {
     if (!current) {
       return (
@@ -41,14 +50,27 @@ export function WorkbookPage() {
         </div>
       )
     }
-    return <SinglePage levelId={levelId} levelName={level.name} levelTitle={level.title} page={current} />
+    const focus = (searchParams.get('ex') || '')
+      .split(',')
+      .map((n) => Number(n.trim()))
+      .filter((n) => Number.isInteger(n) && n > 0)
+    return (
+      <SinglePage
+        levelId={levelId}
+        levelName={level.name}
+        levelTitle={level.title}
+        page={current}
+        focus={focus}
+      />
+    )
   }
 
   // Libro completo (índice + páginas) → se usa para imprimir / exportar PDF
   return (
     <div className="workbook">
       <header className="mb-6 print:hidden">
-        <div className="flex flex-wrap items-start justify-between gap-4">
+        <LevelTabs activeId={levelId} />
+        <div className="flex flex-wrap items-start justify-between gap-4 mt-4">
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-ink">📘 Workbook · Nivel {level.name}</h1>
             <p className="text-ink-soft mt-1 max-w-xl">
@@ -78,6 +100,70 @@ export function WorkbookPage() {
         English4All · Workbook Nivel {level.name} · Generado desde el contenido del curso. Imprimí o guardá como PDF.
       </footer>
     </div>
+  )
+}
+
+// Selector de nivel en /workbook
+function LevelChooser() {
+  const course = getCourse()
+  const levels = course.levels.filter((l) => l.status === 'available')
+  return (
+    <div className="max-w-3xl mx-auto">
+      <header className="mb-6">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-ink">📘 Workbook</h1>
+        <p className="text-ink-soft mt-1 max-w-xl">
+          Libro de ejercicios tipo libro de inglés, con páginas numeradas y ejercicios variados
+          (comprensión de lectura, completar, relacionar, escribir…). Elegí un nivel para empezar.
+        </p>
+      </header>
+      <div className="grid sm:grid-cols-2 gap-4">
+        {levels.map((level) => {
+          const pages = getWorkbook(level.id)
+          return (
+            <Link
+              key={level.id}
+              to={`/workbook/${level.id}`}
+              className="group rounded-2xl border border-ink/10 bg-surface p-5 hover:border-brand-400 hover:shadow-sm transition-all"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <span className="inline-flex items-center rounded-full bg-brand-600 text-white text-xs font-bold px-2.5 py-0.5 uppercase tracking-wider">
+                  Nivel {level.name}
+                </span>
+                <span className="text-sm text-ink-faint font-mono">{pages.length} pág.</span>
+              </div>
+              <h2 className="font-bold text-ink group-hover:text-brand-700">{level.title}</h2>
+              <p className="text-sm text-ink-soft mt-1">
+                {pages.reduce((acc, p) => acc + p.exercises.length, 0)} ejercicios
+              </p>
+            </Link>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// Pestañas para cambiar de nivel dentro del workbook
+function LevelTabs({ activeId }: { activeId: string }) {
+  const course = getCourse()
+  const levels = course.levels.filter((l) => l.status === 'available')
+  return (
+    <nav className="flex flex-wrap gap-2" aria-label="Elegir nivel del workbook">
+      {levels.map((l) => (
+        <Link
+          key={l.id}
+          to={`/workbook/${l.id}`}
+          aria-current={l.id === activeId ? 'page' : undefined}
+          className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+            l.id === activeId
+              ? 'bg-brand-600 text-white shadow-sm'
+              : 'bg-surface border border-ink/10 text-ink-soft hover:bg-brand-50 hover:text-brand-700'
+          }`}
+        >
+          Nivel {l.name}
+        </Link>
+      ))}
+    </nav>
   )
 }
 
@@ -119,29 +205,40 @@ function SinglePage({
   levelName,
   levelTitle,
   page,
+  focus,
 }: {
   levelId: string
   levelName: string
   levelTitle: string
   page: WPage
+  focus: number[]
 }) {
+  useEffect(() => {
+    if (focus.length === 0) return
+    const el = document.getElementById(`wb-ex-${focus[0]}`)
+    el?.scrollIntoView({ block: 'center', behavior: 'smooth' })
+  }, [focus, page.id])
+
   return (
     <div className="workbook max-w-3xl mx-auto">
-      <header className="flex flex-wrap items-center justify-between gap-3 mb-6 print:hidden">
-        <Link to={`/workbook/${levelId}`} className="text-brand-600 font-semibold text-sm hover:underline">
-          ← Índice del workbook
-        </Link>
-        <div className="flex gap-2">
-          <Button variant="secondary" onClick={() => window.print()}>🖨️ Imprimir / PDF</Button>
-          <a href={`/workbook/english-workbook-${levelId}.pdf`} download className="inline-flex">
-            <Button variant="primary">⬇️ Descargar PDF del nivel</Button>
-          </a>
+      <header className="print:hidden mb-6">
+        <LevelTabs activeId={levelId} />
+        <div className="flex flex-wrap items-center justify-between gap-3 mt-4">
+          <Link to={`/workbook/${levelId}`} className="text-brand-600 font-semibold text-sm hover:underline">
+            ← Índice del workbook
+          </Link>
+          <div className="flex gap-2">
+            <Button variant="secondary" onClick={() => window.print()}>🖨️ Imprimir / PDF</Button>
+            <a href={`/workbook/english-workbook-${levelId}.pdf`} download className="inline-flex">
+              <Button variant="primary">⬇️ Descargar PDF del nivel</Button>
+            </a>
+          </div>
         </div>
       </header>
 
       <section className="workbook-page">
         <PageHeading levelId={levelId} levelName={levelName} page={page} />
-        <PageBody page={page} />
+        <PageBody page={page} focus={focus} />
       </section>
 
       <div className="mt-8 flex items-center justify-between text-sm print:hidden">
@@ -179,21 +276,32 @@ function PageHeading({ levelId, levelName, page }: { levelId: string; levelName:
   )
 }
 
-function PageBody({ page }: { page: WPage }) {
+function PageBody({ page, focus = [] }: { page: WPage; focus?: number[] }) {
+  const focusSet = new Set(focus)
   return (
     <div className="space-y-6">
       {page.intro && <p className="text-ink-soft text-sm">{page.intro}</p>}
-      {page.exercises.map((ex, i) => (
-        <div key={ex.id} className="workbook-exercise">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="rounded-md bg-ink text-white text-xs font-bold px-2 py-0.5">
-              Exercise {i + 1}
-            </span>
-            <span className="text-xs text-ink-faint">{ex.concept}</span>
+      {page.exercises.map((ex, i) => {
+        const n = i + 1
+        const isFocus = focusSet.has(n)
+        return (
+          <div
+            key={ex.id}
+            id={`wb-ex-${n}`}
+            className={`workbook-exercise rounded-xl ${
+              isFocus ? 'ring-2 ring-brand-500 ring-offset-2' : ''
+            }`}
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <span className="rounded-md bg-ink text-white text-xs font-bold px-2 py-0.5">
+                Exercise {n}
+              </span>
+              <span className="text-xs text-ink-faint">{ex.concept}</span>
+            </div>
+            <ExerciseRenderer exercise={ex} onAnswer={() => {}} showNext={false} />
           </div>
-          <ExerciseRenderer exercise={ex} onAnswer={() => {}} showNext={false} />
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

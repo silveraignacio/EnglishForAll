@@ -13,7 +13,7 @@ export function Header() {
     { to: '/level/a1', label: 'Curso', icon: '📚' },
     { to: '/review', label: 'Repaso', icon: '🔄' },
     { to: '/cheatsheet', label: 'Cheat sheet', icon: '📋' },
-    { to: '/workbook/a1', label: 'Workbook', icon: '📘' },
+    { to: '/workbook', label: 'Workbook', icon: '📘' },
     { to: '/achievements', label: 'Logros', icon: '🏆' },
   ]
   return (
