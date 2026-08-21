@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -25,16 +26,16 @@ export default {
         error: { 50: '#fef2f2', 400: '#f87171', 500: '#ef4444', 600: '#dc2626' },
         warning: { 50: '#fffbeb', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
         surface: {
-          DEFAULT: '#ffffff',
-          subtle: '#f8fafc',
-          muted: '#f1f5f9',
-          dark: '#0f172a',
+          DEFAULT: 'var(--surface)',
+          subtle: 'var(--surface-subtle)',
+          muted: 'var(--surface-muted)',
+          dark: 'var(--surface-dark)',
         },
         ink: {
-          DEFAULT: '#0f172a',
-          soft: '#334155',
-          light: '#64748b',
-          faint: '#94a3b8',
+          DEFAULT: 'var(--ink)',
+          soft: 'var(--ink-soft)',
+          light: 'var(--ink-light)',
+          faint: 'var(--ink-faint)',
         },
       },
       fontFamily: {

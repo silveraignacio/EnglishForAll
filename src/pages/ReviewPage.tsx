@@ -13,8 +13,10 @@ export function ReviewPage() {
   const [idx, setIdx] = useState(0)
   const [correct, setCorrect] = useState(0)
 
-  // Collect exercises from weak concepts, plus recently failed exercises
+  // Collect exercises from weak concepts, plus recently failed exercises,
+  // plus concepts due for spaced repetition (reviewSchedule.due <= now).
   const reviewExercises = useMemo(() => {
+    const now = Date.now()
     const weak = new Set(progress.weakConcepts)
     const recentFail = new Set(
       progress.exerciseHistory
@@ -22,35 +24,43 @@ export function ReviewPage() {
         .filter((h) => !h.correct)
         .map((h) => h.exerciseId)
     )
+    const due = new Set(
+      Object.entries(progress.reviewSchedule || {})
+        .filter(([, v]) => v.due <= now)
+        .map(([c]) => c)
+    )
     const all: { lessonId: string; exercise: import('@/content/types').Exercise }[] = []
     course.levels.forEach((lvl) => {
       lvl.modules.forEach((m) => {
         m.lessons.forEach((l) => {
-          l.exercises.forEach((e) => {
-            if (weak.has(e.concept) || recentFail.has(e.id)) {
-              all.push({ lessonId: l.id, exercise: e })
-            }
-          })
-          l.miniTest.forEach((e) => {
-            if (weak.has(e.concept) || recentFail.has(e.id)) {
+          ;[...l.exercises, ...l.miniTest].forEach((e) => {
+            if (weak.has(e.concept) || recentFail.has(e.id) || due.has(e.concept)) {
               all.push({ lessonId: l.id, exercise: e })
             }
           })
         })
       })
     })
-    // Dedupe by exercise id
+    // Dedupe by exercise id, then prioritize: due (spaced repetition) first,
+    // then weak concepts, then recent fails.
     const seen = new Set<string>()
-    return all.filter((item) => {
-      if (seen.has(item.exercise.id)) return false
-      seen.add(item.exercise.id)
-      return true
-    }).slice(0, 20) // cap at 20
+    const rank = (item: { exercise: import('@/content/types').Exercise }) =>
+      due.has(item.exercise.concept) ? 0 : weak.has(item.exercise.concept) ? 1 : 2
+    return all
+      .filter((item) => {
+        if (seen.has(item.exercise.id)) return false
+        seen.add(item.exercise.id)
+        return true
+      })
+      .sort((a, b) => rank(a) - rank(b))
+      .slice(0, 20) // cap at 20
   }, [course, progress])
 
-  const handleAnswer = useCallback((c: boolean) => {
+  const recordReview = useProgressStore((s) => s.recordReview)
+  const handleAnswer = useCallback((c: boolean, concept: string | undefined) => {
     if (c) setCorrect(s => s + 1)
-  }, [])
+    if (concept) recordReview(concept, c)
+  }, [recordReview])
   const handleNext = useCallback(() => {
     if (idx < reviewExercises.length - 1) {
       setIdx(idx + 1)
@@ -104,7 +114,7 @@ export function ReviewPage() {
       <ExerciseRenderer
         key={cur.exercise.id + idx}
         exercise={cur.exercise}
-        onAnswer={handleAnswer}
+        onAnswer={(c) => handleAnswer(c, cur.exercise.concept)}
         onNext={handleNext}
         isLast={idx === reviewExercises.length - 1}
       />

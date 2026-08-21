@@ -34,10 +34,14 @@ export interface UserProgress {
   completedModules: string[]
   exerciseHistory: ExerciseRecord[]
   xp: number
+  /** XP ganado por día, clave = 'YYYY-MM-DD'. */
+  dailyXp: Record<string, number>
   streak: number
   lastStudyDate: string | null
   achievements: string[]
   weakConcepts: string[]
+  /** Programación de repaso espaciado por concepto: { level: 1..5, due: timestamp }. */
+  reviewSchedule: Record<string, { level: number; due: number }>
   examResults: ExamResult[]
   placementResult: PlacementResult | null
   currentLessonId: string | null
@@ -48,10 +52,12 @@ export const initialProgress: UserProgress = {
   completedModules: [],
   exerciseHistory: [],
   xp: 0,
+  dailyXp: {},
   streak: 0,
   lastStudyDate: null,
   achievements: [],
   weakConcepts: [],
+  reviewSchedule: {},
   examResults: [],
   placementResult: null,
   currentLessonId: 'a1-m1-l1',
@@ -60,9 +66,15 @@ export const initialProgress: UserProgress = {
 export interface Settings {
   passingThreshold: number
   interfaceLanguage: string
+  /** Tema de la interfaz: 'light' | 'dark'. */
+  theme: 'light' | 'dark'
+  /** Objetivo diario de XP. */
+  dailyGoalXp: number
 }
 
 export const defaultSettings: Settings = {
   passingThreshold: 80,
   interfaceLanguage: 'es',
+  theme: 'light',
+  dailyGoalXp: 100,
 }

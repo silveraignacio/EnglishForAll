@@ -1,7 +1,12 @@
-import { type ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { Header } from '@/components/layout/Header'
+import { useSettingsStore } from '@/store/settingsStore'
 
 export function Layout({ children }: { children: ReactNode }) {
+  const theme = useSettingsStore((s) => s.settings.theme)
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark')
+  }, [theme])
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

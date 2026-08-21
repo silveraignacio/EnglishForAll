@@ -1,13 +1,19 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useProgressStore } from '@/store/progressStore'
 import { useAuthStore } from '@/store/authStore'
-import { cn } from '@/lib/utils'
+import { useSettingsStore } from '@/store/settingsStore'
+import { cn, todayKey } from '@/lib/utils'
 
 export function Header() {
   const progress = useProgressStore((s) => s.progress)
   const user = useAuthStore((s) => s.user)
   const logout = useAuthStore((s) => s.logout)
+  const theme = useSettingsStore((s) => s.settings.theme)
+  const dailyGoal = useSettingsStore((s) => s.settings.dailyGoalXp)
+  const setTheme = useSettingsStore((s) => s.setTheme)
   const location = useLocation()
+  const todayXp = progress.dailyXp?.[todayKey()] ?? 0
+  const goalPct = dailyGoal > 0 ? Math.min(100, Math.round((todayXp / dailyGoal) * 100)) : 100
   const navItems = [
     { to: '/', label: 'Inicio', icon: '🏠' },
     { to: '/level/a1', label: 'Curso', icon: '📚' },
@@ -44,9 +50,31 @@ export function Header() {
           <div className="hidden sm:flex items-center gap-1 text-warning-600 font-semibold" title="Racha de estudio">
             🔥 {progress.streak}
           </div>
+          <div
+            className="hidden md:flex flex-col items-end"
+            title={`Meta diaria: ${todayXp} / ${dailyGoal} XP`}
+          >
+            <span className="flex items-center gap-1 text-brand-600 font-semibold">
+              🎯 {todayXp}/{dailyGoal}
+            </span>
+            <span className="w-16 h-1.5 rounded-full bg-surface-muted overflow-hidden">
+              <span
+                className={cn('block h-full rounded-full', goalPct >= 100 ? 'bg-success-500' : 'bg-brand-500')}
+                style={{ width: `${goalPct}%` }}
+              />
+            </span>
+          </div>
           <div className="flex items-center gap-1 text-brand-600 font-semibold" title="Puntos de experiencia">
             ⚡ {progress.xp}
           </div>
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="px-2 py-1 rounded-lg text-sm bg-surface-muted hover:bg-surface-subtle transition-colors"
+            title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
           {user ? (
             <div className="flex items-center gap-2">
               <span className="hidden md:inline text-ink-soft font-medium max-w-[120px] truncate" title={user.email}>

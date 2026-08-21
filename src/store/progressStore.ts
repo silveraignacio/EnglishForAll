@@ -60,6 +60,7 @@ export const ACHIEVEMENTS: Achievement[] = [
 interface ProgressStore {
   progress: UserProgress
   recordExercise: (rec: ExerciseRecord) => void
+  recordReview: (concept: string, correct: boolean) => void
   completeLesson: (lessonId: string, allCorrect: boolean) => void
   completeModule: (moduleId: string) => void
   recordExam: (result: ExamResult) => void
@@ -106,6 +107,42 @@ function updateStreak(progress: UserProgress): UserProgress {
   return { ...progress, streak: newStreak, lastStudyDate: today }
 }
 
+/** Suma XP al total y al bucket diario (clave 'YYYY-MM-DD'). */
+function addXp(progress: UserProgress, amount: number): UserProgress {
+  if (amount <= 0) return progress
+  const today = todayKey()
+  return {
+    ...progress,
+    xp: progress.xp + amount,
+    dailyXp: { ...progress.dailyXp, [today]: (progress.dailyXp[today] ?? 0) + amount },
+  }
+}
+
+/** Programación de repaso espaciado simple por concepto (niveles 0..5). */
+const SRS_INTERVALS_MS = [0, 1, 3, 7, 14, 30].map((d) => d * 86400000)
+function updateReviewSchedule(
+  progress: UserProgress,
+  concept: string | undefined,
+  correct: boolean
+): UserProgress {
+  if (!concept) return progress
+  const now = Date.now()
+  const cur = progress.reviewSchedule[concept]
+  let level: number
+  let due: number
+  if (correct) {
+    level = Math.min((cur?.level ?? 0) + 1, 5)
+    due = now + SRS_INTERVALS_MS[level]
+  } else {
+    level = 0
+    due = now + 6 * 3600000 // re-ver en ~6h
+  }
+  return {
+    ...progress,
+    reviewSchedule: { ...progress.reviewSchedule, [concept]: { level, due } },
+  }
+}
+
 export const useProgressStore = create<ProgressStore>()(
   persist(
     (set, get) => ({
@@ -113,20 +150,33 @@ export const useProgressStore = create<ProgressStore>()(
       recordExercise: (rec) =>
         set((state) => {
           const updated = updateStreak(state.progress)
-          const newXp = updated.xp + (rec.correct ? XP_PER_CORRECT : 0)
-          const newHistory = [...updated.exerciseHistory, rec].slice(-2000)
+          const xpGain = rec.correct ? XP_PER_CORRECT : 0
+          const withXp = addXp(updated, xpGain)
+          const newHistory = [...withXp.exerciseHistory, rec].slice(-2000)
           // weak concept logic (track concepts with accuracy below 50% from at least 3 attempts)
           const conceptRecords = newHistory.filter(h => h.concept === rec.concept)
           const accurate = conceptRecords.filter(h => h.correct).length
-          const newWeak = [...updated.weakConcepts]
+          const newWeak = [...withXp.weakConcepts]
           if (conceptRecords.length >= 3) {
             const acc = (accurate / conceptRecords.length) * 100
             const idx = newWeak.indexOf(rec.concept)
             if (acc < 50 && idx < 0) newWeak.push(rec.concept)
             else if (acc >= 70 && idx >= 0) newWeak.splice(idx, 1)
           }
-          const progressWithStats = { ...updated, exerciseHistory: newHistory, xp: newXp, weakConcepts: newWeak }
+          const withSrs = updateReviewSchedule(withXp, rec.concept, rec.correct)
+          const progressWithStats = {
+            ...withSrs,
+            exerciseHistory: newHistory,
+            weakConcepts: newWeak,
+          }
           const final = checkAchievements(progressWithStats)
+          if (useAuthStore.getState().user) saveProgressToServer(final)
+          return { progress: final }
+        }),
+      recordReview: (concept, correct) =>
+        set((state) => {
+          const updated = updateReviewSchedule(state.progress, concept, correct)
+          const final = checkAchievements(updated)
           if (useAuthStore.getState().user) saveProgressToServer(final)
           return { progress: final }
         }),
@@ -144,11 +194,10 @@ export const useProgressStore = create<ProgressStore>()(
           if (allCorrect && !updated.achievements.includes('perfect-lesson')) {
             xpToAdd += 0
           }
-          const newXp = updated.xp + xpToAdd
+          const newXp = addXp(updated, xpToAdd)
           const progressWithStats: UserProgress = {
-            ...updated,
+            ...newXp,
             completedLessons,
-            xp: newXp,
           }
           const final = checkAchievements(progressWithStats)
           if (useAuthStore.getState().user) saveProgressToServer(final)
@@ -162,8 +211,7 @@ export const useProgressStore = create<ProgressStore>()(
             ? updated.completedModules
             : [...updated.completedModules, moduleId]
           const xpToAdd = alreadyComplete ? 0 : XP_PER_MODULE
-          const newXp = updated.xp + xpToAdd
-          const final = checkAchievements({ ...updated, completedModules, xp: newXp })
+          const final = checkAchievements({ ...addXp(updated, xpToAdd), completedModules })
           if (useAuthStore.getState().user) saveProgressToServer(final)
           return { progress: final }
         }),
@@ -188,9 +236,8 @@ export const useProgressStore = create<ProgressStore>()(
             }
           }
           const final = checkAchievements({
-            ...updated,
+            ...addXp(updated, xpToAdd),
             examResults,
-            xp: updated.xp + xpToAdd,
             achievements,
           })
           if (useAuthStore.getState().user) saveProgressToServer(final)
@@ -205,9 +252,8 @@ export const useProgressStore = create<ProgressStore>()(
           const achievements = [...updated.achievements]
           if (!achievements.includes('placement-done')) achievements.push('placement-done')
           const final = checkAchievements({
-            ...updated,
+            ...addXp(updated, xpToAdd),
             placementResult: result,
-            xp: updated.xp + xpToAdd,
             achievements,
           })
           if (useAuthStore.getState().user) saveProgressToServer(final)

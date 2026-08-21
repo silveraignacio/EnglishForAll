@@ -5,6 +5,25 @@
 @layer base {
   :root {
     color-scheme: light;
+    --surface: #ffffff;
+    --surface-subtle: #f8fafc;
+    --surface-muted: #f1f5f9;
+    --surface-dark: #0f172a;
+    --ink: #0f172a;
+    --ink-soft: #334155;
+    --ink-light: #64748b;
+    --ink-faint: #94a3b8;
+  }
+  .dark {
+    color-scheme: dark;
+    --surface: #0f172a;
+    --surface-subtle: #111c30;
+    --surface-muted: #1e293b;
+    --surface-dark: #020617;
+    --ink: #f1f5f9;
+    --ink-soft: #cbd5e1;
+    --ink-light: #94a3b8;
+    --ink-faint: #64748b;
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -34,7 +53,8 @@
     @apply btn bg-brand-600 text-white hover:bg-brand-700 shadow-sm shadow-brand-600/20;
   }
   .btn-secondary {
-    @apply btn bg-surface-muted text-ink hover:bg-surface-subtle border border-ink/10;
+    @apply btn bg-surface-muted text-ink hover:bg-surface-subtle;
+    border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
   }
   .btn-success {
     @apply btn bg-success-500 text-white hover:bg-success-600 shadow-sm;
@@ -46,13 +66,15 @@
     @apply btn bg-transparent text-ink-soft hover:bg-surface-muted;
   }
   .card {
-    @apply bg-surface rounded-2xl border border-ink/5 shadow-sm;
+    @apply bg-surface rounded-2xl shadow-sm;
+    border: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
   }
   .input {
-    @apply w-full px-4 py-3 rounded-xl border border-ink/15 bg-surface text-ink
+    @apply w-full px-4 py-3 rounded-xl bg-surface text-ink
            placeholder:text-ink-faint
            focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none
            transition-colors;
+    border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
   }
   .label {
     @apply block text-sm font-medium text-ink-soft mb-1.5;
@@ -70,7 +92,10 @@
 @layer utilities {
   .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
   .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
-  .scrollbar-thin::-webkit-scrollbar-thumb { @apply bg-ink/15 rounded-full; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background: color-mix(in srgb, var(--ink) 15%, transparent);
+  }
 }
 
 /* Impresión: ocultar el chrome de la app y formatear el cheat sheet en A4 */

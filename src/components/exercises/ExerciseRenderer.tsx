@@ -1046,7 +1046,12 @@ function Speaking({
   const [listening, setListening] = useState(false)
   const [transcript, setTranscript] = useState('')
   const [done, setDone] = useState(false)
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiResult, setAiResult] = useState<{ score: number; level: string; feedback_es: string; fluency_es?: string; language_es?: string } | null>(null)
+  const [aiError, setAiError] = useState('')
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null)
+
+  const isFree = exercise.speakingMode === 'free'
 
   const SpeechRecognitionCtor: SpeechRecognitionConstructor | undefined =
     typeof window !== 'undefined'
@@ -1055,7 +1060,7 @@ function Speaking({
       : undefined
 
   const startListening = () => {
-    if (!SpeechRecognitionCtor || locked || done) return
+    if (!SpeechRecognitionCtor || locked || done || aiLoading) return
     const recognition = new SpeechRecognitionCtor()
     recognitionRef.current = recognition
     recognition.lang = 'en-US'
@@ -1064,10 +1069,16 @@ function Speaking({
     recognition.onresult = (event) => {
       const said = event.results[0]?.[0]?.transcript ?? ''
       setTranscript(said)
-      setDone(true)
       setListening(false)
-      const correct = isAnswerCorrect(said, { ...exercise, acceptApproximate: true })
-      onResult(correct, said)
+      if (isFree) {
+        // En modo libre dejamos que el alumno revise su transcripción y
+        // decida evaluarla con IA (no marcamos resultado todavía).
+        setDone(true)
+      } else {
+        setDone(true)
+        const correct = isAnswerCorrect(said, { ...exercise, acceptApproximate: true })
+        onResult(correct, said)
+      }
     }
     recognition.onerror = () => setListening(false)
     recognition.onend = () => setListening(false)
@@ -1075,34 +1086,95 @@ function Speaking({
     recognition.start()
   }
 
+  const evaluateWithAI = async () => {
+    if (!transcript.trim() || aiLoading) return
+    setAiLoading(true)
+    setAiError('')
+    try {
+      const res = await fetch(`${pbUrl}/api/evaluate-speaking`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          topic: exercise.prompt,
+          text: transcript,
+          concept: exercise.concept,
+          difficulty: exercise.difficulty,
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setAiError(
+          data?.error?.quota
+            ? 'Se alcanzó el límite del servicio gratuito de evaluación. Intentá de nuevo en unos minutos.'
+            : 'Error interno de la plataforma, disculpe las molestias. Intentá de nuevo en unos minutos.'
+        )
+        setAiLoading(false)
+        return
+      }
+      setAiResult(data)
+      setAiLoading(false)
+      onResult(data.score >= 60, transcript)
+    } catch {
+      setAiError('Error interno de la plataforma, disculpe las molestias. Intentá de nuevo en unos minutos.')
+      setAiLoading(false)
+    }
+  }
+
   return (
     <div>
       <PromptWithAudio exercise={exercise} />
-      <div className="p-4 rounded-xl bg-surface-muted mb-4 flex items-center gap-3">
-        <p className="text-lg font-medium text-ink flex-1">{exercise.correctAnswer}</p>
-        {ttsSupported && (
-          <SpeakButton text={exercise.correctAnswer} label="Escuchar pronunciación modelo" />
-        )}
-      </div>
+      {!isFree && (
+        <div className="p-4 rounded-xl bg-surface-muted mb-4 flex items-center gap-3">
+          <p className="text-lg font-medium text-ink flex-1">{exercise.correctAnswer}</p>
+          {ttsSupported && (
+            <SpeakButton text={exercise.correctAnswer} label="Escuchar pronunciación modelo" />
+          )}
+        </div>
+      )}
       {!SpeechRecognitionCtor ? (
         <div>
           <p className="text-sm text-ink-light mb-3">
-            Tu navegador no soporta reconocimiento de voz automático (funciona en Chrome y Safari). Escuchá el modelo, repetilo en voz alta, y marcá si lo lograste.
+            Tu navegador no soporta reconocimiento de voz automático (funciona en Chrome y Safari).
+            {isFree ? ' Escribí tu respuesta abajo y evaluá con IA.' : ' Escuchá el modelo, repetilo en voz alta, y marcá si lo lograste.'}
           </p>
           {!done && !locked && (
             <Button type="button" variant="primary" onClick={() => { setDone(true); onResult(true, '(autoevaluado)') }}>
               ✓ Lo dije correctamente
             </Button>
           )}
-          {done && <p className="text-sm text-success-600">✓ Autoevaluado</p>}
+          {done && !aiResult && !aiError && <p className="text-sm text-success-600">✓ Autoevaluado</p>}
         </div>
       ) : (
-        <Button type="button" variant={listening ? 'secondary' : 'primary'} disabled={locked || done} onClick={startListening}>
-          {listening ? '🎙️ Escuchando...' : done ? '✓ Grabado' : '🎤 Hablar'}
+        <Button type="button" variant={listening ? 'secondary' : 'primary'} disabled={locked || done || aiLoading} onClick={startListening}>
+          {listening ? '🎙️ Escuchando...' : done ? '✓ Grabado' : isFree ? '🎤 Responder' : '🎤 Hablar'}
         </Button>
       )}
       {transcript && (
         <p className="text-sm text-ink-light mt-3">Dijiste: "{transcript}"</p>
+      )}
+      {isFree && done && !aiResult && !aiError && (
+        <div className="mt-3">
+          <Button type="button" variant="primary" disabled={!transcript.trim() || aiLoading} onClick={evaluateWithAI}>
+            {aiLoading ? 'Evaluando...' : '🤖 Evaluar con IA'}
+          </Button>
+          <p className="text-xs text-ink-faint mt-2">
+            Tu respuesta se evalúa con un modelo gratuito de IA para darte feedback.
+          </p>
+        </div>
+      )}
+      {aiError && (
+        <p className="text-sm text-error-600 mt-3" role="alert">{aiError}</p>
+      )}
+      {aiResult && (
+        <div className="mt-4 p-4 rounded-xl border-2 border-brand-200 bg-brand-50/50">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-bold text-ink">Puntaje: {aiResult.score}/100</span>
+            <span className="text-sm font-semibold text-brand-700">Nivel estimado: {aiResult.level}</span>
+          </div>
+          {aiResult.fluency_es && <p className="text-sm text-ink-soft mb-1">🗣️ {aiResult.fluency_es}</p>}
+          {aiResult.language_es && <p className="text-sm text-ink-soft mb-2">📚 {aiResult.language_es}</p>}
+          <p className="text-sm text-ink-soft">{aiResult.feedback_es}</p>
+        </div>
       )}
     </div>
   )
