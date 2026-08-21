@@ -3,12 +3,9 @@
 // POST /api/evaluate-speaking — evaluates a learner's spoken response
 // (transcribed client-side with the Web Speech API) against a CEFR rubric.
 //
-// Uses the FREE tier of Google Gemini (generativelanguage.googleapis.com),
-// keyed by GEMINI_API_KEY in the server env (AI Studio key, no card needed).
-// When the free-tier quota is reached the API returns 429 and we surface a
-// friendly, structured error so the UI can show "Error interno de la
-// plataforma, disculpe las molestias" (or a quota-specific message) instead
-// of a bare failure.
+// Reuses the SAME provider + key as evaluate_writing (opencode.ai/zen/go,
+// OPENCODE_API_KEY env var) so no extra key is needed. The frontend never
+// sees the key; it lives server-side only.
 //
 // Request body:  { topic: string, text: string, concept?: string, difficulty?: number }
 // Response body: { score: number, level: string, feedback_es: string,
@@ -30,9 +27,9 @@ routerAdd("POST", "/api/evaluate-speaking", (e) => {
     return e.json(400, { error: { message: "La respuesta es demasiado larga para evaluar." } })
   }
 
-  const apiKey = $os.getenv("GEMINI_API_KEY")
+  const apiKey = $os.getenv("OPENCODE_API_KEY")
   if (!apiKey) {
-    return e.json(500, { error: { message: "El servidor no tiene configurada la clave gratuita de evaluación de speaking (GEMINI_API_KEY).", quota: false } })
+    return e.json(500, { error: { message: "El servidor no tiene configurada la clave de evaluación (OPENCODE_API_KEY)." } })
   }
 
   const systemPrompt = [
@@ -48,48 +45,37 @@ routerAdd("POST", "/api/evaluate-speaking", (e) => {
   let res
   try {
     res = $http.send({
-      url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(apiKey),
+      url: "https://opencode.ai/zen/go/v1/chat/completions",
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        authorization: "Bearer " + apiKey,
+      },
       body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: systemPrompt + "\n\n" + userPrompt }],
-          },
+        model: "deepseek-v4-flash",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt },
         ],
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 600,
-        },
+        max_tokens: 1000,
+        reasoning_effort: "none",
       }),
       timeout: 30,
     })
   } catch (err) {
-    return e.json(503, { error: { message: "No se pudo contactar al servicio de evaluación: " + err, quota: false } })
+    return e.json(503, { error: { message: "No se pudo contactar al servicio de evaluación: " + err } })
   }
 
-  const status = res.statusCode
-  const upstream = res.json || {}
-
-  // Free-tier quota / rate-limit reached → friendly structured error.
-  if (status === 429 || (status >= 400 && /quota|limit|resource exhausted|rate/i.test(upstream.error?.message || ""))) {
-    return e.json(429, {
-      error: {
-        message: "Se alcanzó el límite del servicio gratuito de evaluación de speaking. Por favor, intentá de nuevo en unos minutos.",
-        quota: true,
-      },
-    })
-  }
-  if (status !== 200) {
-    const upstreamMsg = upstream.error?.message || "Error del servicio de evaluación."
-    return e.json(503, { error: { message: upstreamMsg, quota: false } })
+  if (res.statusCode !== 200) {
+    // Surface the upstream error (e.g. usage/credits limit) legibly so the
+    // frontend can show the friendly fallback message.
+    const upstreamMsg = (res.json && res.json.error && res.json.error.message) || "Error del servicio de evaluación."
+    return e.json(422, { error: { message: upstreamMsg, upstreamType: res.json && res.json.error && res.json.error.type } })
   }
 
-  const parts = upstream.candidates?.[0]?.content?.parts
-  const content = parts?.map((p) => p.text || "").join("")
+  const content = res.json && res.json.choices && res.json.choices[0] && res.json.choices[0].message && res.json.choices[0].message.content
   if (!content) {
-    return e.json(503, { error: { message: "Respuesta vacía del modelo de evaluación.", quota: false } })
+    return e.json(422, { error: { message: "Respuesta vacía del modelo de evaluación." } })
   }
 
   let parsed
@@ -98,11 +84,13 @@ routerAdd("POST", "/api/evaluate-speaking", (e) => {
     parsed = JSON.parse(cleaned)
   } catch (err) {
     const first = String(content).match(/\{[\s\S]*\}/)
-    if (!first) return e.json(503, { error: { message: "No se pudo interpretar la respuesta del modelo.", quota: false } })
+    if (!first) {
+      return e.json(422, { error: { message: "No se pudo interpretar la respuesta del modelo." } })
+    }
     try {
       parsed = JSON.parse(first[0].replace(/^```json\s*|^```\s*|```\s*$/g, "").trim())
     } catch (err2) {
-      return e.json(503, { error: { message: "No se pudo interpretar la respuesta del modelo.", quota: false } })
+      return e.json(422, { error: { message: "No se pudo interpretar la respuesta del modelo." } })
     }
   }
 
