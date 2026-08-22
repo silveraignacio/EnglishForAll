@@ -58,6 +58,8 @@ export function LessonView() {
   const [phase, setPhase] = useState<LessonPhase>('explanation')
   const [exerciseIdx, setExerciseIdx] = useState(0)
   const [score, setScore] = useState(0)
+  const [attempted, setAttempted] = useState(0)
+  const [skippedToComplete, setSkippedToComplete] = useState(false)
   const [attemptResults, setAttemptResults] = useState<boolean[]>([])
 
   // Practice exercises and the mini-test are one continuous sequence for the
@@ -86,6 +88,7 @@ export function LessonView() {
       rec.concept = ex.concept
       rec.difficulty = ex.difficulty
       recordExercise(rec)
+      setAttempted((a) => a + 1)
       if (correct) {
         setScore((s) => s + 1)
         setAttemptResults((r) => [...r, true])
@@ -102,17 +105,33 @@ export function LessonView() {
       setExerciseIdx(exerciseIdx + 1)
     } else {
       setPhase('results')
-      // Determine if lesson passed. `score` already reflects the answer to
-      // this last exercise — handleRecord runs before handleNext.
-      const totalAttempted = allExercises.length
-      const pct = totalAttempted > 0 ? (score / totalAttempted) * 100 : 0
+      // Determine if lesson passed. `score`/`attempted` already reflect the
+      // answer to this last exercise — handleRecord runs before handleNext.
+      const pct = attempted > 0 ? (score / attempted) * 100 : 0
       const passed = pct >= settings.passingThreshold
-      const allCorrect = score === totalAttempted
+      const allCorrect = attempted > 0 && score === attempted
       if (passed) {
         completeLesson(lesson.id, allCorrect)
       }
     }
-  }, [lesson, allExercises, exerciseIdx, score, completeLesson, settings.passingThreshold])
+  }, [lesson, allExercises, exerciseIdx, score, attempted, completeLesson, settings.passingThreshold])
+
+  /** Avanza al siguiente ejercicio sin evaluarlo (no cuenta en el puntaje). */
+  const skipExercise = useCallback(() => {
+    if (exerciseIdx < allExercises.length - 1) {
+      setExerciseIdx(exerciseIdx + 1)
+    } else {
+      setPhase('results')
+    }
+  }, [exerciseIdx, allExercises.length])
+
+  /** Salta lo que quede de la práctica y completa la lección de todos modos. */
+  const skipAndComplete = useCallback(() => {
+    if (!lesson) return
+    setSkippedToComplete(true)
+    setPhase('results')
+    completeLesson(lesson.id, false)
+  }, [lesson, completeLesson])
 
   if (!lesson || !mod) {
     return (
@@ -152,34 +171,47 @@ export function LessonView() {
         {lesson.workbookRefs && lesson.workbookRefs.length > 0 && (
           <WorkbookCallout refs={lesson.workbookRefs} />
         )}
-        <div className="flex items-center justify-between pt-4 border-t border-ink/5">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-ink/5">
           <Link to={`/level/${mod.levelId}`}>
             <Button variant="ghost">← Módulos</Button>
           </Link>
-          <Button variant="primary" size="lg" onClick={() => { setCurrentLesson(lesson.id); setPhase('exercises') }}>
-            Empezar práctica ({totalExercises} ejercicios) →
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" onClick={skipAndComplete} title="Saltá la práctica y marcá la lección como completada">
+              Saltar práctica
+            </Button>
+            <Button variant="primary" size="lg" onClick={() => { setCurrentLesson(lesson.id); setPhase('exercises') }}>
+              Empezar práctica ({totalExercises} ejercicios) →
+            </Button>
+          </div>
         </div>
       </div>
     )
   }
 
   if (phase === 'results') {
-    const totalAttempted = totalExercises
+    const totalAttempted = attempted
     const pct = totalAttempted > 0 ? Math.round((score / totalAttempted) * 100) : 0
-    const passed = pct >= settings.passingThreshold
+    const passed = skippedToComplete || pct >= settings.passingThreshold
     return (
       <div className="space-y-6 animate-fade-in max-w-2xl mx-auto text-center py-10">
         <div className="text-6xl">{passed ? '🎉' : '💪'}</div>
         <h2 className="text-2xl font-extrabold">
           {passed ? '¡Lección completada!' : 'Sigue practicando'}
         </h2>
-        <div className="max-w-sm mx-auto">
-          <ProgressBar value={pct} height="lg" showValue color={passed ? 'success' : 'warning'} />
-        </div>
-        <p className="text-ink-soft">
-          Aciertos: {score} / {totalAttempted} ({pct}%)
-        </p>
+        {skippedToComplete ? (
+          <p className="text-ink-soft">
+            Completaste la lección sin hacer toda la práctica. Podés volver cuando quieras a hacer los ejercicios.
+          </p>
+        ) : (
+          <>
+            <div className="max-w-sm mx-auto">
+              <ProgressBar value={pct} height="lg" showValue color={passed ? 'success' : 'warning'} />
+            </div>
+            <p className="text-ink-soft">
+              Aciertos: {score} / {totalAttempted} ({pct}%)
+            </p>
+          </>
+        )}
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
           {nextLesson && passed ? (
             <>
@@ -234,6 +266,14 @@ export function LessonView() {
           isLast={exerciseIdx === totalExercises - 1}
         />
       )}
+      <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+        <Button variant="ghost" onClick={skipExercise} title="Saltá este ejercicio sin que cuente en el puntaje">
+          ⏭️ Saltar este ejercicio
+        </Button>
+        <Button variant="ghost" onClick={skipAndComplete} title="Saltá el resto de la práctica y marcá la lección como completada">
+          Saltar práctica y completar lección
+        </Button>
+      </div>
     </div>
   )
 }
