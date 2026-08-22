@@ -24,12 +24,15 @@ Puntos importantes:
 
 3. La forma negativa de una deducción segura NO es "mustn't have" — usamos "can't have" o "couldn't have". "Mustn't" en pasado no existe para deducción (sí existe "mustn't" para prohibición presente, que es otro uso).
 
-4. Para preguntar sobre una deducción pasada, usamos "Could have...?" o simplemente reformulamos con "Do you think...": Could she have forgotten? = ¿Podría haberse olvidado?
+4. ¿"can't have" o "couldn't have"? Son EQUIVALENTES para negar una deducción pasada ("es imposible que..."). "Can't have" suena más directo y es el más usado; "couldn't have" es igual de válido y a veces suena un poco menos tajante. Ejemplo: He can't have seen us / He couldn't have seen us = Es imposible que nos haya visto. NO lo confundas con "could" (habilidad pasada: I could swim when I was five = sabía nadar) ni con "couldn't" sin "have" (no podía): couldn't have SIEMPRE lleva participio pasado y expresa deducción/imposibilidad.
 
-5. Comparación con el presente: He must be at home (ahora) vs. He must have been at home (anoche). El "have" es lo que mueve la deducción al pasado.`,
+5. Para preguntar sobre una deducción pasada, usamos "Could have...?" o simplemente reformulamos con "Do you think...": Could she have forgotten? = ¿Podría haberse olvidado?
+
+6. Comparación con el presente: He must be at home (ahora) vs. He must have been at home (anoche). El "have" es lo que mueve la deducción al pasado.`,
   examples: [
     { english: 'The ground is wet. It must have rained last night.', spanish: 'El suelo está mojado. Debe de haber llovido anoche.', note: 'Prueba (suelo mojado) → deducción segura sobre el pasado.' },
     { english: 'He can\'t have seen us, he didn\'t say hello.', spanish: 'No puede habernos visto, no saludó.', note: 'Deducción negativa: es imposible que nos haya visto.' },
+    { english: 'He couldn\'t have known about the meeting, he was on vacation.', spanish: 'No podía haber sabido lo de la reunión / es imposible que lo supiera, estaba de vacaciones.', note: '"Couldn\'t have" es equivalente a "can\'t have" para negar una deducción pasada.' },
     { english: 'They must have left early to avoid the traffic.', spanish: 'Deben de haber salido temprano para evitar el tráfico.' },
     { english: 'She can\'t have paid for it, she never has any money.', spanish: 'No puede haberlo pagado, nunca tiene dinero.' },
     { english: 'You must have made a mistake, this total looks wrong.', spanish: 'Debés de haberte equivocado, este total se ve mal.' },
@@ -82,6 +85,7 @@ Reglas:
       'El have es lo que mueve la deducción al pasado: He must be at home (ahora) vs. He must have been at home (anoche).',
       'No confundir con obligación pasada: had to (obligación) ≠ must have (deducción).',
       'En habla rápida, "must have" y "can\'t have" se reducen (suenan como "musta" / "cant\'ve").',
+      '"Couldn\'t have" = "can\'t have" para negar una deducción (es imposible que...). No lo confundas con "couldn\'t" sin have (no podía), que expresa falta de habilidad.',
     ],
   },
   commonMistakes: [
