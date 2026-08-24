@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getCourse } from '@/content'
 import { useProgressStore } from '@/store/progressStore'
@@ -62,6 +62,11 @@ export function LessonView() {
   const [skippedToComplete, setSkippedToComplete] = useState(false)
   const [attemptResults, setAttemptResults] = useState<boolean[]>([])
 
+  // Refs mirror score/attempted so callbacks that fire in the same render
+  // cycle (handleRecord → handleNext) don't read stale closure values.
+  const scoreRef = useRef(0)
+  const attemptedRef = useRef(0)
+
   // Practice exercises and the mini-test are one continuous sequence for the
   // learner — no separate "phase" screen or counter reset in between.
   const allExercises = useMemo(
@@ -89,8 +94,10 @@ export function LessonView() {
       rec.difficulty = ex.difficulty
       recordExercise(rec)
       setAttempted((a) => a + 1)
+      attemptedRef.current += 1
       if (correct) {
         setScore((s) => s + 1)
+        scoreRef.current += 1
         setAttemptResults((r) => [...r, true])
       } else {
         setAttemptResults((r) => [...r, false])
@@ -105,25 +112,30 @@ export function LessonView() {
       setExerciseIdx(exerciseIdx + 1)
     } else {
       setPhase('results')
-      // Determine if lesson passed. `score`/`attempted` already reflect the
-      // answer to this last exercise — handleRecord runs before handleNext.
-      const pct = attempted > 0 ? (score / attempted) * 100 : 0
+      // Use refs (not closure state) so the final tally is accurate even when
+      // handleRecord and handleNext run in the same render cycle.
+      const totalAttempted = attemptedRef.current
+      const pct = totalAttempted > 0 ? (scoreRef.current / totalAttempted) * 100 : 0
       const passed = pct >= settings.passingThreshold
-      const allCorrect = attempted > 0 && score === attempted
+      const allCorrect = totalAttempted > 0 && scoreRef.current === totalAttempted
       if (passed) {
         completeLesson(lesson.id, allCorrect)
       }
     }
-  }, [lesson, allExercises, exerciseIdx, score, attempted, completeLesson, settings.passingThreshold])
+  }, [lesson, allExercises, exerciseIdx, completeLesson, settings.passingThreshold])
 
   /** Avanza al siguiente ejercicio sin evaluarlo (no cuenta en el puntaje). */
   const skipExercise = useCallback(() => {
     if (exerciseIdx < allExercises.length - 1) {
       setExerciseIdx(exerciseIdx + 1)
     } else {
+      // Skip the last exercise → the sequence is over, so complete the lesson
+      // just like "Saltar práctica y completar lección" does.
+      setSkippedToComplete(true)
       setPhase('results')
+      if (lesson) completeLesson(lesson.id, false)
     }
-  }, [exerciseIdx, allExercises.length])
+  }, [exerciseIdx, allExercises.length, lesson, completeLesson])
 
   /** Salta lo que quede de la práctica y completa la lección de todos modos. */
   const skipAndComplete = useCallback(() => {
@@ -132,6 +144,18 @@ export function LessonView() {
     setPhase('results')
     completeLesson(lesson.id, false)
   }, [lesson, completeLesson])
+
+  /** Vuelve a la fase de explicación con todos los contadores reiniciados. */
+  const resetLesson = useCallback(() => {
+    setPhase('explanation')
+    setExerciseIdx(0)
+    setScore(0)
+    setAttempted(0)
+    setSkippedToComplete(false)
+    setAttemptResults([])
+    scoreRef.current = 0
+    attemptedRef.current = 0
+  }, [])
 
   if (!lesson || !mod) {
     return (
@@ -215,7 +239,7 @@ export function LessonView() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
           {nextLesson && passed ? (
             <>
-              <Button variant="secondary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setScore(0); setAttemptResults([]) }}>
+              <Button variant="secondary" onClick={resetLesson}>
                 Repetir lección
               </Button>
               <Button variant="primary" onClick={() => navigate(`/lesson/${nextLesson.id}`)}>
@@ -227,7 +251,7 @@ export function LessonView() {
               Hacer checkpoint del módulo →
             </Button>
           ) : (
-            <Button variant="primary" onClick={() => { setPhase('explanation'); setExerciseIdx(0); setScore(0); setAttemptResults([]) }}>
+            <Button variant="primary" onClick={resetLesson}>
               Repetir lección
             </Button>
           )}
