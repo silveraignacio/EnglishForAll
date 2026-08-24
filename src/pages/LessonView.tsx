@@ -60,7 +60,6 @@ export function LessonView() {
   const [score, setScore] = useState(0)
   const [attempted, setAttempted] = useState(0)
   const [skippedToComplete, setSkippedToComplete] = useState(false)
-  const [attemptResults, setAttemptResults] = useState<boolean[]>([])
 
   // Refs mirror score/attempted so callbacks that fire in the same render
   // cycle (handleRecord → handleNext) don't read stale closure values.
@@ -98,9 +97,6 @@ export function LessonView() {
       if (correct) {
         setScore((s) => s + 1)
         scoreRef.current += 1
-        setAttemptResults((r) => [...r, true])
-      } else {
-        setAttemptResults((r) => [...r, false])
       }
     },
     [lesson, allExercises, exerciseIdx, recordExercise]
@@ -152,7 +148,6 @@ export function LessonView() {
     setScore(0)
     setAttempted(0)
     setSkippedToComplete(false)
-    setAttemptResults([])
     scoreRef.current = 0
     attemptedRef.current = 0
   }, [])
