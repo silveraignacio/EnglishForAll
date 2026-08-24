@@ -113,7 +113,11 @@ export function LessonView() {
       const totalAttempted = attemptedRef.current
       const pct = totalAttempted > 0 ? (scoreRef.current / totalAttempted) * 100 : 0
       const passed = pct >= settings.passingThreshold
-      const allCorrect = totalAttempted > 0 && scoreRef.current === totalAttempted
+      // "Perfect" only counts when EVERY exercise was attempted and none were
+      // skipped (score === attempted is not enough: skipping mid-lesson and
+      // answering the rest right must not grant the perfect-lesson achievement).
+      const allCorrect =
+        totalAttempted === allExercises.length && scoreRef.current === totalAttempted
       if (passed) {
         completeLesson(lesson.id, allCorrect)
       }

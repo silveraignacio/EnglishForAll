@@ -187,17 +187,16 @@ export const useProgressStore = create<ProgressStore>()(
           const completedLessons = alreadyComplete
             ? updated.completedLessons
             : [...updated.completedLessons, lessonId]
-          let xpToAdd = alreadyComplete ? 0 : XP_PER_LESSON
-          if (allCorrect && !updated.achievements.includes('perfect-lesson')) {
-            // perfect lesson tracked separately via achievement below
-          }
-          if (allCorrect && !updated.achievements.includes('perfect-lesson')) {
-            xpToAdd += 0
+          const xpToAdd = alreadyComplete ? 0 : XP_PER_LESSON
+          const achievements = [...updated.achievements]
+          if (allCorrect && !achievements.includes('perfect-lesson')) {
+            achievements.push('perfect-lesson')
           }
           const newXp = addXp(updated, xpToAdd)
           const progressWithStats: UserProgress = {
             ...newXp,
             completedLessons,
+            achievements,
           }
           const final = checkAchievements(progressWithStats)
           if (useAuthStore.getState().user) saveProgressToServer(final)
